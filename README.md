@@ -1,5 +1,10 @@
 # Banter: *Slack Clone*
 
+[banter-logo]: ./public/banter-logo.png
+
+![banter-logo]
+
+
 Live site here: *Link*
 
 Summary of Project
