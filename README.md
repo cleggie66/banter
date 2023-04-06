@@ -1,5 +1,4 @@
-# Banter
-### Slack Clone
+# Banter - Slack Clone
 
 Live site here: *Link*
 
