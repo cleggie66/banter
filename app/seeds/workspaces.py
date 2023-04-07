@@ -41,7 +41,7 @@ def seed_workspace_users():
     db.session.commit()
 
 
-def undo_worspace_users():
+def undo_workspace_users():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.workspace_users RESTART IDENTITY CASCADE;")
     else:
