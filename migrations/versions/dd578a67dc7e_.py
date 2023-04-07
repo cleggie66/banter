@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: bd4687279e21
-Revises: ffdc0a98111c
-Create Date: 2023-04-07 14:25:09.659932
+Revision ID: dd578a67dc7e
+Revises: 
+Create Date: 2023-04-07 16:40:09.618930
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'bd4687279e21'
-down_revision = 'ffdc0a98111c'
+revision = 'dd578a67dc7e'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -27,6 +27,20 @@ def upgrade():
     op.create_table('groups',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('users',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('username', sa.String(length=40), nullable=False),
+    sa.Column('hashed_password', sa.String(length=255), nullable=False),
+    sa.Column('email', sa.String(length=255), nullable=False),
+    sa.Column('first_name', sa.String(length=55), nullable=False),
+    sa.Column('last_name', sa.String(length=55), nullable=False),
+    sa.Column('profile_picture', sa.String(length=55), nullable=False),
+    sa.Column('title', sa.String(length=55), nullable=False),
+    sa.Column('about_me', sa.Text(), nullable=True),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('email'),
+    sa.UniqueConstraint('username')
     )
     op.create_table('workspaces',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -78,6 +92,7 @@ def downgrade():
     op.drop_table('direct_messages')
     op.drop_table('channels')
     op.drop_table('workspaces')
+    op.drop_table('users')
     op.drop_table('groups')
     op.drop_table('group_messages')
     # ### end Alembic commands ###
