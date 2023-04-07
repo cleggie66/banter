@@ -1,3 +1,5 @@
+from .db import db
+
 class Workspace(db.Model):
     __tablename__ = 'workspaces'
 
@@ -9,5 +11,5 @@ class WorkspaceUser(db.Model):
     __tablename__ = 'workspace_users'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, ForeignKey('users.id'))
-    workspace_id = db.Column(db.Integer, ForeignKey('workspaces.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    workspace_id = db.Column(db.Integer, db.ForeignKey('workspaces.id'))
