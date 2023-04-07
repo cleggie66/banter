@@ -1,3 +1,5 @@
+from .db import db
+
 class Group(db.Model):
     __tablename__ = "groups"
 

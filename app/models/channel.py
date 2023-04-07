@@ -1,3 +1,5 @@
+from .db import db
+
 class Channel(db.Model):
     __tablename__ = "channels"
 
