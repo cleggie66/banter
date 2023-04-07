@@ -3,11 +3,17 @@ from sqlalchemy.sql import text
 
 def seed_workspaces():
     appacademy = Workspace(
-        name='AppAcademy', icon='placeholder')
+        name='AppAcademy',
+        icon='placeholder'
+    )
     gamers = Workspace(
-        name='Gamers', icon='placeholder2')
+        name='Gamers', 
+        icon='placeholder2'
+    )
     work = Workspace(
-        name='Work', icon='palceholder3')
+        name='Work',
+        icon='palceholder3'
+    )
 
     db.session.add(appacademy)
     db.session.add(gamers)
