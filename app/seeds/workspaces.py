@@ -9,10 +9,10 @@ def seed_workspaces():
     work = Workspace(
         name='Work', icon='palceholder3')
 
-db.session.add(appacademy)
-db.session.add(gamers)
-db.session.add(work)
-db.session.commit()
+    db.session.add(appacademy)
+    db.session.add(gamers)
+    db.session.add(work)
+    db.session.commit()
 
 
 def undo_workspaces():
@@ -21,4 +21,4 @@ def undo_workspaces():
     else:
         db.session.execute(text("DELETE FROM workspaces"))
 
-    db session.commit()
+    db.session.commit()
