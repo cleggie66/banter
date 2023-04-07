@@ -37,22 +37,12 @@ class DirectMessage(db.Model):
     created_at = db.Column(db.String(50), nullable=False) # Timestamp?
 
 
-class DirectMessageReaction(db.Model):
-     __tablename__ = 'direct_message_reactions'
-
-    id = db.Column(db.Integer, primary_key=True)
-    reaction_code = db.Column(db.Integer, nullable=False)
-    reaction_name = db.Column(db.String(50), nullable=False)
-    message_id = db.Column(db.Integer, db.ForeignKey("direct_messages.id"), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-
-
 class Channel(db.Model):
     __tablename__ = "channels"
 
     id = db.Column(db.Integer, primary_key=True)
     channel_name = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.String(255))
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
 
@@ -65,23 +55,16 @@ class ChannelMember(db.Model):
 
 
 
-class ChannelMessage(db.Model):
-    __tablename__ = "channel_messages"
+class GroupMessage(db.Model):
+    __tablename__ = "group_messages"
 
     id = db.Column(db.Integer, primary_key=True)
     message = db.Column(db.String(255), nullable=False)
-    sender_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    channel_id = db.Column(db.Integer, db.ForeignKey("channels.id"), nullable=False)
+    sender_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False),
+    channel_id = db.Column(db.Integer, db.ForeignKey("channels.id")),
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id")),
+    created_at = db.Column(db.String(50), nullable=False) # Timestamp?
 
-
-class ChannelMessageReaction(db.Model):
-    __tablename__ = "channel_message_reactions"
-
-    id = db.Column(db.Integer, primary_key=True)
-    reaction_code = db.Column(db.Integer, nullable=False)
-    reaction_name = db.Column(db.String(50), nullable=False)
-    message_id = db.Column(db.Integer, db.ForeignKey("channel_messages.id"), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
 
 class Group(db.Model):
@@ -116,5 +99,3 @@ class GroupDirectMessageReaction(db.Model):
     reaction_name = db.Column(db.String(50), nullable=False)
     message_id = db.Column(db.Integer, db.ForeignKey("channel_messages.id"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-
-
