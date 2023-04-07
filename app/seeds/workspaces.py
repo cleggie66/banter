@@ -1,18 +1,18 @@
-from app.models import db, WorkSpace, environment, SCHEMA
+from app.models import db, Workspace, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_workspaces():
-appacademy = WorkSpace(
+    appacademy = Workspace(
     name='AppAcademy', icon='placeholder')
-gamers = WorkSpace(
+    gamers = Workspace(
     name='Gamers', icon='placeholder2')
-work = WorkSpace(
+    work = Workspace(
     name='Work', icon='palceholder3')
 
-db.session.add(appacademy)
-db.session.add(gamers)
-db.session.add(work)
-db.session.commit()
+    db.session.add(appacademy)
+    db.session.add(gamers)
+    db.session.add(work)
+    db.session.commit()
 
 
 def undo_workspaces():
@@ -21,4 +21,4 @@ def undo_workspaces():
     else:
         db.session.execute(text("DELETE FROM workspaces"))
 
-    db session.commit()
+    db.session.commit()
