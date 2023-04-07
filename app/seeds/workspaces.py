@@ -1,13 +1,13 @@
-from app.models import db, WorkSpace, environment, SCHEMA
+from app.models import db, Workspace, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_workspaces():
-appacademy = WorkSpace(
-    name='AppAcademy', icon='placeholder')
-gamers = WorkSpace(
-    name='Gamers', icon='placeholder2')
-work = WorkSpace(
-    name='Work', icon='palceholder3')
+    appacademy = Workspace(
+        name='AppAcademy', icon='placeholder')
+    gamers = Workspace(
+        name='Gamers', icon='placeholder2')
+    work = Workspace(
+        name='Work', icon='palceholder3')
 
 db.session.add(appacademy)
 db.session.add(gamers)
