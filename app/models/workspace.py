@@ -15,6 +15,6 @@ class Workspace(db.Model):
 
     # * Relationships 💚
     # One to Many
-    workspace_owner = db.relationship("User", back_populates="owner_of_workspaces")
+    workspace_owner = db.relationship("User", back_populates="owned_workspaces")
     # Many to Many
     users_in_workspaces = db.relationship("User", secondary=workspace_members, back_populates= 'joined_workspaces')
