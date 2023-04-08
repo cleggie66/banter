@@ -18,6 +18,10 @@ class User(db.Model, UserMixin):
     profile_picture = db.Column(db.String(55), nullable=False)
     title = db.Column(db.String(55), nullable=False)
     about_me = db.Column(db.Text)
+    
+    user_channels = db.relationship("Channel", back_populated="channel_owners")
+    
+
 
     @property
     def password(self):

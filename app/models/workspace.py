@@ -7,6 +7,9 @@ class Workspace(db.Model):
     name = db.Column(db.String(50), nullable=False)
     icon = db.Column(db.String(250))
 
+    workspace_channel = db.relationship("Channel", back_populates="channel_workspace")
+
+
 class WorkspaceUser(db.Model):
     __tablename__ = 'workspace_users'
 
