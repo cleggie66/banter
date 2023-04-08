@@ -17,7 +17,6 @@ channel_members = db.Table(
         db.ForeignKey(add_prefix_for_prod("channels.id")), 
         primary_key=True,
         nullable=False
-
     )
 )
 if environment == "production":

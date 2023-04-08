@@ -1,8 +1,8 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-
-
+from .channel_member import channel_members
+from .workspace_member import workspace_members
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -18,10 +18,16 @@ class User(db.Model, UserMixin):
     profile_picture = db.Column(db.String(55), nullable=False)
     title = db.Column(db.String(55), nullable=False)
     about_me = db.Column(db.Text)
-    
+
+    # * Relationships 💚
+    # One to Many
     owner_of_workspaces = db.relationship("Workspace", back_populates="workspace_owner")
     user_messages = db.relationship("Message", back_populates="message_owner")
+    # Many to Many 
+    joined_channels = db.relationship("Channel", secondary=channel_members, back_populates= 'users_in_channels')
+    joined_workspaces = db.relationship("Workspace", secondary=workspace_members, back_populates= 'users_in_workspaces')
 
+    
   
     
 
