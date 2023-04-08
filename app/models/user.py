@@ -19,7 +19,10 @@ class User(db.Model, UserMixin):
     title = db.Column(db.String(55), nullable=False)
     about_me = db.Column(db.Text)
     
-    user_channels = db.relationship("Channel", back_populated="channel_owners")
+    owner_of_workspaces = db.relationship("Workspace", back_populates="workspace_owner")
+    user_messages = db.relationship("Message", back_populates="message_owner")
+
+  
     
 
 
