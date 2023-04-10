@@ -62,13 +62,13 @@ def update_channel(channel_id):
 
     #TODO: USER AUTHENTICATION: CAN ONLY CREATE, UPDATE DELETE A CHANNEL IF YOU OWN THE WORKSPACE
     channel = Channel.query.get(channel_id)
-    # print('!!!!!!!', channel.to_dict(), '!!!!!!!!!!')
-    print('heyy')
-    # if (channel.user_id != current_user.id):
-    #     return {
-    #         "message": "Unauthorized"
-    #     }, 401
-    # form['csrf_token'].data = request.cookies['csrf_token']
+    workspace_owner = channel.channel_in_workspace.owner_id
+
+    if (channel.is_channel == True and workspace_owner != current_user.id):
+        return {
+            "message": "Unauthorized"
+        }, 401
+
 
     channel.name = edit['name']
     db.session.commit()
