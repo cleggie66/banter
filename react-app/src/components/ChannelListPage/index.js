@@ -8,10 +8,16 @@ function ListChannels() {
 
     if (!channels) return null;
 
+    const channelsList = channels.map((channel) => (
+        <div key={channel.id} channel={channel}></div>
+    ))
+
     return (
         <>
             <h1>Channels</h1>
-
+                <div>
+                    {channelsList}
+                </div>
         </>
     )
 }
