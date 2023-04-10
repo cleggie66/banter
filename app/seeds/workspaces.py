@@ -1,18 +1,21 @@
-from app.models import db, Workspace, WorkspaceUser, environment, SCHEMA
+from app.models import db, Workspace, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_workspaces():
     appacademy = Workspace(
+        owner_id = 1,
         name='AppAcademy',
-        icon='placeholder'
+        icon='https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png'
     )
     gamers = Workspace(
+        owner_id = 1,
         name='Gamers', 
-        icon='placeholder2'
+        icon='https://1000logos.net/wp-content/uploads/2017/07/Emblem-N64.jpg'
     )
     work = Workspace(
-        name='Work',
-        icon='palceholder3'
+        owner_id = 2,
+        name='Business',
+        icon='https://fcbk.su/_data/stickers/executive_business_fish/executive_business_fish_09.png'
     )
 
     db.session.add(appacademy)
@@ -26,25 +29,5 @@ def undo_workspaces():
         db.session.execute(f"TRUNCATE table {SCHEMA}.workspaces RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM workspaces"))
-
-    db.session.commit()
-
-def seed_workspace_users():
-
-    workspace_user1 = WorkspaceUser(user_id=1, workspace_id=3)
-    workspace_user2 = WorkspaceUser(user_id=2, workspace_id=2)
-    workspace_user3 = WorkspaceUser(user_id=3, workspace_id=1)
-
-    db.session.add(workspace_user1)
-    db.session.add(workspace_user2)
-    db.session.add(workspace_user3)
-    db.session.commit()
-
-
-def undo_workspace_users():
-    if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.workspace_users RESTART IDENTITY CASCADE;")
-    else:
-        db.session.execute(text("DELETE FROM workspace_users"))
 
     db.session.commit()
