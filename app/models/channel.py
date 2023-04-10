@@ -15,6 +15,8 @@ class Channel(db.Model):
     # * Relationships 💚
     # One to Many
     channel_messages = db.relationship("Message", back_populates="message", cascade='all,delete')
+    channel_in_workspace = db.relationship("Workspace", back_populates="owned_channels", cascade='all,delete')
+
     # Many to Many
     users_in_channels = db.relationship("User", secondary=channel_members, back_populates= 'joined_channels')
     
