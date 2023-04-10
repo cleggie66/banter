@@ -23,12 +23,13 @@ const channelReducer = (state = initialState, action) => {
         case READ_CHANNELS:
             newState = {...state};
             const allChannels = {};
-            action.channels.Channels.forEach((channel) => {
+            action.channels.forEach((channel) => {
                 allChannels[channel.id] = channel;
             })
 
             newState.allChannels = allChannels
-            return allChannels;
+            console.log(newState)
+            return newState;
 
         default:
             return state;
