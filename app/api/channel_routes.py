@@ -1,6 +1,7 @@
-from flask import Blueprint, redirect
+from flask import Blueprint, redirect, request
 from app.models import Channel, User, channel_member, db
 from flask_login import current_user, login_required
+from flask_wtf.csrf import CSRFProtect, generate_csrf
 from ..forms.channel_form import ChannelForm
 
 channel_routes = Blueprint('channels', __name__)
@@ -26,9 +27,10 @@ def get_all_channels():
 @login_required
 def create_channel():
     form = ChannelForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         new_channel = Channel()
-        new_channel.populate_obj(form)
+        form.populate_obj(new_channel)
         db.session.add(new_channel)
         db.session.commit()
         return redirect(f"/channels/{new_channel.id}")
