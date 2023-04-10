@@ -1,59 +1,64 @@
-from app.models import db, DirectMessage, GroupMessage, environment, SCHEMA
+from app.models import db, Message, environment, SCHEMA
 from sqlalchemy.sql import text
 
-def seed_direct_messages():
-    dm_1 = DirectMessage(
-        message="I would say that is a good, but not great answer.",
-        sender_id = 1,
-        recipient_id= 2,
+def seed_messages():
+    dm_1 = Message(
+        content="I would say that is a good, but not great answer.",
+        user_id = 1,
+        channel_id = 1,
     )
-    dm_2 = DirectMessage(
-        message="I would say that is a good, but not great answer.",
-        sender_id = 2,
-        recipient_id= 1,
+    dm_2 = Message(
+        content="I would say that is a good, but not great answer.",
+        user_id = 1,
+        channel_id = 2,
+    )
+    dm_3 = Message(
+        content="I would say that is a good, but not great answer.",
+        user_id = 1,
+        channel_id = 3,
+    )
+    dm_4 = Message(
+        content="I would say that is a good, but not great answer.",
+        user_id = 1,
+        channel_id = 4,
+    )
+    dm_5 = Message(
+        content="wow, nice direct message",
+        user_id = 1,
+        channel_id = 5,
+    )
+    dm_6 = Message(
+        content="This group message is very pog",
+        user_id = 1,
+        channel_id = 6,
+    )
+    dm_7 = Message(
+        content="Holy Guacamole!",
+         user_id = 2,
+        channel_id = 1,
+    )
+    dm_8 = Message(
+        content="Just a bit of banter",
+        user_id = 3,
+        channel_id = 1,
     )
    
     db.session.add(dm_1)
     db.session.add(dm_2)
+    db.session.add(dm_3)
+    db.session.add(dm_4)
+    db.session.add(dm_5)
+    db.session.add(dm_6)
+    db.session.add(dm_7)
+    db.session.add(dm_8)
+
     db.session.commit()
 
 
-def undo_direct_messages():
+def undo_messages():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.direct_messages RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.messages RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM direct_messages"))
-
-    db.session.commit()
-
-
-def seed_group_messages():
-    group_messages_1 = GroupMessage(
-        message="Howdy", sender_id=1, group_id=1
-    )
-    group_messages_2 = GroupMessage(
-        message="Mornin", sender_id=1, group_id=1
-    )
-    group_messages_3 = GroupMessage(
-        message="Hola", sender_id=2, group_id=2
-    )
-    group_messages_4 = GroupMessage(
-        message="Mahalo", sender_id=3, group_id=2
-    )
-
-    db.session.add(group_messages_1)
-    db.session.add(group_messages_2)
-    db.session.add(group_messages_3)
-    db.session.add(group_messages_4)
-    
-    db.session.commit()
-
-
-def undo_group_messages():
-    if environment == "production":
-        db.session.execute(
-            f"TRUNCATE table {SCHEMA}.group_messages RESTART IDENTITY CASCADE;")
-    else:
-        db.session.execute(text("DELETE FROM group_messages"))
+        db.session.execute(text("DELETE FROM messages"))
 
     db.session.commit()
