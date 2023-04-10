@@ -4,7 +4,7 @@ from .users import demo, alec, brad
 
 def seed_channels():
     general = Channel(
-        name='general', workspace_id=1, is_channel=True, users_in_channels=[demo, alec, brad] )
+        name='general', workspace_id=1, is_channel=True, users_in_channels=[demo, alec, brad])
     november = Channel(
         name='2022-11-21-online', workspace_id=1, is_channel=True, users_in_channels=[demo, alec, brad])
     lecture = Channel(
@@ -26,8 +26,12 @@ def seed_channels():
 
 def undo_channels():
     if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.channel_members RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.channels RESTART IDENTITY CASCADE;")
+
     else:
+        db.session.execute(text("DELETE FROM channel_members"))
         db.session.execute(text("DELETE FROM channels"))
+
 
     db.session.commit()
