@@ -1,16 +1,27 @@
 from app.models import db, Channel, environment, SCHEMA
-from app.models.channel import ChannelMember
 from sqlalchemy.sql import text
 
 
 def seed_channels():
-    gen = Channel(
-        channel_name='general', description='gen chat', owner_id=1)
-    help = Channel(
-        channel_name='help', description='help chat', owner_id=1)
+    general = Channel(
+        name='general', workspace_id=1, ischannel=True)
+    november = Channel(
+        name='2022-11-21-online', workspace_id=1, ischannel=True)
+    lecture = Channel(
+        name='2022-11-21-lecture-questions', workspace_id=1, ischannel=True)
+    project = Channel(
+        name='lecture questions', workspace_id=1, ischannel=True)
+    dm = Channel(
+        name='direct message', workspace_id=1, ischannel=False)
+    dgm = Channel(
+        name='direct group message', workspace_id=1, ischannel=False)
 
-    db.session.add(gen)
-    db.session.add(help)
+    db.session.add(general)
+    db.session.add(november)
+    db.session.add(lecture)
+    db.session.add(project)
+    db.session.add(dm)
+    db.session.add(dgm)
     db.session.commit()
 
 
@@ -19,28 +30,5 @@ def undo_channels():
         db.session.execute(f"TRUNCATE table {SCHEMA}.channels RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM channels"))
-
-    db.session.commit()
-
-
-def seed_channel_users():
-    user1 = ChannelMember(
-        user_id=1, channel_id=1
-    )
-
-    user2 = ChannelMember(
-        user_id=2, channel_id=1
-    )
-
-    db.session.add(user1)
-    db.session.add(user2)
-    db.session.commit()
-
-
-def undo_channel_users():
-    if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.channel_users RESTART IDENTITY CASCADE;")
-    else:
-        db.session.execute(text("DELETE FROM channel_users"))
 
     db.session.commit()
