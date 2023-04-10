@@ -1,36 +1,29 @@
 import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getAllChannels } from "../../store/channel";
+import { getAllChannels } from "../../../store/channel";
 import "./ChannelListForm.css";
 
-function ListChannels() {
+const ListChannels = () => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getAllChannels());
     }, [dispatch])
-    
-    const channels = useSelector((state) => state.channels.allChannels);
-    console.log("channels:" + channels)
+
+    const channels = useSelector((state) => Object.values(state.channels));
 
     if (!channels) return null;
 
-    // const channelsList = channels.map((channel) => (
-    //     <div key={channel.id}>{channel.name}</div>
-    // ))
-
-
     return (
         <>
-            <h1>HOWDYY</h1>
-            {/* <h1>Channels</h1>
+            <h1>Channels</h1>
                 <div>
                     {channels.map((channel) => (
-                        <h2>{channel.name}</h2>
+                        <h2 key={channel.id}>{channel.name}</h2>
                     ))}
-                </div> */}
+                </div>
         </>
     )
 }
