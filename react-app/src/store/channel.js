@@ -6,6 +6,7 @@ const read = (channels) => ({
 });
 
 export const getAllChannels = () => async (dispatch) => {
+    console.log("Help me")
     const res = await fetch(`/api/channels`);
 
     if (res.ok) {
@@ -26,11 +27,8 @@ const channelReducer = (state = initialState, action) => {
             action.channels.forEach((channel) => {
                 allChannels[channel.id] = channel;
             })
-
             newState.allChannels = allChannels
-            console.log(newState)
             return newState;
-
         default:
             return state;
     }

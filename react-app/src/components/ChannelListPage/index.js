@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getAllChannels } from "../../store/channel";
 import "./ChannelListForm.css";
@@ -11,7 +12,7 @@ function ListChannels() {
         dispatch(getAllChannels());
     }, [dispatch])
     
-    const channels = useSelector((state) => Object.values(state.channels.allChannels));
+    const channels = useSelector((state) => state.channels.allChannels);
     console.log("channels:" + channels)
 
     if (!channels) return null;
@@ -23,12 +24,13 @@ function ListChannels() {
 
     return (
         <>
-            <h1>Channels</h1>
+            <h1>HOWDYY</h1>
+            {/* <h1>Channels</h1>
                 <div>
                     {channels.map((channel) => (
                         <h2>{channel.name}</h2>
                     ))}
-                </div>
+                </div> */}
         </>
     )
 }
