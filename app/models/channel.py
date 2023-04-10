@@ -20,16 +20,23 @@ class Channel(db.Model):
     # Many to Many
     users_in_channels = db.relationship("User", secondary=channel_members, back_populates= 'joined_channels')
 
+    def to_dict_simple(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "workspace_id": self.workspace_id,
+            "is_channel": self.is_channel
+        }
+
     def to_dict(self):
-        print([message.to_dict_simple() for message in self.channel_messages])
         return {
             "id": self.id,
             "name": self.name,
             "workspace_id": self.workspace_id,
             "is_channel": self.is_channel,
             "channel_messages": [message.to_dict_simple() for message in self.channel_messages],
-            "channel_in_workspace": [channel.to_dict_simple() for channel in self.channel_in_workspace],
-            # "users_in_channels": self.users_in_channels
+            "channel_in_workspace": self.channel_in_workspace.to_dict_simple(),
+            "users_in_channels": [user.to_dict_simple() for user in self.users_in_channels]
         }
     
     
