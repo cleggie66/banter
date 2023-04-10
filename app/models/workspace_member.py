@@ -7,17 +7,16 @@ workspace_members = db.Table(
     db.Column(
         "user_id", 
         db.Integer, 
-        db.ForeignKey(add_prefix_for_prod("users.id")), 
+        db.ForeignKey(add_prefix_for_prod("users.id"), ondelete="CASCADE"), 
         primary_key=True,
         nullable=False
     ),
     db.Column(
         "workspace_id", 
         db.Integer, 
-        db.ForeignKey(add_prefix_for_prod("workspaces.id")), 
+        db.ForeignKey(add_prefix_for_prod("workspaces.id"), ondelete="CASCADE"), 
         primary_key=True,
         nullable=False
-
     )
 )
 if environment == "production":

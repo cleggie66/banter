@@ -21,11 +21,11 @@ class User(db.Model, UserMixin):
 
     # * Relationships 💚
     # One to Many
-    owned_workspaces = db.relationship("Workspace", back_populates="workspace_owner", cascade='all,delete')
-    user_messages = db.relationship("Message", back_populates="message_owner", cascade='all,delete')
+    owned_workspaces = db.relationship("Workspace", back_populates="workspace_owner", cascade='all, delete')
+    user_messages = db.relationship("Message", back_populates="message_owner", cascade='all, delete')
     # Many to Many 
     joined_channels = db.relationship("Channel", secondary=channel_members, back_populates= 'users_in_channels')
-    joined_workspaces = db.relationship("Workspace", secondary=workspace_members, back_populates= 'users_in_workspaces')
+    joined_workspaces = db.relationship("Workspace", secondary=workspace_members, back_populates= 'users_in_workspaces', cascade="all, delete")
 
     
   
