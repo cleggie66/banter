@@ -9,20 +9,7 @@ channel_routes = Blueprint('channels', __name__)
 
 # FULL CRUD
 
-
-
-
-
-# ! DELETE
-@channel_routes.route('/<int:id>', methods=['DELETE'])
-@login_required
-def delete_channel_by_id(id):
-    channel = Channel.query.get(id)
-
-    db.session.delete(channel)
-    db.session.commit()
-
-    return {"message": "Successfully Deleted!"}
+# * -----------  GET  --------------
 @channel_routes.route("/<channel_id>")
 @login_required
 def get_single_channels(channel_id):
@@ -30,6 +17,7 @@ def get_single_channels(channel_id):
     return channel.to_dict()
 
 
+# * -----------  GET  --------------
 @channel_routes.route("")
 @login_required
 def get_all_channels():
@@ -38,6 +26,7 @@ def get_all_channels():
     return [channel.to_dict_no_messages() for channel in channels]
 
 
+# TODO -----------  POST  --------------
 @channel_routes.route('/create-channel', methods=['GET','POST'])
 @login_required
 def create_channel():
@@ -60,6 +49,8 @@ def create_channel():
     return 'BAD DATA'
 
 
+
+# TODO -----------  PUT  --------------
 @channel_routes.route('/update-channel/<channel_id>', methods=['PUT','PATCH'])
 @login_required
 def update_channel(channel_id):
@@ -78,3 +69,16 @@ def update_channel(channel_id):
     channel.name = edit['name']
     db.session.commit()
     return redirect(f"/channels/{channel.id}")
+
+
+
+# ! -----------  DELETE  --------------
+@channel_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_channel_by_id(id):
+    channel = Channel.query.get(id)
+
+    db.session.delete(channel)
+    db.session.commit()
+
+    return {"message": "Successfully Deleted!"}
