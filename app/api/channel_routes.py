@@ -60,7 +60,6 @@ def create_channel():
 def update_channel(channel_id):
     edit = request.json
 
-    #TODO: USER AUTHENTICATION: CAN ONLY CREATE, UPDATE DELETE A CHANNEL IF YOU OWN THE WORKSPACE
     channel = Channel.query.get(channel_id)
     workspace_owner = channel.channel_in_workspace.owner_id
 
@@ -68,7 +67,6 @@ def update_channel(channel_id):
         return {
             "message": "Unauthorized"
         }, 401
-
 
     channel.name = edit['name']
     db.session.commit()
