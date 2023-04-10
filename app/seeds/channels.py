@@ -4,17 +4,17 @@ from sqlalchemy.sql import text
 
 def seed_channels():
     general = Channel(
-        name='general', workspace_id=1, ischannel=True)
+        name='general', workspace_id=1, is_channel=True)
     november = Channel(
-        name='2022-11-21-online', workspace_id=1, ischannel=True)
+        name='2022-11-21-online', workspace_id=1, is_channel=True)
     lecture = Channel(
-        name='2022-11-21-lecture-questions', workspace_id=1, ischannel=True)
+        name='2022-11-21-lecture-questions', workspace_id=1, is_channel=True)
     project = Channel(
-        name='lecture questions', workspace_id=1, ischannel=True)
+        name='lecture questions', workspace_id=1, is_channel=True)
     dm = Channel(
-        name='direct message', workspace_id=1, ischannel=False)
+        name='direct message', workspace_id=1, is_channel=False)
     dgm = Channel(
-        name='direct group message', workspace_id=1, ischannel=False)
+        name='direct group message', workspace_id=1, is_channel=False)
 
     db.session.add(general)
     db.session.add(november)
