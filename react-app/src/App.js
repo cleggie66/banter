@@ -24,6 +24,9 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route>
+            <p>Page Not Found ¯\_(ツ)_/¯ </p>
+          </Route>
         </Switch>
       )}
     </>
