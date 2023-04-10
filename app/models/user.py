@@ -23,7 +23,7 @@ class User(db.Model, UserMixin):
     # One to Many
     owned_workspaces = db.relationship("Workspace", back_populates="workspace_owner", cascade='all, delete')
     user_messages = db.relationship("Message", back_populates="message_owner", cascade='all, delete')
-    # Many to Many 
+    # Many to Many
     joined_channels = db.relationship("Channel", secondary=channel_members, back_populates= 'users_in_channels')
     joined_workspaces = db.relationship("Workspace", secondary=workspace_members, back_populates= 'users_in_workspaces', cascade="all, delete")
 
@@ -38,7 +38,7 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
-    
+
     def to_dict_simple(self):
         return {
             'id': self.id,
@@ -50,7 +50,7 @@ class User(db.Model, UserMixin):
             'title': self.title,
             'about_me': self.about_me
         }
-    
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -66,4 +66,3 @@ class User(db.Model, UserMixin):
             "joined_channels": [channel.to_dict_simple() for channel in self.joined_channels],
             "joined_workspaces": [workspace.to_dict_simple() for workspace in self.joined_workspaces]
         }
-
