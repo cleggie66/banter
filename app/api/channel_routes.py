@@ -10,7 +10,9 @@ channel_routes = Blueprint('channels', __name__)
 # FULL CRUD
 
 # * -----------  GET  --------------
-@channel_routes.route("/<channel_id>")
+#  Returns the details of a channel specified by its Id
+
+@channel_routes.route("/<int:channel_id>")
 @login_required
 def get_single_channels(channel_id):
     channel = Channel.query.get(channel_id)
@@ -18,7 +20,9 @@ def get_single_channels(channel_id):
 
 
 # * -----------  GET  --------------
-@channel_routes.route("")
+#  Returns all channels in a Workspace
+
+@channel_routes.route('')
 @login_required
 def get_all_channels():
     user = User.query.filter(User.id == current_user.id).first()
@@ -27,7 +31,7 @@ def get_all_channels():
 
 
 # TODO -----------  POST  --------------
-@channel_routes.route('/create-channel', methods=['GET','POST'])
+@channel_routes.route('', methods=['GET','POST'])
 @login_required
 def create_channel():
     form = ChannelForm()
@@ -51,7 +55,7 @@ def create_channel():
 
 
 # TODO -----------  PUT  --------------
-@channel_routes.route('/update-channel/<channel_id>', methods=['PUT','PATCH'])
+@channel_routes.route('/<int:channel_id>', methods=['PUT','PATCH'])
 @login_required
 def update_channel(channel_id):
     edit = request.json
@@ -59,7 +63,7 @@ def update_channel(channel_id):
     #TODO: USER AUTHENTICATION: CAN ONLY CREATE, UPDATE DELETE A CHANNEL IF YOU OWN THE WORKSPACE
     channel = Channel.query.get(channel_id)
     # print('!!!!!!!', channel.to_dict(), '!!!!!!!!!!')
-
+    print('heyy')
     # if (channel.user_id != current_user.id):
     #     return {
     #         "message": "Unauthorized"
