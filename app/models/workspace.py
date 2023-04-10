@@ -19,3 +19,11 @@ class Workspace(db.Model):
     owned_channels = db.relationship("Channel", back_populates="channel_in_workspace")
     # Many to Many
     users_in_workspaces = db.relationship("User", secondary=workspace_members, back_populates= 'joined_workspaces')
+
+    def to_dict_simple(self):
+        return {
+            "id": self.id,
+            "owner_id": self.owner_id,
+            "name": self.name,
+            "icon": self.icon
+        }
