@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getAllChannels } from "../../../store/channel";
-import "./ChannelListForm.css";
+import "./ChannelsIndex.css";
 
-const ListChannels = () => {
+const ChannelsIndex = () => {
 
     const dispatch = useDispatch();
 
@@ -19,13 +19,14 @@ const ListChannels = () => {
     return (
         <>
             <h1>Channels</h1>
-                <div>
-                    {channels.map((channel) => (
-                        <h2 key={channel.id}>{channel.name}</h2>
-                    ))}
-                </div>
+            <div>
+                {channels.map((channel) => (
+                    <h2 key={channel.id}># {channel.name}</h2>
+                ))}
+                <h2>Create New Channel</h2>
+            </div>
         </>
     )
 }
 
-export default ListChannels;
+export default ChannelsIndex;

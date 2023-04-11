@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
-import ChannelListPage from "./components/Channels/ChannelListPage";
+import ChannelsIndex from "./components/Channels/ChannelsIndex";
+import WorkspacesIndex from "./components/Workspaces/WorkspacesIndex";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -26,7 +27,10 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/channels">
-            <ChannelListPage />
+            <ChannelsIndex />
+          </Route>
+          <Route path="/workspaces">
+            <WorkspacesIndex />
           </Route>
           <Route>
             <p>Page Not Found ¯\_(ツ)_/¯ </p>
