@@ -1,38 +1,47 @@
-import React, { useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllChannels } from "../../store/channel";
+import { getAllChannelsThunk } from "../../../store/channel";
+import ChannelCard from "./ChannelCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import "./ChannelListForm.css";
 
-function ListChannels() {
+const ListChannels = () => {
+  const [openMenu, setOpenMenu] = useState(false);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getAllChannels());
-    }, [dispatch])
-    
-    const channels = useSelector((state) => state.channels.allChannels);
-    console.log("channels:" + channels)
+  useEffect(() => {
+    dispatch(getAllChannelsThunk());
+  }, [dispatch]);
 
-    if (!channels) return null;
+  const allChannels = useSelector((state) => Object.values(state.channels));
 
-    // const channelsList = channels.map((channel) => (
-    //     <div key={channel.id}>{channel.name}</div>
-    // ))
+  // if (!allChannels) return null;
 
+  // Arrow drop down
+  const handleMenuClick = (e) => {
+    e.preventDefault();
+    setOpenMenu((open) => !open);
+  };
 
-    return (
-        <>
-            <h1>HOWDYY</h1>
-            {/* <h1>Channels</h1>
-                <div>
-                    {channels.map((channel) => (
-                        <h2>{channel.name}</h2>
-                    ))}
-                </div> */}
-        </>
-    )
-}
+  return (
+    <>
+      <div className="channel-dropdown">
+        <FontAwesomeIcon
+          icon={faCaretDown}
+          style={{ opacity: 0.8 }}
+          onClick={handleMenuClick}
+        />{" "}
+        {"Channels"}
+        <div className={`channel-dropdown ${openMenu ? "active" : "inactive"}`}>
+          {allChannels.map((channel) => (
+            <ChannelCard key={channel.id} channel={channel} />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default ListChannels;

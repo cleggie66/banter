@@ -1,0 +1,18 @@
+.channel-dropdown {
+  background-color: #1d1c1d;
+  color: white;
+}
+
+.channel-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: 300ms ease;
+}
+
+.channel-dropdown.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: 300ms ease;
+}
