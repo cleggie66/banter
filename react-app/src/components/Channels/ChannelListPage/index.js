@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllChannelsThunk } from "../../../store/channel";
 import "./ChannelListForm.css";
+import ChannelCard from "./ChannelCard";
 
 const ListChannels = () => {
 
@@ -12,16 +13,16 @@ const ListChannels = () => {
         dispatch(getAllChannelsThunk());
     }, [dispatch])
 
-    const channels = useSelector((state) => Object.values(state.channels));
+    const allChannels = useSelector((state) => Object.values(state.channels));
 
-    if (!channels) return null;
+    if (!allChannels) return null;
 
     return (
         <>
             <h1>Channels</h1>
                 <div>
-                    {channels.map((channel) => (
-                        <h2 key={channel.id}>{channel.name}</h2>
+                    {allChannels.map((channel) => (
+                        <ChannelCard key={channel.id} channel={channel}/>
                     ))}
                 </div>
         </>
