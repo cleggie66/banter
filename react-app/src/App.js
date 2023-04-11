@@ -14,6 +14,8 @@ function App() {
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
+  // steven testing
+  // {!window.location.pathname.includes("/channels") ? <Navigation isLoaded={isLoaded} />: <div>yo whatsup</div>}
 
   return (
     <>

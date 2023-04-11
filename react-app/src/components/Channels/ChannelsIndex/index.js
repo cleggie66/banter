@@ -27,6 +27,7 @@ const ChannelsIndex = () => {
   return (
     <>
     <div>{`Workspace Name`}</div>
+   
       <div className="channel-dropdown">
         <FontAwesomeIcon
           icon={faCaretDown}
