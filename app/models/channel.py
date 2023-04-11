@@ -38,5 +38,12 @@ class Channel(db.Model):
             "channel_in_workspace": self.channel_in_workspace.to_dict_simple(),
             "users_in_channels": [user.to_dict_simple() for user in self.users_in_channels]
         }
-    
-    
+
+    def to_dict_no_messages(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "workspace_id": self.workspace_id,
+            "is_channel": self.is_channel,
+            "users_in_channels": [user.to_dict_simple() for user in self.users_in_channels]
+        }
