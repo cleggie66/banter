@@ -27,7 +27,6 @@ const ListChannels = () => {
 
   return (
     <>
-      {/* <h1> ⬇️ Channels</h1> */}
       <div className="channel-dropdown">
         <FontAwesomeIcon
           icon={faCaretDown}
