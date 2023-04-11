@@ -1,7 +1,7 @@
 const LOAD_CHANNELS = "channels/LOAD_CHANNELS";
-const CREATE_CHANNEL = "spots/CREATE_CHANNEL";
-const UPDATE_CHANNEL = "spots/UPDATE_CHANNEL";
-const DELETE_CHANNEL = "spots/DELETE_CHANNEL";
+const CREATE_CHANNEL = "channels/CREATE_CHANNEL";
+const UPDATE_CHANNEL = "channels/UPDATE_CHANNEL";
+const DELETE_CHANNEL = "channels/DELETE_CHANNEL";
 
 const loadChannels = (allChannelData) => ({
   type: LOAD_CHANNELS,
