@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllWorkspacesThunk } from "../../../store/workspace";
+import WorkspaceCard from "./WorkspaceCard"
 
 const WorkspacesIndex = () => {
 
@@ -20,7 +21,7 @@ const WorkspacesIndex = () => {
             <h1>Workspaces</h1>
             <div>
                 {workspaces.map((workspace) => (
-                    <h2 key={workspace.id}>{workspace.name}</h2>
+                    <WorkspaceCard key={workspace.id} workspace={workspace}/>
                 ))}
             </div>
         </>

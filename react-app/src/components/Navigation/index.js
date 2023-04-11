@@ -52,7 +52,7 @@ function Navigation({ isLoaded }) {
         <div className="temporary-home">
           <NavLink
             exact
-            to="/"
+            to="/home"
             style={{ color: "inherit", textDecoration: "inherit" }}
           >
             <FontAwesomeIcon icon={faHome} />
