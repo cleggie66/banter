@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
-import ChannelsIndex from "./components/DashBoard/ChannelsIndex";
+import ChannelsIndex from "./components/Channels/ChannelsIndex";
 import WorkspacesIndex from "./components/Workspaces/WorkspacesIndex";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Dashboard from "./components/Dashboard";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/dashboard">
-            <ChannelsIndex />
+            <Dashboard />
           </Route>
           <Route path="/workspaces">
             <WorkspacesIndex />
