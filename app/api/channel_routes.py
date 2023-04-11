@@ -29,6 +29,7 @@ def get_all_channels():
     channels = user.joined_channels
     return [channel.to_dict_no_messages() for channel in channels]
 
+
 # * -----------  GET  --------------
 #  Returns all messages in a channel
 
@@ -37,6 +38,7 @@ def get_all_channels():
 def get_channel_messages(channel_id):
     messages = Message.query.filter(Message.channel_id == channel_id)
     return [message.to_dict_simple() for message in messages]
+
 
 # TODO -----------  POST  --------------
 @channel_routes.route('', methods=['GET','POST'])
