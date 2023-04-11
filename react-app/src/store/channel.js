@@ -36,13 +36,59 @@ export const getAllChannelsThunk = () => async (dispatch) => {
 };
 
 export const getChannelByIdThunk = (channelId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/channels/${channelId}`);
+  const response = await fetch(`/api/channels/${channelId}`);
 
   if (response.ok) {
     const singleChannelData = await response.json();
     const normalizedChannelData = {};
     normalizedChannelData[singleChannelData.id] = singleChannelData;
     dispatch(loadChannels(normalizedChannelData));
+  }
+};
+
+export const createChannelThunk = (newChannelData) => async (dispatch) => {
+  try {
+    const response = await fetch(`/api/channels/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newChannelData),
+    });
+
+    const data = await response.json();
+    const normalizedChannelData = {};
+    normalizedChannelData[data.id] = data;
+    dispatch(createChannel(normalizedChannelData));
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updateChannelThunk =
+  (newChannelData, channelId) => async (dispatch) => {
+    try {
+      const response = await fetch(`/api/channels/${channelId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newChannelData),
+      });
+      const data = await response.json();
+      const normalizedChannelData = {};
+      normalizedChannelData[data.id] = data;
+      dispatch(updateChannel(normalizedChannelData));
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+export const deleteChannelThunk = (channelId) => async (dispatch) => {
+  const response = await fetch(`/api/channels/${channelId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    dispatch(deleteChannel(channelId));
   }
 };
 
