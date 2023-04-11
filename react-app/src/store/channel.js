@@ -94,22 +94,21 @@ export const deleteChannelThunk = (channelId) => async (dispatch) => {
 
 const initialState = {};
 
-const channelReducer = (state = initialState, action) => {
-  // let newState;
+const channelsReducer = (state = initialState, action) => {
+  let newState = {...state}
   switch (action.type) {
     case LOAD_CHANNELS:
       return { ...state, ...action.payload };
-    // newState = {...state};
-    // const allChannels = {};
-    // action.channels.forEach((channel) => {
-    //     allChannels[channel.id] = channel;
-    // })
-    // newState.allChannels = allChannels
-    // console.log(newState)
-    // return newState;
+    case CREATE_CHANNEL:
+        return { ...state, ...action.payload };
+    case UPDATE_CHANNEL:
+        return { ...state, ...action.payload };
+    case DELETE_CHANNEL:
+        delete newState[action.payload];
+        return newState;
     default:
       return state;
   }
 };
 
-export default channelReducer;
+export default channelsReducer;
