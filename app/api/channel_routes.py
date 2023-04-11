@@ -12,7 +12,7 @@ channel_routes = Blueprint('channels', __name__)
 # * -----------  GET  --------------
 #  Returns the details of a channel specified by its Id
 
-@channel_routes.route("/<int:channel_id>")
+@channel_routes.route("/int:<channel_id>")
 @login_required
 def get_single_channels(channel_id):
     channel = Channel.query.get(channel_id)
