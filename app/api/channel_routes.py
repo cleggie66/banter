@@ -41,6 +41,8 @@ def get_channel_messages(channel_id):
 
 
 # TODO -----------  POST  --------------
+# NEED TO REFACTOR TO NOT USE FORMS
+
 @channel_routes.route('', methods=['GET','POST'])
 @login_required
 def create_channel():
