@@ -44,4 +44,4 @@ const ChannelsIndex = () => {
   );
 };
 
-export default ChannelsIndex;
+export default ListChannels;
