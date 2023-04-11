@@ -22,8 +22,8 @@ function Navigation({ isLoaded }) {
     dispatch(sessionActions.logout());
     history.push(`/`);
   };
-  const homepage = !window.location.pathname.includes("/channels");
-  const dashboard = window.location.pathname.includes("/channels");
+  const homepage = !window.location.pathname.includes("/dashboard");
+  // const dashboard = window.location.pathname.includes("/dashboard");
 
   //   !homepage
 
