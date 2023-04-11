@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { createMessageThunk } from "../../../store/message";
 
 const MessageForm = () => {
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ const MessageForm = () => {
         }
 
         // TODO: Dispatch Thunk to create message
+
     }
 
     return (
