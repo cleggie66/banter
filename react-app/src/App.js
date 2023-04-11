@@ -7,6 +7,7 @@ import ChannelsIndex from "./components/Channels/ChannelsIndex";
 import WorkspacesIndex from "./components/Workspaces/WorkspacesIndex";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/workspaces">
             <WorkspacesIndex />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
           <Route>
             <p>Page Not Found ¯\_(ツ)_/¯ </p>
