@@ -4,7 +4,7 @@ const ChannelCard = ({ channel }) => {
   const history = useHistory();
   const handleCardClick = (e) => {
     e.preventDefault();
-    history.push(`/channels/${channel.id}`);
+    history.push(`/dashboard/${channel.id}`);
   };
 
   return (
