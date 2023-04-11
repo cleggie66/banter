@@ -39,7 +39,7 @@ def create_workspace():
     if form.validate_on_submit():
 
         new_workspace = Workspace(
-            owner_id = [current_user],
+            owner_id = current_user.id,
             name=form.data['name'],
             icon=form.data['icon']
         )
@@ -50,4 +50,14 @@ def create_workspace():
         return redirect("/channels")
     return 'BAD DATA'
 
+
+@workspace_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_workspace_by_id(id):
+    workspace = Workspace.query.get(id)
+
+    db.session.delete(workspace)
+    db.session.commit()
+
+    return {"message": "Successfully Deleted!"}
 
