@@ -30,6 +30,17 @@ def get_all_workspaces():
     return [workspace.to_dict_simple() for workspace in workspaces]
 
 
+# * -----------  GET  --------------
+#  Returns all channels in a Workspace
+
+# @channel_routes.route('')
+# @login_required
+# def get_all_channels():
+#     user = User.query.filter(User.id == current_user.id).first()
+#     channels = user.joined_channels
+#     return [channel.to_dict_no_messages() for channel in channels]
+
+
 # TODO -----------  POST  --------------
 # Create a workspace
 
@@ -65,4 +76,3 @@ def delete_workspace_by_id(id):
     db.session.commit()
 
     return {"message": "Successfully Deleted!"}
-
