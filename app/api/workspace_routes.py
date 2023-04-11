@@ -31,6 +31,9 @@ def get_all_workspaces():
 
 
 # TODO -----------  POST  --------------
+# Create a workspace
+# Working but the response reads as 404
+
 @workspace_routes.route('', methods=['POST'])
 @login_required
 def create_workspace():
@@ -47,9 +50,12 @@ def create_workspace():
         db.session.add(new_workspace)
         db.session.commit()
 
-        return redirect("/channels")
+        return redirect("")
     return 'BAD DATA'
 
+
+# ! -----------  DELETE  --------------
+# Delete a workspace
 
 @workspace_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
