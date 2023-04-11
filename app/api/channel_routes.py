@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, request
-from app.models import Channel, User, channel_member, db
+from app.models import Channel, User, Message, channel_member, db
 from app.models.channel_member import channel_members
 from flask_login import current_user, login_required
 from flask_wtf.csrf import CSRFProtect, generate_csrf
@@ -29,6 +29,14 @@ def get_all_channels():
     channels = user.joined_channels
     return [channel.to_dict_no_messages() for channel in channels]
 
+# * -----------  GET  --------------
+#  Returns all messages in a channel
+
+@channel_routes.route('/<channel_id>')
+@login_required
+def get_channel_messages(channel_id):
+    messages = Message.query.filter(Message.channel_id == channel_id)
+    return [message.to_dict_simple() for message in messages]
 
 # TODO -----------  POST  --------------
 @channel_routes.route('', methods=['GET','POST'])
