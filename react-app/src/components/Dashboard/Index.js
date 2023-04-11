@@ -5,7 +5,6 @@ const Dashboard = () => {
   return (
     <div>
       <ChannelsIndex />
-      yoyoy
     </div>
   );
 };
