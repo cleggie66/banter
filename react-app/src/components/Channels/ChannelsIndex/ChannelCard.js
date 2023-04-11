@@ -7,8 +7,6 @@ const ChannelCard = ({ channel }) => {
     history.push(`/channels/${channel.id}`);
   };
 
-  console.log("WHY HELLOOOOOOOOOO")
-
   return (
     <div onClick={handleCardClick}>
       <h2>{`# ${channel.name}`}</h2>

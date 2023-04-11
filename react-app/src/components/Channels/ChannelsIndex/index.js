@@ -17,8 +17,6 @@ const ChannelsIndex = () => {
 
   const allChannels = useSelector((state) => Object.values(state.channels));
 
-  // if (!allChannels) return null;
-  console.log(allChannels, "yoyoyoyoyoy")
   // Arrow drop down
   const handleMenuClick = (e) => {
     e.preventDefault();

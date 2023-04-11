@@ -7,6 +7,7 @@ import WorkspacesIndex from "./components/Workspaces/WorkspacesIndex";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Dashboard from "./components/Dashboard";
+import HomePage from "./components/HomePage";
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route path="/home">
+            <HomePage />
+          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>

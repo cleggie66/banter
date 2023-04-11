@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ChannelsIndex from "../Channels/ChannelsIndex";
+import ActiveWorkspace from "../Workspaces/ActiveWorkspace";
 
 const Dashboard = () => {
-  return (
-    <div>
-      <ChannelsIndex />
-    </div>
-  );
+    return (
+        <div>
+            <ActiveWorkspace />
+            <ChannelsIndex />
+        </div>
+    );
 };
 
 export default Dashboard;
