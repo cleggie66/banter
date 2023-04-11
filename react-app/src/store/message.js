@@ -103,7 +103,7 @@ export const deleteMessageThunk = (messageId) => async (dispatch) => {
 
 const initialState = {};
 
-const MessagesReducer = (state = initialState, action) => {
+const messagesReducer = (state = initialState, action) => {
   let newState = { ...state };
   switch (action.type) {
     case LOAD_MESSAGE:
@@ -120,4 +120,4 @@ const MessagesReducer = (state = initialState, action) => {
   }
 };
 
-export default MessagesReducer;
+export default messagesReducer;
