@@ -37,14 +37,7 @@ def create_message():
     return 'BAD DATA'
 
 
-@message_routes.route('/<int:channel_id>')
-@login_required
-def get_channel_messages(channel_id):
-    messages = Message.query.filter(Message.channel_id == channel_id)
-    return [message.to_dict_simple() for message in messages]
-
-
-@message_routes.route('/<int:message_id>', methods=['DELETE'])
+@message_routes.route('/<message_id>', methods=['DELETE'])
 @login_required
 def delete_message(message_id):
     message = Message.query.get(message_id)
