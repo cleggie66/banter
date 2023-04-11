@@ -42,8 +42,11 @@ def update_user(id):
 
     user.username = request.json.get('username', user.username)
     user.email = request.json.get('email', user.email)
+    user.password = request.json.get('password', user.password)
     user.first_name = request.json.get('first_name', user.first_name)
     user.last_name = request.json.get('last_name', user.last_name)
-    user.password = request.json.get('password', user.password)
+    user.profile_picture = request.json.get('profile_picture', user.profile_picture)
+    user.title = request.json.get('title', user.title)
+    user.about_me = request.json.get('about_me', user.about_me)
     db.session.commit()
     return user.to_dict()
