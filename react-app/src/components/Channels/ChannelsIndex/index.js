@@ -26,6 +26,7 @@ const ChannelsIndex = () => {
   };
   return (
     <>
+    <div>{`Workspace Name`}</div>
       <div className="channel-dropdown">
         <FontAwesomeIcon
           icon={faCaretDown}
@@ -38,6 +39,15 @@ const ChannelsIndex = () => {
             <ChannelCard key={channel.id} channel={channel} />
           ))}
         </div>
+      </div>
+      <div>
+      <FontAwesomeIcon
+          icon={faCaretDown}
+          style={{ opacity: 0.8 }}
+        />
+        {"Direct messages"}
+
+
       </div>
     </>
   );
