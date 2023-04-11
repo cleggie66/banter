@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getAllChannels } from "../../../store/channel";
+import { getAllChannelsThunk } from "../../../store/channel";
 import "./ChannelListForm.css";
 
 const ListChannels = () => {
@@ -9,7 +9,7 @@ const ListChannels = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllChannels());
+        dispatch(getAllChannelsThunk());
     }, [dispatch])
 
     const channels = useSelector((state) => Object.values(state.channels));
