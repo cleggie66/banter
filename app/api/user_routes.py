@@ -50,3 +50,21 @@ def update_user(id):
     user.about_me = request.json.get('about_me', user.about_me)
     db.session.commit()
     return user.to_dict()
+
+
+# ! -----------  DELETE  --------------
+# Delete a user by id and returns a success message
+# TODO workspace_id error needs to be addressed
+
+@user_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_user(id):
+
+    user = User.query.get(id)
+
+    if not user:
+        return 'User not found', 404
+
+    db.session.delete(user)
+    db.session.commit()
+    return 'User successfully deleted'
