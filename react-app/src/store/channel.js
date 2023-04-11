@@ -79,6 +79,22 @@ export const updateChannelThunk =
       return data;
     } catch (error) {
       console.log(error);
+const read = (allChannels) => ({
+    type: READ_CHANNELS,
+    payload: allChannels
+});
+
+export const getAllChannels = () => async (dispatch) => {
+    const res = await fetch(`/api/channels`);
+
+    if (res.ok) {
+        const channels = await res.json();
+        const normalizedChannelData = {}
+        channels.forEach((e) => {
+            normalizedChannelData[e.id] = e
+        })
+        console.log("THUNK", normalizedChannelData)
+        dispatch(read(normalizedChannelData));
     }
   };
 
