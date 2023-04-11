@@ -1,7 +1,9 @@
-from flask import Blueprint
+from flask import Blueprint, redirect, request
 from app.models import Workspace, User, workspace_member, db
 from app.models.workspace_member import workspace_members
 from flask_login import current_user, login_required
+from ..forms.workspace_form import WorkspaceForm
+from flask_wtf.csrf import CSRFProtect, generate_csrf
 
 
 workspace_routes = Blueprint('workspaces', __name__)
@@ -26,5 +28,26 @@ def get_all_workspaces():
     user = User.query.filter(User.id == current_user.id).first()
     workspaces = user.joined_workspaces
     return [workspace.to_dict_simple() for workspace in workspaces]
+
+
+# TODO -----------  POST  --------------
+@workspace_routes.route('', methods=['POST'])
+@login_required
+def create_workspace():
+    form = WorkspaceForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+
+        new_workspace = Workspace(
+            owner_id = [current_user],
+            name=form.data['name'],
+            icon=form.data['icon']
+        )
+
+        db.session.add(new_workspace)
+        db.session.commit()
+
+        return redirect("/channels")
+    return 'BAD DATA'
 
 
