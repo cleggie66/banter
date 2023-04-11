@@ -5,3 +5,5 @@ message_routes = Blueprint('messages', __name__)
 
 
 # FULL CRUD
+
+@message_routes.route('')
