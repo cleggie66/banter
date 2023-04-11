@@ -32,7 +32,6 @@ def get_all_workspaces():
 
 # TODO -----------  POST  --------------
 # Create a workspace
-# Working but the response reads as 404
 
 @workspace_routes.route('', methods=['POST'])
 @login_required
