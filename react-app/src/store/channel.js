@@ -26,9 +26,9 @@ export const getAllChannelsThunk = () => async (dispatch) => {
   const response = await fetch(`/api/channels`);
 
   if (response.ok) {
-    const channels = await response.json();
+    const allChannelData = await response.json();
     const normalizedChannelData = {};
-    channels.forEach((e) => {
+    allChannelData.forEach((e) => {
       normalizedChannelData[e.id] = e;
     });
     dispatch(loadChannels(normalizedChannelData));
@@ -95,17 +95,17 @@ export const deleteChannelThunk = (channelId) => async (dispatch) => {
 const initialState = {};
 
 const channelsReducer = (state = initialState, action) => {
-  let newState = {...state}
+  let newState = { ...state };
   switch (action.type) {
     case LOAD_CHANNELS:
       return { ...state, ...action.payload };
     case CREATE_CHANNEL:
-        return { ...state, ...action.payload };
+      return { ...state, ...action.payload };
     case UPDATE_CHANNEL:
-        return { ...state, ...action.payload };
+      return { ...state, ...action.payload };
     case DELETE_CHANNEL:
-        delete newState[action.payload];
-        return newState;
+      delete newState[action.payload];
+      return newState;
     default:
       return state;
   }
