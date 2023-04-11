@@ -4,9 +4,9 @@ import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import "./ChannelListForm.css";
+import "./ChannelIndex.css"
 
-const ListChannels = () => {
+const ChannelsIndex = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const dispatch = useDispatch();
