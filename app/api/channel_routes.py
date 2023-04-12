@@ -79,11 +79,20 @@ def update_channel(channel_id):
 
 
 # ! -----------  DELETE  --------------
-@channel_routes.route('/<int:id>', methods=['DELETE'])
+@channel_routes.route('/<channel_id>', methods=['DELETE'])
 @login_required
-def delete_channel_by_id(id):
-    channel = Channel.query.get(id)
+def delete_channel_by_id(channel_id):
+    channel = Channel.query.get(channel_id)
 
+    if not channel:
+        return {"message": "channel not found"}, 404
+
+    channel_member_ids = [users.id for users in channel.users_in_channels]
+
+    if current_user.id not in channel_member_ids:
+        return {"message": "User is not in channel"}, 401
+
+    pog(channel)
     db.session.delete(channel)
     db.session.commit()
 
