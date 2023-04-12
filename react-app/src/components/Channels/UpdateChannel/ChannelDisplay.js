@@ -3,18 +3,22 @@ import OpenModalButton from "../../OpenModalButton";
 import DeleteChannelModal from "../DeleteChannel";
 import EditChannelModal from "./EditChannelModal";
 const ChannelDisplay = ({ channel, workspaceId }) => {
-  // ! NEWLY CREATED CHANNELS NOT SHOWING UP ON RENDER HERE
+  // ! NEWLY CREATED CHANNELS NOT REFRESHING HERE
   return (
     <>
       <h2>{`# ${channel.name}`}</h2>
 
       <OpenModalButton
         buttonText="delete"
-        modalComponent={<DeleteChannelModal workspaceId={workspaceId} channel={channel}/>}
+        modalComponent={
+          <DeleteChannelModal workspaceId={workspaceId} channel={channel} />
+        }
       />
       <OpenModalButton
         buttonText="edit"
-        modalComponent={<EditChannelModal workspaceId={workspaceId} channel={channel} />}
+        modalComponent={
+          <EditChannelModal workspaceId={workspaceId} channel={channel} />
+        }
       />
     </>
   );

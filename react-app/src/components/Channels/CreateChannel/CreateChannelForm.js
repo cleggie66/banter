@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createChannelThunk } from "../../../store/channel";
-// I want to send is Channel True and workspace_id current workspace we are in
+import { refreshUser } from "../../../store/session";
+
+// ! memory leak useEffect for name errors only needs to run when in box
+// needs a clean up funciton for useEffect()
 
 function CreateChannelForm({ workspaceId }) {
   const dispatch = useDispatch();
@@ -10,6 +13,8 @@ function CreateChannelForm({ workspaceId }) {
   const [errors, setErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const history = useHistory();
+  const sessionUser = useSelector((state) => state.session.user);
+
 
   const handleInputErrors = () => {
     const errorsObj = {};
@@ -34,6 +39,7 @@ function CreateChannelForm({ workspaceId }) {
       };
 
       let newChannel = await dispatch(createChannelThunk(channelInformation));
+      dispatch(refreshUser(sessionUser.id))
 
       // console.log("big sends", newChannel)
       history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
