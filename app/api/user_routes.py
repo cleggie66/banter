@@ -1,6 +1,10 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
+<<<<<<< HEAD
 from app.models import User, Workspace
+=======
+from app.models import User, Workspace, Channel
+>>>>>>> routes_users_delete_debug
 from app import db
 import random
 
@@ -72,6 +76,7 @@ def delete_user(id, reassign_to_id=None):
     if user is None:
         return 'User not found', 404
 
+<<<<<<< HEAD
 
     workspaces = user.owned_workspaces
 
@@ -95,6 +100,26 @@ def delete_user(id, reassign_to_id=None):
     for workspace in workspaces:
         reassign_to_user.owned_workspaces.append(workspace)
         workspace.workspace_owner = reassign_to_user
+=======
+    if user.id != current_user.id:
+        return {"message": "Unauthorized"}, 401
+
+    workspaces = Workspace.query.filter(Workspace.owner_id == user.id).all()
+    workspace_users = [workspace.users_in_workspaces for workspace in workspaces]
+
+
+    if len(workspace_users) <= 1:
+        return {"message": "no other user to assign ownership to"}
+
+
+    for workspace in workspaces:
+        for workspace_user in workspace.users_in_workspaces:
+            if workspace_user.id == user.id:
+                continue
+            else:
+                workspace.owner_id = workspace_user.id
+                db.session.commit()
+>>>>>>> routes_users_delete_debug
 
 
     db.session.delete(user)
