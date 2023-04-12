@@ -573,8 +573,52 @@ Deletes an existing user
   * Body:
 
     ```json
-    
+        "User successfully deleted"
     ```
+
+## Workspace Routes
+
+### Get all workspaces
+
+Reads out a list of all the workspaces and their information
+
+* Require Authentification: false
+* Request
+    * Method: GET
+    * URL: /api/workspaces
+    * Body: None
+
+* Successful Response
+    * Status Code: 200
+    * Headers:
+        * Content-Type: application/json
+    * Body:
+
+    ```json
+        [
+        {
+            "icon": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png",
+            "id": 1,
+            "name": "AppAcademy",
+            "owner_id": 1
+        },
+        {
+            "icon": "https://1000logos.net/wp-content/uploads/2017/07/Emblem-N64.jpg",
+            "id": 2,
+            "name": "Gamers",
+            "owner_id": 1
+        },
+        {
+            "icon": "https://fcbk.su/_data/stickers/executive_business_fish/executive_business_fish_09.png",
+            "id": 3,
+            "name": "Business",
+            "owner_id": 2
+        }
+    ]
+    ```
+
+
+
 
 
 
