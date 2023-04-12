@@ -1,17 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
 function ManageChannelModal({ workspaceId }) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const history = useHistory();
-  const location = useLocation();
-  
-  console.log("hey there location", location);
-
-  
 
   useEffect(() => {
     dispatch(getWorkspaceByIdThunk(workspaceId));
