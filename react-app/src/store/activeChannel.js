@@ -1,7 +1,4 @@
 const LOAD_ACTIVE_CHANNEL = "activeChannel/LOAD_ACTIVE_CHANNEL"
-// const CREATE_ACTIVE_CHANNEL = "activeChannel/CREATE_ACTIVE_CHANNEL"
-// const UPDATE_ACTIVE_CHANNEL = "activeChannel/UPDATE_ACTIVE_CHANNEL"
-// const DELETE_ACTIVE_CHANNEL = "activeChannel/DELETE_ACTIVE_CHANNEL"
 
 const loadActiveChannel = (channel) => ({
     type: LOAD_ACTIVE_CHANNEL,

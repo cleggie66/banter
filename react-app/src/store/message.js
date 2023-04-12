@@ -1,3 +1,5 @@
+import { loadActiveChannelThunk } from "./activeChannel"
+
 const normalizer = (data) => {
   const obj = {}
   data.forEach((item) => {
@@ -65,6 +67,7 @@ export const createMessageThunk = (newMessageData) => async (dispatch) => {
       [data.id]: data
     };
     dispatch(createMessage(normalizedMessageData));
+    dispatch(loadActiveChannelThunk(data.channel_id))
     return data;
   } catch (error) {
     console.log(error);

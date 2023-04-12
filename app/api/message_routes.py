@@ -33,7 +33,7 @@ def create_message():
         db.session.add(new_message)
         db.session.commit()
 
-        return new_message
+        return new_message.to_dict_simple()
     return 'BAD DATA'
 
 

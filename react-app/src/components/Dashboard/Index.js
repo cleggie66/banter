@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import ChannelsIndex from "../Channels/ChannelsIndex";
 import ActiveWorkspace from "../Workspaces/ActiveWorkspace";
 import MessagesIndex from "../Messages/MessagesIndex";
+import MessageForm from "../Messages/MessageForm";
 
 const Dashboard = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -23,6 +24,7 @@ const Dashboard = () => {
           <ActiveWorkspace />
           <ChannelsIndex />
           <MessagesIndex />
+          <MessageForm />
         </>
       )}
       {!sessionUser && !homepage && (
