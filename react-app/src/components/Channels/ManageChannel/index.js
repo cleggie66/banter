@@ -20,19 +20,19 @@ function ManageChannelModal() {
     closeModal();
   };
 
-//   const handleManageChannel = (e) => {
-//     e.preventDefault();
-//     history.push(`/dashboard/${workspaceId}/manage`);
-//     closeModal();
-//   };
+  const handleManageChannel = (e) => {
+    e.preventDefault();
+    history.push(`/dashboard/${workspaceId}/manage`);
+    closeModal();
+  };
 
   return (
     <>
       {/* these are both going to call modals */}
       <button onClick={handleAddChannel}>Create</button>
-      {/* <button onClick={handleManageChannel}>Manage</button> */}
       <p></p>
-      <button>Manage</button>
+      <button onClick={handleManageChannel}>Manage</button>
+      
     </>
   );
 }
