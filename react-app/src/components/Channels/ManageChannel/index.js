@@ -3,6 +3,7 @@ import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom";
+import CreateChannelModal from "../CreateChannel"
 import "./LoginForm.css";
 
 function ManageChannelModal() {
@@ -22,14 +23,12 @@ function ManageChannelModal() {
 //       closeModal();
 //     }
 //   };
+    
 
   return (
     <>
       {/* these are both going to call modals */}
-      <OpenModalButton
-            buttonText="Create"
-            modalComponent={<CreateChannelModal />}
-          />
+      <button>Create</button>
       <h1>Manage</h1>
     </>
   );

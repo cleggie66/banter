@@ -1,134 +1,27 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import CreateChannelForm from "./CreateChannelForm";
+import "./CreateSpot.css";
 
-// import React, { useState } from "react";
-// import { login } from "../../store/session";
-// import { useDispatch } from "react-redux";
-// import { useModal } from "../../context/Modal";
-// import { useHistory } from "react-router-dom";
-// import "./LoginForm.css";
+const CreateChannel = () => {
+  const history = useHistory();
+  const sessionUser = useSelector((state) => state.session.user);
+  const { workspaceId } = useParams();
 
-// function CreateChannelModal() {
-//   const dispatch = useDispatch();
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [errors, setErrors] = useState([]);
-//   const { closeModal } = useModal();
-//   const history = useHistory();
+  useEffect(() => {
+    dispatch(getWorkspaceByIdThunk(workspaceId));
+  }, [dispatch, workspaceId]);
 
+  if (!sessionUser) {
+    history.push(`/home`);
+  }
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const data = await dispatch(login(email, password));
-//     if (data) {
-//       setErrors(data);
-//     } else {
-//         closeModal()
-//         history.push("/home")
-//     }
-//   };
+  return (
+    <div>
+      <CreateChannelForm workspaceId={workspaceId}/>
+    </div>
+  );
+};
 
-//   return (
-//     <>
-//       <h1>Log In</h1>
-//       <form onSubmit={handleSubmit}>
-//         <ul>
-//           {errors.map((error, idx) => (
-//             <li key={idx}>{error}</li>
-//           ))}
-//         </ul>
-//         <label>
-//           Email
-//           <input
-//             type="text"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//             required
-//           />
-//         </label>
-//         <label>
-//           Password
-//           <input
-//             type="password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             required
-//           />
-//         </label>
-//         <button type="submit">Log In</button>
-//       </form>
-//     </>
-//   );
-// }
-
-// export default CreateChannelModal;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router-dom";
-
-// const ChannelForm = () => {
-//     const dispatch = useDispatch()
-//     const [name, setName] = useState('');
-//     const [isChannel, setIsChannel] = useState(false);
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault()
-
-//         const payload = {
-//             name,
-//             isChannel
-//         }
-
-//         // TODO: Dispatch Thunk to create channel
-//         // TODO: Dispatch Thunk to add channel members
-
-//         return <Redirect to="/" />
-//     }
-
-//     return (
-//         <form onSubmit={handleSubmit}>
-//             <input
-//                 type="text"
-//                 placeholder="Name"
-//                 value={name}
-//                 onChange={(e) => setName(e.target.value)}
-//             />
-//             <input
-//                 type="radio"
-//                 label="Is this a channel?"
-//                 value={isChannel}
-//                 onChange={(e) => setIsChannel(e.target.value)}
-//             />
-//         </form>
-//     )
-// }
+export default CreateChannel;

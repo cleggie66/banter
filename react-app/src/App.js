@@ -8,7 +8,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Dashboard from "./components/Dashboard";
 import HomePage from "./components/HomePage";
-
+import CreateChannel from "./components/Channels/CreateChannel";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +32,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/dashboard/:workspaceId/newchannel">
+            <CreateChannel />
           </Route>
           <Route path="/dashboard/:workspaceId">
             <Dashboard />
