@@ -1,6 +1,6 @@
 from flask import Blueprint, request
-from flask_login import login_required
-from app.models import User, Workspace
+from flask_login import login_required, current_user
+from app.models import User, Workspace, Channel
 from app import db
 import random
 
@@ -16,6 +16,13 @@ def users():
 
     users = User.query.all()
     return {'users': [user.to_dict() for user in users]}
+
+
+@user_routes.route('/current')
+@login_required
+def get_current_user():
+    user = User.query.get(current_user.id)
+    return user.to_dict()
 
 
 # * -----------  GET  --------------
@@ -65,28 +72,21 @@ def delete_user(id, reassign_to_id=None):
     if user is None:
         return 'User not found', 404
 
-    
-    workspaces = user.owned_workspaces
+    workspaces = Workspace.query.filter(Workspace.owner_id == user.id).all()
+    workspace_users = [workspace.users_in_workspaces for workspace in workspaces]
 
-    if reassign_to_id is None:
-        
-        other_users = User.query.filter(User.id != id).all()
 
-        if len(other_users) > 0:
-            reassign_to_user = random.choice(other_users)
-            reassign_to_id = reassign_to_user.id
-        else:
-            return 'No other users found to reassign ownership', 400
-    else:
-        reassign_to_user = User.query.get(reassign_to_id)
-        if reassign_to_user is None:
-            return 'User to reassign ownership not found', 404
+    if len(workspace_users) <= 1:
+        return {"message": "no other user to assign ownership to"}
 
 
     for workspace in workspaces:
-        reassign_to_user.owned_workspaces.append(workspace)
-        # workspace.workspace_owner.append(reassign_to_user)
-        print("!!!!", workspace.workspace_owner)
+        for workspace_user in workspace.users_in_workspaces:
+            if workspace_user.id == user.id:
+                continue
+            else:
+                workspace.owner_id = workspace_user.id
+                db.session.commit()
 
 
     db.session.delete(user)
