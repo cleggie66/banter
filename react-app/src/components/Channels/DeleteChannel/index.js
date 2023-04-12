@@ -2,8 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { deleteChannelThunk } from "../../../store/channel";
+import { useHistory } from "react-router-dom";
 
-function DeleteChannelModal({ channel }) {
+function DeleteChannelModal({ workspaceId, channel }) {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
@@ -11,6 +13,9 @@ function DeleteChannelModal({ channel }) {
     e.preventDefault();
     await dispatch(deleteChannelThunk(channel.id));
     closeModal();
+    history.push(`/dashboard/${workspaceId}/${channel.id}`);
+
+
   };
 
   const handleKeepChannel = (e) => {

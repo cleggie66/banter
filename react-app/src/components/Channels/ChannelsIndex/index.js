@@ -26,9 +26,14 @@ const ChannelsIndex = () => {
     dispatch(getAllChannelsThunk());
   }, [dispatch]);
 
+  // const correctChannels = sessionUser.joined_channels.filter(
+  //   (e) =>  e.is_channel === true
+  // );
+
+
   const allChannels = useSelector((state) => Object.values(state.channels));
   const correctChannels = allChannels.filter(
-    (e) => Number(workspaceId) === e.workspace_id
+    (e) => (Number(workspaceId) === e.workspace_id) && ( e.is_channel === true)
   );
   // console.log(correctChannels)
 
