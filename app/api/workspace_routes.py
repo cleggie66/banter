@@ -48,7 +48,7 @@ def create_workspace():
         )
 
         new_workspace.users_in_workspaces.append(current_user)
-        current_user.joined_workspaces.append(new_workspace)
+        # current_user.joined_workspaces.append(new_workspace)
 
         db.session.add(new_workspace)
         db.session.commit()
