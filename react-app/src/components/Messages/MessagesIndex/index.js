@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getAllChannelMessagesThunk } from "../../../store/message";
 
 const MessagesIndex = () => {
-
+    const sessionUser = useSelector((state) => state.session.user);
     const activeChannel = useSelector(state => state.activeChannel)
     const messages = activeChannel.channel_messages
 
@@ -21,6 +19,14 @@ const MessagesIndex = () => {
                         <img src={message.message_owner.profile_picture} alt="profile"></img>
                         <h4>{message.message_owner.first_name}</h4>
                         <h2>{message.content}</h2>
+                        {
+                            // TODO: Add functionality for edit and delete
+                        sessionUser.id === message.message_owner.id && (
+                            <>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </>
+                        )}
                     </div>
                 ))}
             </div>
