@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { createWorkspaceThunk } from "../../../store/workspace";
 
 const WorkspaceForm = () => {
     const dispatch = useDispatch()
@@ -16,7 +17,7 @@ const WorkspaceForm = () => {
         }
 
         // TODO: Dispatch Thunk to create workspace
-
+        dispatch(createWorkspaceThunk(payload))
         return <Redirect to="/" />
     }
 
@@ -34,6 +35,9 @@ const WorkspaceForm = () => {
                 value={icon}
                 onChange={(e) => setIcon(e.target.value)}
             />
+        <button type="submit">Create Workspace</button>
         </form>
     )
 }
+
+export default WorkspaceForm;

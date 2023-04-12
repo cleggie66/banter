@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard";
 import HomePage from "./components/HomePage";
 import CreateChannel from "./components/Channels/CreateChannel";
 import UpdateChannel from "./components/Channels/UpdateChannel";
+import WorkspaceForm from "./components/Workspaces/WorkspaceForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/dashboard/create-workspace">
+            <WorkspaceForm />
           </Route>
           <Route path="/dashboard/:workspaceId/manage">
             <UpdateChannel />
