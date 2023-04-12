@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const MessagesIndex = () => {
     const sessionUser = useSelector((state) => state.session.user);
-    const activeChannel = useSelector(state => state.activeChannel)
+    const activeChannel = useSelector(state => state.activeChannel);
     const messages = activeChannel.channel_messages
 
     if (!messages) return (
