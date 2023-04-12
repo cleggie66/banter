@@ -5,7 +5,7 @@ import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import "./ChannelIndex.css";
 
 const ChannelsIndex = () => {
@@ -34,19 +34,26 @@ const ChannelsIndex = () => {
   };
   return (
     <>
-      <div>{`Workspace Name`}</div>
-
-      <div className="channel-dropdown">
-        <FontAwesomeIcon
-          icon={faCaretDown}
-          style={{ opacity: 0.8 }}
-          onClick={handleMenuClick}
-        />{" "}
-        {"Channels"}
-        <div className={`channel-dropdown ${openMenu ? "active" : "inactive"}`}>
+      <div className="channel-dropdown-container">
+        <div className="channel-dropdown-heading-container">
+          <FontAwesomeIcon
+            icon={faCaretDown}
+            style={{ opacity: 0.8 }}
+            onClick={handleMenuClick}
+            className="caret-down"
+          />
+          <p></p>
+          <div className={"channel-heading"}>{"Channels"}</div>
+        </div>
+        <div
+          className={`channel-dropdown-container ${
+            openMenu ? "active" : "inactive"
+          }`}
+        >
           {correctChannels.map((channel) => (
             <ChannelCard key={channel.id} channel={channel} />
           ))}
+          <FontAwesomeIcon icon={faPlusSquare} /> {"Add a Channel"}
         </div>
       </div>
       <div>

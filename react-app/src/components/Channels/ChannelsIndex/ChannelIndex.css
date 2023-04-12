@@ -1,18 +1,30 @@
-.channel-dropdown {
+.channel-dropdown-container {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
 }
 
-.channel-dropdown.active {
+.channel-dropdown-container.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
   transition: 300ms ease;
 }
 
-.channel-dropdown.inactive {
+.channel-dropdown-container.inactive {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: 300ms ease;
+}
+
+.caret-down:hover {
+  background-color: rgb(205, 202, 202);
+}
+.channel-heading:hover{
+  background-color: rgb(205, 202, 202);
+}
+
+.channel-dropdown-heading-container{
+  display: flex;
+  gap: 2px;
 }
