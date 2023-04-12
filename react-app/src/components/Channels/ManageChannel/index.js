@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
-function ManageChannelModal() {
+function ManageChannelModal({ workspaceId }) {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const history = useHistory();
+  const location = useLocation();
+  
+  console.log("hey there location", location);
 
-  const { workspaceId } = useParams();
+  
 
   useEffect(() => {
     dispatch(getWorkspaceByIdThunk(workspaceId));
@@ -31,7 +34,6 @@ function ManageChannelModal() {
       <button onClick={handleAddChannel}>Create</button>
       <p></p>
       <button onClick={handleManageChannel}>Manage</button>
-      
     </>
   );
 }
