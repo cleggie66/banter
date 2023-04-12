@@ -74,7 +74,7 @@ const handleUserIconClick = (e) => {
             buttonText="userIcon"
             modalComponent={<UserIconModal />}
             />
-          {/* <FontAwesomeIcon icon={faUser}onClick={handleUserIconClick}/> */}
+          <FontAwesomeIcon icon={faUser}/>
 
 
         </div>
