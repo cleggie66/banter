@@ -48,12 +48,15 @@ const WorkspaceForm = () => {
 
     return (
         <div className="workspace-form-container">
-            <form onSubmit={handleSubmit}>
+            <form className="workspace-form-container" onSubmit={handleSubmit}>
                 {!user && <h1 className="signin-error">Please Sign In</h1>}
                 <div className="form-field">
+                    <h1 id="name-title-text" className="title-text">What’s the name of your company or team?</h1>
+                    <p id="name-title-subtext" className="title-text">This will be the name of your Banter workspace — choose something that your team will recognize.</p>
                     {hasSubmitted && validationErrors.includes('Please enter a name for your new workspace') && <p className="error">Please enter a name for your new workspace</p>}
                     {hasSubmitted && validationErrors.includes('Please enter a name between 1 and 50 characters') && <p className="error">Please enter a name between 1 and 50 characters</p>}
                     <input
+                        className="text-input-workspace"
                         type="text"
                         placeholder="Workspace Name"
                         value={name}
@@ -61,17 +64,22 @@ const WorkspaceForm = () => {
                     />
                 </div>
                 <div className="form-field">
+                    <h1 id="icon-title-text" className="title-text">How will users recognize your Workspace?</h1>
+                    <p id="icon-title-subtext" className="title-text">This will be an image of your Banter workspace — you want something to represent your team.</p>
                     {hasSubmitted && validationErrors.includes('Please link an image to set as the icon for your workspace') && <p className="error">Please link an image to set as the icon for your workspace</p>}
                     {hasSubmitted && validationErrors.includes('Please enter a link that is no larger than 255 characters') && <p className="error">Please enter a link that is no larger than 255 characters</p>}
                     {hasSubmitted && validationErrors.includes('Please enter a valid image URL ending in .png, .jpg, or .jpeg') && <p className="error">Please enter a link that is a proper image file (ie. jpg, jpeg, png, etc.)</p>}
                     <input
+                        className="text-input-workspace"
                         type="text"
                         placeholder="Icon Image Link"
                         value={icon}
                         onChange={(e) => setIcon(e.target.value)}
                     />
                 </div>
-                <button type="submit">Create Workspace</button>
+                <div className="create-workspace-button-container">
+                    <button className="create-workspace-button" type="submit">Create Workspace</button>
+                </div>
             </form>
         </div>
     );
