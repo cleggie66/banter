@@ -6,7 +6,7 @@ const DemoLogin = () => {
   const dispatch = useDispatch();
   const onClick = () => {
     dispatch(login("demo@aa.io", "password" ));
-    history.push("/home")
+    history.push("/")
 
   };
 

@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   const handleRedirectHome = (e) => {
     e.preventDefault();
-    history.push(`/home`);
+    history.push(`/`);
   };
   const homepage = !window.location.pathname.includes("/dashboard");
 
@@ -22,12 +22,12 @@ const Dashboard = () => {
           <ChannelsIndex />
         </>
       )}
-      {!sessionUser && !homepage && (
+      {/* {!sessionUser && !homepage && (
         <>
           <h1>{`To access your Banter please log in`}</h1>
           <button onClick={handleRedirectHome}>Take me Home 🫡</button>
         </>
-      )}
+      )} */}
     </div>
   );
 };

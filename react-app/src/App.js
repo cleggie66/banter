@@ -6,7 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import WorkspacesIndex from "./components/Workspaces/WorkspacesIndex";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/Dashboard"
 import HomePage from "./components/HomePage";
 import CreateChannel from "./components/Channels/CreateChannel";
 import UpdateChannel from "./components/Channels/UpdateChannel";
@@ -25,7 +25,7 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/home">
+          <Route path="/">
             <HomePage />
           </Route>
           <Route path="/login">

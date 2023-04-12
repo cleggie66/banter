@@ -17,7 +17,7 @@ const CreateChannel = () => {
   }, [dispatch, workspaceId]);
 
   if (!sessionUser) {
-    history.push(`/home`);
+    history.push(`/`);
   }
 
   return (
