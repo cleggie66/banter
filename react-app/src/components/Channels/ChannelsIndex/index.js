@@ -55,7 +55,6 @@ const ChannelsIndex = () => {
             className="caret-down"
           />
           <p></p>
-          {/* MODAL HEREEEEEEEEEEEEE */}
           <div className={"channel-heading"}> <OpenModalButton
             buttonText="Channels"
             modalComponent={<ManageChannelModal />}
@@ -71,7 +70,6 @@ const ChannelsIndex = () => {
           ))}
           <div className="add-channel-container">
            
-          {/* {"Add a Channel"} */}
           <button className={'add-channel-button'} onClick={handleAddChannel}> <FontAwesomeIcon icon={faPlusSquare} /> Add a Channel</button>
           </div>
         </div>
