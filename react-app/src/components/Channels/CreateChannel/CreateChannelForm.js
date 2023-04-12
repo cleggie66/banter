@@ -58,7 +58,7 @@ function CreateChannelForm({ workspaceId }) {
         {hasSubmitted && errors.name && <p className="errors">{errors.name}</p>}
         <input
           type="submit"
-          value={"Create Spot"}
+          value={"Create Channel"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
         />
       </form>
