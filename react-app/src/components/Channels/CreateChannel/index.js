@@ -1,11 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import CreateChannelForm from "./CreateChannelForm";
-import "./CreateSpot.css";
+import { getWorkspaceByIdThunk } from "../../../store/workspace";
+
 
 const CreateChannel = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+
   const sessionUser = useSelector((state) => state.session.user);
   const { workspaceId } = useParams();
 
@@ -19,7 +22,7 @@ const CreateChannel = () => {
 
   return (
     <div>
-      <CreateChannelForm workspaceId={workspaceId}/>
+      <CreateChannelForm workspaceId={workspaceId} />
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
+import { createChannelThunk } from "../../../store/channel";
 // I want to send is Channel True and workspace_id current workspace we are in
 
-function CreateChannelForm() {
+function CreateChannelForm({ workspaceId }) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [errors, setErrors] = useState({});
@@ -21,39 +21,30 @@ function CreateChannelForm() {
 
   useEffect(() => {
     handleInputErrors();
-  }, [
-    name,
-  ]);
+  }, [name]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     if (!Object.values(errors).length) {
       const channelInformation = {
-        workspace_id: 1,
+        workspace_id: Number(workspaceId),
         name,
-        is_channel: true
+        is_channel: true,
       };
 
-
       let newChannel = await dispatch(createChannelThunk(channelInformation));
-      
-      history.push(`/dashboard/${1}/${newChannel.id}`);
+
+      history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
     }
     setHasSubmitted(true);
   };
 
- 
-
   return (
     <>
       <h1>Create a Channel</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
+      <h3>Just a bit of banter!</h3>
+      <form onSubmit={handleFormSubmit}>
         <label>
           Name
           <input
@@ -63,16 +54,13 @@ function CreateChannelForm() {
             required
           />
         </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
+        <p></p>
+        {hasSubmitted && errors.name && <p className="errors">{errors.name}</p>}
+        <input
+          type="submit"
+          value={"Create Spot"}
+          disabled={hasSubmitted && Object.values(errors).length > 0}
+        />
       </form>
     </>
   );

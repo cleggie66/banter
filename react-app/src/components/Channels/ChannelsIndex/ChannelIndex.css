@@ -39,7 +39,9 @@
 }
 
 
-/* 
-.add-channel-container{
-  
-} */
+.add-channel-button{
+  padding: 0;
+  border: none;
+  background: none;
+
+}

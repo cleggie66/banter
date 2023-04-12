@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
-import OpenModalButton from "../OpenModalButton";
 
 import "./ChannelIndex.css";
 
 const ChannelsIndex = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const [openMenu, setOpenMenu] = useState(false);
   const { workspaceId } = useParams();
 
@@ -34,6 +35,13 @@ const ChannelsIndex = () => {
     e.preventDefault();
     setOpenMenu((open) => !open);
   };
+
+  const handleAddChannel = (e) => {
+    e.preventDefault();
+    history.push(`/dashboard/${workspaceId}/newchannel`)
+  };
+
+
   return (
     <>
       <div className="channel-dropdown-container">
@@ -56,12 +64,9 @@ const ChannelsIndex = () => {
             <ChannelCard key={channel.id} channel={channel} />
           ))}
           <div className="add-channel-container">
-          <FontAwesomeIcon icon={faPlusSquare} /> 
+           
           {/* {"Add a Channel"} */}
-          <OpenModalButton
-            buttonText="Add a Channel"
-            modalComponent={<CreateChannelModal />}
-          />
+          <button className={'add-channel-button'} onClick={handleAddChannel}> <FontAwesomeIcon icon={faPlusSquare} /> Add a Channel</button>
           </div>
         </div>
       </div>
