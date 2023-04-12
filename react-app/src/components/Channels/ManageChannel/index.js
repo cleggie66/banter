@@ -28,7 +28,6 @@ function ManageChannelModal() {
 
   return (
     <>
-      {/* these are both going to call modals */}
       <button onClick={handleAddChannel}>Create</button>
       <p></p>
       <button onClick={handleManageChannel}>Manage</button>

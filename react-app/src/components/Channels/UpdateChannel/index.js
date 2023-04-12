@@ -6,7 +6,8 @@ import { useHistory, useParams } from "react-router-dom";
 import UpdateChannelForm from "./UpdateChannelForm";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { getAllChannelsThunk } from "../../../store/channel";
-
+import OpenModalButton from "../../OpenModalButton";
+import DeleteChannelModal from "../DeleteChannel";
 const UpdateChannel = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -41,7 +42,10 @@ const UpdateChannel = () => {
       {/* have an update or delete button on each  */}
       {/* these also should only be is_channel=true  */}
       <h1>Your Channels </h1>
-
+      <OpenModalButton
+            buttonText="delete"
+            modalComponent={<DeleteChannelModal />}
+          />
       <UpdateChannelForm workspaceId={workspaceId} />
     </div>
   );
