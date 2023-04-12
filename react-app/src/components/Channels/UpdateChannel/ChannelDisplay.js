@@ -3,7 +3,7 @@ import OpenModalButton from "../../OpenModalButton";
 import DeleteChannelModal from "../DeleteChannel";
 import EditChannelModal from "./EditChannelModal";
 const ChannelDisplay = ({ channel, workspaceId }) => {
-  // ! NEWLY CREATED CHANNELS PLUS NEWLY DELETED CHANNELS NOT REFRESHING HERE
+  // ! NEWLY CREATED CHANNELS NOT SHOWING UP ON RENDER HERE
   return (
     <>
       <h2>{`# ${channel.name}`}</h2>
