@@ -57,7 +57,7 @@ const ChannelsIndex = () => {
           <p></p>
           <div className={"channel-heading"}> <OpenModalButton
             buttonText="Channels"
-            modalComponent={<ManageChannelModal />}
+            modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
           /></div>
         </div>
         <div

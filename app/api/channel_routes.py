@@ -4,6 +4,7 @@ from app.models.channel_member import channel_members
 from flask_login import current_user, login_required
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from ..forms.channel_form import ChannelForm
+from ..utils import pog
 
 channel_routes = Blueprint('channels', __name__)
 
@@ -34,25 +35,24 @@ def get_all_channels():
 
 
 # TODO -----------  POST  --------------
-@channel_routes.route('', methods=['GET','POST'])
+@channel_routes.route('', methods=['POST'])
 @login_required
 def create_channel():
     form = ChannelForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-
         new_channel = Channel(
             name=form.data['name'],
             workspace_id = form.data['workspace_id'],
             is_channel = form.data['is_channel'],
             users_in_channels = [current_user]
-        )
+        )   
 
         db.session.add(new_channel)
         db.session.commit()
 
 
-        return redirect(f"/channels/{new_channel.id}")
+        return new_channel.to_dict_simple()
     return 'BAD DATA'
 
 
@@ -73,7 +73,8 @@ def update_channel(channel_id):
 
     channel.name = edit['name']
     db.session.commit()
-    return redirect(f"/channels/{channel.id}")
+    pog(channel, edit, workspace_owner)
+    return channel.to_dict_simple()
 
 
 

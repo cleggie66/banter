@@ -53,6 +53,7 @@ export const createChannelThunk = (newChannelData) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newChannelData),
     });
+    console.log("hey response here", response)
 
     const data = await response.json();
     const normalizedChannelData = {};
