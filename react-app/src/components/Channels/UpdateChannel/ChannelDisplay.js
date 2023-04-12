@@ -13,7 +13,7 @@ const ChannelDisplay = ({ channel, workspaceId }) => {
       />
       <OpenModalButton
         buttonText="edit"
-        modalComponent={<EditChannelModal workspaceId={workspaceId} />}
+        modalComponent={<EditChannelModal workspaceId={workspaceId} channel={channel} />}
       />
     </>
   );
