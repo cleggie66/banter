@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import LoadingIcon from "../../LoadingPage/LoadingIcon";
 
 const MessagesIndex = () => {
     const sessionUser = useSelector((state) => state.session.user);
@@ -7,7 +8,7 @@ const MessagesIndex = () => {
     const messages = activeChannel.channel_messages
 
     if (!messages) return (
-        <h1>Loading...</h1>
+        <LoadingIcon />
     )
 
     return (
