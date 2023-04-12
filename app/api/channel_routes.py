@@ -186,7 +186,6 @@ def update_channel(channel_id):
 
 
 # ! -----------  DELETE  --------------
-##DOESNT WORK
 
 @channel_routes.route('/<channel_id>', methods=['DELETE'])
 @login_required
