@@ -4,12 +4,14 @@ import session from "./session";
 import channelsReducer from "./channel";
 import workspacesReducer from "./workspace";
 import messagesReducer from "./message";
+import activeChannelReducer from "./activeChannel";
 
 const rootReducer = combineReducers({
   session,
   channels: channelsReducer,
   workspaces: workspacesReducer,
   messages: messagesReducer,
+  activeChannel: activeChannelReducer,
 });
 
 let enhancer;

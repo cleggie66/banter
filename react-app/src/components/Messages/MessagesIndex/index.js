@@ -1,21 +1,28 @@
 import React, { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-import "./ChannelsIndex.css";
+import { useParams } from "react-router-dom";
+import { getAllChannelMessagesThunk } from "../../../store/message";
 
-const ChannelsIndex = () => {
+const MessagesIndex = () => {
 
     const dispatch = useDispatch();
+    const activeChannel = useSelector(state => state.activeChannel)
+    const obj = useParams();
 
     useEffect(() => {
         // TODO: dispatch thunk to get current messages
-        // dispatch(getAllChannels());
+        dispatch(getAllChannelMessagesThunk());
     }, [dispatch])
 
-    // TODO: Update to new state after merge
     const messages = useSelector((state) => Object.values(state.messages));
 
-    if (!messages) return null;
+    if (!messages) return (
+        <h1>Loading...</h1>
+    )
+
+    console.log(activeChannel)
+    console.log(messages)
+    console.log(obj)
 
     return (
         <>
@@ -29,4 +36,4 @@ const ChannelsIndex = () => {
     )
 }
 
-export default ChannelsIndex;
+export default MessagesIndex;

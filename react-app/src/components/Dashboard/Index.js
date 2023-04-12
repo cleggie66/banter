@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import ChannelsIndex from "../Channels/ChannelsIndex";
 import ActiveWorkspace from "../Workspaces/ActiveWorkspace";
-import { useHistory } from "react-router-dom";
+import MessagesIndex from "../Messages/MessagesIndex";
 
 const Dashboard = () => {
   const sessionUser = useSelector((state) => state.session.user);
+  const activeChannel = useSelector((state) => state.activeChannel)
   const history = useHistory();
 
   const handleRedirectHome = (e) => {
@@ -20,6 +22,7 @@ const Dashboard = () => {
         <>
           <ActiveWorkspace />
           <ChannelsIndex />
+          <MessagesIndex />
         </>
       )}
       {!sessionUser && !homepage && (
