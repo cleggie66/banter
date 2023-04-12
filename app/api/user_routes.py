@@ -70,37 +70,13 @@ def update_user(id):
 
 @user_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
-def delete_user(id, reassign_to_id=None):
+def delete_user(id):
 
     user = User.query.get(id)
     if user is None:
         return 'User not found', 404
 
-<<<<<<< HEAD
 
-    workspaces = user.owned_workspaces
-
-    # print('!!!!!!!!!!HERE!!!!!!!!!!!',workspaces)
-
-    if reassign_to_id is None:
-
-        other_users = User.query.filter(User.id != id).all()
-
-        if len(other_users) > 0:
-            reassign_to_user = random.choice(other_users)
-            reassign_to_id = reassign_to_user.id
-        else:
-            return 'No other users found to reassign ownership', 400
-    else:
-        reassign_to_user = User.query.get(reassign_to_id)
-        if reassign_to_user is None:
-            return 'User to reassign ownership not found', 404
-
-
-    for workspace in workspaces:
-        reassign_to_user.owned_workspaces.append(workspace)
-        workspace.workspace_owner = reassign_to_user
-=======
     if user.id != current_user.id:
         return {"message": "Unauthorized"}, 401
 
@@ -119,7 +95,6 @@ def delete_user(id, reassign_to_id=None):
             else:
                 workspace.owner_id = workspace_user.id
                 db.session.commit()
->>>>>>> routes_users_delete_debug
 
 
     db.session.delete(user)
