@@ -5,11 +5,21 @@ import ChannelsIndex from "../Channels/ChannelsIndex";
 import ActiveWorkspace from "../Workspaces/ActiveWorkspace";
 import MessagesIndex from "../Messages/MessagesIndex";
 import MessageForm from "../Messages/MessageForm";
+import LoadingPage from "../LoadingPage";
 
 const Dashboard = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel)
+  const [loadingVisibility, setLoadingVisibility] = useState("visible")
   const history = useHistory();
+
+  useEffect(() => {
+    const loadingPageTimer = setTimeout(() => {
+      setLoadingVisibility("hidden")
+    }, 3000);
+    return () => clearTimeout(loadingPageTimer)
+  }, [])
+
 
   const handleRedirectHome = (e) => {
     e.preventDefault();
@@ -21,6 +31,7 @@ const Dashboard = () => {
     <div>
       {sessionUser && (
         <>
+          <LoadingPage visibility={loadingVisibility} />
           <ActiveWorkspace />
           <ChannelsIndex />
           <MessagesIndex />
