@@ -9,13 +9,13 @@ class Channel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    workspace_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("workspaces.id")), nullable=False)
+    workspace_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("workspaces.id")))
     is_channel = db.Column(db.Boolean, default=False)
 
     # * Relationships 💚
     # One to Many
     channel_messages = db.relationship("Message", back_populates="in_channel", cascade='all,delete')
-    channel_in_workspace = db.relationship("Workspace", back_populates="owned_channels", cascade='all,delete')
+    channel_in_workspace = db.relationship("Workspace", back_populates="owned_channels")
 
     # Many to Many
     users_in_channels = db.relationship("User", secondary=channel_members, back_populates= 'joined_channels')
