@@ -17,14 +17,23 @@
   transition: 300ms ease;
 }
 
+.caret-down {
+  border-radius: 2px 2px;
+  width: 15px;
+}
+.channel-heading {
+  border-radius: 3px 3px;
+  height: 20px;
+}
+
 .caret-down:hover {
   background-color: rgb(205, 202, 202);
 }
-.channel-heading:hover{
+.channel-heading:hover {
   background-color: rgb(205, 202, 202);
 }
 
-.channel-dropdown-heading-container{
+.channel-dropdown-heading-container {
   display: flex;
-  gap: 2px;
+  /* gap: 2px; */
 }
