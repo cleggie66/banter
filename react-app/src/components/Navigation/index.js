@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import * as sessionActions from "../../store/session";
 import { useHistory } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
@@ -9,8 +8,9 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import DemoLogin from "./DemoLogin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
 import "./Navigation.css";
+import UserIconModal from "../User/UserIcon";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
@@ -22,6 +22,14 @@ function Navigation({ isLoaded }) {
     dispatch(sessionActions.logout());
     history.push(`/`);
   };
+
+
+const handleUserIconClick = (e) => {
+  e.preventDefault()
+  dispatch()
+
+}
+
   const homepage = !window.location.pathname.includes("/dashboard");
   // const dashboard = window.location.pathname.includes("/dashboard");
 
@@ -49,6 +57,7 @@ function Navigation({ isLoaded }) {
         </>
       )}
       {!homepage && sessionUser && (
+        <div className="dashboard-navbar-container">
         <div className="temporary-home">
           <NavLink
             exact
@@ -59,6 +68,20 @@ function Navigation({ isLoaded }) {
             <> </>
             SODO
           </NavLink>
+        </div>
+        <div>
+        <OpenModalButton
+            buttonText="userIcon"
+            modalComponent={<UserIconModal />}
+            />
+          {/* <FontAwesomeIcon icon={faUser}onClick={handleUserIconClick}/> */}
+
+
+        </div>
+          {/* this is going to be a modal button */}
+          {/* modal will have a profile button that will open user read on the dashboard */}
+            
+        
         </div>
       )}
     </div>
