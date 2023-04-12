@@ -618,7 +618,84 @@ Reads out a list of all the workspaces and their information
     ```
 
 
+### Get single workspace
+
+Reads out the details of a single workspace
+
+* Require Authentification: false
+* Request
+    * Method: GET
+    * URL: /api/workspaces/<int:id>
+    * Body: None
+
+* Successful Response
+    * Status Code: 200
+    * Headers:
+        * Content-Type: application/json
+    * Body:
+
+    ```json
+    {
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png",
+        "id": 1,
+        "name": "AppAcademy",
+        "owner_id": 1
+    }
+    ```
 
 
+### Create a workspace
 
+A user is able to create a new workplace to handle new channesl and users to be added.
+
+* Require Authentication: true
+* Request
+  * Method: POST
+  * URL: /api/workspaces
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```js
+    {
+        "name": "makeupaname",
+        "icon": "someicon.jpeg"
+    }
+    ```
+
+* Successful Response
+    * Status Code: 200
+    * Headers:
+        * Content-Type: application/json
+    * Body:
+
+    ```js
+    {
+        "icon": "someicon.jpeg",
+        "id": 4,
+        "name": "makeupaname",
+        "owner_id": 1
+    }
+    ```
+
+### Delete a workspace
+
+A user will be able to delete their own workspace
+
+* Require Authentication: true
+* Require proper authorization: Spot must belong to the current user
+* Request
+  * Method: DELETE
+  * URL: /api/workspaces/<int:id>
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+        {"message": "successfully deleted"}
+    ```
 
