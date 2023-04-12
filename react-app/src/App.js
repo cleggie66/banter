@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import Dashboard from "./components/Dashboard";
 import HomePage from "./components/HomePage";
 import CreateChannel from "./components/Channels/CreateChannel";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   const dispatch = useDispatch();
