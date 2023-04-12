@@ -43,7 +43,7 @@ function UpdateChannelForm({ workspaceId }) {
   return (
     <>
       <h1>Manage Your Channel</h1>
-      <h3>so, weary traveler... Looking to edit a channel eh??🧙🧙🧙</h3>
+      <h3>so, weary traveler... Looking to edit this channel eh??🧙🧙🧙</h3>
       <form onSubmit={handleFormSubmit}>
         <label>
           Name

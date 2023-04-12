@@ -39,6 +39,7 @@ const UpdateChannel = () => {
     <div>
       {/* want to show all the owned users channels */}
       {/* have an update or delete button on each  */}
+      {/* these also should only be is_channel=true  */}
       <h1>Your Channels </h1>
 
       <UpdateChannelForm workspaceId={workspaceId} />
