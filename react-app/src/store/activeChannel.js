@@ -10,7 +10,7 @@ const loadActiveChannel = (channel) => ({
 
 export const loadActiveChannelThunk = (channelId) => async (dispatch) => {
     try {
-        // BACKEND FIX INT RESCTRICTION
+        // BACKEND FIX INT RESTRICTION
         const response = await fetch(`/api/channels/${channelId}`)
         if (response.ok) {
             const channel = await response.json();
