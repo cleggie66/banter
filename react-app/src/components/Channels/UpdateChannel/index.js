@@ -53,7 +53,7 @@ const UpdateChannel = () => {
       {/* these also should only be is_channel=true  */}
       <h1>Your Channels </h1>
       {sessionUser.joined_channels.map((channel)=> (
-        <ChannelDisplay key={channel.id} channel={channel}/>
+        <ChannelDisplay key={channel.id} channel={channel} workspaceId={workspaceId}/>
       ))}
       
     </div>
