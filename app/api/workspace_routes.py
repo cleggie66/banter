@@ -49,8 +49,8 @@ def create_workspace():
         db.session.add(new_workspace)
         db.session.commit()
 
-        return redirect("")
-    return 'BAD DATA'
+        return new_workspace.to_dict_simple()
+    return {"message": "Bad data"}
 
 
 # ! -----------  DELETE  --------------

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { createWorkspaceThunk } from "../../../store/workspace";
 
 const WorkspaceForm = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const history = useHistory();
     const [name, setName] = useState('');
     const [icon, setIcon] = useState('');
 
@@ -17,8 +18,10 @@ const WorkspaceForm = () => {
         }
 
         // TODO: Dispatch Thunk to create workspace
-        dispatch(createWorkspaceThunk(payload))
-        return <Redirect to="/" />
+        let addedWorkspace = await dispatch(createWorkspaceThunk(payload))
+        if (addedWorkspace) {
+        history.push(`/dashboard/${addedWorkspace.id}`)
+        }
     }
 
     return (
