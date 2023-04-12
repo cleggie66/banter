@@ -9,36 +9,23 @@ import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import "./ChannelIndex.css";
 
 const ChannelsIndex = () => {
+  const dispatch = useDispatch();
   const [openMenu, setOpenMenu] = useState(false);
   const { workspaceId } = useParams();
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getWorkspaceByIdThunk(workspaceId));
+  }, [dispatch, workspaceId]);
 
   useEffect(() => {
     dispatch(getAllChannelsThunk());
   }, [dispatch]);
 
   const allChannels = useSelector((state) => Object.values(state.channels));
-
-//! ------- work space --------
-useEffect(() => {
-  dispatch(getWorkspaceByIdThunk(workspaceId));
-}, [dispatch, workspaceId]);
-
-const activeWorkspace = useSelector((state) => state.workspaces);
-
-const newActiveWorkspace = activeWorkspace[workspaceId];
-
-if (!newActiveWorkspace) {
-  return <h1>Loading...</h1>;
-}
-
-// console.log("channels", newActiveWorkspace.id)
-
-
-
-
-
+  const correctChannels = allChannels.filter(
+    (e) => Number(workspaceId) === e.workspace_id
+  );
+  // console.log(correctChannels)
 
   // Arrow drop down
   const handleMenuClick = (e) => {
@@ -47,8 +34,8 @@ if (!newActiveWorkspace) {
   };
   return (
     <>
-    <div>{`Workspace Name`}</div>
-   
+      <div>{`Workspace Name`}</div>
+
       <div className="channel-dropdown">
         <FontAwesomeIcon
           icon={faCaretDown}
@@ -57,19 +44,14 @@ if (!newActiveWorkspace) {
         />{" "}
         {"Channels"}
         <div className={`channel-dropdown ${openMenu ? "active" : "inactive"}`}>
-          {allChannels.map((channel) => (
-            <ChannelCard key={channel.id} channel={channel} workspaceId={newActiveWorkspace.id} />
+          {correctChannels.map((channel) => (
+            <ChannelCard key={channel.id} channel={channel} />
           ))}
         </div>
       </div>
       <div>
-      <FontAwesomeIcon
-          icon={faCaretDown}
-          style={{ opacity: 0.8 }}
-        />
+        <FontAwesomeIcon icon={faCaretDown} style={{ opacity: 0.8 }} />
         {"Direct messages"}
-
-
       </div>
     </>
   );

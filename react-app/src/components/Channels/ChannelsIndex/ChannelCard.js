@@ -1,10 +1,10 @@
 import { useHistory } from "react-router-dom";
 
-const ChannelCard = ({ channel, workspaceId }) => {
+const ChannelCard = ({ channel }) => {
   const history = useHistory();
   const handleCardClick = (e) => {
     e.preventDefault();
-    history.push(`/dashboard/${workspaceId}/${channel.id}`);
+    history.push(`/dashboard/${channel.workspace_id}/${channel.id}`);
   };
 
   return (
