@@ -5,23 +5,34 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import UpdateChannelForm from "./UpdateChannelForm";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
-import { getAllChannelsThunk } from "../../../store/channel";
-import OpenModalButton from "../../OpenModalButton";
-import DeleteChannelModal from "../DeleteChannel";
+import ChannelDisplay from "./ChannelDisplay";
 const UpdateChannel = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
+  console.log(sessionUser.joined_channels)
+
+  if (!sessionUser) {
+    history.push(`/home`);
+  }
+
+
+
   const { workspaceId } = useParams();
 
   useEffect(() => {
     dispatch(getWorkspaceByIdThunk(workspaceId));
   }, [dispatch, workspaceId]);
 
-  if (!sessionUser) {
-    history.push(`/home`);
-  }
+
+  // useEffect(() => {
+  //   dispatch(getAllChannelsThunk());
+  // }, [dispatch]);
+
+  // const allChannels = useSelector((state) => Object.values(state.channels));
+  // console.log(allChannels[1].users_in_channels)
+
 
   //   useEffect(() => {
   //     dispatch(getAllChannelsThunk());
@@ -42,11 +53,10 @@ const UpdateChannel = () => {
       {/* have an update or delete button on each  */}
       {/* these also should only be is_channel=true  */}
       <h1>Your Channels </h1>
-      <OpenModalButton
-            buttonText="delete"
-            modalComponent={<DeleteChannelModal />}
-          />
-      <UpdateChannelForm workspaceId={workspaceId} />
+      {sessionUser.joined_channels.map((channel)=> (
+        <ChannelDisplay key={channel.id} channel={channel}/>
+      ))}
+      
     </div>
   );
 };
