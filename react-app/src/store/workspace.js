@@ -1,3 +1,5 @@
+import { clearActiveChannelThunk } from "./activeChannel"
+
 const normalizer = (data) => {
   const obj = {}
   data.forEach((item) => {
@@ -54,18 +56,17 @@ export const getWorkspaceByIdThunk = (workspaceId) => async (dispatch) => {
 
 export const createWorkspaceThunk = (newWorkspaceData) => async (dispatch) => {
   try {
-    console.log("!!!!!!!!!", newWorkspaceData)
     const response = await fetch(`/api/workspaces`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newWorkspaceData),
     });
-    console.log("HEREHEREHERE", response)
     const data = await response.json();
     const normalizedWorkspaceData = {
       [data.id]: data
     };
     dispatch(createWorkspace(normalizedWorkspaceData));
+    dispatch(clearActiveChannelThunk())
     return data;
   } catch (error) {
     console.log(error);
