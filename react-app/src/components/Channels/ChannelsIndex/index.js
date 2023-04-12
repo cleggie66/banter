@@ -6,8 +6,10 @@ import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import OpenModalButton from "../../OpenModalButton";
 
 import "./ChannelIndex.css";
+import ManageChannelModal from "../ManageChannel";
 
 const ChannelsIndex = () => {
   const dispatch = useDispatch();
@@ -53,7 +55,11 @@ const ChannelsIndex = () => {
             className="caret-down"
           />
           <p></p>
-          <div className={"channel-heading"}>{"Channels"}</div>
+          {/* MODAL HEREEEEEEEEEEEEE */}
+          <div className={"channel-heading"}> <OpenModalButton
+            buttonText="Channels"
+            modalComponent={<ManageChannelModal />}
+          /></div>
         </div>
         <div
           className={`channel-dropdown-container ${
