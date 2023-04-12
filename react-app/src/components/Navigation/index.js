@@ -33,9 +33,13 @@ function Navigation({ isLoaded }) {
     history.push(`/`);
   };
 
-  const handleUserIconClick = (e) => {
+  // const handleUserIconClick = (e) => {
+  //   e.preventDefault();
+  //   dispatch();
+  // };
+  const handleCreateWorkspace= (e) => {
     e.preventDefault();
-    dispatch();
+    history.push(`/create-workspace`)
   };
 
   // const homePage = !window.location.pathname.includes("/dashboard");
@@ -48,7 +52,7 @@ function Navigation({ isLoaded }) {
       {homePage && sessionUser && (
         <>
           <button onClick={handleLogoutClick}>SIGN OUT</button>
-          <button>CREATE A NEW WORKSPACE </button>
+          <button onClick={handleCreateWorkspace}>CREATE A NEW WORKSPACE </button>
         </>
       )}
       {homePage && !sessionUser && (

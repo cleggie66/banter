@@ -35,7 +35,7 @@ function CreateChannelForm({ workspaceId }) {
 
       let newChannel = await dispatch(createChannelThunk(channelInformation));
 
-      console.log("big sends", newChannel)
+      // console.log("big sends", newChannel)
       history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
     }
     setHasSubmitted(true);
