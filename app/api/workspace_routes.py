@@ -36,6 +36,7 @@ def get_all_workspaces():
 @workspace_routes.route('', methods=['POST'])
 @login_required
 def create_workspace():
+    print(current_user.to_dict())
     form = WorkspaceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -46,8 +47,14 @@ def create_workspace():
             icon=form.data['icon']
         )
 
+        new_workspace.users_in_workspaces.append(current_user)
+        current_user.joined_workspaces.append(new_workspace)
+
         db.session.add(new_workspace)
         db.session.commit()
+
+        print(new_workspace.users_in_workspaces)
+
 
         return new_workspace.to_dict_simple()
     return {"message": "Bad data"}
@@ -65,4 +72,3 @@ def delete_workspace_by_id(id):
     db.session.commit()
 
     return {"message": "Successfully Deleted!"}
-

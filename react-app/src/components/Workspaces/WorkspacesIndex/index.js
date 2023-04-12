@@ -8,11 +8,13 @@ const WorkspacesIndex = () => {
 
   const dispatch = useDispatch();
 
+  const allWorkspaces = useSelector((state) => Object.values(state.workspaces));
+
   useEffect(() => {
     dispatch(getAllWorkspacesThunk());
   }, [dispatch]);
 
-  const allWorkspaces = useSelector((state) => Object.values(state.workspaces));
+
 
   console.log(allWorkspaces);
   // const allOwnedWorkspaces = allWorkspaces.filter(
