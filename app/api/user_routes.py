@@ -66,11 +66,14 @@ def update_user(id):
 
 @user_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
-def delete_user(id, reassign_to_id=None):
+def delete_user(id):
 
     user = User.query.get(id)
     if user is None:
         return 'User not found', 404
+
+    if user.id != current_user.id:
+        return {"message": "Unauthorized"}, 401
 
     workspaces = Workspace.query.filter(Workspace.owner_id == user.id).all()
     workspace_users = [workspace.users_in_workspaces for workspace in workspaces]
