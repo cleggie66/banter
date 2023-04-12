@@ -3,20 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { createMessageThunk } from "../../../store/message";
 
 const MessageForm = () => {
-    const dispatch = useDispatch()
+    const activeChannel = useSelector((state) => state.activeChannel);
+
+    const dispatch = useDispatch();
     const [content, setContent] = useState('');
-    const [channelId, setChannelId] = useState(0);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         const payload = {
             content,
-            channel_id: channelId
+            channel_id: activeChannel.id
         }
+        console.log(payload)
 
-        // TODO: Dispatch Thunk to create message
-
+        dispatch(createMessageThunk(payload))
     }
 
     return (
@@ -27,12 +28,9 @@ const MessageForm = () => {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
             />
-            <input
-                type="number"
-                label="channel id"
-                value={channelId}
-                onChange={(e) => setChannelId(e.target.value)}
-            />
+            <button type="submit">Send Message</button>
         </form>
     )
 }
+
+export default MessageForm
