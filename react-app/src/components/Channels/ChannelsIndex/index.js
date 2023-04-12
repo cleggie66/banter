@@ -6,6 +6,8 @@ import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import OpenModalButton from "../OpenModalButton";
+
 import "./ChannelIndex.css";
 
 const ChannelsIndex = () => {
@@ -53,7 +55,14 @@ const ChannelsIndex = () => {
           {correctChannels.map((channel) => (
             <ChannelCard key={channel.id} channel={channel} />
           ))}
-          <FontAwesomeIcon icon={faPlusSquare} /> {"Add a Channel"}
+          <div className="add-channel-container">
+          <FontAwesomeIcon icon={faPlusSquare} /> 
+          {/* {"Add a Channel"} */}
+          <OpenModalButton
+            buttonText="Add a Channel"
+            modalComponent={<CreateChannelModal />}
+          />
+          </div>
         </div>
       </div>
       <div>
