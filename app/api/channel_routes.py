@@ -16,7 +16,10 @@ channel_routes = Blueprint('channels', __name__)
 @login_required
 def get_single_channels(channel_id):
     channel = Channel.query.get(channel_id)
-    return channel.to_dict()
+    # return channel.to_dict()
+    # Adding special to_dict() for messages
+    return channel.to_dict_message_details()
+     
 
 
 # * -----------  GET  --------------
