@@ -30,8 +30,8 @@ const deleteMessage = (messageId) => ({
   payload: messageId,
 });
 
-export const getAllMessagesThunk = () => async (dispatch) => {
-  const response = await fetch(`/api/messages`);
+export const getAllChannelMessagesThunk = (channelId) => async (dispatch) => {
+  const response = await fetch(`/api/messages/${channelId}`);
 
   if (response.ok) {
     const allMessageData = await response.json();
