@@ -37,3 +37,5 @@ const WorkspaceForm = () => {
         </form>
     )
 }
+
+export default WorkspaceForm
