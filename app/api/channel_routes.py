@@ -17,12 +17,58 @@ channel_routes = Blueprint('channels', __name__)
 @login_required
 def get_single_channel_users(channel_id):
     channel = Channel.query.get(channel_id)
+
     if not channel:
         return {
             "message": "Channel could not be found",
             "status_code": 404
         }, 404
+
+    if not channel.users_in_channel:
+        return {"No users in this channel"}
+
     return {"Users": [user.to_dict_simple() for user in channel.users_in_channels]}
+
+
+# * -----------  GET  --------------
+#  Returns the details of a channel specified by its Id
+
+@channel_routes.route("/<channel_id>")
+@login_required
+def get_single_channel(channel_id):
+    channel = Channel.query.get(channel_id)
+    if not channel:
+        return {
+            "message": "Channel could not be found",
+            "status_code": 404
+        }, 404
+    return channel.to_dict()
+
+
+# * -----------  GET  --------------
+#  Returns all messages in a channel
+
+@channel_routes.route('/<channel_id>/messages')
+@login_required
+def get_channel_messages(channel_id):
+    messages = Message.query.filter(Message.channel_id == channel_id)
+    if not messages:
+        return {
+            "message": "Channel could not be found",
+            "status_code": 404
+        }, 404
+    return {"Messages": [message.to_dict_simple() for message in messages]}
+
+
+# * -----------  GET  --------------
+#  Returns all of the current user's channels
+
+@channel_routes.route('')
+@login_required
+def get_all_channels():
+    user = User.query.filter(User.id == current_user.id).first()
+    channels = user.joined_channels
+    return {'Channels': [channel.to_dict_no_messages() for channel in channels]}
 
 
 # * -----------  POST  --------------
@@ -45,12 +91,16 @@ def add_user_to_channel(channel_id):
             "status_code": 404
         }, 404
 
+    # for channel2 in user.joined_channels:
+    #     if channel2.id == channel.id:
+    #         return {"message": "User is already in channel"}
+
     channel.users_in_channels.append(user)
     user.joined_channels.append(channel)
 
     db.session.commit()
 
-    return redirect(f'/channel/{channel.id}')
+    return {"message": "Added user to the channel"}
 
 
 # * -----------  DELETE  --------------
@@ -86,49 +136,11 @@ def remove_user_from_channel(channel_id):
 
     db.session.commit()
 
-    return redirect(f'/channel/{channel.id}')
+    return {"message": "Removed user from channel"}
 
 
-
-# * -----------  GET  --------------
-#  Returns all messages in a channel
-
-@channel_routes.route('/<channel_id>/messages')
-@login_required
-def get_channel_messages(channel_id):
-    messages = Message.query.filter(Message.channel_id == channel_id)
-    return {"Messages": [message.to_dict_simple() for message in messages]}
-
-
-# * -----------  GET  --------------
-#  Returns the details of a channel specified by its Id
-
-@channel_routes.route("/<channel_id>")
-@login_required
-def get_single_channel(channel_id):
-    channel = Channel.query.get(channel_id)
-    if not channel:
-        return {
-            "message": "Channel could not be found",
-            "status_code": 404
-        }, 404
-    return channel.to_dict()
-
-
-# * -----------  GET  --------------
-#  Returns all of the current user's channels
-
-@channel_routes.route('')
-@login_required
-def get_all_channels():
-    user = User.query.filter(User.id == current_user.id).first()
-    channels = user.joined_channels
-    return [channel.to_dict_no_messages() for channel in channels]
-
-
-
-# TODO -----------  POST  --------------
-# NEED TO REFACTOR TO NOT USE FORMS
+#  -----------  POST  --------------
+# Creates a channel
 
 @channel_routes.route('', methods=['GET','POST'])
 @login_required
@@ -148,13 +160,13 @@ def create_channel():
         db.session.commit()
 
 
-        return redirect(f"/channels/{new_channel.id}")
+        return {"message": "sucessfully created channel!" }
     return 'BAD DATA'
 
 
 
 # TODO -----------  PUT  --------------
-@channel_routes.route('/<int:channel_id>', methods=['PUT','PATCH'])
+@channel_routes.route('/<channel_id>', methods=['PUT'])
 @login_required
 def update_channel(channel_id):
     edit = request.json
@@ -169,15 +181,26 @@ def update_channel(channel_id):
 
     channel.name = edit['name']
     db.session.commit()
-    return redirect(f"/channels/{channel.id}")
+    return {"message": "sucessfully edited channel!" }
 
 
 
 # ! -----------  DELETE  --------------
-@channel_routes.route('/<int:id>', methods=['DELETE'])
+##DOESNT WORK
+
+@channel_routes.route('/<channel_id>', methods=['DELETE'])
 @login_required
-def delete_channel_by_id(id):
-    channel = Channel.query.get(id)
+def delete_channel_by_id(channel_id):
+    channel = Channel.query.get(channel_id)
+
+    if not channel:
+        return {"message": "channel not found"}, 404
+
+    channel_member_ids = [users.id for users in channel.users_in_channels]
+
+    if current_user.id not in channel_member_ids:
+        return {"message": "User is not in channel"}, 401
+
 
     db.session.delete(channel)
     db.session.commit()

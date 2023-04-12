@@ -22,6 +22,7 @@ information.
     }
     ```
 
+Response
 
     ```json
     {
@@ -176,21 +177,468 @@ user's information.
     }
     ```
 
+## Channel Routes
+
+### Get users of a channel by channel id
+
+Gets all the users who are currently in a channel.
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /api/<channel_id>/users
+  * Body: None
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```json
+    {
+    "Users": [
+        {
+            "about_me": "I am a demo user testintg this application!",
+            "email": "demo@aa.io",
+            "first_name": "Demo",
+            "id": 1,
+            "last_name": "Lition",
+            "profile_picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+            "title": "Demo User",
+            "username": "Demo"
+        },
+        {
+            "about_me": "I am the greatest mod 4 instructor of all time",
+            "email": "mod4god@aa.io",
+            "first_name": "Alec",
+            "id": 2,
+            "last_name": "Instructor",
+            "profile_picture": "https://i0.wp.com/d37ck3jytu9wl0.cloudfront.net/wp-content/uploads/2022/05/31141519/Neckbeard-BLOG.jpg?fit=1200%2C777&ssl=1",
+            "title": "Mod 4 Gate Keeper",
+            "username": "Alec"
+        }
+    ]
+    }
+    ```
+
+  * Error Response: Channel not found
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```python
+
+    {
+        "message": "Channel could not be found",
+        "status_code": 404
+    }, 404
+
+    ```
 
 
+### Get details of a channel by its ID
+
+Returns the information pertaining to a channel.
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /api/<channel_id>/users
+  * Headers: None
+  * Body: None
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
 
 
+```json
+{
+    "channel_in_workspace": {
+        "icon": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png",
+        "id": 1,
+        "name": "AppAcademy",
+        "owner_id": 1
+    },
+    "channel_messages": [
+        {
+            "channel_id": 1,
+            "content": "I would say that is a good, but not great answer.",
+            "id": 1,
+            "user_id": 1
+        },
+        {
+            "channel_id": 1,
+            "content": "Holy Guacamole!",
+            "id": 7,
+            "user_id": 2
+        },
+        {
+            "channel_id": 1,
+            "content": "Just a bit of banter",
+            "id": 8,
+            "user_id": 3
+        }
+    ],
+    "id": 1,
+    "is_channel": true,
+    "name": "general",
+    "users_in_channels": [
+        {
+            "about_me": "I am a demo user testintg this application!",
+            "email": "demo@aa.io",
+            "first_name": "Demo",
+            "id": 1,
+            "last_name": "Lition",
+            "profile_picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+            "title": "Demo User",
+            "username": "Demo"
+        },
+        {
+            "about_me": "I am the greatest mod 4 instructor of all time",
+            "email": "mod4god@aa.io",
+            "first_name": "Alec",
+            "id": 2,
+            "last_name": "Instructor",
+            "profile_picture": "https://i0.wp.com/d37ck3jytu9wl0.cloudfront.net/wp-content/uploads/2022/05/31141519/Neckbeard-BLOG.jpg?fit=1200%2C777&ssl=1",
+            "title": "Mod 4 Gate Keeper",
+            "username": "Alec"
+        },
+        {
+            "about_me": "The father of Patches and Blue",
+            "email": "Brad@aa.io",
+            "first_name": "Brad",
+            "id": 3,
+            "last_name": "Instructor",
+            "profile_picture": "https://cdn.vox-cdn.com/thumbor/qqJR3THHUSgAt2ADTGk6_56hjyQ=/0x0:4059x4051/1400x1400/filters:focal(1964x2333:1965x2334)/cdn.vox-cdn.com/uploads/chorus_asset/file/24018802/ND_Zelda_Lead.jpeg",
+            "title": "Food variable master",
+            "username": "Brad"
+        }
+    ],
+    "workspace_id": 1
+}
+```
+  * Error Response: Channel not found
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```python
+
+    {
+        "message": "Channel could not be found",
+        "status_code": 404
+    }, 404
+
+    ```
 
 
+### Get all messages in a channel
+Gets all of the messages associated with a channel.
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /api/<channel_id>/messages
+  * Body: none
+
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+```json
+{
+    "Messages": [
+        {
+            "channel_id": 1,
+            "content": "I would say that is a good, but not great answer.",
+            "id": 1,
+            "user_id": 1
+        },
+        {
+            "channel_id": 1,
+            "content": "Holy Guacamole!",
+            "id": 7,
+            "user_id": 2
+        },
+        {
+            "channel_id": 1,
+            "content": "Just a bit of banter",
+            "id": 8,
+            "user_id": 3
+        }
+    ]
+}
+```
 
 
+  * Error Response: Channel not found
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```python
+    {
+        "message": "Channel could not be found",
+        "status_code": 404
+    }, 404
+
+    ```
+
+### Get all channels of a current user
+Returns all the channels in the workspaces that the user is currently in
+
+* Require Authentication: true
+* Request
+  * Method: GET
+  * URL: /api/channels
+  * Body: none
 
 
+* Successful Response
+  * Status Code: 200
+  * Headers:
+    * Content-Type: application/json
+  * Body:
 
 
+```json
+{
+    "Channels": [
+        {
+            "id": 1,
+            "is_channel": true,
+            "name": "general",
+            "users_in_channels": [
+                {
+                    "about_me": "I am a demo user testintg this application!",
+                    "email": "demo@aa.io",
+                    "first_name": "Demo",
+                    "id": 1,
+                    "last_name": "Lition",
+                    "profile_picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+                    "title": "Demo User",
+                    "username": "Demo"
+                },
+            ],
+            "workspace_id": 1
+        },
+        {
+            "id": 3,
+            "is_channel": true,
+            "name": "2022-11-21-lecture-questions",
+            "users_in_channels": [
+                {
+                    "about_me": "I am a demo user testintg this application!",
+                    "email": "demo@aa.io",
+                    "first_name": "Demo",
+                    "id": 1,
+                    "last_name": "Lition",
+                    "profile_picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+                    "title": "Demo User",
+                    "username": "Demo"
+                },
+            ],
+            "workspace_id": 1
+        },
+        {
+            "id": 4,
+            "is_channel": true,
+            "name": "lecture questions",
+            "users_in_channels": [
+                {
+                    "about_me": "I am a demo user testintg this application!",
+                    "email": "demo@aa.io",
+                    "first_name": "Demo",
+                    "id": 1,
+                    "last_name": "Lition",
+                    "profile_picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+                    "title": "Demo User",
+                    "username": "Demo"
+                }
+            ],
+            "workspace_id": 1
+        },
+        {
+            "id": 5,
+            "is_channel": false,
+            "name": "direct message",
+            "users_in_channels": [
+                {
+                    "about_me": "I am a demo user testintg this application!",
+                    "email": "demo@aa.io",
+                    "first_name": "Demo",
+                    "id": 1,
+                    "last_name": "Lition",
+                    "profile_picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+                    "title": "Demo User",
+                    "username": "Demo"
+                },
+            ],
+            "workspace_id": 1
+        },
+        {
+            "id": 6,
+            "is_channel": false,
+            "name": "direct group message",
+            "users_in_channels": [
+                {
+                    "about_me": "I am a demo user testintg this application!",
+                    "email": "demo@aa.io",
+                    "first_name": "Demo",
+                    "id": 1,
+                    "last_name": "Lition",
+                    "profile_picture": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+                    "title": "Demo User",
+                    "username": "Demo"
+                },
+            ],
+            "workspace_id": 1
+        }
+    ]
+}
+```
+
+### Add a user to a channel
+Add another user to a channel
+
+* Require Authentication: true
+* Request
+  * Method: POST
+  * URL: /api/<channel_id>/users
+  * Body:
+
+    ```json
+    {
+        "user_id": 1
+    }
+    ```
+
+* Successful Response
+  * Status Code: 302
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```python
+    {
+        "message": "Added user to channel
+    }
+    ```
 
 
+  * Error Response: Channel or user not found
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
 
+    ```python
+    {
+        "message": "Channel could not be found",
+        "status_code": 404
+    }, 404
+
+    {
+        "message": "User could not be found",
+        "status_code": 404
+    }, 404
+    ```
+
+### Remove a user from a group
+Remove an existing user from a channel.
+
+* Require Authentication: true
+* Request
+  * Method: DELETE
+  * URL: /api/<channel_id>/users
+  * Body:
+
+    ```json
+    {
+        "user_id": 1
+    }
+    ```
+
+* Successful Response
+  * Status Code: 302
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```python
+    {
+        "message": "Removed user from channel
+    }
+    ```
+
+  * Error Response: Channel or user not found
+  * Status Code: 404
+  * Headers:
+    * Content-Type: application/json
+  * Body:
+
+    ```python
+    {
+        "message": "Channel could not be found",
+        "status_code": 404
+    }, 404
+
+    {
+        "message": "User could not be found",
+        "status_code": 404
+    }, 404
+    ```
+
+### Create a channel
+Creates a channel, associates it with a workspace, automatically puts user in channel
+
+* Require Authentication: true
+* Request
+  * Method: POST
+  * URL: /api/channels
+  * Body:
+
+    ```json
+    {
+        "name": "new channel",
+        "workspace_id": 1,
+        "is_channel": true
+    }
+    ```
+
+## Edit Channel
+Edit an existing channel
+
+* Require Authentication: true
+* Request
+  * Method: PUT
+  * URL: /api/channels/<channel_id>
+  * Body:
+
+    ```json
+    {
+        "name": "edited channel",
+    }
+    ```
+
+
+### Delete Channel
+Deletes a channel
+
+* Require Authentication: true
+* Request
+  * Method: DELETE
+  * URL: /api/channels/<channel_id>
+  * Body: none
 
 
 
