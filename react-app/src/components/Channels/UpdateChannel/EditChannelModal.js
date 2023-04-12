@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { updateChannelThunk } from "../../../store/channel";
 // I want to send is Channel True and workspace_id current workspace we are in
 
-function UpdateChannelForm({ workspaceId }) {
+function EditChannelModal({ workspaceId }) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [errors, setErrors] = useState({});
@@ -66,4 +66,4 @@ function UpdateChannelForm({ workspaceId }) {
   );
 }
 
-export default UpdateChannelForm;
+export default EditChannelModal;

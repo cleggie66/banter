@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import UpdateChannelForm from "./UpdateChannelForm";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import ChannelDisplay from "./ChannelDisplay";
 const UpdateChannel = () => {
