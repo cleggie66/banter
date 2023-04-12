@@ -10,7 +10,12 @@ const UpdateChannel = () => {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
-  console.log(sessionUser.joined_channels);
+  console.log('hello', sessionUser.joined_channels);
+
+  // const correctChannels = sessionUser.joined_channels
+  const correctChannels = sessionUser.joined_channels.filter(
+    (e) =>  e.is_channel === true
+  );
 
   if (!sessionUser) {
     history.push(`/home`);
@@ -28,7 +33,7 @@ const UpdateChannel = () => {
       {/* have an update or delete button on each  */}
       {/* these also should only be is_channel=true  */}
       <h1>Your Channels </h1>
-      {sessionUser.joined_channels.map((channel) => (
+      {correctChannels.map((channel) => (
         <ChannelDisplay
           key={channel.id}
           channel={channel}

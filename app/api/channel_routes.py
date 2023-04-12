@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, request
-from app.models import Channel, User, channel_member, db
+from app.models import Channel, User, Message, channel_member, db
 from app.models.channel_member import channel_members
 from flask_login import current_user, login_required
 from flask_wtf.csrf import CSRFProtect, generate_csrf
@@ -32,6 +32,16 @@ def get_all_channels():
     user = User.query.filter(User.id == current_user.id).first()
     channels = user.joined_channels
     return [channel.to_dict_no_messages() for channel in channels]
+
+
+# * -----------  GET  --------------
+#  Returns all messages in a channel
+
+@channel_routes.route('/<channel_id>')
+@login_required
+def get_channel_messages(channel_id):
+    messages = Message.query.filter(Message.channel_id == channel_id)
+    return [message.to_dict_simple() for message in messages]
 
 
 # TODO -----------  POST  --------------
@@ -79,11 +89,20 @@ def update_channel(channel_id):
 
 
 # ! -----------  DELETE  --------------
-@channel_routes.route('/<int:id>', methods=['DELETE'])
+@channel_routes.route('/<channel_id>', methods=['DELETE'])
 @login_required
-def delete_channel_by_id(id):
-    channel = Channel.query.get(id)
+def delete_channel_by_id(channel_id):
+    channel = Channel.query.get(channel_id)
 
+    if not channel:
+        return {"message": "channel not found"}, 404
+
+    channel_member_ids = [users.id for users in channel.users_in_channels]
+
+    if current_user.id not in channel_member_ids:
+        return {"message": "User is not in channel"}, 401
+
+    pog(channel)
     db.session.delete(channel)
     db.session.commit()
 
