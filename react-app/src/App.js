@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard/Dashboard"
 import HomePage from "./components/HomePage";
 import CreateChannel from "./components/Channels/CreateChannel";
 import UpdateChannel from "./components/Channels/UpdateChannel";
+import LoadingPage from "./components/LoadingPage";
 import WorkspaceForm from "./components/Workspaces/WorkspaceForm";
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/workspaces">
             <WorkspacesIndex />
+          </Route>
+          <Route path="/loading">
+            <LoadingPage />
           </Route>
           <Route path="/">
             <HomePage />
