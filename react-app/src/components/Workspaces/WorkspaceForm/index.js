@@ -53,7 +53,10 @@ const WorkspaceForm = () => {
                 <div className="form-field">
                     {hasSubmitted && validationErrors.includes('Please enter a name for your new workspace') && <p className="error">Please enter a name for your new workspace</p>}
                     {hasSubmitted && validationErrors.includes('Please enter a name between 1 and 50 characters') && <p className="error">Please enter a name between 1 and 50 characters</p>}
+                    <h1 id="name-title-text" className="title-text">What’s the name of your company or team?</h1>
+                    <p id="icon-title-text" className="title-text">This will be the name of your Banter workspace — choose something that your team will recognize.</p>
                     <input
+                        className="text-input-workspace"
                         type="text"
                         placeholder="Workspace Name"
                         value={name}
@@ -65,13 +68,14 @@ const WorkspaceForm = () => {
                     {hasSubmitted && validationErrors.includes('Please enter a link that is no larger than 255 characters') && <p className="error">Please enter a link that is no larger than 255 characters</p>}
                     {hasSubmitted && validationErrors.includes('Please enter a valid image URL ending in .png, .jpg, or .jpeg') && <p className="error">Please enter a link that is a proper image file (ie. jpg, jpeg, png, etc.)</p>}
                     <input
+                        className="text-input-workspace"
                         type="text"
                         placeholder="Icon Image Link"
                         value={icon}
                         onChange={(e) => setIcon(e.target.value)}
                     />
                 </div>
-                <button type="submit">Create Workspace</button>
+                <button className="create-workspace-button" type="submit">Create Workspace</button>
             </form>
         </div>
     );
