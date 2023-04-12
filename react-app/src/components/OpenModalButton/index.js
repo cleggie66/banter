@@ -22,7 +22,7 @@ function OpenModalButton({
     {buttonText === 'TRY FOR FREE' &&(<button className='sign-up-button'onClick={onClick}>{buttonText}</button>)}
     {buttonText === 'delete' &&(<button className='delete-channel-button'onClick={onClick}>{buttonText}</button>)}
     {buttonText === 'userIcon' &&(<button className='user-icon-button'onClick={onClick}>{buttonText}</button>)}
-    {buttonText === 'edit' &&(<button className='user-icon-button'onClick={onClick}>{buttonText}</button>)}
+    {buttonText === 'edit' &&(<button className='edit-channel-button'onClick={onClick}>{buttonText}</button>)}
 
 
 
