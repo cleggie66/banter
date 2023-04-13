@@ -1,29 +1,15 @@
-body {
-    font-family: sans-serif;
-}
-
 .workspace-form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-right: 6em;
     height: 100vh;
     width: 110%;
     background-color: #1b1d21;
 }
 
-
-input[type="text"] {
-    background-color: #222529;
-    padding-left: 2em;
-    color: #ababad;
-}
-
-input[type="text"]::placeholder {
-    color: #ababad;
-}
-
+.channel-name-label,
 .title-text {
     color: #d1d2d3;
 }

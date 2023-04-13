@@ -4,8 +4,31 @@ html {
 
 body {
     margin: 0;
+    font-family: sans-serif;
 }
 
 button {
     cursor: pointer;
+}
+
+input[type="text"] {
+    background-color: #222529;
+    padding-left: 2em;
+    color: #ababad;
+}
+
+input[type="text"]::placeholder {
+    color: #ababad;
+}
+
+input[type="password"] {
+    background-color: #222529;
+    padding-left: 2em;
+    color: #ababad;
+}
+
+input[type="password"]::placeholder {
+    background-color: #222529;
+    padding-left: 2em;
+    color: #ababad;
 }
