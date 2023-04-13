@@ -1,10 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-<<<<<<< HEAD
-from app.models import User, Workspace
-=======
 from app.models import User, Workspace, Channel
->>>>>>> routes_users_delete_debug
 from app import db
 import random
 
