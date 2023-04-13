@@ -51,7 +51,7 @@
     border: 2px solid #214357;
     border-radius: 2em;
     box-shadow: 0 0 20px #1f3645;
-  }
+}
 
 .login-form {
     display: flex;
@@ -64,4 +64,3 @@
 #login-title {
     margin-top: 1.2em;
 }
-

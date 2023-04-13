@@ -9,6 +9,7 @@ function LoginFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
   const history = useHistory();
@@ -23,6 +24,11 @@ function LoginFormModal() {
         closeModal()
         history.push("/")
     }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    setShowPassword(true);
   };
 
   return (
@@ -54,9 +60,9 @@ function LoginFormModal() {
             <div className="login-input">
               <input
                 className="text-input-login"
-                type="password"
+                type={showPassword ? "password" : "text"}
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={handlePasswordChange}
                 required
               />
             </div>
