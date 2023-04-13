@@ -1,7 +1,8 @@
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
-const LOAD_USER = "session/LOAD_USER";
+const UPDATE_USER = "session/UPDATE_USER";
+const DELETE_USER = "session/DELETE_USER";
 
 export const setUser = (user) => ({
   type: SET_USER,
@@ -12,7 +13,15 @@ const removeUser = () => ({
   type: REMOVE_USER,
 });
 
-const initialState = { user: null };
+const updateUser = (updatedUserData) => ({
+  type: UPDATE_USER,
+  payload: updatedUserData,
+});
+
+const deleteUser = (userId) => ({
+  type: DELETE_USER,
+  payload: userId,
+});
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch("/api/auth/", {
@@ -110,12 +119,47 @@ export const refreshUser = (userId) => async (dispatch) => {
   }
 };
 
+export const updateUserThunk = (newUserData, userId) => async (dispatch) => {
+  try {
+    const response = await fetch(`/api/users/${userId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newUserData),
+    });
+    const data = await response.json();
+    const normalizedUserData = {};
+    normalizedUserData[data.id] = data;
+    dispatch(updateUser(normalizedUserData));
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteChannelThunk = (userId) => async (dispatch) => {
+  const response = await fetch(`/api/users/${userId}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    dispatch(deleteUser(userId));
+  }
+};
+
+const initialState = { user: null };
+
 export default function reducer(state = initialState, action) {
+  let newState = { ...state };
   switch (action.type) {
     case SET_USER:
       return { user: action.payload };
     case REMOVE_USER:
       return { user: null };
+    case UPDATE_USER:
+      return { ...state, ...action.payload };
+    case DELETE_USER:
+      delete newState[action.payload];
+      return newState;
     default:
       return state;
   }

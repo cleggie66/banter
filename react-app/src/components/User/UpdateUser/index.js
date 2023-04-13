@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 //todo each entry should really be a modal calling the same thunk...
 
-
-function UpdateUserForm({ user }) {
+function UpdateUserForm({ sessionUser }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,21 +18,7 @@ function UpdateUserForm({ user }) {
   const [title, setTitle] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [errors, setErrors] = useState({});
-
-  // ! Needs to be populated with currrent user information from
-  // ! current user
-  //   ! How to prefill values???? I forgot this on my airbnb lol
-
-
-
-
-
-
-  
-  //   const [errors, setErrors] = useState({});
-    const [hasSubmitted, setHasSubmitted] = useState(false);
-  //   const history = useHistory();
-  //   const sessionUser = useSelector((state) => state.session.user);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleInputErrors = () => {
     const errorsObj = {};
@@ -61,29 +47,36 @@ function UpdateUserForm({ user }) {
     setErrors(errorsObj);
   };
 
-  //   useEffect(() => {
-  //     handleInputErrors();
-  //   }, [name]);
+  useEffect(() => {
+    handleInputErrors();
+  }, [username, email, password, confirmPassword, firstName, lastName, title]);
+
+  // --------------------------------------------------------------------
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    // if (!Object.values(errors).length) {
-    //   const channelInformation = {
-    //     name,
-    //     workspace_id: Number(workspaceId),
-    //     is_channel: true,
-    //   };
+    if (!Object.values(errors).length) {
+      const userInformation = {
+        username,
+        email,
+        password,
+        firstName,
+        lastName,
+        title,
+        aboutMe,
+      };
 
-    //   let newChannel = await dispatch(createChannelThunk(channelInformation));
-    //   dispatch(refreshUser(sessionUser.id));
+      // let updatedUser = await dispatch(
+      //   updateUserThunk(userInformation, sessionUser.id)
+      // );
+      // dispatch(refreshUser(sessionUser.id));
 
-    //   // console.log("big sends", newChannel)
-    //   history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
-    // }
-    // setHasSubmitted(true);
+      history.push(`/profile/${sessionUser.id}`);
+    }
+    setHasSubmitted(true);
   };
-  console.log(user);
+
   return (
     <>
       <form onSubmit={handleFormSubmit}>
@@ -93,22 +86,26 @@ function UpdateUserForm({ user }) {
             type="text"
             value={username}
             // style={{ backgroundColor: "white" }}
-            placeholder={user.username}
+            placeholder={sessionUser.username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.username && <p className="errors">{errors.username}</p>}
+        {hasSubmitted && errors.username && (
+          <p className="errors">{errors.username}</p>
+        )}
         <label>
           email
           <input
             type="text"
             value={email}
             // style={{ backgroundColor: "white" }}
-            placeholder={user.email}
+            placeholder={sessionUser.email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.email && <p className="errors">{errors.email}</p>}
+        {hasSubmitted && errors.email && (
+          <p className="errors">{errors.email}</p>
+        )}
         <label>
           password
           <input
@@ -118,7 +115,9 @@ function UpdateUserForm({ user }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.password && <p className="errors">{errors.password}</p>}
+        {hasSubmitted && errors.password && (
+          <p className="errors">{errors.password}</p>
+        )}
         <label>
           Confirm Password
           <input
@@ -128,29 +127,35 @@ function UpdateUserForm({ user }) {
             onChange={(e) => setCofirmPassword(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.confirmPassword && <p className="errors">{errors.confirmPassword}</p>}
+        {hasSubmitted && errors.confirmPassword && (
+          <p className="errors">{errors.confirmPassword}</p>
+        )}
         <label>
           First Name
           <input
             type="text"
             value={firstName}
-            placeholder={user.first_name}
+            placeholder={sessionUser.first_name}
             // style={{ backgroundColor: "white" }}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.firstName && <p className="errors">{errors.firstName}</p>}
+        {hasSubmitted && errors.firstName && (
+          <p className="errors">{errors.firstName}</p>
+        )}
         <label>
           Last Name
           <input
             type="text"
             value={lastName}
-            placeholder={user.last_name}
+            placeholder={sessionUser.last_name}
             // style={{ backgroundColor: "white" }}
             onChange={(e) => setLastName(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.lastName && <p className="errors">{errors.lastName}</p>}
+        {hasSubmitted && errors.lastName && (
+          <p className="errors">{errors.lastName}</p>
+        )}
         <label>
           Profile Picture
           <input
@@ -161,34 +166,40 @@ function UpdateUserForm({ user }) {
             onChange={(e) => setProfilePicture(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.profilePicture && <p className="errors">{errors.profilePicture}</p>}
+        {hasSubmitted && errors.profilePicture && (
+          <p className="errors">{errors.profilePicture}</p>
+        )}
         <label>
           Title
           <url
             type="text"
             value={title}
-            placeholder={user.title}
+            placeholder={sessionUser.title}
             // style={{ backgroundColor: "white" }}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.title && <p className="errors">{errors.title}</p>}
+        {hasSubmitted && errors.title && (
+          <p className="errors">{errors.title}</p>
+        )}
         <label>
           About Me
           <textarea
             type="text"
             value={aboutMe}
-            placeholder={user.about_me}
+            placeholder={sessionUser.about_me}
             // style={{ backgroundColor: "white" }}
             onChange={(e) => setAboutMe(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.aboutMe && <p className="errors">{errors.aboutMe}</p>}
+        {hasSubmitted && errors.aboutMe && (
+          <p className="errors">{errors.aboutMe}</p>
+        )}
         <input
           type="submit"
           value={"Save Changes"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
-        /> 
+        />
       </form>
     </>
   );

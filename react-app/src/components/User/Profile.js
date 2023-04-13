@@ -30,7 +30,7 @@ const ProfilePage = () => {
     <div>
       <h1>Your Profile 💁‍♀️ </h1>
       
-      <UpdateUserForm user={sessionUser}/>
+      <UpdateUserForm sessionUser={sessionUser}/>
       <OpenModalButton
             buttonText="Delete My Account"
             modalComponent={<DeleteUserModal />}
