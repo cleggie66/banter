@@ -22,15 +22,17 @@ const MessageForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="textarea"
-                placeholder="Type your message here..."
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-            />
-            <button type="submit">Send Message</button>
-        </form>
+        <div className="create-message-form">
+            <form onSubmit={handleSubmit} id="form-1">
+                <input
+                    type="textarea"
+                    placeholder="Type your message here..."
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                />
+            </form>
+            <button type="submit" form="form-1">Send Message</button>
+        </div>
     )
 }
 

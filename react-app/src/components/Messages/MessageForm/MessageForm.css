@@ -1,0 +1,13 @@
+.create-message-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.create-message-form>button {
+    background-color: rgb(27 29 33);
+    color: rgb(175 176 177);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid white;
+}

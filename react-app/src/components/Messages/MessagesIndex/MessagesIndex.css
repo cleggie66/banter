@@ -49,7 +49,6 @@
 }
 
 .message-buttons>button {
-    justify-self: flex-end;
     background-color: rgb(27 29 33);
     color: rgb(175 176 177);
     margin: 10px;
