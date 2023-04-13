@@ -36,3 +36,8 @@ input[type="password"]::placeholder {
     padding-left: 2em;
     color: #ababad;
 }
+
+#modal-content {
+    background-color: #1b1d21;
+    padding: 1em;
+}
