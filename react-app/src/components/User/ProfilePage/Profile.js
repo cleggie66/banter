@@ -11,6 +11,7 @@ import EditProfilePictureModal from "./ProfilePictureModal";
 
 import "./Profile.css";
 import EditUsernameModal from "./UsernameModal";
+import EditNameModal from "./NameModal";
 
 const ProfilePage = () => {
   const history = useHistory();
@@ -28,6 +29,9 @@ const ProfilePage = () => {
   const handleUserNameEdit = () => {
     setModalContent(<EditUsernameModal sessionUser={sessionUser} />);
   };
+  const handleFirstNameEdit = () => {
+    setModalContent(<EditNameModal sessionUser={sessionUser} />);
+  };
 
   return (
     <div className="profile-page-container">
@@ -44,11 +48,21 @@ const ProfilePage = () => {
           className="edit-profile-picture"
         />
       </div>
-      <div>
-        <div>{sessionUser.username}</div>
+      <div className="username-container">
+        <div>{`Username:  ${sessionUser.username}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleUserNameEdit}
+          // className=""
+        />
+      </div>
+      <div className="name-container">
+        <div>{`First name:  ${sessionUser.first_name}`}</div>
+        <div>{`Last name:  ${sessionUser.last_name}`}</div>
+
+        <FontAwesomeIcon
+          icon={faUserPen}
+          onClick={handleFirstNameEdit}
           // className=""
         />
       </div>

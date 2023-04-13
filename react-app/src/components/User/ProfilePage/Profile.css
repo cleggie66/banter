@@ -3,20 +3,27 @@ display: flex;
 flex-direction: column;
 }
 
-
-/* 
-.profile-picture-container{
-
-
-} */
-
-.edit-profile-picture{
-    color:red
+.username-container{
+    display: flex;
 }
+
+
+.name-container{
+    display: flex;
+}
+
 
 
 
 .profile-page-picture{
 height:100px;
 width:100px;
+}
+
+
+
+/* EDIT BUTTONS YO  */
+/* --------------------------------------------------- */
+.edit-profile-picture{
+    color:red
 }
