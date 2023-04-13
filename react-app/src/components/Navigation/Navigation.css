@@ -12,3 +12,10 @@
   border: none;
   background: none;
 }
+
+
+.main-nav-logged-out {
+  background-color: #F6EFE8;
+  width: 100vw;
+  margin-bottom: 2rem;
+}

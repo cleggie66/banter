@@ -3,8 +3,6 @@
     margin: 0;
     width: 100%;
     flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
 }
 
 .home-page-main-section-logged-out {
@@ -14,15 +12,13 @@
     height: 100vh;
     width: 100vw;
     margin: 0;
-    display: grid;
-    grid-template-columns: 48% 48%;
-    justify-content: space-around;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
 }
 
 .home-page-main-section-logged-out-left {
     text-align: left;
-    margin-right: 0;
+    margin-left: 20%;
     width: 100%;
 }
 
@@ -91,7 +87,8 @@
     margin-right: 5px;
 }
 
-.test {
-    display: flex;
-    align-items: center;
+
+.home-page-main-section-logged-out-right {
+    margin-right: 20%;
+    width: 100%;
 }

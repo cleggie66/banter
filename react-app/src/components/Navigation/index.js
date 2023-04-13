@@ -56,7 +56,7 @@ function Navigation({ isLoaded }) {
         </>
       )}
       {homePage && !sessionUser && (
-        <>
+        <div className="main-nav-logged-out">
           <DemoLogin />
           <OpenModalButton
             buttonText="SIGN IN"
@@ -66,7 +66,7 @@ function Navigation({ isLoaded }) {
             buttonText="TRY FOR FREE"
             modalComponent={<SignupFormModal />}
           />
-        </>
+        </div>
       )}
       {!homePage && sessionUser && (
         <div className="dashboard-navbar-container">

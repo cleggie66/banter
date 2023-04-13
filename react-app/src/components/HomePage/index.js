@@ -32,7 +32,7 @@ const HomePage = () => {
           />
           </div>
           </div>
-          <div className="home-page-main-section-logged-out-left">
+          <div className="home-page-main-section-logged-out-right">
           <img className='home-page-main-section-logged-out-image'src={arnold}/>
           </div>
 
