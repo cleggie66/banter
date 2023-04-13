@@ -9,7 +9,7 @@ import { useHistory, useParams } from "react-router-dom";
 
 function UserIconModal() {
   const sessionUser = useSelector((state) => state.session.user);
-  console.log(sessionUser.id);
+
 
   const dispatch = useDispatch();
   const { closeModal } = useModal();

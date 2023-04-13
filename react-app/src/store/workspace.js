@@ -1,12 +1,12 @@
-import { clearActiveChannelThunk } from "./activeChannel"
+import { clearActiveChannelThunk } from "./activeChannel";
 
 const normalizer = (data) => {
-  const obj = {}
+  const obj = {};
   data.forEach((item) => {
-    obj[item.id] = item
-  })
-  return obj
-}
+    obj[item.id] = item;
+  });
+  return obj;
+};
 
 const LOAD_WORKSPACES = "workspaces/LOAD_WORKSPACES";
 const CREATE_WORKSPACE = "workspaces/CREATE_WORKSPACE";
@@ -48,7 +48,7 @@ export const getWorkspaceByIdThunk = (workspaceId) => async (dispatch) => {
   if (response.ok) {
     const singleWorkspaceData = await response.json();
     const normalizedWorkspaceData = {
-      [singleWorkspaceData.id]: singleWorkspaceData
+      [singleWorkspaceData.id]: singleWorkspaceData,
     };
     dispatch(loadWorkspaces(normalizedWorkspaceData));
   }
@@ -63,10 +63,10 @@ export const createWorkspaceThunk = (newWorkspaceData) => async (dispatch) => {
     });
     const data = await response.json();
     const normalizedWorkspaceData = {
-      [data.id]: data
+      [data.id]: data,
     };
     dispatch(createWorkspace(normalizedWorkspaceData));
-    dispatch(clearActiveChannelThunk())
+    dispatch(clearActiveChannelThunk());
     return data;
   } catch (error) {
     console.log(error);
@@ -83,7 +83,7 @@ export const updateWorkspaceThunk =
       });
       const data = await response.json();
       const normalizedWorkspaceData = {
-        [data.id]: data
+        [data.id]: data,
       };
       dispatch(updateWorkspace(normalizedWorkspaceData));
       return data;
@@ -101,7 +101,6 @@ export const deleteWorkspaceThunk = (workspaceId) => async (dispatch) => {
     dispatch(deleteWorkspace(workspaceId));
   }
 };
-
 
 const initialState = {};
 

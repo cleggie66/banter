@@ -8,7 +8,6 @@ const UpdateChannel = () => {
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
-  console.log("hello", sessionUser.joined_channels);
 
   const correctChannels = sessionUser.joined_channels.filter(
     (e) => e.is_channel === true

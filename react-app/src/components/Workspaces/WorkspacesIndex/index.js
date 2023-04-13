@@ -13,18 +13,8 @@ const WorkspacesIndex = () => {
 
   useEffect(() => {
     dispatch(getAllWorkspacesThunk());
-    dispatch(clearActiveChannelThunk())
+    dispatch(clearActiveChannelThunk());
   }, [dispatch]);
-
-
-
-  console.log(allWorkspaces);
-  // const allOwnedWorkspaces = allWorkspaces.filter(
-  //     (e) => sessionUser.id === e.owner_id
-  //   );
-  //   console.log(allOwnedWorkspaces)
-
-  // if (!allWorkspaces) return null;
 
   return (
     <>

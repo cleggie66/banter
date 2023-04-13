@@ -53,7 +53,6 @@ export const createChannelThunk = (newChannelData) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newChannelData),
     });
-    console.log("hey response here", response)
 
     const data = await response.json();
     const normalizedChannelData = {};
@@ -87,13 +86,11 @@ export const deleteChannelThunk = (channelId) => async (dispatch) => {
   const response = await fetch(`/api/channels/${channelId}`, {
     method: "DELETE",
   });
-  console.log('hey there bb', response)
 
   if (response.ok) {
     dispatch(deleteChannel(channelId));
   }
 };
-
 
 const initialState = {};
 
