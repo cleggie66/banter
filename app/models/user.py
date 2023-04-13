@@ -13,10 +13,10 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     hashed_password = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False, unique=True)
-    first_name = db.Column(db.String, nullable=False)
-    last_name = db.Column(db.String, nullable=False)
-    profile_picture = db.Column(db.String, nullable=False)
-    title = db.Column(db.String(55), nullable=False)
+    first_name = db.Column(db.String)
+    last_name = db.Column(db.String)
+    profile_picture = db.Column(db.String)
+    title = db.Column(db.String(55))
     about_me = db.Column(db.Text)
 
     # * Relationships 💚

@@ -10,6 +10,10 @@ function SignupFormPage() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
+  const [aboutMe, setAboutMe] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
@@ -34,6 +38,24 @@ function SignupFormPage() {
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
+        <label>
+          First Name
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Last Name
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </label>
         <label>
           Email
           <input
@@ -68,6 +90,22 @@ function SignupFormPage() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
+          />
+        </label>
+        <label>
+          Profile Picture
+          <input
+            type="text"
+            value={profilePicture}
+            onChange={(e) => setProfilePicture(e.target.value)}
+          />
+        </label>
+        <label>
+          About Me
+          <input
+            type="text"
+            value={aboutMe}
+            onChange={(e) => setAboutMe(e.target.value)}
           />
         </label>
         <button type="submit">Sign Up</button>

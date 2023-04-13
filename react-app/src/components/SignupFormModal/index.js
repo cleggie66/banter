@@ -8,6 +8,10 @@ function SignupFormModal() {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [profilePicture, setProfilePicture] = useState("");
+	const [aboutMe, setAboutMe] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
@@ -16,7 +20,7 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			const data = await dispatch(signUp(username, email, password, firstName, lastName, profilePicture, aboutMe));
 			if (data) {
 				setErrors(data);
 			} else {
@@ -38,6 +42,24 @@ function SignupFormModal() {
 						<li key={idx}>{error}</li>
 					))}
 				</ul>
+				<label>
+          First Name
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Last Name
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </label>
 				<label>
 					Email
 					<input
@@ -74,6 +96,22 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
+				<label>
+          Profile Picture
+          <input
+            type="text"
+            value={profilePicture}
+            onChange={(e) => setProfilePicture(e.target.value)}
+          />
+        </label>
+        <label>
+          About Me
+          <input
+            type="text"
+            value={aboutMe}
+            onChange={(e) => setAboutMe(e.target.value)}
+          />
+        </label>
 				<button type="submit">Sign Up</button>
 			</form>
 		</>
