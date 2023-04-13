@@ -1,0 +1,9 @@
+* {
+    background-color: rgb(27 29 33);
+    color: white;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+}

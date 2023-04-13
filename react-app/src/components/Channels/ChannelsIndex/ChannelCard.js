@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { loadActiveChannelThunk } from "../../../store/activeChannel";
+import "./ChannelCard.css"
 
 const ChannelCard = ({ channel }) => {
   const history = useHistory();
@@ -13,8 +14,9 @@ const ChannelCard = ({ channel }) => {
   };
 
   return (
-    <div onClick={handleCardClick}>
-      <h2>{`# ${channel.name}`}</h2>
+    <div className="channel-list-item" onClick={handleCardClick}>
+      <h2>#</h2>
+      <h2>{channel.name}</h2>
     </div>
   );
 };

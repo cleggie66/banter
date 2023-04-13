@@ -6,6 +6,7 @@ import ActiveWorkspace from "../Workspaces/ActiveWorkspace";
 import MessagesIndex from "../Messages/MessagesIndex";
 import MessageForm from "../Messages/MessageForm";
 import LoadingPage from "../LoadingPage";
+import "./Dashboard.css"
 
 const Dashboard = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -28,14 +29,18 @@ const Dashboard = () => {
   const homepage = !window.location.pathname.includes("/dashboard");
 
   return (
-    <div>
+    <div className="page">
       {sessionUser && (
         <>
           <LoadingPage visibility={loadingVisibility} />
-          <ActiveWorkspace />
-          <ChannelsIndex />
-          <MessagesIndex />
-          <MessageForm />
+          <div className="left-bar">
+            <ActiveWorkspace />
+            <ChannelsIndex />
+          </div>
+          <div className="right-bar">
+            <MessagesIndex />
+            <MessageForm />
+          </div>
         </>
       )}
       {/* {!sessionUser && !homepage && (
