@@ -136,10 +136,12 @@ export const updateUserThunk = (newUserData, userId) => async (dispatch) => {
   }
 };
 
-export const deleteChannelThunk = (userId) => async (dispatch) => {
+export const deleteUserThunk = (userId) => async (dispatch) => {
   const response = await fetch(`/api/users/${userId}`, {
     method: "DELETE",
   });
+
+  console.log(response)
 
   if (response.ok) {
     dispatch(deleteUser(userId));

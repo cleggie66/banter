@@ -78,24 +78,30 @@ def delete_user(id):
     if user.id != current_user.id:
         return {"message": "Unauthorized"}, 401
 
-    workspaces = Workspace.query.filter(Workspace.owner_id == user.id).all()
-    workspace_users = [workspace.users_in_workspaces for workspace in workspaces]
+
+    # todo **********************************
+    # workspaces = Workspace.query.filter(Workspace.owner_id == user.id).all()
+    # workspace_users = [workspace.users_in_workspaces for workspace in workspaces]
+
+    # pog(workspace_users)
 
 
-    if len(workspace_users) <= 1:
-        return {"message": "no other user to assign ownership to"}
+
+    # if len(workspace_users) <= 1:
+    #     return {"message": "no other user to assign ownership to"}
 
 
-    for workspace in workspaces:
-        for workspace_user in workspace.users_in_workspaces:
-            if workspace_user.id == user.id:
-                continue
-            else:
-                workspace.owner_id = workspace_user.id
-                db.session.commit()
+    # for workspace in workspaces:
+    #     for workspace_user in workspace.users_in_workspaces:
+    #         if workspace_user.id == user.id:
+    #             continue
+    #         else:
+    #             workspace.owner_id = workspace_user.id
+    #             db.session.commit()
+    # todo **********************************
 
 
     db.session.delete(user)
     db.session.commit()
 
-    return 'User deleted successfully', 200
+    return {"message": "Successfully Deleted!"}, 200
