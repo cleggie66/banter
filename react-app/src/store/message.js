@@ -87,6 +87,7 @@ export const updateMessageThunk =
         [data.id]: data
       };
       dispatch(updateMessage(normalizedMessageData));
+      dispatch(loadActiveChannelThunk(data.channel_id))
       return data;
     } catch (error) {
       console.log(error);
