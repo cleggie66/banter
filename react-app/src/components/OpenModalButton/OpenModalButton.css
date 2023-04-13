@@ -21,9 +21,20 @@
     color: #EBB22E
 }
 
+
 .edit-submit-form {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.channel-modal-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#channel-modal-form {
+    margin-bottom: 0;
+}
