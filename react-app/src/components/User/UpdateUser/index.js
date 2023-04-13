@@ -24,7 +24,7 @@ function UpdateUserForm({ user }) {
   //   ! How to prefill values???? I forgot this on my airbnb lol
 
   //   const [errors, setErrors] = useState({});
-  //   const [hasSubmitted, setHasSubmitted] = useState(false);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
   //   const history = useHistory();
   //   const sessionUser = useSelector((state) => state.session.user);
 
@@ -109,7 +109,6 @@ function UpdateUserForm({ user }) {
             type="text"
             value={password}
             // style={{ backgroundColor: "white" }}
-            placeholder={user.password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
@@ -120,7 +119,6 @@ function UpdateUserForm({ user }) {
             type="text"
             value={confirmPassword}
             // style={{ backgroundColor: "white" }}
-            placeholder={user.confirmPassword}
             onChange={(e) => setCofirmPassword(e.target.value)}
           />
         </label>
