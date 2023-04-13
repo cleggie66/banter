@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LoadingIcon from "../../LoadingPage/LoadingIcon";
 import { useModal } from "../../../context/Modal";
 import EditMessageModal from "../EditMessageModal";
+import DeleteMessageModal from "../DeleteMessageModal";
 import OpenModalButton from "../../OpenModalButton";
 import "./MessagesIndex.css"
 
@@ -12,9 +13,9 @@ function MessagesIndex() {
     const messages = activeChannel.channel_messages;
     const { openModal } = useModal();
   
-    const handleEditClick = (message) => {
-      openModal(<EditMessageModal message={message} />);
-    };
+    // const handleEditClick = (message) => {
+    //   openModal(<EditMessageModal message={message} />);
+    // };
   
     if (!messages) {
       return <LoadingIcon />;
@@ -42,10 +43,16 @@ function MessagesIndex() {
                 <OpenModalButton
                     buttonText="edit"
                     modalComponent={
-                    <EditMessageModal message={message} />
+                        <EditMessageModal message={message} />
                     }
                 />
-                <button>Delete</button>
+                {/* <button>Delete</button> */}
+                <OpenModalButton
+                    buttonText="delete"
+                    modalComponent={
+                        <DeleteMessageModal message={message} />
+                    }
+                />
               </div>
             )}
           </div>
