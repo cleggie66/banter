@@ -41,6 +41,10 @@
 
 #modal-buttons {
     margin-right: 4.5em;
+    margin-bottom: 1em;
     width: 8em;
 }
 
+.channel-modal-border {
+    border-bottom: solid 1px;
+}
