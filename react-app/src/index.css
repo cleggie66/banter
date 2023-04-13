@@ -1,1 +1,29 @@
 /* TODO Add site wide styles */
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+
+  input[type="text"] {
+      background-color: #222529;
+      padding-left: 2em;
+      color: #ababad;
+  }
+  
+  input[type="text"]::placeholder {
+      color: #ababad;
+  }
+  
+  input[type="password"] {
+      background-color: #222529;
+      padding-left: 2em;
+      color: #ababad;
+  }
+  
+  input[type="password"]::placeholder {
+      background-color: #222529;
+      padding-left: 2em;
+      color: #ababad;
+  }
