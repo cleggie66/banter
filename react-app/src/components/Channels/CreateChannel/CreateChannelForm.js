@@ -15,7 +15,6 @@ function CreateChannelForm({ workspaceId }) {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
-
   const handleInputErrors = () => {
     const errorsObj = {};
     if (name.length === 0) {
@@ -39,7 +38,7 @@ function CreateChannelForm({ workspaceId }) {
       };
 
       let newChannel = await dispatch(createChannelThunk(channelInformation));
-      dispatch(refreshUser(sessionUser.id))
+      dispatch(refreshUser(sessionUser.id));
 
       // console.log("big sends", newChannel)
       history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
@@ -58,7 +57,6 @@ function CreateChannelForm({ workspaceId }) {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
           />
         </label>
         <p></p>

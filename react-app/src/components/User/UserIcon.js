@@ -2,41 +2,84 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory, useParams } from "react-router-dom";
-
-// !  USER NEEDS TO BE REFACTORED TO SHOW UP ON DASHBOARD LATER
-// ! FOR NOW IT WILL JUST OPEN A NEW PAGE FOR SIMPLICITY
-// When you click a user name it should show their profile on the right...
+import { getWorkspaceByIdThunk } from "../../store/workspace";
+import "./UserModal.css";
+// todo  USER NEEDS TO BE REFACTORED TO SHOW UP ON DASHBOARD LATER
+// todo  NOW IT WILL JUST OPEN A NEW PAGE FOR SIMPLICITY
+// todo  When you click a user name it should show their profile on the right...
 
 function UserIconModal() {
-  const sessionUser = useSelector((state) => state.session.user);
-
-
   const dispatch = useDispatch();
-  const { closeModal } = useModal();
   const history = useHistory();
+  const { closeModal } = useModal();
+  // const { workspaceId } = useParams();
+  const sessionUser = useSelector((state) => state.session.user);
+  const currentWorkspace = useSelector((state) => state.workspaces);
 
-  //   const { workspaceId } = useParams();
+  // todo potential idea to grab path name
+  // todo create a split function that grabs the first /number to identify workspace
+  // todo worry is that /number is just a string Number=True ????
 
   // useEffect(() => {
   //   dispatch(getWorkspaceByIdThunk(workspaceId));
   // }, [dispatch, workspaceId]);
 
-  // !
-  // const handleProfileClick = (e) => {
-  //   e.preventDefault();
-  //   history.push(`/profile/${sessionUser.id}`);
-  //   closeModal();
-  // };
+  // const WorkspaceName = currentWorkspace[workspaceId].name
+  // ! Nav bar how to access workspace Id? Can't use Params for some reason
+  const handleStatusClick = (e) => {
+    e.preventDefault();
+    window.alert("Status Coming Soon!");
+  };
+  // grab workspaces.name
+
+  const handleProfileClick = (e) => {
+    e.preventDefault();
+    history.push(`/profile/${sessionUser.id}`);
+    closeModal();
+  };
+
+  const handleSignOutWorkspace = (e) => {
+    e.preventDefault();
+    history.push(``);
+    closeModal();
+  };
+
+  // ! Cant grab workspace id from param
 
   return (
     <>
-      {/* <button onClick={handleProfileClick}>Create</button> */}
-      <div>user Image</div>
-      <div>user first name // user last name</div>
-      <div> user status</div>
-      <button>Profile</button>
-      <p></p>
-      <button>Sign out of workspace.name</button>
+      <div className="user-image-container-modal">
+        <img
+          src={
+            sessionUser.profile_picture === null
+              ? sessionUser.name[0]
+              : sessionUser.profile_picture
+          }
+          alt="User Image"
+          className="profile-picture-modal"
+          // this might want an active or not active class ternary to style letter for Profile pic
+        />
+        <div className="user-modal-name-status-container">
+          <div>
+            {sessionUser.first_name}
+            {sessionUser.last_name}
+          </div>
+          <div className="status-container">
+            <button className="status-button" onClick={handleStatusClick}>
+              🟢{" "}
+            </button>
+            <div className="status">Active</div>
+          </div>
+        </div>
+      </div>
+      <button className="user-profile-button" onClick={handleProfileClick}>
+        Profile
+      </button>
+      <button
+        className="user-icon-modal-sign-out-button"
+        onClick={handleSignOutWorkspace}
+      >{`Sign out of Workspace`}</button>
+      {/* ${WorkspaceName} */}
     </>
   );
 }
