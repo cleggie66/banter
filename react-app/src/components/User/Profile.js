@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import DeleteUserModal from "./DeleteUser";
+import OpenModalButton from "../OpenModalButton";
 // import { useSelector, useDispatch } from "react-redux";
 // import { useHistory, useParams } from "react-router-dom";
 // import { getWorkspaceByIdThunk } from "../../../store/workspace";
@@ -28,7 +30,10 @@ const ProfilePage = () => {
       <h1>Your Profile 💁‍♀️ </h1>
      
       {/* add form for updating profile */}
-      <button>Delete My Profile</button>
+      <OpenModalButton
+            buttonText="Delete My Account"
+            modalComponent={<DeleteUserModal />}
+          />
     </div>
   );
 };
