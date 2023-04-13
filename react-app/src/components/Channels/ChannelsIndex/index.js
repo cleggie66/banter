@@ -35,7 +35,6 @@ const ChannelsIndex = () => {
   const correctChannels = allChannels.filter(
     (e) => (Number(workspaceId) === e.workspace_id) && ( e.is_channel === true)
   );
-  // console.log(correctChannels)
 
   // Arrow drop down
   const handleMenuClick = (e) => {

@@ -14,8 +14,7 @@ const ActiveWorkspace = () => {
   const activeWorkspace = useSelector((state) => state.workspaces);
   const newActiveWorkspace = activeWorkspace[workspaceId];
 
-  //   console.log("WORKSPACE", newActiveWorkspace);
-  //   console.log("PARAMS WORKSPACE ID", workspaceId);
+ 
 
   if (!newActiveWorkspace) {
     return <h1>Loading...</h1>;

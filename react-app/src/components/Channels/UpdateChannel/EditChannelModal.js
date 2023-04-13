@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateChannelThunk } from "../../../store/channel";
 import { useModal } from "../../../context/Modal";
 import { refreshUser } from "../../../store/session";
-// I want to send is Channel True and workspace_id current workspace we are in
 
 function EditChannelModal({ workspaceId, channel }) {
   const dispatch = useDispatch();
@@ -27,11 +26,6 @@ function EditChannelModal({ workspaceId, channel }) {
     handleInputErrors();
   }, [name]);
 
-
-
-
-
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -45,7 +39,7 @@ function EditChannelModal({ workspaceId, channel }) {
       let newChannel = await dispatch(
         updateChannelThunk(channelInformation, channel.id)
       );
-      dispatch(refreshUser(sessionUser.id))
+      dispatch(refreshUser(sessionUser.id));
       closeModal();
       history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
     }

@@ -4,11 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { createChannelThunk } from "../../../store/channel";
 import './CreateChannelForm.css'
 // I want to send is Channel True and workspace_id current workspace we are in
+import { refreshUser } from "../../../store/session";
+
+// ! memory leak useEffect for name errors only needs to run when in box
+// needs a clean up funciton for useEffect()
 
 function CreateChannelForm({ workspaceId }) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const user = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
 
   const [name, setName] = useState("");
   const [errors, setErrors] = useState({});
@@ -37,6 +41,7 @@ function CreateChannelForm({ workspaceId }) {
       };
 
       let newChannel = await dispatch(createChannelThunk(channelInformation));
+      dispatch(refreshUser(sessionUser.id));
 
       history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
     }
@@ -45,8 +50,8 @@ function CreateChannelForm({ workspaceId }) {
 
   return (
     <div className="channel-form-container">
-      {!user && <h1 className="signin-error">Please sign in to attempt to make a workspace</h1>}
-      {user && (
+      {!sessionUser && <h1 className="signin-error">Please sign in to attempt to make a workspace</h1>}
+      {sessionUser && (
         <>
         <div className="channel-create-container">
           <h1 className="title-text">Create a Channel</h1>

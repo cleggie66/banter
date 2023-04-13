@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom";
+import './WorkSpacesIndex.css'
 
 const WorkspaceCard = ({ workspace }) => {
   const history = useHistory();
@@ -8,7 +9,7 @@ const WorkspaceCard = ({ workspace }) => {
   };
 
   return (
-    <div onClick={handleCardClick}>
+    <div className='workspace-card'onClick={handleCardClick}>
       <h2>{`${workspace.name}`}</h2>
     </div>
   );
