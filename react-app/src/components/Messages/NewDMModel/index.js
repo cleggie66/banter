@@ -22,10 +22,6 @@ function NewDMModal({ workspaceId }) {
 
     const { closeModal } = useModal();
 
-    const handleClick = async (e) => {
-
-    };
-
     const addUsers = async (channelId) => {
         recipients.forEach((user) => {
             addUserToChannelThunk(user.id, channelId)
