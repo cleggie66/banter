@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateMessageThunk } from "../../../store/message";
 import { useModal } from "../../../context/Modal";
 
+// TODO: tried to mimic create channel to get it so that it
+// TODO: would edit the message live but now this one doesnt even render new updated message
 function EditMessageModal({ message }) {
+
   const dispatch = useDispatch();
   const activeChannel = useSelector((state) => state.activeChannel);
   const [content, setContent] = useState(message.content);
