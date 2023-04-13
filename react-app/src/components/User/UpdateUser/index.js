@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { refreshUser } from "../../../store/session";
+import { updateUserThunk } from "../../../store/session";
+import { refreshUser } from "../../../store/session";
 
 //todo each entry should really be a modal calling the same thunk...
 
@@ -31,7 +32,7 @@ function UpdateUserForm({ sessionUser }) {
     if (password.length === 0) {
       errorsObj.password = "password is required";
     }
-    if (confirmPassword === password) {
+    if (password !== confirmPassword) {
       errorsObj.confirmPassword = "Password must match confirm password!";
     }
     if (firstName.length === 0) {
@@ -61,18 +62,19 @@ function UpdateUserForm({ sessionUser }) {
         username,
         email,
         password,
-        firstName,
-        lastName,
+        first_name: firstName,
+        last_name: lastName,
+        profile_picture: profilePicture,
         title,
-        aboutMe,
+        about_me: aboutMe,
       };
 
-      // let updatedUser = await dispatch(
-      //   updateUserThunk(userInformation, sessionUser.id)
-      // );
-      // dispatch(refreshUser(sessionUser.id));
+      let updatedUser = await dispatch(
+        updateUserThunk(userInformation, sessionUser.id)
+      );
+      dispatch(refreshUser(sessionUser.id));
 
-      history.push(`/profile/${sessionUser.id}`);
+      history.push(`/profile/${updatedUser.id}`);
     }
     setHasSubmitted(true);
   };
@@ -171,7 +173,7 @@ function UpdateUserForm({ sessionUser }) {
         )}
         <label>
           Title
-          <url
+          <input
             type="text"
             value={title}
             placeholder={sessionUser.title}
