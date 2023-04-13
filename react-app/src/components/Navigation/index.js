@@ -8,9 +8,10 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import DemoLogin from "./DemoLogin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import "./Navigation.css";
 import UserIconModal from "../User/UserIcon";
+import { useModal } from "../../context/Modal";
 
 function Navigation({ isLoaded }) {
   const [homePage, setHomePage] = useState(true);
@@ -37,9 +38,9 @@ function Navigation({ isLoaded }) {
   //   e.preventDefault();
   //   dispatch();
   // };
-  const handleCreateWorkspace= (e) => {
+  const handleCreateWorkspace = (e) => {
     e.preventDefault();
-    history.push(`/create-workspace`)
+    history.push(`/create-workspace`);
   };
 
   // const homePage = !window.location.pathname.includes("/dashboard");
@@ -47,12 +48,21 @@ function Navigation({ isLoaded }) {
 
   //   !homePage
 
+  const { setModalContent, setOnModalClose } = useModal();
+
+  const onClick = () => {
+    // if (onModalClose) setOnModalClose(onModalClose);
+    setModalContent(<UserIconModal />);
+  };
+
   return (
     <div>
       {homePage && sessionUser && (
         <>
           <button onClick={handleLogoutClick}>SIGN OUT</button>
-          <button onClick={handleCreateWorkspace}>CREATE A NEW WORKSPACE </button>
+          <button onClick={handleCreateWorkspace}>
+            CREATE A NEW WORKSPACE{" "}
+          </button>
         </>
       )}
       {homePage && !sessionUser && (
@@ -82,14 +92,12 @@ function Navigation({ isLoaded }) {
             </NavLink>
           </div>
           <div>
-            <OpenModalButton
-              buttonText="userIcon"
-              modalComponent={<UserIconModal />}
+            <FontAwesomeIcon
+              icon={faUserTie}
+              onClick={onClick}
+              className="user-icon-button"
             />
-            <FontAwesomeIcon icon={faUser} />
           </div>
-          {/* this is going to be a modal button */}
-          {/* modal will have a profile button that will open user read on the dashboard */}
         </div>
       )}
     </div>

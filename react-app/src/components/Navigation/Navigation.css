@@ -1,5 +1,5 @@
 .profile-dropdown {
-  position: absolute;
+  position: relative;
 }
 
 .hidden {
@@ -11,4 +11,16 @@
   padding: 0;
   border: none;
   background: none;
+}
+
+.dashboard-navbar-container{
+display: flex;
+
+
+}
+.user-icon-button{
+position: absolute;
+left: 95%;
+color: rgb(95, 93, 93);
+
 }

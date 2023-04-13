@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory, useParams } from "react-router-dom";
 
-// !  USER NEEDS TO BE REFACTORED TO SHOW UP ON DASHBOARD LATER
-// ! FOR NOW IT WILL JUST OPEN A NEW PAGE FOR SIMPLICITY
-// When you click a user name it should show their profile on the right...
+// todo  USER NEEDS TO BE REFACTORED TO SHOW UP ON DASHBOARD LATER
+// todo  NOW IT WILL JUST OPEN A NEW PAGE FOR SIMPLICITY
+// todo  When you click a user name it should show their profile on the right...
 
 function UserIconModal() {
   const sessionUser = useSelector((state) => state.session.user);
-
 
   const dispatch = useDispatch();
   const { closeModal } = useModal();
