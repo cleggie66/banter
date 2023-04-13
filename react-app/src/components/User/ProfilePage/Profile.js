@@ -9,8 +9,8 @@ import { faUserPen } from "@fortawesome/free-solid-svg-icons";
 import { useModal } from "../../../context/Modal";
 import EditProfilePictureModal from "./ProfilePictureModal";
 
-
 import "./Profile.css";
+import EditUsernameModal from "./UsernameModal";
 
 const ProfilePage = () => {
   const history = useHistory();
@@ -23,7 +23,10 @@ const ProfilePage = () => {
   }
 
   const handleProfilePictureEdit = () => {
-    setModalContent(<EditProfilePictureModal />);
+    setModalContent(<EditProfilePictureModal sessionUser={sessionUser} />);
+  };
+  const handleUserNameEdit = () => {
+    setModalContent(<EditUsernameModal sessionUser={sessionUser} />);
   };
 
   return (
@@ -36,12 +39,19 @@ const ProfilePage = () => {
           className="profile-page-picture"
         />
         <FontAwesomeIcon
-        icon={faUserPen}
-        onClick={handleProfilePictureEdit}
-        className="edit-profile-picture"
-      />
+          icon={faUserPen}
+          onClick={handleProfilePictureEdit}
+          className="edit-profile-picture"
+        />
       </div>
-      <button>{sessionUser.username}</button>
+      <div>
+        <div>{sessionUser.username}</div>
+        <FontAwesomeIcon
+          icon={faUserPen}
+          onClick={handleUserNameEdit}
+          // className=""
+        />
+      </div>
       <p></p>
       <button>{sessionUser.first_name}</button>
       <button>{sessionUser.last_name}</button>
