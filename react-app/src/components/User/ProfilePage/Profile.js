@@ -14,6 +14,8 @@ import EditUsernameModal from "./UsernameModal";
 import EditNameModal from "./NameModal";
 import EditPasswordModal from "./PasswordModal";
 import EditEmailModal from "./EmailModal";
+import EditTitleModal from "./TitleModal";
+import EditAboutMeModal from "./AboutMeModal";
 
 const ProfilePage = () => {
   const history = useHistory();
@@ -41,12 +43,11 @@ const ProfilePage = () => {
     setModalContent(<EditEmailModal sessionUser={sessionUser} />);
   };
   const handleTitleEdit = () => {
-    // setModalContent(< sessionUser={sessionUser} />);
+    setModalContent(<EditTitleModal sessionUser={sessionUser} />);
   };
   const handleAboutMeEdit = () => {
-    // setModalContent(< sessionUser={sessionUser} />);
+    setModalContent(<EditAboutMeModal sessionUser={sessionUser} />);
   };
-
 
   return (
     <div className="profile-page-container">
@@ -100,15 +101,22 @@ const ProfilePage = () => {
         />
       </div>
 
-      <button>Change Password</button>
-      <FontAwesomeIcon
-        icon={faUserPen}
-        // onClick={onClick}
-        // className=""
-      />
-
-      <button></button>
-      <button>Change password</button>
+      <div className="title-container">
+        <div>{`Title:  ${sessionUser.title}`}</div>
+        <FontAwesomeIcon
+          icon={faUserPen}
+          onClick={handleTitleEdit}
+          // className=""
+        />
+      </div>
+      <div className="title-container">
+        <div>{`About me:  ${sessionUser.about_me}`}</div>
+        <FontAwesomeIcon
+          icon={faUserPen}
+          onClick={handleAboutMeEdit}
+          // className=""
+        />
+      </div>
 
       <UpdateUserForm sessionUser={sessionUser} />
       <OpenModalButton
