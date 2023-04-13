@@ -94,10 +94,21 @@ function Navigation({ isLoaded }) {
             </NavLink>
           </div>
           <div>
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               icon={faUserTie}
               onClick={onClick}
               className="user-icon-button"
+            /> */}
+            <img
+              src={
+                sessionUser.profile_picture === null
+                  ? sessionUser.name[0]
+                  : sessionUser.profile_picture
+              }
+              onClick={onClick}
+              className="user-icon-button"
+              alt="User Image"
+              // this might want an active or not active class ternary to style letter for Profile pic
             />
           </div>
         </div>
