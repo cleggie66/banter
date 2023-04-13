@@ -1,5 +1,6 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
+import './OpenModalButton.css'
 
 function OpenModalButton({
   modalComponent, // component to render inside the modal
@@ -20,9 +21,9 @@ function OpenModalButton({
     {buttonText === 'Channels' &&(<button className='channels-button-modal'onClick={onClick}>{buttonText}</button>)}
     {buttonText === 'SIGN IN' &&(<button className='log-in-button'onClick={onClick}>{buttonText}</button>)}
     {buttonText === 'TRY FOR FREE' &&(<button className='sign-up-button'onClick={onClick}>{buttonText}</button>)}
-    {buttonText === 'delete' &&(<button className='delete-channel-button'onClick={onClick}>{buttonText}</button>)}
+    {buttonText === 'Delete' &&(<button className='delete-channel-button'onClick={onClick}>{buttonText}</button>)}
     {/* {buttonText === 'userIcon' &&(<button className='user-icon-button'onClick={onClick}>{buttonText}</button>)} */}
-    {buttonText === 'edit' &&(<button className='edit-channel-button'onClick={onClick}>{buttonText}</button>)}
+    {buttonText === 'Edit' &&(<button className='edit-channel-button'onClick={onClick}>{buttonText}</button>)}
     {buttonText === 'Delete My Account' &&(<button className='edit-channel-button'onClick={onClick}>{buttonText}</button>)}
 
 

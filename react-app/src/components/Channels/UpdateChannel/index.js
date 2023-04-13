@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import ChannelDisplay from "./ChannelDisplay";
+
+
 const UpdateChannel = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -24,8 +26,8 @@ const UpdateChannel = () => {
   }, [dispatch, workspaceId]);
 
   return (
-    <div>
-      <h1>Your Channels </h1>
+    <div className="your-channels-container">
+      <h1 id="channels-title" className="title-text">Your Channels </h1>
       {correctChannels.map((channel) => (
         <ChannelDisplay
           key={channel.id}

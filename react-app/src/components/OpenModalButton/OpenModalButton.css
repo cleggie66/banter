@@ -1,0 +1,10 @@
+.edit-channel-button,
+.delete-channel-button {
+    background-color: #4a154b;
+    border-radius: 1em;
+    border: none;
+    color: #ffffff;
+    padding: 1em;
+    margin-left: 1em;
+    width: 8em;
+} 
