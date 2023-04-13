@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 const ActiveWorkspace = () => {
   const dispatch = useDispatch();
   const { workspaceId } = useParams();
+  const { setModalContent, setOnModalClose } = useModal();
 
   useEffect(() => {
     dispatch(getWorkspaceByIdThunk(workspaceId));
@@ -14,11 +15,13 @@ const ActiveWorkspace = () => {
   const activeWorkspace = useSelector((state) => state.workspaces);
   const newActiveWorkspace = activeWorkspace[workspaceId];
 
- 
-
   if (!newActiveWorkspace) {
     return <h1>Loading...</h1>;
   }
+
+  const handleWorkspaceNameClick = () => {
+    setModalContent(<ManageWorkspaceModal sessionUser={sessionUser} />);
+  };
 
   return (
     <>
