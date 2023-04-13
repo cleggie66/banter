@@ -31,33 +31,35 @@ function Navigation({ isLoaded }) {
   const handleLogoutClick = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
-    history.push(`/`);
+    history.push(``);
   };
 
   // const handleUserIconClick = (e) => {
   //   e.preventDefault();
   //   dispatch();
   // };
+
   const handleCreateWorkspace = (e) => {
     e.preventDefault();
     history.push(`/create-workspace`);
   };
 
-  // const homePage = !window.location.pathname.includes("/dashboard");
-  // const dashboard = window.location.pathname.includes("/dashboard");
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    history.push(``);
+  };
 
-  //   !homePage
+  const profile = window.location.pathname.includes("/profile");
 
   const { setModalContent, setOnModalClose } = useModal();
 
   const onClick = () => {
-    // if (onModalClose) setOnModalClose(onModalClose);
     setModalContent(<UserIconModal />);
   };
 
   return (
     <div>
-      {homePage && sessionUser && (
+      {homePage && sessionUser && !profile && (
         <>
           <button onClick={handleLogoutClick}>SIGN OUT</button>
           <button onClick={handleCreateWorkspace}>
@@ -99,6 +101,12 @@ function Navigation({ isLoaded }) {
             />
           </div>
         </div>
+      )}
+      {homePage && profile && sessionUser && (
+        <>
+          <button onClick={handleLogoutClick}>Sign me out</button>
+          <button onClick={handleHomeClick}>Country roads, take me home</button>
+        </>
       )}
     </div>
   );

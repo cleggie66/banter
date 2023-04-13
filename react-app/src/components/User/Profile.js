@@ -25,14 +25,10 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <h1>Your Channels </h1>
-      {/* {correctChannels.map((channel) => (
-        <ChannelDisplay
-          key={channel.id}
-          channel={channel}
-          workspaceId={workspaceId}
-        />
-      ))} */}
+      <h1>Your Profile 💁‍♀️ </h1>
+     
+      {/* add form for updating profile */}
+      <button>Delete My Profile</button>
     </div>
   );
 };
