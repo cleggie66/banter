@@ -8,12 +8,14 @@ const ChannelDisplay = ({ channel, workspaceId }) => {
       <h2>{`# ${channel.name}`}</h2>
 
       <OpenModalButton
+        className="delete-channel-button"
         buttonText="delete"
         modalComponent={
           <DeleteChannelModal workspaceId={workspaceId} channel={channel} />
         }
       />
       <OpenModalButton
+        className="edit-channel-button"
         buttonText="edit"
         modalComponent={
           <EditChannelModal workspaceId={workspaceId} channel={channel} />

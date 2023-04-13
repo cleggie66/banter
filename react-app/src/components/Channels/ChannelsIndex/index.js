@@ -81,6 +81,7 @@ const ChannelsIndex = () => {
           />
           <div className="channel-heading">
             <OpenModalButton
+              className="channels-button-modal"
               buttonText="Channels"
               modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
             />
@@ -109,6 +110,7 @@ const ChannelsIndex = () => {
           className="caret-down"
         />
         <div className="channel-heading"> <OpenModalButton
+          className="channels-button-modal"
           buttonText="Channels"
           modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
         /></div>
@@ -125,7 +127,12 @@ const ChannelsIndex = () => {
           />
         ))}
         <div className="add-channel-container">
-          <button className={'add-channel-button'} onClick={handleAddChannel}> <FontAwesomeIcon icon={faPlusSquare} />New Message</button>
+          <FontAwesomeIcon icon={faPlusSquare} />
+          <OpenModalButton
+            className="channels-button-modal"
+            buttonText="Channels"
+            modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
+          />
         </div>
       </div>
     </>

@@ -71,10 +71,12 @@ function Navigation({ isLoaded }) {
         <>
           <DemoLogin />
           <OpenModalButton
+            className="log-in-button"
             buttonText="SIGN IN"
             modalComponent={<LoginFormModal />}
           />
           <OpenModalButton
+            className="sign-up-button"
             buttonText="TRY FOR FREE"
             modalComponent={<SignupFormModal />}
           />
