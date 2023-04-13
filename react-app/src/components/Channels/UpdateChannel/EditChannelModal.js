@@ -47,13 +47,14 @@ function EditChannelModal({ workspaceId, channel }) {
   };
 
   return (
-    <>
-      <h1>Manage Your Channel</h1>
-      <h3>so, weary traveler... Looking to edit this channel eh??🧙🧙🧙</h3>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Name
+    <div className="edit-channel-container">
+      <h1 className="title-text">Manage Your Channel</h1>
+      <h3 className="title-text">so, weary traveler... Looking to edit this channel eh??🧙🧙🧙</h3>
+      <form className="edit-submit-form"onSubmit={handleFormSubmit}>
+        <label className="edit-name-label">
+          Name:{" "}
           <input
+            className="text-input-login"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -62,13 +63,17 @@ function EditChannelModal({ workspaceId, channel }) {
         </label>
         <p></p>
         {hasSubmitted && errors.name && <p className="errors">{errors.name}</p>}
-        <input
-          type="submit"
-          value={"Update Channel"}
-          disabled={hasSubmitted && Object.values(errors).length > 0}
-        />
+        <div className="edit-submit-container">
+          <input
+            id="edit-channel-submit-button"
+            className="edit-channel-button"
+            type="submit"
+            value={"Update Channel"}
+            disabled={hasSubmitted && Object.values(errors).length > 0}
+          />
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -1,0 +1,50 @@
+
+.yes-delete-yeet,
+.no-delete,
+.edit-channel-button,
+.delete-channel-button {
+    background-color: #4a154b;
+    border-radius: 1em;
+    border: none;
+    color: #ffffff;
+    padding: 1em;
+    margin-left: 1em;
+    width: 8em;
+} 
+
+#edit-channel-submit-button {
+    width: 10em;
+}
+
+#edit-channel-submit-button:hover {
+    cursor: pointer;
+    color: #EBB22E
+}
+
+
+.edit-submit-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.channel-modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#channel-modal-form {
+    margin-bottom: 0;
+}
+
+#modal-buttons {
+    margin-right: 4.5em;
+    margin-bottom: 1em;
+    width: 8em;
+}
+
+.channel-modal-border {
+    border-bottom: solid 1px;
+}

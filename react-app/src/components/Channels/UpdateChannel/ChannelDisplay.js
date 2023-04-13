@@ -2,24 +2,26 @@ import React, { useState, useEffect } from "react";
 import OpenModalButton from "../../OpenModalButton";
 import DeleteChannelModal from "../DeleteChannel";
 import EditChannelModal from "./EditChannelModal";
+import './ChannelDisplay.css'
+
 const ChannelDisplay = ({ channel, workspaceId }) => {
   return (
-    <>
-      <h2>{`# ${channel.name}`}</h2>
+    <div className="channel-display-container">
+      <h2 className="title-text">{`# ${channel.name}`}</h2>
 
       <OpenModalButton
-        buttonText="delete"
+        buttonText="Delete"
         modalComponent={
           <DeleteChannelModal workspaceId={workspaceId} channel={channel} />
         }
       />
       <OpenModalButton
-        buttonText="edit"
+        buttonText="Edit"
         modalComponent={
           <EditChannelModal workspaceId={workspaceId} channel={channel} />
         }
       />
-    </>
+    </div>
   );
 };
 export default ChannelDisplay;

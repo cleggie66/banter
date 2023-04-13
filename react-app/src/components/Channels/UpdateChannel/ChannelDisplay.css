@@ -1,0 +1,19 @@
+.channel-display-container {
+    margin-left: 2em;
+    border-bottom: solid 1px;
+    padding: 0.5em
+}
+
+#channels-title {
+    margin-left: .3em;
+}
+
+.your-channels-container {
+    background-color: rgb(37 37 38);
+    width: 20em;
+    padding: .5em;
+}
+
+.edit-name-label {
+    color: #d1d2d3;
+}
