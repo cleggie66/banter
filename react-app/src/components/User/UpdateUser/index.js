@@ -8,53 +8,63 @@ import React, { useState, useEffect } from "react";
 // needs a clean up funciton for useEffect()
 
 function UpdateUserForm() {
-//   const dispatch = useDispatch();
-//   const [name, setName] = useState("");
-//   const [errors, setErrors] = useState({});
-//   const [hasSubmitted, setHasSubmitted] = useState(false);
-//   const history = useHistory();
-//   const sessionUser = useSelector((state) => state.session.user);
+  //   const dispatch = useDispatch();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setCofirmPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
+  const [title, setTitle] = useState("");
+  const [aboutMe, setAboutMe] = useState("");
 
 
-//   const handleInputErrors = () => {
-//     const errorsObj = {};
-//     if (name.length === 0) {
-//       errorsObj.name = "Name is required";
-//     }
-//     setErrors(errorsObj);
-//   };
+  
+  //   const [errors, setErrors] = useState({});
+  //   const [hasSubmitted, setHasSubmitted] = useState(false);
+  //   const history = useHistory();
+  //   const sessionUser = useSelector((state) => state.session.user);
 
-//   useEffect(() => {
-//     handleInputErrors();
-//   }, [name]);
+  //   const handleInputErrors = () => {
+  //     const errorsObj = {};
+  //     if (name.length === 0) {
+  //       errorsObj.name = "Name is required";
+  //     }
+  //     setErrors(errorsObj);
+  //   };
 
-//   const handleFormSubmit = async (e) => {
-//     e.preventDefault();
+  //   useEffect(() => {
+  //     handleInputErrors();
+  //   }, [name]);
 
-//     if (!Object.values(errors).length) {
-//       const channelInformation = {
-//         name,
-//         workspace_id: Number(workspaceId),
-//         is_channel: true,
-//       };
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
 
-//       let newChannel = await dispatch(createChannelThunk(channelInformation));
-//       dispatch(refreshUser(sessionUser.id))
+    if (!Object.values(errors).length) {
+      const channelInformation = {
+        name,
+        workspace_id: Number(workspaceId),
+        is_channel: true,
+      };
 
-//       // console.log("big sends", newChannel)
-//       history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
-//     }
-//     setHasSubmitted(true);
-//   };
+      let newChannel = await dispatch(createChannelThunk(channelInformation));
+      dispatch(refreshUser(sessionUser.id));
+
+      // console.log("big sends", newChannel)
+      history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
+    }
+    setHasSubmitted(true);
+  };
 
   return (
     <>
       <form onSubmit={handleFormSubmit}>
         <label>
-          Name
+          username
           {/* <input
             type="text"
-            value={name}
+            value={username}
             onChange={(e) => setName(e.target.value)}
             required
           /> */}
