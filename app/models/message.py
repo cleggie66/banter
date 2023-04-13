@@ -13,7 +13,7 @@ class Message(db.Model):
     channel_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("channels.id")), nullable=False)
 
     # * Relationships 💚
-    message = db.relationship("Channel", back_populates="channel_messages")
+    in_channel = db.relationship("Channel", back_populates="channel_messages")
     message_owner = db.relationship("User", back_populates="user_messages")
 
     def to_dict_simple(self):
@@ -30,6 +30,6 @@ class Message(db.Model):
             "content": self.content,
             "user_id": self.user_id,
             "channel_id": self.channel_id,
-            "message": self.message,
-            "message_owner)": self.message_owner
+            "channel": self.in_channel.to_dict_simple(),
+            "message_owner": self.message_owner.to_dict_simple(),
         }

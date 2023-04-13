@@ -3,9 +3,11 @@ from flask_login import login_required, current_user
 from app.models import User, Workspace, Channel
 from app import db
 import random
-
+from ..utils import pog 
 user_routes = Blueprint('users', __name__)
 
+# * -----------  GET  --------------
+#Query for all users and returns them in a list of user dictionaries
 
 # * -----------  GET  --------------
 #Query for all users and returns them in a list of user dictionaries

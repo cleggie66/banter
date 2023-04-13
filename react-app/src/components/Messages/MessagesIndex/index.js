@@ -1,32 +1,46 @@
 import React, { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-import "./ChannelsIndex.css";
+import LoadingIcon from "../../LoadingPage/LoadingIcon";
+import "./MessagesIndex.css"
 
-const ChannelsIndex = () => {
+const MessagesIndex = () => {
+    const sessionUser = useSelector((state) => state.session.user);
+    const activeChannel = useSelector(state => state.activeChannel);
+    const messages = activeChannel.channel_messages
 
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        // TODO: dispatch thunk to get current messages
-        // dispatch(getAllChannels());
-    }, [dispatch])
-
-    // TODO: Update to new state after merge
-    const messages = useSelector((state) => Object.values(state.messages));
-
-    if (!messages) return null;
+    if (!messages) return (
+        <LoadingIcon />
+    )
 
     return (
-        <>
-            <h1>Messages</h1>
-            <div>
-                {messages.map((message) => (
-                    <h2 key={message.id}># {message.content}</h2>
-                ))}
-            </div>
-        </>
+        <div>
+            {messages.map((message) => (
+                <div key={message.id} className="message">
+                    <div className="message-content">
+                        <div className='image-container'>
+                            <img
+                                src={message.message_owner.profile_picture}
+                                alt="profile"
+                                className="message-profile-pic"
+                            />
+                        </div>
+                        <div className="message-details">
+                            <h4>{message.message_owner.first_name}</h4>
+                            <p>{message.content}</p>
+                        </div>
+                    </div>
+                    {
+                        // TODO: Add functionality for edit and delete
+                        sessionUser.id === message.message_owner.id && (
+                            <div className="message-buttons">
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </div>
+                        )}
+                </div>
+            ))}
+        </div>
     )
 }
 
-export default ChannelsIndex;
+export default MessagesIndex;

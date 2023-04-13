@@ -1,31 +1,32 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { getAllWorkspacesThunk } from "../../../store/workspace";
+import WorkspaceCard from "./WorkspaceCard";
+import { clearActiveChannelThunk } from "../../../store/activeChannel";
+import './WorkSpacesIndex.css'
 
 const WorkspacesIndex = () => {
+  const sessionUser = useSelector((state) => state.session.user);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    // TODO: Update to new action after merge
-    useEffect(() => {
-        // dispatch(getAllWorkspaces());
-    }, [dispatch])
+  const allWorkspaces = useSelector((state) => Object.values(state.workspaces));
 
-    // TODO: Update to new state after merge
-    const workspaces = useSelector((state) => Object.values(state.workspaces));
+  useEffect(() => {
+    dispatch(getAllWorkspacesThunk());
+    dispatch(clearActiveChannelThunk());
+  }, [dispatch]);
 
-    if (!workspaces) return null;
+  return (
+    <>
+      <h1>Your Workspaces</h1>
+      <div className="workspace-list-area">
+        {allWorkspaces.map((workspace) => (
+          <WorkspaceCard key={workspace.id} workspace={workspace} />
+        ))}
+      </div>
+    </>
+  );
+};
 
-
-    return (
-        <>
-            <h1>Workspaces</h1>
-            <div>
-                {workspaces.map((workspace) => (
-                    <h2 key={workspace.id}>{workspace.name}</h2>
-                ))}
-            </div>
-        </>
-    )
-}
-
-export default WorkspacesIndex
+export default WorkspacesIndex;

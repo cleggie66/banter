@@ -1,0 +1,26 @@
+.loading-page {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(27 29 33);
+    /* align-items: center; */
+}
+
+.loading-gif {
+    width: 30vw;
+    height: fit-content;
+    position: relative;
+    top: 35vh;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
