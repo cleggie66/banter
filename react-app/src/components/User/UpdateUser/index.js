@@ -168,9 +168,7 @@ function UpdateUserForm({ sessionUser }) {
             onChange={(e) => setProfilePicture(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.profilePicture && (
-          <p className="errors">{errors.profilePicture}</p>
-        )}
+  
         <label>
           Title
           <input

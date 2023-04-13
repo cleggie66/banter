@@ -4,48 +4,62 @@ import OpenModalButton from "../../OpenModalButton";
 import UpdateUserForm from "../UpdateUser";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import "./Profile.css"
-// import { getWorkspaceByIdThunk } from "../../../store/workspace";
-// import ChannelDisplay from "./ChannelDisplay";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPen } from "@fortawesome/free-solid-svg-icons";
+import { useModal } from "../../../context/Modal";
+import EditProfilePictureModal from "./ProfilePictureModal";
+
+
+import "./Profile.css";
+
 const ProfilePage = () => {
   const history = useHistory();
-//   const dispatch = useDispatch();
-
+  const { setModalContent, setOnModalClose } = useModal();
   const sessionUser = useSelector((state) => state.session.user);
-
-//   const correctChannels = sessionUser.joined_channels.filter(
-//     (e) => e.is_channel === true
-//   );
+  //   const dispatch = useDispatch();
 
   if (!sessionUser) {
     history.push(`/home`);
   }
 
-//   const { workspaceId } = useParams();
-
-//   useEffect(() => {
-//     dispatch(getWorkspaceByIdThunk(workspaceId));
-//   }, [dispatch, workspaceId]);
+  const handleProfilePictureEdit = () => {
+    setModalContent(<EditProfilePictureModal />);
+  };
 
   return (
     <div className="profile-page-container">
       <h1>Your Profile 💁‍♀️ </h1>
-      <img src={sessionUser.profile_picture} alt="Profile Picture" className="profile-page-picture" />
+      <div className="profile-picture-container">
+        <img
+          src={sessionUser.profile_picture}
+          alt="Profile Picture"
+          className="profile-page-picture"
+        />
+        <FontAwesomeIcon
+        icon={faUserPen}
+        onClick={handleProfilePictureEdit}
+        className="edit-profile-picture"
+      />
+      </div>
       <button>{sessionUser.username}</button>
       <p></p>
       <button>{sessionUser.first_name}</button>
       <button>{sessionUser.last_name}</button>
       <button></button>
-
+      <FontAwesomeIcon
+        icon={faUserPen}
+        // onClick={onClick}
+        // className=""
+      />
 
       <button></button>
       <button>Change password</button>
 
-      <UpdateUserForm sessionUser={sessionUser}/>
+      <UpdateUserForm sessionUser={sessionUser} />
       <OpenModalButton
-            buttonText="Delete My Account"
-            modalComponent={<DeleteUserModal />}
-          />
+        buttonText="Delete My Account"
+        modalComponent={<DeleteUserModal />}
+      />
     </div>
   );
 };

@@ -4,6 +4,18 @@ flex-direction: column;
 }
 
 
+/* 
+.profile-picture-container{
+
+
+} */
+
+.edit-profile-picture{
+    color:red
+}
+
+
+
 .profile-page-picture{
 height:100px;
 width:100px;
