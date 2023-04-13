@@ -12,6 +12,7 @@ import EditProfilePictureModal from "./ProfilePictureModal";
 import "./Profile.css";
 import EditUsernameModal from "./UsernameModal";
 import EditNameModal from "./NameModal";
+import EditPasswordModal from "./PasswordModal";
 
 const ProfilePage = () => {
   const history = useHistory();
@@ -31,6 +32,9 @@ const ProfilePage = () => {
   };
   const handleFirstNameEdit = () => {
     setModalContent(<EditNameModal sessionUser={sessionUser} />);
+  };
+  const handlePasswordEdit = () => {
+    setModalContent(<EditPasswordModal sessionUser={sessionUser} />);
   };
 
   return (
@@ -66,10 +70,20 @@ const ProfilePage = () => {
           // className=""
         />
       </div>
-      <p></p>
-      <button>{sessionUser.first_name}</button>
-      <button>{sessionUser.last_name}</button>
-      <button></button>
+      <div className="password-container">
+        <div>{"Change your password"}</div>
+        <FontAwesomeIcon
+          icon={faUserPen}
+          onClick={handlePasswordEdit}
+          // className=""
+        />
+      </div>
+     
+
+
+
+
+      <button>Change Password</button>
       <FontAwesomeIcon
         icon={faUserPen}
         // onClick={onClick}

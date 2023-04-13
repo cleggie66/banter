@@ -5,18 +5,22 @@ import { updateUserThunk } from "../../../store/session";
 import { useModal } from "../../../context/Modal";
 import { refreshUser } from "../../../store/session";
 
-function EditUsernameModal({ sessionUser }) {
+function EditPasswordModal({ sessionUser }) {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setCofirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const { closeModal } = useModal();
 
   const handleInputErrors = () => {
     const errorsObj = {};
-    if (username.length === 0) {
-      errorsObj.username = "username is required";
+    if (password.length === 0) {
+      errorsObj.password = "password is required";
+    }
+    if (password !== confirmPassword) {
+      errorsObj.confirmPassword = "Password must match confirm password!";
     }
 
     setErrors(errorsObj);
@@ -24,7 +28,7 @@ function EditUsernameModal({ sessionUser }) {
 
   useEffect(() => {
     handleInputErrors();
-  }, [username]);
+  }, [password, confirmPassword]);
 
   // --------------------------------------------------------------------
 
@@ -33,9 +37,9 @@ function EditUsernameModal({ sessionUser }) {
 
     if (!Object.values(errors).length) {
       const userInformation = {
-        username,
+        username: sessionUser.username,
         email: sessionUser.email,
-        password: sessionUser.password,
+        password,
         first_name: sessionUser.first_name,
         last_name: sessionUser.last_name,
         profile_picture: sessionUser.profile_picture,
@@ -55,20 +59,31 @@ function EditUsernameModal({ sessionUser }) {
 
   return (
     <>
-      <h1>Update Your Username</h1>
+      <h1>Update Your Password</h1>
       <form onSubmit={handleFormSubmit}>
         <label>
-          username
+          password
           <input
             type="text"
-            value={username}
+            value={password}
             // style={{ backgroundColor: "white" }}
-            placeholder={sessionUser.username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        {hasSubmitted && errors.username && (
-          <p className="errors">{errors.username}</p>
+        {hasSubmitted && errors.password && (
+          <p className="errors">{errors.password}</p>
+        )}
+        <label>
+          Confirm Password
+          <input
+            type="text"
+            value={confirmPassword}
+            // style={{ backgroundColor: "white" }}
+            onChange={(e) => setCofirmPassword(e.target.value)}
+          />
+        </label>
+        {hasSubmitted && errors.confirmPassword && (
+          <p className="errors">{errors.confirmPassword}</p>
         )}
         <p></p>
         <input
@@ -81,4 +96,4 @@ function EditUsernameModal({ sessionUser }) {
   );
 }
 
-export default EditUsernameModal;
+export default EditPasswordModal;
