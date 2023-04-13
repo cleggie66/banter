@@ -72,7 +72,7 @@ def get_channel_messages(channel_id):
 def get_all_channels():
     user = User.query.filter(User.id == current_user.id).first()
     channels = user.joined_channels
-    return {'Channels': [channel.to_dict_no_messages() for channel in channels]}
+    return [channel.to_dict_no_messages() for channel in channels]
 
 
 # * -----------  POST  --------------

@@ -1,3 +1,5 @@
+import { clearActiveChannelThunk } from "./activeChannel";
+
 const LOAD_CHANNELS = "channels/LOAD_CHANNELS";
 const CREATE_CHANNEL = "channels/CREATE_CHANNEL";
 const UPDATE_CHANNEL = "channels/UPDATE_CHANNEL";
@@ -89,6 +91,7 @@ export const deleteChannelThunk = (channelId) => async (dispatch) => {
 
   if (response.ok) {
     dispatch(deleteChannel(channelId));
+    dispatch(clearActiveChannelThunk())
   }
 };
 
