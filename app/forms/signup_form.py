@@ -28,4 +28,5 @@ class SignUpForm(FlaskForm):
     first_name = StringField('First Name', validators=[DataRequired()])
     last_name = StringField('Last Name', validators=[DataRequired()])
     profile_picture = StringField('*Optional* Profile Picture URL')
+    title = StringField('Title')
     about_me = StringField('*Optional* Tell us about yourself!')
