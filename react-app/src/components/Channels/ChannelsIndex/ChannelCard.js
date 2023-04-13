@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { loadActiveChannelThunk } from "../../../store/activeChannel";
-import "./ChannelCard.css"
+import "./Card.css"
 
 const ChannelCard = ({ channel }) => {
   const history = useHistory();

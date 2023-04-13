@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
+import DirectMessageCard from "./DirectMessageCard"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
@@ -15,7 +16,10 @@ const ChannelsIndex = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [openMenu, setOpenMenu] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
+
+  const [openChannelMenu, setOpenChannelMenu] = useState(false);
+  const [openMessageMenu, setOpenMessageMenu] = useState(false);
   const { workspaceId } = useParams();
 
   useEffect(() => {
@@ -26,20 +30,37 @@ const ChannelsIndex = () => {
     dispatch(getAllChannelsThunk());
   }, [dispatch]);
 
-  // const correctChannels = sessionUser.joined_channels.filter(
+  // const allChannels = sessionUser.joined_channels.filter(
   //   (e) =>  e.is_channel === true
   // );
 
+  const usersCheck = (usersArray) => {
+    let bool = false
+    if (!usersArray) return false
+    usersArray.forEach((user) => {
+      if (user.id === sessionUser.id) bool = true
+    })
+    return bool
+  }
 
-  const allChannels = useSelector((state) => Object.values(state.channels));
-  const correctChannels = allChannels.filter(
-    (e) => (Number(workspaceId) === e.workspace_id) && ( e.is_channel === true)
+
+  const channelState = useSelector((state) => Object.values(state.channels));
+  const allChannels = channelState.filter(
+    (e) => (Number(workspaceId) === e.workspace_id) && (e.is_channel === true)
+  );
+  const allDMS = channelState.filter(
+    (e) => (Number(workspaceId) === e.workspace_id) && (e.is_channel === false) && usersCheck(e.users_in_channels)
   );
 
   // Arrow drop down
-  const handleMenuClick = (e) => {
+  const handleChannelMenuClick = (e) => {
     e.preventDefault();
-    setOpenMenu((open) => !open);
+    setOpenChannelMenu((open) => !open);
+  };
+
+  const handleMessagelMenuClick = (e) => {
+    e.preventDefault();
+    setOpenMessageMenu((open) => !open);
   };
 
   const handleAddChannel = (e) => {
@@ -55,32 +76,57 @@ const ChannelsIndex = () => {
           <FontAwesomeIcon
             icon={faCaretDown}
             style={{ opacity: 0.8 }}
-            onClick={handleMenuClick}
+            onClick={handleChannelMenuClick}
             className="caret-down"
           />
-          <p></p>
-          <div className={"channel-heading"}> <OpenModalButton
-            buttonText="Channels"
-            modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
-          /></div>
+          <div className="channel-heading">
+            <OpenModalButton
+              buttonText="Channels"
+              modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
+            />
+          </div>
         </div>
         <div
-          className={`channel-dropdown-container ${
-            openMenu ? "active" : "inactive"
-          }`}
+          className={`channel-dropdown-container ${openChannelMenu ? "active" : "inactive"
+            }`}
         >
-          {correctChannels.map((channel) => (
+          {allChannels.map((channel) => (
             <ChannelCard key={channel.id} channel={channel} />
           ))}
-          <div className="add-channel-container">
-           
-          <button className={'add-channel-button'} onClick={handleAddChannel}> <FontAwesomeIcon icon={faPlusSquare} /> Add a Channel</button>
+          <div className="channel-list-item"
+            onClick={handleAddChannel}
+          >
+            <FontAwesomeIcon icon={faPlusSquare} size="lg" style={{ color: "#c0c3c8", }} />
+            <h2>Add a Channel</h2>
           </div>
         </div>
       </div>
-      <div>
-        <FontAwesomeIcon icon={faCaretDown} style={{ opacity: 0.8 }} />
-        {"Direct messages"}
+      <div className="channel-dropdown-heading-container">
+        <FontAwesomeIcon
+          icon={faCaretDown}
+          style={{ opacity: 0.8 }}
+          onClick={handleMessagelMenuClick}
+          className="caret-down"
+        />
+        <div className="channel-heading"> <OpenModalButton
+          buttonText="Channels"
+          modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
+        /></div>
+      </div>
+      <div
+        className={`channel-dropdown-container ${openMessageMenu ? "active" : "inactive"
+          }`}
+      >
+        {allDMS.map((channel) => (
+          <DirectMessageCard
+            key={channel.id}
+            channel={channel}
+            sessionUser={sessionUser}
+          />
+        ))}
+        <div className="add-channel-container">
+          <button className={'add-channel-button'} onClick={handleAddChannel}> <FontAwesomeIcon icon={faPlusSquare} />New Message</button>
+        </div>
       </div>
     </>
   );

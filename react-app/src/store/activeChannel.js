@@ -13,7 +13,6 @@ const clearChannel = () => ({
 
 export const loadActiveChannelThunk = (channelId) => async (dispatch) => {
     try {
-        // BACKEND FIX INT RESTRICTION
         const response = await fetch(`/api/channels/${channelId}`)
         if (response.ok) {
             const channel = await response.json();
