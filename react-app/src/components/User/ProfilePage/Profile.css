@@ -1,0 +1,10 @@
+.profile-page-container{
+display: flex;
+flex-direction: column;
+}
+
+
+.profile-page-picture{
+height:100px;
+width:100px;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { useHistory } from "react-router-dom";
-import { deleteUserThunk, refreshUser, logout } from "../../../store/session";
+import { deleteUserThunk, logout } from "../../../store/session";
 
 
 // ! create delete and update actions/thunks for session user
@@ -17,7 +17,6 @@ function DeleteUserModal() {
   const handleDeleteUser = async (e) => {
     e.preventDefault();
     await dispatch(deleteUserThunk(sessionUser.id))
-    // dispatch(refreshUser(sessionUser.id));
     closeModal();
     dispatch(logout())
     history.push(``);

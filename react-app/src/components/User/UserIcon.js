@@ -68,7 +68,6 @@ function UserIconModal() {
             <button className="status-button" onClick={handleStatusClick}>
               🟢{" "}
             </button>
-            <div className="status">Active</div>
           </div>
         </div>
       </div>

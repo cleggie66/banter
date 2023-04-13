@@ -12,7 +12,8 @@ import CreateChannel from "./components/Channels/CreateChannel";
 import UpdateChannel from "./components/Channels/UpdateChannel";
 import LoadingPage from "./components/LoadingPage";
 import WorkspaceForm from "./components/Workspaces/WorkspaceForm";
-import ProfilePage from "./components/User/Profile";
+import ProfilePage from "./components/User/ProfilePage/Profile";
+
 
 function App() {
   const dispatch = useDispatch();

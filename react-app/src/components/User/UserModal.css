@@ -1,15 +1,24 @@
 .status-container {
   display: flex;
 }
+
+select::-ms-expand {
+  display: none;
+}
+
 .status-button {
+  /* display:none; */
   padding: 0;
   border: none;
   background: none;
   font-size: 8px;
 }
 
+
+
 .status {
   font-size: 12px;
+  
 }
 
 .profile-picture-modal {
