@@ -28,7 +28,7 @@
     justify-content: center;
 }
 
-.channel-modal-title {
+.channel-modal-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,3 +38,9 @@
 #channel-modal-form {
     margin-bottom: 0;
 }
+
+#modal-buttons {
+    margin-right: 4.5em;
+    width: 8em;
+}
+
