@@ -109,7 +109,7 @@ const ProfilePage = () => {
           // className=""
         />
       </div>
-      <div className="title-container">
+      <div className="about-me-container">
         <div>{`About me:  ${sessionUser.about_me}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
@@ -118,10 +118,11 @@ const ProfilePage = () => {
         />
       </div>
 
-      <UpdateUserForm sessionUser={sessionUser} />
+      {/* <UpdateUserForm sessionUser={sessionUser} /> */}
       <OpenModalButton
         buttonText="Delete My Account"
         modalComponent={<DeleteUserModal />}
+        // className="delete-user-account-button"
       />
     </div>
   );
