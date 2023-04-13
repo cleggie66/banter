@@ -1,0 +1,12 @@
+.workspace-list-area {
+    background-color: white;
+    color: #4A164B;
+    border-radius: 12px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.workspace-card:hover {
+    color: #EBB22E;
+    cursor: pointer;
+}
