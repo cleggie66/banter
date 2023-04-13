@@ -14,49 +14,50 @@ const HomePage = () => {
   const history = useHistory()
 
   const onClick = () => {
-    dispatch(login("demo@aa.io", "password" ));
+    dispatch(login("demo@aa.io", "password"));
     history.push("/")
   };
 
-    return (
+  return (
     <div className="main-homepage-div">
-        {!sessionUser && (<div className="home-page-main-section-logged-out">
-            <div className="home-page-main-section-logged-out-left">
-            <h1>Banter is your Digital HQ</h1>
-            <p>The only place you need to get stuff done.</p>
-            <div className="home-page-button-div">
+      {!sessionUser && (<div className="home-page-main-section-logged-out">
+        <div className="home-page-main-section-logged-out-left">
+          <h1>Banter is your Digital HQ</h1>
+          <p>The only place you need to get stuff done.</p>
+          <div className="home-page-button-div">
             <button className='home-page-demo-login' onClick={onClick}>Try a Demo</button>
             <OpenModalButton
-            buttonText="TRY FOR FREE"
-            modalComponent={<SignupFormModal />}
-          />
+              className="sign-up-button"
+              buttonText="TRY FOR FREE"
+              modalComponent={<SignupFormModal />}
+            />
           </div>
-          </div>
-          <div className="home-page-main-section-logged-out-left">
-          <img className='home-page-main-section-logged-out-image'src={arnold}/>
-          </div>
+        </div>
+        <div className="home-page-main-section-logged-out-left">
+          <img className='home-page-main-section-logged-out-image' src={arnold} />
+        </div>
 
-        </div>)}
-
-
-        {sessionUser && (
-            <div className="main-section-logged-in">
+      </div>)}
 
 
-            <div className="welcome-back-title">
+      {sessionUser && (
+        <div className="main-section-logged-in">
+
+
+          <div className="welcome-back-title">
             <h1 className="test">
-            <img className='waving-hand' src={hand}/>
-                Welcome back!
+              <img className='waving-hand' src={hand} />
+              Welcome back!
             </h1>
-            </div>
+          </div>
 
-                <WorkspacesIndex/>
+          <WorkspacesIndex />
 
-            </div>
-        )}
+        </div>
+      )}
 
-</div>
-    )
+    </div>
+  )
 }
 
 export default HomePage

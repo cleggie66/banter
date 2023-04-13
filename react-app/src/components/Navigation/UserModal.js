@@ -54,12 +54,13 @@ function UserIcon({ user }) {
         ) : (
           <>
             <OpenModalButton
+              className="log-in-button"
               buttonText="Log In"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
-
             <OpenModalButton
+              className="sign-up-button"
               buttonText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}

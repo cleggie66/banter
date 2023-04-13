@@ -95,6 +95,19 @@ export const deleteChannelThunk = (channelId) => async (dispatch) => {
   }
 };
 
+export const addUserToChannelThunk = (userId, channelId) => async (dispatch) => {
+  const response = await fetch(`/api/channels/${channelId}/users`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      user_id: userId
+    }),
+  });
+  const data = await response.json();
+  dispatch(getAllChannelsThunk())
+  return data
+}
+
 const initialState = {};
 
 const channelsReducer = (state = initialState, action) => {
