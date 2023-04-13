@@ -4,6 +4,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
+    background-color: rgb(27 29 33);
     /* align-items: center; */
 }
 

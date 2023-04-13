@@ -1,5 +1,17 @@
 .message {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message:hover {
+    background-color: rgb(35, 37, 41);
+}
+
+.message-content {
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -36,7 +48,10 @@
     margin: 0;
 }
 
-.message>button {
+.message-buttons>button {
+    justify-self: flex-end;
+    background-color: rgb(27 29 33);
     color: rgb(175 176 177);
     margin: 10px;
+    border: none;
 }

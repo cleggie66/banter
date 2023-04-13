@@ -1,5 +1,7 @@
-* {
-    /* padding: 0;
-    border: 0;
-    margin: 0; */
+html {
+    background-color: rgb(27 29 33);
+}
+
+body {
+    margin: 0;
 }

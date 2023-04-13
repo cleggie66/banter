@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createMessageThunk } from "../../../store/message";
+import "./MessageForm.css"
 
 const MessageForm = () => {
     const activeChannel = useSelector((state) => state.activeChannel);
