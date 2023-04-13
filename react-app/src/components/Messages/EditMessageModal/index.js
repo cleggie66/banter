@@ -43,9 +43,6 @@ function EditMessageModal({ message }) {
   return (
     <>
       <h1>Edit Your Message</h1>
-      {updatedMessage && (
-        <p>The new updated message is: {updatedMessage}</p>
-      )}
       <form onSubmit={handleFormSubmit}>
         <label>
           Text
