@@ -16,7 +16,7 @@ workspace_routes = Blueprint('workspaces', __name__)
 @login_required
 def get_single_workspace(workspace_id):
     workspace = Workspace.query.get(workspace_id)
-    return workspace.to_dict_simple()
+    return workspace.to_dict()
 
 
 # * -----------  GET  --------------
