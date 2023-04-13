@@ -48,10 +48,11 @@ function CreateChannelForm({ workspaceId }) {
       {!user && <h1 className="signin-error">Please sign in to attempt to make a workspace</h1>}
       {user && (
         <>
-          <h1>Create a Channel</h1>
-          <p>Just a bit of banter!</p>
-          <form className="channel-form-container" onSubmit={handleFormSubmit}>
-            <label>
+        <div className="channel-create-container">
+          <h1 className="title-text">Create a Channel</h1>
+          <p id="banter-quote" className="title-text">Just a bit of banter!</p>
+          <form className="channel-form-form" onSubmit={handleFormSubmit}>
+            <label className="channel-name-label">
               Name:{" "}
               <input
                 className="text-input-channel"
@@ -70,6 +71,7 @@ function CreateChannelForm({ workspaceId }) {
               disabled={hasSubmitted && Object.values(errors).length > 0}
             />
           </form>
+          </div>
         </>
       )}
     </div>
