@@ -3,8 +3,8 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { refreshUser } from "../../../store/session";
 
-// ! memory leak useEffect for name errors only needs to run when in box
-// needs a clean up funciton for useEffect()
+//todo each entry should really be a modal calling the same thunk...
+
 
 function UpdateUserForm({ user }) {
   const dispatch = useDispatch();
@@ -23,6 +23,12 @@ function UpdateUserForm({ user }) {
   // ! current user
   //   ! How to prefill values???? I forgot this on my airbnb lol
 
+
+
+
+
+
+  
   //   const [errors, setErrors] = useState({});
     const [hasSubmitted, setHasSubmitted] = useState(false);
   //   const history = useHistory();
@@ -114,7 +120,7 @@ function UpdateUserForm({ user }) {
         </label>
         {hasSubmitted && errors.password && <p className="errors">{errors.password}</p>}
         <label>
-          confirmPassword
+          Confirm Password
           <input
             type="text"
             value={confirmPassword}
@@ -123,12 +129,64 @@ function UpdateUserForm({ user }) {
           />
         </label>
         {hasSubmitted && errors.confirmPassword && <p className="errors">{errors.confirmPassword}</p>}
-
-
-
+        <label>
+          First Name
+          <input
+            type="text"
+            value={firstName}
+            placeholder={user.first_name}
+            // style={{ backgroundColor: "white" }}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </label>
+        {hasSubmitted && errors.firstName && <p className="errors">{errors.firstName}</p>}
+        <label>
+          Last Name
+          <input
+            type="text"
+            value={lastName}
+            placeholder={user.last_name}
+            // style={{ backgroundColor: "white" }}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </label>
+        {hasSubmitted && errors.lastName && <p className="errors">{errors.lastName}</p>}
+        <label>
+          Profile Picture
+          <input
+            type="text"
+            value={profilePicture}
+            placeholder="image url here"
+            // style={{ backgroundColor: "white" }}
+            onChange={(e) => setProfilePicture(e.target.value)}
+          />
+        </label>
+        {hasSubmitted && errors.profilePicture && <p className="errors">{errors.profilePicture}</p>}
+        <label>
+          Title
+          <url
+            type="text"
+            value={title}
+            placeholder={user.title}
+            // style={{ backgroundColor: "white" }}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </label>
+        {hasSubmitted && errors.title && <p className="errors">{errors.title}</p>}
+        <label>
+          About Me
+          <textarea
+            type="text"
+            value={aboutMe}
+            placeholder={user.about_me}
+            // style={{ backgroundColor: "white" }}
+            onChange={(e) => setAboutMe(e.target.value)}
+          />
+        </label>
+        {hasSubmitted && errors.aboutMe && <p className="errors">{errors.aboutMe}</p>}
         <input
           type="submit"
-          value={"Create Channel"}
+          value={"Save Changes"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
         /> 
       </form>
