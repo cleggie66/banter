@@ -27,3 +27,14 @@ class Workspace(db.Model):
             "name": self.name,
             "icon": self.icon
         }
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "owner_id": self.owner_id,
+            "name": self.name,
+            "icon": self.icon,
+            "workspace_owner": self.workspace_owner.to_dict_simple(),
+            "owned_channels": [channel.to_dict_simple() for channel in self.owned_channels],
+            "users_in_workspaces": [user.to_dict_simple() for user in self.users_in_workspaces],
+        }

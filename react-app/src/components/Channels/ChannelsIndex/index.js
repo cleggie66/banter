@@ -8,9 +8,10 @@ import DirectMessageCard from "./DirectMessageCard"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
-
-import "./ChannelIndex.css";
 import ManageChannelModal from "../ManageChannel";
+import NewDMModal from "../../Messages/NewDMModel";
+import "./ChannelIndex.css";
+
 
 const ChannelsIndex = () => {
   const dispatch = useDispatch();
@@ -127,11 +128,11 @@ const ChannelsIndex = () => {
           />
         ))}
         <div className="add-channel-container">
-          <FontAwesomeIcon icon={faPlusSquare} />
+          <FontAwesomeIcon icon={faPlusSquare} size="lg" style={{ color: "#c0c3c8", }} />
           <OpenModalButton
             className="channels-button-modal"
-            buttonText="Channels"
-            modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
+            buttonText="New Message"
+            modalComponent={<NewDMModal workspaceId={workspaceId} />}
           />
         </div>
       </div>
