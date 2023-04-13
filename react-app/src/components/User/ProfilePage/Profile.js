@@ -13,6 +13,7 @@ import "./Profile.css";
 import EditUsernameModal from "./UsernameModal";
 import EditNameModal from "./NameModal";
 import EditPasswordModal from "./PasswordModal";
+import EditEmailModal from "./EmailModal";
 
 const ProfilePage = () => {
   const history = useHistory();
@@ -36,6 +37,16 @@ const ProfilePage = () => {
   const handlePasswordEdit = () => {
     setModalContent(<EditPasswordModal sessionUser={sessionUser} />);
   };
+  const handleEmailEdit = () => {
+    setModalContent(<EditEmailModal sessionUser={sessionUser} />);
+  };
+  const handleTitleEdit = () => {
+    // setModalContent(< sessionUser={sessionUser} />);
+  };
+  const handleAboutMeEdit = () => {
+    // setModalContent(< sessionUser={sessionUser} />);
+  };
+
 
   return (
     <div className="profile-page-container">
@@ -60,6 +71,16 @@ const ProfilePage = () => {
           // className=""
         />
       </div>
+
+      <div className="email-container">
+        <div>{`Email:  ${sessionUser.email}`}</div>
+        <FontAwesomeIcon
+          icon={faUserPen}
+          onClick={handleEmailEdit}
+          // className=""
+        />
+      </div>
+
       <div className="name-container">
         <div>{`First name:  ${sessionUser.first_name}`}</div>
         <div>{`Last name:  ${sessionUser.last_name}`}</div>
@@ -78,10 +99,6 @@ const ProfilePage = () => {
           // className=""
         />
       </div>
-     
-
-
-
 
       <button>Change Password</button>
       <FontAwesomeIcon
