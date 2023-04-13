@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllWorkspacesThunk } from "../../../store/workspace";
 import WorkspaceCard from "./WorkspaceCard";
 import { clearActiveChannelThunk } from "../../../store/activeChannel";
+import './WorkSpacesIndex.css'
 
 const WorkspacesIndex = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -18,8 +19,8 @@ const WorkspacesIndex = () => {
 
   return (
     <>
-      <h1>Workspaces</h1>
-      <div>
+      <h1>Your Workspaces</h1>
+      <div className="workspace-list-area">
         {allWorkspaces.map((workspace) => (
           <WorkspaceCard key={workspace.id} workspace={workspace} />
         ))}
