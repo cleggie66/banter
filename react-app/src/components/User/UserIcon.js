@@ -45,14 +45,19 @@ function UserIconModal() {
   };
 
   // ! Cant grab workspace id from param
+
   return (
     <>
-      {/* <button onClick={handleProfileClick}>Create</button> */}
       <div className="user-image-container-modal">
         <img
-          src={sessionUser.profile_picture}
+          src={
+            sessionUser.profile_picture === null
+              ? sessionUser.name[0]
+              : sessionUser.profile_picture
+          }
           alt="User Image"
           className="profile-picture-modal"
+          // this might want an active or not active class ternary to style letter for Profile pic
         />
         <div className="user-modal-name-status-container">
           <div>
@@ -67,7 +72,9 @@ function UserIconModal() {
           </div>
         </div>
       </div>
-      <button className="user-profile-button" onClick={handleProfileClick}>Profile</button>
+      <button className="user-profile-button" onClick={handleProfileClick}>
+        Profile
+      </button>
       <button
         className="user-icon-modal-sign-out-button"
         onClick={handleSignOutWorkspace}
