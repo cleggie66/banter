@@ -3,25 +3,17 @@ import { useHistory } from "react-router-dom";
 import EditMessageModal from "../EditMessageModal";
 import OpenModalButton from "../../OpenModalButton";
 import { deleteMessageThunk } from "../../../store/message";
-import { refreshUser } from "../../../store/session";
-import { refreshActiveChannelMessages } from "../../../store/activeChannel";
+// import { refreshUser } from "../../../store/session";
 const MessageCard = ({ message, sessionUser, activeChannel }) => {
-
-
   const history = useHistory();
   const dispatch = useDispatch();
-
 
   const handleDeleteMessage = async (e) => {
     e.preventDefault();
 
     await dispatch(deleteMessageThunk(message.id));
-    dispatch(refreshUser(sessionUser.id));
-    dispatch(refreshActiveChannelMessages(activeChannel.Id))    
+    // dispatch(refreshUser(sessionUser.id));
   };
-
-
-
 
   return (
     <div>

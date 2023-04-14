@@ -5,11 +5,22 @@ import LoadingIcon from "../../LoadingPage/LoadingIcon";
 import MessageCard from "./MessageCard";
 import "./MessagesIndex.css";
 import MessageForm from "../MessageForm";
+import { useParams } from "react-router-dom";
 
 function MessagesIndex() {
+  const params= useParams()
+  console.log(params)
+
+
+  
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
   const messages = activeChannel.channel_messages;
+
+// instead of active channel pass the current channel from the redux store
+// instead of active channel we want the channel clicked on
+// 
+
 
   if (!messages) {
     return <LoadingIcon />;

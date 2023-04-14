@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createMessageThunk } from "../../../store/message";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { refreshActiveChannelMessages } from "../../../store/activeChannel";
 import "./MessageForm.css"
 
 const MessageForm = ({activeChannel}) => {
@@ -22,7 +21,6 @@ const MessageForm = ({activeChannel}) => {
         console.log(payload)
 
         dispatch(createMessageThunk(payload))
-    dispatch(refreshActiveChannelMessages(activeChannel.Id))    
 
     }
 

@@ -1,12 +1,11 @@
-import { loadActiveChannelThunk } from "./activeChannel"
 
 const normalizer = (data) => {
-  const obj = {}
+  const obj = {};
   data.forEach((item) => {
-    obj[item.id] = item
-  })
-  return obj
-}
+    obj[item.id] = item;
+  });
+  return obj;
+};
 
 const LOAD_MESSAGE = "messages/LOAD_MESSAGE";
 const CREATE_MESSAGE = "messages/CREATE_MESSAGE";
@@ -48,7 +47,7 @@ export const getMessageByIdThunk = (messageId) => async (dispatch) => {
   if (response.ok) {
     const singleMessageData = await response.json();
     const normalizedMessageData = {
-      [singleMessageData.id]: singleMessageData
+      [singleMessageData.id]: singleMessageData,
     };
     dispatch(loadMessages(normalizedMessageData));
   }
@@ -64,10 +63,9 @@ export const createMessageThunk = (newMessageData) => async (dispatch) => {
 
     const data = await response.json();
     const normalizedMessageData = {
-      [data.id]: data
+      [data.id]: data,
     };
     dispatch(createMessage(normalizedMessageData));
-    dispatch(loadActiveChannelThunk(data.channel_id))
     return data;
   } catch (error) {
     console.log(error);
@@ -84,10 +82,9 @@ export const updateMessageThunk =
       });
       const data = await response.json();
       const normalizedMessageData = {
-        [data.id]: data
+        [data.id]: data,
       };
       dispatch(updateMessage(normalizedMessageData));
-      dispatch(loadActiveChannelThunk(data.channel_id))
       return data;
     } catch (error) {
       console.log(error);
@@ -103,7 +100,6 @@ export const deleteMessageThunk = (messageId) => async (dispatch) => {
     dispatch(deleteMessage(messageId));
   }
 };
-
 
 const initialState = {};
 
