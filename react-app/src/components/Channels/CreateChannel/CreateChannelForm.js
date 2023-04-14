@@ -39,7 +39,6 @@ function CreateChannelForm({ workspaceId }) {
         workspace_id: Number(workspaceId),
         is_channel: true,
       };
-      console.log(channelInformation);
 
       let newChannel = await dispatch(createChannelThunk(channelInformation));
       dispatch(refreshUser(sessionUser.id));
