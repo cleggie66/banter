@@ -27,7 +27,6 @@ function DeleteMessageModal({ message, activeChannelId }) {
 
   return (
     <div>
-      <h1>Confirm Delete 😟</h1>
       <h2>Are you sure you want to delete this message? </h2>
       <button
         className="yes-delete-yeet"
