@@ -12,3 +12,12 @@
 .left-bar {
     background-color: rgb(37 37 38);
 }
+
+.dashboard-workspace-name{
+
+    padding: 0;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 25px;
+}
