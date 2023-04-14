@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import CreateChannelForm from "./CreateChannelForm";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
-
 
 const CreateChannel = () => {
   const history = useHistory();

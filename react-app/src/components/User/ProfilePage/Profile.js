@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import DeleteUserModal from "../DeleteUser";
 import OpenModalButton from "../../OpenModalButton";
-import UpdateUserForm from "../UpdateUser";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPen } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +18,7 @@ import EditAboutMeModal from "./AboutMeModal";
 
 const ProfilePage = () => {
   const history = useHistory();
-  const { setModalContent, setOnModalClose } = useModal();
+  const { setModalContent } = useModal();
   const sessionUser = useSelector((state) => state.session.user);
   //   const dispatch = useDispatch();
 
@@ -55,7 +54,7 @@ const ProfilePage = () => {
       <div className="profile-picture-container">
         <img
           src={sessionUser.profile_picture}
-          alt="Profile Picture"
+          alt="Profile"
           className="profile-page-picture"
         />
         <FontAwesomeIcon

@@ -10,9 +10,9 @@ import "./Dashboard.css"
 
 const Dashboard = () => {
   const sessionUser = useSelector((state) => state.session.user);
-  const activeChannel = useSelector((state) => state.activeChannel)
+  // const activeChannel = useSelector((state) => state.activeChannel)
   const [loadingVisibility, setLoadingVisibility] = useState("visible")
-  const history = useHistory();
+  // const history = useHistory();
 
   useEffect(() => {
     const loadingPageTimer = setTimeout(() => {
@@ -22,11 +22,7 @@ const Dashboard = () => {
   }, [])
 
 
-  const handleRedirectHome = (e) => {
-    e.preventDefault();
-    history.push(`/`);
-  };
-  const homepage = !window.location.pathname.includes("/dashboard");
+ 
 
   return (
     <div className="page">

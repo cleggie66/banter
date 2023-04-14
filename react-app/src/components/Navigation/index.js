@@ -8,12 +8,12 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import DemoLogin from "./DemoLogin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faHome} from "@fortawesome/free-solid-svg-icons";
 import "./Navigation.css";
 import UserIconModal from "../User/UserIcon";
 import { useModal } from "../../context/Modal";
 
-function Navigation({ isLoaded }) {
+function Navigation() {
   const [homePage, setHomePage] = useState(true);
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ function Navigation({ isLoaded }) {
 
   const profile = window.location.pathname.includes("/profile");
 
-  const { setModalContent, setOnModalClose } = useModal();
+  const { setModalContent } = useModal();
 
   const onClick = () => {
     setModalContent(<UserIconModal />);
@@ -109,7 +109,7 @@ function Navigation({ isLoaded }) {
               }
               onClick={onClick}
               className="user-icon-button"
-              alt="User Image"
+              alt="User"
               // this might want an active or not active class ternary to style letter for Profile pic
             />
           </div>

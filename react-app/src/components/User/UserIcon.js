@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { useHistory, useParams } from "react-router-dom";
-import { getWorkspaceByIdThunk } from "../../store/workspace";
+import { useHistory } from "react-router-dom";
 import "./UserModal.css";
 // todo  USER NEEDS TO BE REFACTORED TO SHOW UP ON DASHBOARD LATER
 // todo  NOW IT WILL JUST OPEN A NEW PAGE FOR SIMPLICITY
@@ -55,7 +54,7 @@ function UserIconModal() {
               ? sessionUser.name[0]
               : sessionUser.profile_picture
           }
-          alt="User Image"
+          alt="User"
           className="profile-picture-modal"
           // this might want an active or not active class ternary to style letter for Profile pic
         />
