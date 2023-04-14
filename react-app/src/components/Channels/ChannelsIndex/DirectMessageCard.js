@@ -46,7 +46,7 @@ const DirectMessageCard = ({ channel, sessionUser }) => {
             <div className='dm-image-container'>
                 {dmPictureRender()}
             </div>
-            <h2>{title}</h2>
+            <h2 className="channel-list-names">{title}</h2>
         </div>
     );
 };

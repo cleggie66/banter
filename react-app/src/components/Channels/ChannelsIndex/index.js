@@ -6,7 +6,7 @@ import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import DirectMessageCard from "./DirectMessageCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faCaretRight, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
 import ManageChannelModal from "../ManageChannel";
 import NewDMModal from "../../Messages/NewDMModel";
@@ -56,12 +56,12 @@ const ChannelsIndex = () => {
 
   // Arrow drop down
   const handleChannelMenuClick = (e) => {
-    e.preventDefault();
+    e?.preventDefault();
     setOpenChannelMenu((open) => !open);
   };
 
-  const handleMessagelMenuClick = (e) => {
-    e.preventDefault();
+  const handleMessageMenuClick = (e) => {
+    e?.preventDefault();
     setOpenMessageMenu((open) => !open);
   };
 
@@ -70,19 +70,40 @@ const ChannelsIndex = () => {
     history.push(`/dashboard/${workspaceId}/newchannel`);
   };
 
+  function AnimatedCaret({ open, onClick, className }) {
+    const [icon, setIcon] = useState(open ? faCaretDown : faCaretRight);
+  
+    const handleClick = () => {
+      setIcon((icon) => (icon === faCaretRight ? faCaretDown : faCaretRight));
+      onClick();
+    };
+  
+    useEffect(() => {
+      setIcon(open ? faCaretDown : faCaretRight);
+    }, [open]);
+  
+    return (
+      <FontAwesomeIcon
+        icon={icon}
+        onClick={handleClick}
+        id="fa-dropdown-arrow"
+      />
+      );
+    }
+
+
   return (
     <>
       <div className="channel-dropdown-container">
         <div className="channel-dropdown-heading-container">
-          <FontAwesomeIcon
-            icon={faCaretDown}
-            style={{ opacity: 0.8 }}
+          <AnimatedCaret
+            open={openChannelMenu}
             onClick={handleChannelMenuClick}
             className="caret-down"
           />
           <div className="channel-heading">
             <OpenModalButton
-              className="channels-button-modal"
+              className="channels-button-modal-sidebar"
               buttonText="Channels"
               modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
             />
@@ -99,26 +120,24 @@ const ChannelsIndex = () => {
           <div className="channel-list-item" onClick={handleAddChannel}>
             <FontAwesomeIcon
               icon={faPlusSquare}
-              size="lg"
-              style={{ color: "#c0c3c8" }}
+              id="fa-dropdown-arrow"
             />
-            <h2>Add a Channel</h2>
+            <p id="add-channel-sidebar" className="channels-button-modal-sidebar">Add a Channel</p>
           </div>
         </div>
       </div>
       <div className="channel-dropdown-heading-container">
-        <FontAwesomeIcon
-          icon={faCaretDown}
-          style={{ opacity: 0.8 }}
-          onClick={handleMessagelMenuClick}
-          className="caret-down"
+        <AnimatedCaret
+          open={openMessageMenu}
+          onClick={handleMessageMenuClick}
+          className="caret-right"
         />
+        {" "}
         <div className="channel-heading">
-          {" "}
           <OpenModalButton
-            className="channels-button-modal"
-            buttonText="Direct messages"
-            modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
+            className="channels-button-modal-sidebar"
+            buttonText="Messages"
+            modalComponent={<NewDMModal workspaceId={workspaceId} />}
           />
         </div>
       </div>
@@ -134,21 +153,20 @@ const ChannelsIndex = () => {
             sessionUser={sessionUser}
           />
         ))}
-        <div className="add-channel-container">
+        <div className="channel-list-item">
           <FontAwesomeIcon
             icon={faPlusSquare}
-            size="lg"
-            style={{ color: "#c0c3c8" }}
+            id="fa-dropdown-arrow"
           />
           <OpenModalButton
-            className="channels-button-modal"
+            className="channels-button-modal-sidebar"
             buttonText="New Message"
             modalComponent={<NewDMModal workspaceId={workspaceId} />}
           />
         </div>
       </div>
     </>
-  );
+  );  
 };
 
 export default ChannelsIndex;

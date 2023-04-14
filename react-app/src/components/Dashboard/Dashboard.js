@@ -5,6 +5,7 @@ import ChannelsIndex from "../Channels/ChannelsIndex";
 import ActiveWorkspace from "../Workspaces/ActiveWorkspace";
 import MessagesIndex from "../Messages/MessagesIndex";
 import LoadingPage from "../LoadingPage";
+
 import "./Dashboard.css"
 
 const Dashboard = () => {
