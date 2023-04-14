@@ -10,6 +10,7 @@ const WorkspaceCard = ({ workspace }) => {
 
   return (
     <div className='workspace-card'onClick={handleCardClick}>
+      <img src={workspace.icon} alt="workspace icon" className="workspace-card-image"/>
       <h2>{`${workspace.name}`}</h2>
     </div>
   );
