@@ -1,0 +1,40 @@
+.channel-list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.channel-list-item:hover {
+    background-color: #2F2F2F;
+}
+
+.channel-list-names {
+    color: rgb(189 189 191);
+    font-size: 16px;
+    font-weight: normal;
+    margin: 5px;
+}
+
+.dm-image-container {
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    border-radius: 10%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+    background-color: rgb(71 71 71);
+}
+
+.group-dm-profile-picture{
+    color: rgb(189 189 191);
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#add-channel-sidebar {
+    font-size: 13.33px;
+}

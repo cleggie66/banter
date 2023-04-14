@@ -1,0 +1,56 @@
+.message {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message:hover {
+    background-color: rgb(35, 37, 41);
+}
+
+.message-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.image-container {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 10%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.message-profile-pic {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    background-color: white;
+}
+
+.message-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-details>h4 {
+    color: rgb(209 210 211);
+    margin: 0;
+}
+
+.message-details>p {
+    color: rgb(175 176 177);
+    margin: 0;
+}
+
+.message-buttons>button {
+    background-color: rgb(27 29 33);
+    color: rgb(175 176 177);
+    margin: 10px;
+    border: none;
+}

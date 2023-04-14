@@ -1,1 +1,43 @@
-/* TODO Add site wide styles */
+html {
+    background-color: rgb(27 29 33);
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    color: #EBB22E
+}
+
+input[type="text"] {
+    background-color: #000000;
+    padding-left: 2em;
+    color: #ababad;
+}
+
+input[type="text"]::placeholder {
+    color: #ababad;
+}
+
+input[type="password"] {
+    background-color: #222529;
+    padding-left: 2em;
+    color: #ababad;
+}
+
+input[type="password"]::placeholder {
+    background-color: #222529;
+    padding-left: 2em;
+    color: #ababad;
+}
+
+#modal-content {
+    background-color: #1b1d21;
+    padding: 1em;
+}

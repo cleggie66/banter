@@ -1,5 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-
+from ..utils import pog
 
 class Message(db.Model):
     __tablename__ = 'messages'
@@ -9,27 +9,30 @@ class Message(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id"), ondelete="CASCADE"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id"), ondelete="CASCADE"))
     channel_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("channels.id")), nullable=False)
 
     # * Relationships 💚
-    message = db.relationship("Channel", back_populates="channel_messages")
+    in_channel = db.relationship("Channel", back_populates="channel_messages")
     message_owner = db.relationship("User", back_populates="user_messages")
 
+    
     def to_dict_simple(self):
         return {
             "id": self.id,
             "content": self.content,
             "user_id": self.user_id,
             "channel_id": self.channel_id,
+            "message_owner": self.message_owner.to_dict_simple()
         }
-    
+
+
     def to_dict(self):
         return {
             "id": self.id,
             "content": self.content,
             "user_id": self.user_id,
             "channel_id": self.channel_id,
-            "message": self.message,
-            "message_owner)": self.message_owner
+            "channel": self.in_channel.to_dict_simple(),
+            "message_owner": self.message_owner.to_dict_simple(),
         }

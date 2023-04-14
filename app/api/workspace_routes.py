@@ -16,7 +16,7 @@ workspace_routes = Blueprint('workspaces', __name__)
 @login_required
 def get_single_workspace(workspace_id):
     workspace = Workspace.query.get(workspace_id)
-    return workspace.to_dict_simple()
+    return workspace.to_dict()
 
 
 # * -----------  GET  --------------
@@ -30,12 +30,24 @@ def get_all_workspaces():
     return [workspace.to_dict_simple() for workspace in workspaces]
 
 
+# * -----------  GET  --------------
+#  Returns all channels in a Workspace
+
+# @channel_routes.route('')
+# @login_required
+# def get_all_channels():
+#     user = User.query.filter(User.id == current_user.id).first()
+#     channels = user.joined_channels
+#     return [channel.to_dict_no_messages() for channel in channels]
+
+
 # TODO -----------  POST  --------------
 # Create a workspace
 
 @workspace_routes.route('', methods=['POST'])
 @login_required
 def create_workspace():
+    print(current_user.to_dict())
     form = WorkspaceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -46,11 +58,17 @@ def create_workspace():
             icon=form.data['icon']
         )
 
+        new_workspace.users_in_workspaces.append(current_user)
+        # current_user.joined_workspaces.append(new_workspace)
+
         db.session.add(new_workspace)
         db.session.commit()
 
-        return redirect("")
-    return 'BAD DATA'
+        print(new_workspace.users_in_workspaces)
+
+
+        return new_workspace.to_dict_simple()
+    return {"message": "Bad data"}
 
 
 # ! -----------  DELETE  --------------
@@ -65,4 +83,3 @@ def delete_workspace_by_id(id):
     db.session.commit()
 
     return {"message": "Successfully Deleted!"}
-

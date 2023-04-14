@@ -18,7 +18,7 @@ class Workspace(db.Model):
     workspace_owner = db.relationship("User", back_populates="owned_workspaces")
     owned_channels = db.relationship("Channel", back_populates="channel_in_workspace")
     # Many to Many
-    users_in_workspaces = db.relationship("User", secondary=workspace_members, back_populates= 'joined_workspaces', cascade='all, delete')
+    users_in_workspaces = db.relationship("User", secondary=workspace_members, back_populates= 'joined_workspaces')
 
     def to_dict_simple(self):
         return {
@@ -26,4 +26,15 @@ class Workspace(db.Model):
             "owner_id": self.owner_id,
             "name": self.name,
             "icon": self.icon
+        }
+    
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "owner_id": self.owner_id,
+            "name": self.name,
+            "icon": self.icon,
+            "workspace_owner": self.workspace_owner.to_dict_simple(),
+            "owned_channels": [channel.to_dict_simple() for channel in self.owned_channels],
+            "users_in_workspaces": [user.to_dict_simple() for user in self.users_in_workspaces],
         }

@@ -11,12 +11,24 @@ message_routes = Blueprint('messages', __name__)
 def update_message(message_id):
     edit = request.json
     message = Message.query.get(message_id)
+
+    if not message:
+        return {
+            "message": "Message could not be found",
+            "status_code": 404
+        }, 404
+
+    if message.user_id != current_user.id:
+        return {
+            "message": "Forbidden",
+            "status_code": 403
+        }, 403
+
     message.content = edit['content']
     db.session.commit()
-    return redirect(f"/channels/{message.id}")
+    return message.to_dict_simple()
 
 
-#NEEDS WORK
 @message_routes.route('', methods=['POST'])
 @login_required
 def create_message():
@@ -33,21 +45,27 @@ def create_message():
         db.session.add(new_message)
         db.session.commit()
 
-        return new_message
+        return new_message.to_dict_simple()
     return 'BAD DATA'
 
 
-@message_routes.route('/<int:channel_id>')
-@login_required
-def get_channel_messages(channel_id):
-    messages = Message.query.filter(Message.channel_id == channel_id)
-    return [message.to_dict_simple() for message in messages]
-
-
-@message_routes.route('/<int:message_id>', methods=['DELETE'])
+@message_routes.route('/<message_id>', methods=['DELETE'])
 @login_required
 def delete_message(message_id):
     message = Message.query.get(message_id)
+
+    if not message:
+        return {
+            "message": "Message could not be found",
+            "status_code": 404
+        }, 404
+
+    if message.user_id != current_user.id:
+        return {
+            "message": "Forbidden",
+            "status_code": 403
+        }, 403
+
     db.session.delete(message)
     db.session.commit()
     return {"message": "Successfully Deleted!"}

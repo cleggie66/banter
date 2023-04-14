@@ -1,0 +1,41 @@
+.new-message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-in-list {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.user-in-list:hover {
+    background-color: rgb(45 100 158);
+}
+
+.users-list-image-container {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    border-radius: 10%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+    background-color: rgb(71 71 71);
+}
+
+.users-list-profile-pic {
+    color: rgb(189 189 191);
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.create-message-button-container {
+    display: flex;
+    justify-content: center;
+    margin-right: 4em;
+}

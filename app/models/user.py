@@ -15,17 +15,17 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String, nullable=False, unique=True)
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
-    profile_picture = db.Column(db.String, nullable=False)
-    title = db.Column(db.String(55), nullable=False)
+    profile_picture = db.Column(db.String)
+    title = db.Column(db.String(55))
     about_me = db.Column(db.Text)
 
     # * Relationships 💚
     # One to Many
-    owned_workspaces = db.relationship("Workspace", back_populates="workspace_owner", cascade='all, delete')
-    user_messages = db.relationship("Message", back_populates="message_owner", cascade='all, delete')
+    owned_workspaces = db.relationship("Workspace", back_populates="workspace_owner")
+    user_messages = db.relationship("Message", back_populates="message_owner")
     # Many to Many
     joined_channels = db.relationship("Channel", secondary=channel_members, back_populates= 'users_in_channels')
-    joined_workspaces = db.relationship("Workspace", secondary=workspace_members, back_populates= 'users_in_workspaces', cascade="all, delete")
+    joined_workspaces = db.relationship("Workspace", secondary=workspace_members, back_populates= 'users_in_workspaces')
 
 
     @property
@@ -49,6 +49,19 @@ class User(db.Model, UserMixin):
             'profile_picture': self.profile_picture,
             'title': self.title,
             'about_me': self.about_me
+        }
+    
+    def to_dict_search(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'profile_picture': self.profile_picture,
+            'title': self.title,
+            'about_me': self.about_me,
+            "joined_workspaces": [workspace.to_dict_simple() for workspace in self.joined_workspaces]
         }
 
     def to_dict(self):

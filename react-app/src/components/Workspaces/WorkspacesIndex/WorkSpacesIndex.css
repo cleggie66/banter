@@ -1,0 +1,25 @@
+.workspace-list-area {
+    background-color: white;
+    color: #4A164B;
+    border-radius: 12px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.workspace-card:hover {
+    color: #EBB22E;
+    cursor: pointer;
+}
+
+.workspace-card{
+    display: flex;
+
+}
+
+.workspace-card-image{
+    padding: 0 10px;
+    margin-top: 20px;
+    text-align: center;
+    height: 30px;
+    width: 30px;
+} 

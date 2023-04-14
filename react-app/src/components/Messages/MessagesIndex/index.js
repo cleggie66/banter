@@ -1,32 +1,39 @@
 import React, { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-import "./ChannelsIndex.css";
+import LoadingIcon from "../../LoadingPage/LoadingIcon";
 
-const ChannelsIndex = () => {
+import MessageCard from "./MessageCard";
+import "./MessagesIndex.css";
+import MessageForm from "../MessageForm";
+import { useParams } from "react-router-dom";
+// import { getAllChannelMessagesThunk } from "../../../store/message";
 
-    const dispatch = useDispatch();
+function MessagesIndex() {
+  const sessionUser = useSelector((state) => state.session.user);
+  const activeChannel = useSelector((state) => state.activeChannel);
 
-    useEffect(() => {
-        // TODO: dispatch thunk to get current messages
-        // dispatch(getAllChannels());
-    }, [dispatch])
+  const messages = useSelector((state) => Object.values(state.messages));
 
-    // TODO: Update to new state after merge
-    const messages = useSelector((state) => Object.values(state.messages));
+  const allCurrentChannelMessages = messages.filter(
+    (e) => activeChannel.id === e.channel_id
+  );
 
-    if (!messages) return null;
-
-    return (
-        <>
-            <h1>Messages</h1>
-            <div>
-                {messages.map((message) => (
-                    <h2 key={message.id}># {message.content}</h2>
-                ))}
-            </div>
-        </>
-    )
+  if (!allCurrentChannelMessages) {
+    return <LoadingIcon />;
+  }
+  return (
+    <div>
+      {allCurrentChannelMessages.map((message) => (
+        <MessageCard
+          key={message.id}
+          sessionUser={sessionUser}
+          activeChannel={activeChannel}
+          message={message}
+        />
+      ))}
+      {activeChannel.id && <MessageForm activeChannel={activeChannel} />}
+    </div>
+  );
 }
 
-export default ChannelsIndex;
+export default MessagesIndex;

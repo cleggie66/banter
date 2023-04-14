@@ -1,3 +1,5 @@
+import { clearActiveChannel } from "./activeChannel";
+
 const LOAD_CHANNELS = "channels/LOAD_CHANNELS";
 const CREATE_CHANNEL = "channels/CREATE_CHANNEL";
 const UPDATE_CHANNEL = "channels/UPDATE_CHANNEL";
@@ -48,7 +50,7 @@ export const getChannelByIdThunk = (channelId) => async (dispatch) => {
 
 export const createChannelThunk = (newChannelData) => async (dispatch) => {
   try {
-    const response = await fetch(`/api/channels/`, {
+    const response = await fetch(`/api/channels`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newChannelData),
@@ -89,9 +91,22 @@ export const deleteChannelThunk = (channelId) => async (dispatch) => {
 
   if (response.ok) {
     dispatch(deleteChannel(channelId));
+    dispatch(clearActiveChannel())
   }
 };
 
+export const addUserToChannelThunk = (userId, channelId) => async (dispatch) => {
+  const response = await fetch(`/api/channels/${channelId}/users`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      user_id: userId
+    }),
+  });
+  const data = await response.json();
+  dispatch(getAllChannelsThunk())
+  return data
+}
 
 const initialState = {};
 

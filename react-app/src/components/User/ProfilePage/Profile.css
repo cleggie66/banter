@@ -1,0 +1,47 @@
+.profile-page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-container {
+  display: flex;
+}
+
+.name-container {
+  display: flex;
+}
+.password-container {
+  display: flex;
+}
+.email-container {
+  display: flex;
+}
+.title-container {
+  display: flex;
+}
+.about-me-container {
+  display: flex;
+}
+
+.profile-page-picture {
+  height: 100px;
+  width: 100px;
+}
+
+/* EDIT BUTTONS YO  */
+/* --------------------------------------------------- */
+.edit-profile-picture {
+  color: rgb(101, 103, 211, 0.6);
+}
+
+
+
+
+
+
+.delete-user-account-button{
+    width: 20%;
+    justify-content: center;
+    background-color: rgba(234, 34, 34);
+
+}

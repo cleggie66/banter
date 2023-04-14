@@ -1,0 +1,63 @@
+.status-container {
+  display: flex;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.status-button {
+  /* display:none; */
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 8px;
+}
+
+
+
+.status {
+  font-size: 12px;
+  
+}
+
+.profile-picture-modal {
+  width: 30px;
+  height: 30px;
+}
+
+.user-image-container-modal {
+  display: flex;
+}
+
+.user-modal-name-status-container {
+  gap: 20px;
+}
+
+.user-profile-button {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 5px;
+  margin-top: 5px;
+}
+.user-profile-button:hover {
+  background-color: rgb(121, 177, 233, 0.3);
+}
+
+.user-icon-modal-sign-out-button {
+  display: flex;
+  padding: 0;
+  border: none;
+  background: none;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.user-icon-modal-sign-out-button:hover {
+  background-color: rgb(121, 177, 233, 0.3);
+}

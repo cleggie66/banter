@@ -1,40 +1,29 @@
-// import { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import CreateChannelForm from "./CreateChannelForm";
+import { getWorkspaceByIdThunk } from "../../../store/workspace";
 
-// const ChannelForm = () => {
-//     const dispatch = useDispatch()
-//     const [name, setName] = useState('');
-//     const [isChannel, setIsChannel] = useState(false);
+const CreateChannel = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-//     const handleSubmit = async (e) => {
-//         e.preventDefault()
+  const sessionUser = useSelector((state) => state.session.user);
+  const { workspaceId } = useParams();
 
-//         const payload = {
-//             name,
-//             isChannel
-//         }
+  useEffect(() => {
+    dispatch(getWorkspaceByIdThunk(workspaceId));
+  }, [dispatch, workspaceId]);
 
-//         // TODO: Dispatch Thunk to create channel
-//         // TODO: Dispatch Thunk to add channel members
+  if (!sessionUser) {
+    history.push(`/`);
+  }
 
-//         return <Redirect to="/" />
-//     }
+  return (
+    <div>
+      <CreateChannelForm workspaceId={workspaceId} />
+    </div>
+  );
+};
 
-//     return (
-//         <form onSubmit={handleSubmit}>
-//             <input
-//                 type="text"
-//                 placeholder="Name"
-//                 value={name}
-//                 onChange={(e) => setName(e.target.value)}
-//             />
-//             <input
-//                 type="radio"
-//                 label="Is this a channel?"
-//                 value={isChannel}
-//                 onChange={(e) => setIsChannel(e.target.value)}
-//             />
-//         </form>
-//     )
-// }
+export default CreateChannel;

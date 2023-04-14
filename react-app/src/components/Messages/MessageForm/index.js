@@ -1,36 +1,49 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createMessageThunk } from "../../../store/message";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import "./MessageForm.css"
 
-const MessageForm = () => {
-    const dispatch = useDispatch()
+const MessageForm = ({activeChannel}) => {
+
+    const dispatch = useDispatch();
     const [content, setContent] = useState('');
-    const [channelId, setChannelId] = useState(0);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         const payload = {
             content,
-            channel_id: channelId
+            channel_id: activeChannel.id
         }
 
-        // TODO: Dispatch Thunk to create message
+        dispatch(createMessageThunk(payload))
+        setContent('')
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="textarea"
-                placeholder="Type your message here..."
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-            />
-            <input
-                type="number"
-                label="channel id"
-                value={channelId}
-                onChange={(e) => setChannelId(e.target.value)}
-            />
-        </form>
+        <div className="create-message-form">
+            <form onSubmit={handleSubmit} id="form-1">
+                <input
+                    className="create-message-input"
+                    type="textarea"
+                    placeholder="Type your message here..."
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                />
+            </form>
+            <button
+            className="create-message-button"
+            type="submit"
+            form="form-1">
+                <FontAwesomeIcon
+                icon={faPaperPlane}
+                className="create-message-icon"
+                />
+                </button>
+        </div>
     )
 }
+
+export default MessageForm

@@ -1,0 +1,19 @@
+.workspace-modal-container{
+    display:flex;
+    flex-direction: column;
+}
+
+
+.workspace-icon-modal {
+    width: 30px;
+    height: 30px;
+  }
+
+  .workspace-modal-name-desc-container{
+    gap: 20px;
+  }
+
+
+  .workspace-modal-top{
+    display: flex;
+  }
