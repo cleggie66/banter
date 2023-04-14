@@ -83,7 +83,6 @@ def delete_user(id):
     # workspaces = Workspace.query.filter(Workspace.owner_id == user.id).all()
     # workspace_users = [workspace.users_in_workspaces for workspace in workspaces]
 
-    # pog(workspace_users)
 
 
 

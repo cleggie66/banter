@@ -24,13 +24,20 @@ function AddUserModal() {
         placeholder="Add a user by username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-      ></input>
+      />
+      
+
+
       <FontAwesomeIcon
         icon={faMagnifyingGlass}
         //   onClick={handleSearch}
         //   className=""
       />
       <h3>All Users</h3>
+
+
+
+
     </>
   );
 }
