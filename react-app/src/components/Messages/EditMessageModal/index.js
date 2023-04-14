@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateMessageThunk } from "../../../store/message";
 import { useModal } from "../../../context/Modal";
+import { refreshUser } from "../../../store/session";
 
 function EditMessageModal({ message }) {
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+
   const [content, setContent] = useState(message.content);
-  const [updatedMessage, setUpdatedMessage] = useState("");
   const [errors, setErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   
@@ -33,7 +35,7 @@ function EditMessageModal({ message }) {
       };
       
       await dispatch(updateMessageThunk(messageInformation, message.id));
-      setUpdatedMessage(content);
+      dispatch(refreshUser(sessionUser.id));
       closeModal();
     }
     setHasSubmitted(true);
