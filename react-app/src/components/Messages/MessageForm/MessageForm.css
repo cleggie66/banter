@@ -2,6 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 600px;
+    height: 100px;
+    background-color: rgb(34 37 41);
+    border-radius: 15px;
+    border: 1px solid rgb(86 88 86);
 }
 
 .create-message-form>button {
@@ -10,4 +15,25 @@
     margin: 10px;
     padding: 10px;
     border: 1px solid white;
+}
+
+.create-message-input {
+    width: 450px;
+    color: rgb(175 176 177);
+    background-color: rgb(34 37 41);
+    margin: 10px;
+    padding: 0;
+    border: 0;
+}
+
+.create-message-input:focus {
+    outline-width: 0;
+}
+
+.create-message-button {    
+    background-color: rgb(52 120 92);
+}
+
+.create-message-icon {
+    color: white;
 }
