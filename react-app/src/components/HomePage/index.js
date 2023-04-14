@@ -46,6 +46,10 @@ const HomePage = () => {
             />
           </div>
           </div>
+          <div className="home-page-main-section-logged-out-left">
+          <img className='home-page-main-section-logged-out-image'src={arnold}/>
+          </div>
+          </div>
           <div className="team-flex-test">
           <h1>Made with love by...</h1>
             <div className="meet-the-team-home">
