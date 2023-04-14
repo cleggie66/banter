@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { createMessageThunk } from "../../../store/message";
+import { refreshActiveChannelMessages } from "../../../store/activeChannel";
 import "./MessageForm.css"
 
-const MessageForm = () => {
-    const activeChannel = useSelector((state) => state.activeChannel);
+const MessageForm = ({activeChannel}) => {
+
+    
 
     const dispatch = useDispatch();
     const [content, setContent] = useState('');
@@ -19,6 +21,8 @@ const MessageForm = () => {
         console.log(payload)
 
         dispatch(createMessageThunk(payload))
+    dispatch(refreshActiveChannelMessages(activeChannel.Id))    
+
     }
 
     return (
