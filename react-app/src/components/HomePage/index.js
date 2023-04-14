@@ -32,14 +32,6 @@ const HomePage = () => {
 
   return (
     <div className="main-homepage-div">
-<<<<<<< HEAD
-      {!sessionUser && (<div className="home-page-main-section-logged-out">
-        <div className="home-page-main-section-logged-out-left">
-          <h1>Banter is your Digital HQ</h1>
-          <p>The only place you need to get stuff done.</p>
-          <div className="home-page-button-div">
-            <button className='home-page-demo-login' onClick={onClick}>Try a Demo</button>
-=======
         {!sessionUser && (<div className="home-page-main-section-logged-out">
             <div className="home-page-main-section-logged-out-left">
                 <div className="home-page-logged-out-left">
@@ -47,21 +39,12 @@ const HomePage = () => {
             <p>The only place you need to get stuff done.</p>
             <div className="home-page-button-div">
             <button className='home-page-demo-login' onClick={onClick}>TRY A DEMO</button>
->>>>>>> react_home_page_design
             <OpenModalButton
               className="sign-up-button"
               buttonText="TRY FOR FREE"
               modalComponent={<SignupFormModal />}
             />
           </div>
-<<<<<<< HEAD
-        </div>
-        <div className="home-page-main-section-logged-out-left">
-          <img className='home-page-main-section-logged-out-image' src={arnold} />
-        </div>
-
-      </div>)}
-=======
           </div>
           <div className="team-flex-test">
           <h1>Made with love by...</h1>
@@ -112,7 +95,6 @@ const HomePage = () => {
                 </div>
             </div>
         </div>)}
->>>>>>> react_home_page_design
 
 
       {sessionUser && (
