@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createMessageThunk } from "../../../store/message";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./MessageForm.css"
 
 const MessageForm = () => {
@@ -25,13 +26,23 @@ const MessageForm = () => {
         <div className="create-message-form">
             <form onSubmit={handleSubmit} id="form-1">
                 <input
+                    className="create-message-input"
                     type="textarea"
                     placeholder="Type your message here..."
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 />
             </form>
-            <button type="submit" form="form-1">Send Message</button>
+            <button
+            className="create-message-button"
+            type="submit"
+            form="form-1">
+                TEST
+                <FontAwesomeIcon
+                icon="fa-solid fa-paper-plane-top"
+                className="create-message-icon"
+                />
+                </button>
         </div>
     )
 }
