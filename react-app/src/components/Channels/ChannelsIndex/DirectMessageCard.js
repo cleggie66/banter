@@ -24,6 +24,8 @@ const DirectMessageCard = ({ channel, sessionUser }) => {
 
     let title = filteredUsersArray.join(", ")
 
+    if (filteredUsersArray.length === 0) return null
+
     const dmPictureRender = () => {
         if (filteredUsers.length > 1) {
             return (
