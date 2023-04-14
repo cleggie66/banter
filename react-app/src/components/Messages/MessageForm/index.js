@@ -62,6 +62,9 @@ const MessageForm = () => {
                 />
             </form>
 
+            <button type="submit" form="form-1">Send Message</button>
+
+
             {/* WEBSOCKET FORM */}
          <form onSubmit={sendChat}>
          <input
@@ -71,7 +74,6 @@ const MessageForm = () => {
         <button type="submit">Send</button>
         </form>
 
-            <button type="submit" form="form-1">Send Message</button>
         </div>
     )
 }
