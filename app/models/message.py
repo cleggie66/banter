@@ -23,6 +23,16 @@ class Message(db.Model):
             "user_id": self.user_id,
             "channel_id": self.channel_id,
         }
+    
+    def to_big_dict(self):
+        return {
+            "id": self.id,
+            "content": self.content,
+            "user_id": self.user_id,
+            "channel_id": self.channel_id,
+            "message_owner": [user.to_dict_simple() for user in self.message_owner]
+        }
+
 
     def to_dict(self):
         return {
