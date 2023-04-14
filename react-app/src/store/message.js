@@ -1,5 +1,6 @@
 
 const normalizer = (data) => {
+  console.log(data)
   const obj = {};
   data.forEach((item) => {
     obj[item.id] = item;
@@ -32,11 +33,11 @@ const deleteMessage = (messageId) => ({
 });
 
 export const getAllChannelMessagesThunk = (channelId) => async (dispatch) => {
-  const response = await fetch(`/api/messages/${channelId}`);
-
+  const response = await fetch(`/api/channels/${channelId}/messages`);
+console.log(response)
   if (response.ok) {
-    const allMessageData = await response.json();
-    const normalizedMessageData = normalizer(allMessageData);
+    const {messages} = await response.json();
+    const normalizedMessageData = normalizer(messages);
     dispatch(loadMessages(normalizedMessageData));
   }
 };
