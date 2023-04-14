@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createMessageThunk } from "../../../store/message";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { refreshActiveChannelMessages } from "../../../store/activeChannel";
 import "./MessageForm.css"
 
@@ -41,9 +42,8 @@ const MessageForm = ({activeChannel}) => {
             className="create-message-button"
             type="submit"
             form="form-1">
-                TEST
                 <FontAwesomeIcon
-                icon="fa-solid fa-paper-plane-top"
+                icon={faPaperPlane}
                 className="create-message-icon"
                 />
                 </button>

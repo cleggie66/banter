@@ -9,14 +9,6 @@
     border: 1px solid rgb(86 88 86);
 }
 
-.create-message-form>button {
-    background-color: rgb(27 29 33);
-    color: rgb(175 176 177);
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid white;
-}
-
 .create-message-input {
     width: 450px;
     color: rgb(175 176 177);
@@ -30,8 +22,16 @@
     outline-width: 0;
 }
 
-.create-message-button {    
-    background-color: rgb(52 120 92);
+.create-message-button {
+    align-self: flex-end;
+    background-color: rgb(20 120 92);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+}
+.create-message-button:hover {
+    background-color: rgb(60 130 100);
 }
 
 .create-message-icon {
