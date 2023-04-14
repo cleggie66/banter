@@ -46,7 +46,7 @@ function NewDMModal({ workspaceId }) {
     return (
         <>
             <div className="new-message-container">
-                <h1>New Message</h1>
+                <h1 className="title-text">New Message</h1>
                 <div className="recipients-list">
                     {recipients.map((user) => (
                         <h4>{`${user.first_name} ${user.last_name}`}</h4>
@@ -67,11 +67,13 @@ function NewDMModal({ workspaceId }) {
                                     className="users-list-profile-pic"
                                 />
                             </div>
-                            <h4>{`${user.first_name} ${user.last_name}`}</h4>
+                            <h4 className="title-text">{`${user.first_name} ${user.last_name}`}</h4>
                         </div>
                     ))}
                 </div>
-                <button onClick={handleSubmit}>Create Message</button>
+                <div className="create-message-button-container">
+                    <button className="create-channel-button" onClick={handleSubmit}>Create Message</button>
+                </div>
             </div>
         </>
     );
