@@ -2,24 +2,23 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { useHistory } from "react-router-dom";
-import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import "./ManageWorkspaceModal.css";
+import AddUserModal from "./AddUserModal";
 
 function ManageWorkspaceModal({ workspace }) {
   const dispatch = useDispatch();
+  const { setModalContent, setOnModalClose } = useModal();
   const { closeModal } = useModal();
   const history = useHistory();
-
-  const handleManageChannel = (e) => {
-    e.preventDefault();
-    history.push(`/dashboard/${workspace.Id}/manage`);
-    closeModal();
-  };
 
   const handleSignOutWorkspace = (e) => {
     e.preventDefault();
     history.push(``);
     closeModal();
+  };
+
+  const handleAddUsers = () => {
+    setModalContent(<AddUserModal />);
   };
 
   return (
@@ -44,7 +43,10 @@ function ManageWorkspaceModal({ workspace }) {
         </div>
       </div>
 
-      <button className="user-profile-button">{`Invite People to ${workspace.name} `}</button>
+      <button
+        className="user-profile-button"
+        onClick={handleAddUsers}
+      >{`Invite People to ${workspace.name} `}</button>
 
       <button
         className="user-icon-modal-sign-out-button"
