@@ -24,7 +24,7 @@
   transition: 300ms ease;
 }
 
-
+.channel-heading-2,
 .channel-heading {
   border-radius: 3px 3px;
   height: 20px;
@@ -49,6 +49,11 @@
 .channel-heading:hover {
   background-color: rgb(205, 202, 202);
   width: 4.5em;
+}
+
+.channel-heading-2:hover {
+  background-color: rgb(205, 202, 202);
+  width: 7em;
 }
 
 .channel-dropdown-heading-container {

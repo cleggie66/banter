@@ -2,11 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    margin-right: 6em;
-    height: 32em;
-    width: 110%;
-    background-color: #1b1d21;
+    justify-content: center;
 }
 
 .user-in-list {
@@ -36,4 +32,10 @@
     margin: 0;
     padding: 0;
     border: 0;
+}
+
+.create-message-button-container {
+    display: flex;
+    justify-content: center;
+    margin-right: 4em;
 }
