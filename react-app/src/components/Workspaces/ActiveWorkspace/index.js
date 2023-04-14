@@ -17,12 +17,16 @@ const ActiveWorkspace = () => {
   const activeWorkspace = useSelector((state) => state.workspaces);
   const newActiveWorkspace = activeWorkspace[workspaceId];
 
+console.log("one", activeWorkspace)
+console.log("two", newActiveWorkspace)
+
+
   if (!newActiveWorkspace) {
     return <h1>Loading...</h1>;
   }
 
   const handleWorkspaceNameClick = () => {
-    setModalContent(<ManageWorkspaceModal />);
+    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace}/>);
   };
 
   return (
