@@ -4,14 +4,13 @@ import { useParams, useHistory } from "react-router-dom";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
-import DirectMessageCard from "./DirectMessageCard"
+import DirectMessageCard from "./DirectMessageCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
 import ManageChannelModal from "../ManageChannel";
 import NewDMModal from "../../Messages/NewDMModel";
 import "./ChannelIndex.css";
-
 
 const ChannelsIndex = () => {
   const dispatch = useDispatch();
@@ -36,21 +35,23 @@ const ChannelsIndex = () => {
   // );
 
   const usersCheck = (usersArray) => {
-    let bool = false
-    if (!usersArray) return false
+    let bool = false;
+    if (!usersArray) return false;
     usersArray.forEach((user) => {
-      if (user.id === sessionUser.id) bool = true
-    })
-    return bool
-  }
-
+      if (user.id === sessionUser.id) bool = true;
+    });
+    return bool;
+  };
 
   const channelState = useSelector((state) => Object.values(state.channels));
   const allChannels = channelState.filter(
-    (e) => (Number(workspaceId) === e.workspace_id) && (e.is_channel === true)
+    (e) => Number(workspaceId) === e.workspace_id && e.is_channel === true
   );
   const allDMS = channelState.filter(
-    (e) => (Number(workspaceId) === e.workspace_id) && (e.is_channel === false) && usersCheck(e.users_in_channels)
+    (e) =>
+      Number(workspaceId) === e.workspace_id &&
+      e.is_channel === false &&
+      usersCheck(e.users_in_channels)
   );
 
   // Arrow drop down
@@ -66,9 +67,8 @@ const ChannelsIndex = () => {
 
   const handleAddChannel = (e) => {
     e.preventDefault();
-    history.push(`/dashboard/${workspaceId}/newchannel`)
+    history.push(`/dashboard/${workspaceId}/newchannel`);
   };
-
 
   return (
     <>
@@ -89,16 +89,19 @@ const ChannelsIndex = () => {
           </div>
         </div>
         <div
-          className={`channel-dropdown-container ${openChannelMenu ? "active" : "inactive"
-            }`}
+          className={`channel-dropdown-container ${
+            openChannelMenu ? "active" : "inactive"
+          }`}
         >
           {allChannels.map((channel) => (
             <ChannelCard key={channel.id} channel={channel} />
           ))}
-          <div className="channel-list-item"
-            onClick={handleAddChannel}
-          >
-            <FontAwesomeIcon icon={faPlusSquare} size="lg" style={{ color: "#c0c3c8", }} />
+          <div className="channel-list-item" onClick={handleAddChannel}>
+            <FontAwesomeIcon
+              icon={faPlusSquare}
+              size="lg"
+              style={{ color: "#c0c3c8" }}
+            />
             <h2>Add a Channel</h2>
           </div>
         </div>
@@ -110,15 +113,19 @@ const ChannelsIndex = () => {
           onClick={handleMessagelMenuClick}
           className="caret-down"
         />
-        <div className="channel-heading"> <OpenModalButton
-          className="channels-button-modal"
-          buttonText="Channels"
-          modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
-        /></div>
+        <div className="channel-heading">
+          {" "}
+          <OpenModalButton
+            className="channels-button-modal"
+            buttonText="Direct messages"
+            modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
+          />
+        </div>
       </div>
       <div
-        className={`channel-dropdown-container ${openMessageMenu ? "active" : "inactive"
-          }`}
+        className={`channel-dropdown-container ${
+          openMessageMenu ? "active" : "inactive"
+        }`}
       >
         {allDMS.map((channel) => (
           <DirectMessageCard
@@ -128,7 +135,11 @@ const ChannelsIndex = () => {
           />
         ))}
         <div className="add-channel-container">
-          <FontAwesomeIcon icon={faPlusSquare} size="lg" style={{ color: "#c0c3c8", }} />
+          <FontAwesomeIcon
+            icon={faPlusSquare}
+            size="lg"
+            style={{ color: "#c0c3c8" }}
+          />
           <OpenModalButton
             className="channels-button-modal"
             buttonText="New Message"
