@@ -142,7 +142,7 @@
 .carousel-slides {
     display: flex;
     align-items: center;
-    animation: carousel-slide 20s linear infinite both;
+    animation: carousel-slide 35s linear infinite both;
     animation-fill-mode: both;
 }
 
