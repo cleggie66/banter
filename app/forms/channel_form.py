@@ -6,4 +6,4 @@ from wtforms.validators import DataRequired
 class ChannelForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     workspace_id = IntegerField('Workspace ID')
-    is_channel= BooleanField('Channel? (T or F)', validators=[DataRequired()])
+    is_channel= BooleanField('Channel? (T or F)')

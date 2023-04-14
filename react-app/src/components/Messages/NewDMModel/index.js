@@ -22,23 +22,23 @@ function NewDMModal({ workspaceId }) {
 
     const { closeModal } = useModal();
 
-    const addUsers = async (channelId) => {
-        recipients.forEach((user) => {
-            addUserToChannelThunk(user.id, channelId)
-        })
-    }
 
     // TODO: DEBUG
     const handleSubmit = async () => {
         const channelInformation = {
-            name: "direct message",
+            name: "name",
             workspace_id: Number(workspaceId),
             is_channel: false,
         };
+        console.log(channelInformation)
 
         let newChannel = await dispatch(createChannelThunk(channelInformation));
+        console.log(activeWorkspace)
+        console.log(newChannel)
 
-        addUsers(newChannel.id)
+        // recipients.forEach((user) => {
+        //     addUserToChannelThunk(user.id, data.id)
+        // })
 
         closeModal()
     }
