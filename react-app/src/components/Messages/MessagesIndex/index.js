@@ -18,7 +18,8 @@ function MessagesIndex() {
 
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
-  // const messages = activeChannel.channel_messages;
+
+  
 
 
 

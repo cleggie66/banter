@@ -38,7 +38,7 @@ const MessageCard = ({ message, sessionUser, activeChannel }) => {
               modalComponent={
                 <EditMessageModal
                   message={message}
-                  activeChannelId={activeChannel.channel_in_workspace.id}
+                  activeChannelId={activeChannel.id}
                 />
               }
             />
