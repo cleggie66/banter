@@ -34,12 +34,13 @@ const MessageForm = () => {
             content,
             channel_id: activeChannel.id
         }
-        console.log(payload)
-        socket.emit("chat", { user: user.username, msg: chatInput });
-        // clear the input field after the message is sent
-        setChatInput("")
+
+        if (socket) {
+            socket.emit("chat", payload);
+        }
 
         dispatch(createMessageThunk(payload))
+        setChatInput("")
     }
 
     const updateChatInput = (e) => {
@@ -67,13 +68,13 @@ const MessageForm = () => {
 
 
             {/* WEBSOCKET FORM */}
-         <form onSubmit={sendChat}>
+         {/* <form onSubmit={sendChat}>
          <input
         value={chatInput}
         onChange={updateChatInput}
         />
         <button type="submit">Send</button>
-        </form>
+        </form> */}
 
         </div>
     )
