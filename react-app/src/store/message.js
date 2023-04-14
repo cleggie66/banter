@@ -78,7 +78,9 @@ export const updateMessageThunk =
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newMessageData),
       });
+      console.log(response)
       const data = await response.json();
+      console.log(data)
       const normalizedMessageData = {
         [data.id]: data,
       };

@@ -26,10 +26,9 @@ def update_message(message_id):
 
     message.content = edit['content']
     db.session.commit()
-    return redirect(f"/channels/{message.id}")
+    return message.to_dict_simple()
 
 
-#NEEDS WORK
 @message_routes.route('', methods=['POST'])
 @login_required
 def create_message():

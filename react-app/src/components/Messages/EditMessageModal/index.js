@@ -2,16 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateMessageThunk } from "../../../store/message";
 import { useModal } from "../../../context/Modal";
-import { refreshUser } from "../../../store/session";
+import { loadActiveChannel } from "../../../store/activeChannel";
 
 function EditMessageModal({ message, activeChannelId }) {
-  const dispatch = useDispatch();
-  const sessionUser = useSelector((state) => state.session.user);
 
+  const dispatch = useDispatch();
   const [content, setContent] = useState(message.content);
   const [errors, setErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
-
   const { closeModal } = useModal();
 
   const handleInputErrors = () => {
@@ -35,7 +33,7 @@ function EditMessageModal({ message, activeChannelId }) {
       };
 
       await dispatch(updateMessageThunk(messageInformation, message.id));
-      dispatch(refreshUser(sessionUser.id));
+      await dispatch(loadActiveChannel(activeChannelId))
       closeModal();
     }
     setHasSubmitted(true);
