@@ -2,8 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteMessageThunk } from "../../../store/message";
 import { useModal } from "../../../context/Modal";
-
-function DeleteMessageModal({ message }) {
+import { refreshUser } from "../../../store/session";
+import { refreshActiveChannelMessages } from "../../../store/activeChannel";
+function DeleteMessageModal({ message, activeChannelId }) {
 // const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
@@ -13,6 +14,8 @@ function DeleteMessageModal({ message }) {
     e.preventDefault();
 
     await dispatch(deleteMessageThunk(message.id));
+    dispatch(refreshUser(sessionUser.id));
+    dispatch(refreshActiveChannelMessages(activeChannelId))    
     closeModal();
   };
 

@@ -43,14 +43,14 @@ function MessagesIndex() {
                 <OpenModalButton
                     buttonText="edit"
                     modalComponent={
-                        <EditMessageModal message={message} />
+                        <EditMessageModal message={message} activeChannelId={activeChannel.channel_in_workspace.id}/>
                     }
                 />
                 {/* <button>Delete</button> */}
                 <OpenModalButton
                     buttonText="delete"
                     modalComponent={
-                        <DeleteMessageModal message={message} />
+                        <DeleteMessageModal message={message} activeChannelId={activeChannel.channel_in_workspace.id}/>
                     }
                 />
               </div>

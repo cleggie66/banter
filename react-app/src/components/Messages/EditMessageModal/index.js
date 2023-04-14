@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateMessageThunk } from "../../../store/message";
 import { useModal } from "../../../context/Modal";
 import { refreshUser } from "../../../store/session";
+import { refreshActiveChannelMessages } from "../../../store/activeChannel";
 
-function EditMessageModal({ message }) {
+function EditMessageModal({ message, activeChannelId }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
@@ -13,6 +14,9 @@ function EditMessageModal({ message }) {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   
   const { closeModal } = useModal();
+
+
+// console.log(activeChannel, "heyyyyyyyyyy")
 
   const handleInputErrors = () => {
     const errorsObj = {};
@@ -36,7 +40,8 @@ function EditMessageModal({ message }) {
       
       await dispatch(updateMessageThunk(messageInformation, message.id));
       dispatch(refreshUser(sessionUser.id));
-      closeModal();
+      dispatch(refreshActiveChannelMessages(activeChannelId))
+      .then(() => closeModal())
     }
     setHasSubmitted(true);
   };
