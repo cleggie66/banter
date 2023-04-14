@@ -136,7 +136,7 @@ const ChannelsIndex = () => {
         <div className="channel-heading">
           <OpenModalButton
             className="channels-button-modal-sidebar"
-            buttonText="Messages"
+            buttonText="Direct messages"
             modalComponent={<NewDMModal workspaceId={workspaceId} />}
           />
         </div>
