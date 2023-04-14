@@ -6,38 +6,23 @@ import MessageCard from "./MessageCard";
 import "./MessagesIndex.css";
 import MessageForm from "../MessageForm";
 import { useParams } from "react-router-dom";
-import { getAllChannelMessagesThunk } from "../../../store/message";
+// import { getAllChannelMessagesThunk } from "../../../store/message";
 
 function MessagesIndex() {
-  const dispatch = useDispatch();
-
-  const params= useParams()
-  console.log(params)
-
-  
-
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
 
-  
-
-
-
-
-  useEffect(() => {
-    dispatch(getAllChannelMessagesThunk());
-  }, [dispatch]);
-
-
   const messages = useSelector((state) => Object.values(state.messages));
-  console.log('heyo', messages)
+
+console.log(messages)
+
+  const allCurrentChannelMessages = messages.filter((e) => activeChannel.id === e.channel_id)
 
 
-// instead of active channel pass the current channel from the redux store
-// instead of active channel we want the channel clicked on
-// 
 
-  if (!messages) {
+
+
+  if (!allCurrentChannelMessages) {
     return <LoadingIcon />;
   }
 
@@ -46,7 +31,7 @@ function MessagesIndex() {
   // set a variable that stays on the active channel no matter what until another channel is selected.
   return (
     <div>
-      {messages.map((message) => (
+      {allCurrentChannelMessages.map((message) => (
         <MessageCard
           key={message.id}
           sessionUser={sessionUser}
