@@ -50,7 +50,7 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-page-container">
-      <h1>Your Profile 💁‍♀️ </h1>
+      <h1 className="title-text">Your Profile 💁‍♀️ </h1>
       <div className="profile-picture-container">
         <img
           src={sessionUser.profile_picture}
@@ -63,66 +63,69 @@ const ProfilePage = () => {
           className="edit-profile-picture"
         />
       </div>
-      <div className="username-container">
-        <div>{`Username:  ${sessionUser.username}`}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{`Username:  ${sessionUser.username}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleUserNameEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
 
-      <div className="email-container">
-        <div>{`Email:  ${sessionUser.email}`}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{`Email:  ${sessionUser.email}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleEmailEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
 
-      <div className="name-container">
-        <div>{`First name:  ${sessionUser.first_name}`}</div>
-        <div>{`Last name:  ${sessionUser.last_name}`}</div>
-
+      <div className="edit-section-container">
+      <div id="profile-titles" className="title-text">
+        {`First name:  ${sessionUser.first_name}`}
+        <br />
+        {`Last name:  ${sessionUser.last_name}`}
+      </div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleFirstNameEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
-      <div className="password-container">
-        <div>{"Change your password"}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{"Change your password"}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handlePasswordEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
 
-      <div className="title-container">
-        <div>{`Title:  ${sessionUser.title}`}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{`Title:  ${sessionUser.title}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleTitleEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
-      <div className="about-me-container">
-        <div>{`About me:  ${sessionUser.about_me}`}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{`About me:  ${sessionUser.about_me}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleAboutMeEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
-
       {/* <UpdateUserForm sessionUser={sessionUser} /> */}
+      <div className="delete-user-container">
       <OpenModalButton
         buttonText="Delete My Account"
         modalComponent={<DeleteUserModal />}
-        // className="delete-user-account-button"
+        className="delete-user-account-button"
       />
+      </div>
     </div>
   );
 };
