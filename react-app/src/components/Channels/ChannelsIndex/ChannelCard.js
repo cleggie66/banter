@@ -15,8 +15,8 @@ const ChannelCard = ({ channel }) => {
 
   return (
     <div className="channel-list-item" onClick={handleCardClick}>
-      <h2>#</h2>
-      <h2>{channel.name}</h2>
+      <h2 className="channel-list-names">#</h2>
+      <h2 className="channel-list-names">{channel.name}</h2>
     </div>
   );
 };
