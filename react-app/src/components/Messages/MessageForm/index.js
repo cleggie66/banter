@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { createMessageThunk } from "../../../store/message";
 import "./MessageForm.css"
 import {io} from 'socket.io-client';
+import MessagesIndex from "../MessagesIndex";
+import { loadActiveChannelThunk } from "../../../store/activeChannel";
+import { clearActiveChannelThunk } from "../../../store/activeChannel";
 
 let socket;
 
@@ -13,8 +16,10 @@ const MessageForm = () => {
     const dispatch = useDispatch();
     const [content, setContent] = useState('');
     const [messages, setMessages] = useState([])
-    const [chatInput, setChatInput] = useState("");
 
+    useEffect(() => {
+        dispatch(loadActiveChannelThunk(activeChannel?.id))
+    }, [dispatch, activeChannel.id])
 
     useEffect(() => {
         socket = io();
@@ -25,35 +30,31 @@ const MessageForm = () => {
         return (() => {
             socket.disconnect()
         })
-    }, [])
+    }, [activeChannel?.id, user])
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         const payload = {
             content,
-            channel_id: activeChannel.id
+            channel_id: activeChannel?.id
         }
 
-        if (socket) {
-            socket.emit("chat", payload);
+
+        let res = await dispatch(createMessageThunk(payload))
+        if (res) {
+            if (socket) {
+                socket.emit("chat", {id: res.id, userId: user.id, channelId: activeChannel?.id, username: user.username, msg: content, profilePic: user.profile_picture, firstName: user.first_name, lastName: user.last_name});
+            }
+            setContent("")
         }
-
-        dispatch(createMessageThunk(payload))
-        setChatInput("")
     }
 
-    const updateChatInput = (e) => {
-        setChatInput(e.target.value)
-    };
-
-    const sendChat = (e) => {
-        e.preventDefault()
-        // emit a message
-
-    }
 
     return (
+        <>
+         <MessagesIndex newMessages={messages}/>
         <div className="create-message-form">
             <form onSubmit={handleSubmit} id="form-1">
                 <input
@@ -65,18 +66,9 @@ const MessageForm = () => {
             </form>
 
             <button type="submit" form="form-1">Send Message</button>
-
-
-            {/* WEBSOCKET FORM */}
-         {/* <form onSubmit={sendChat}>
-         <input
-        value={chatInput}
-        onChange={updateChatInput}
-        />
-        <button type="submit">Send</button>
-        </form> */}
-
         </div>
+
+        </>
     )
 }
 
