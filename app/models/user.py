@@ -50,6 +50,19 @@ class User(db.Model, UserMixin):
             'title': self.title,
             'about_me': self.about_me
         }
+    
+    def to_dict_search(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'profile_picture': self.profile_picture,
+            'title': self.title,
+            'about_me': self.about_me,
+            "joined_workspaces": [workspace.to_dict_simple() for workspace in self.joined_workspaces]
+        }
 
     def to_dict(self):
         return {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createChannelThunk } from "../../../store/channel";
-import './CreateChannelForm.css'
+import "./CreateChannelForm.css";
 // I want to send is Channel True and workspace_id current workspace we are in
 import { refreshUser } from "../../../store/session";
 
@@ -39,7 +39,6 @@ function CreateChannelForm({ workspaceId }) {
         workspace_id: Number(workspaceId),
         is_channel: true,
       };
-      console.log(channelInformation)
 
       let newChannel = await dispatch(createChannelThunk(channelInformation));
       dispatch(refreshUser(sessionUser.id));
@@ -51,37 +50,44 @@ function CreateChannelForm({ workspaceId }) {
 
   return (
     <div className="channel-form-container">
-      {!sessionUser && <h1 className="signin-error">Please sign in to attempt to make a workspace</h1>}
+      {!sessionUser && (
+        <h1 className="signin-error">
+          Please sign in to attempt to make a workspace
+        </h1>
+      )}
       {sessionUser && (
         <>
-        <div className="channel-create-container">
-          <h1 className="title-text">Create a Channel</h1>
-          <p id="banter-quote" className="title-text">Just a bit of banter!</p>
-          <form className="channel-form-form" onSubmit={handleFormSubmit}>
-            <label className="channel-name-label">
-              Name:{" "}
+          <div className="channel-create-container">
+            <h1 className="title-text">Create a Channel</h1>
+            <p id="banter-quote" className="title-text">
+              Just a bit of banter!
+            </p>
+            <form className="channel-form-form" onSubmit={handleFormSubmit}>
+              <label className="channel-name-label">
+                Name:{" "}
+                <input
+                  className="text-input-channel"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </label>
+              <p></p>
+              {hasSubmitted && errors.name && (
+                <p className="errors">{errors.name}</p>
+              )}
               <input
-                className="text-input-channel"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
+                className="create-channel-button"
+                type="submit"
+                value={"Create Channel"}
+                disabled={hasSubmitted && Object.values(errors).length > 0}
               />
-            </label>
-            <p></p>
-            {hasSubmitted && errors.name && <p className="errors">{errors.name}</p>}
-            <input
-              className="create-channel-button"
-              type="submit"
-              value={"Create Channel"}
-              disabled={hasSubmitted && Object.values(errors).length > 0}
-            />
-          </form>
+            </form>
           </div>
         </>
       )}
     </div>
-  );  
+  );
 }
 
 export default CreateChannelForm;

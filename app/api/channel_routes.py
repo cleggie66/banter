@@ -4,7 +4,6 @@ from app.models.channel_member import channel_members
 from flask_login import current_user, login_required
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from ..forms.channel_form import ChannelForm
-from ..utils import pog
 
 channel_routes = Blueprint('channels', __name__)
 
@@ -181,7 +180,6 @@ def update_channel(channel_id):
 
     channel.name = edit['name']
     db.session.commit()
-    # pog(channel, edit, workspace_owner)
     return channel.to_dict_simple()
 
 
@@ -200,7 +198,6 @@ def delete_channel_by_id(channel_id):
     if current_user.id not in channel_member_ids:
         return {"message": "User is not in channel"}, 401
 
-    pog(channel)
     db.session.delete(channel)
     db.session.commit()
 
