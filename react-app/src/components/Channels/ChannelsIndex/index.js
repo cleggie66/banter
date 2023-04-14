@@ -133,7 +133,7 @@ const ChannelsIndex = () => {
           className="caret-right"
         />
         {" "}
-        <div className="channel-heading">
+        <div className="channel-heading-2">
           <OpenModalButton
             className="channels-button-modal-sidebar"
             buttonText="Direct messages"
