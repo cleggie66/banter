@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllWorkspacesThunk } from "../../../store/workspace";
 import WorkspaceCard from "./WorkspaceCard";
-import { clearActiveChannelThunk } from "../../../store/activeChannel";
+
 import { refreshUser } from "../../../store/session";
 import "./WorkSpacesIndex.css";
+import { clearActiveChannel } from "../../../store/activeChannel";
 
 const WorkspacesIndex = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -19,7 +20,7 @@ const WorkspacesIndex = () => {
 
   useEffect(() => {
     dispatch(getAllWorkspacesThunk());
-    dispatch(clearActiveChannelThunk());
+    dispatch(clearActiveChannel());
     dispatch(refreshUser(sessionUser.id));
   }, [dispatch]);
 

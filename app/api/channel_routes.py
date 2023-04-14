@@ -61,7 +61,7 @@ def get_channel_messages(channel_id):
             "message": "Channel could not be found",
             "status_code": 404
         }, 404
-    return {"Messages": [message.to_dict_simple() for message in messages]}
+    return {"messages": [message.to_dict_simple() for message in messages]}
 
 
 # * -----------  GET  --------------

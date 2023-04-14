@@ -1,4 +1,4 @@
-import { clearActiveChannelThunk } from "./activeChannel";
+import { clearActiveChannel } from "./activeChannel";
 
 const normalizer = (data) => {
   const obj = {};
@@ -66,7 +66,7 @@ export const createWorkspaceThunk = (newWorkspaceData) => async (dispatch) => {
       [data.id]: data,
     };
     dispatch(createWorkspace(normalizedWorkspaceData));
-    dispatch(clearActiveChannelThunk());
+    dispatch(clearActiveChannel());
     return data;
   } catch (error) {
     console.log(error);
