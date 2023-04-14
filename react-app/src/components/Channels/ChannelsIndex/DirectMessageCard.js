@@ -14,8 +14,6 @@ const DirectMessageCard = ({ channel, sessionUser }) => {
         history.push(`/dashboard/${channel.workspace_id}/${channel.id}`);
     };
 
-    console.log("CHANNEL", channel)
-
     const filteredUsersArray = []
 
     const filteredUsers = channel.users_in_channels.filter((user) => user.id !== sessionUser.id)
