@@ -10,6 +10,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 function AddUserModal() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [username, setUsername] = useState("");
 
   const { closeModal } = useModal();
 
@@ -18,13 +19,17 @@ function AddUserModal() {
   return (
     <>
       <h2>Add people to your workspace!</h2>
-      <input type="search" label="Search"></input>
+      <input
+        type="search"
+        placeholder="Add a user by username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      ></input>
       <FontAwesomeIcon
         icon={faMagnifyingGlass}
         //   onClick={handleSearch}
         //   className=""
       />
-
       <h3>All Users</h3>
     </>
   );
