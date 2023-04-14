@@ -6,8 +6,6 @@ import "./MessageForm.css"
 
 const MessageForm = ({activeChannel}) => {
 
-    
-
     const dispatch = useDispatch();
     const [content, setContent] = useState('');
 
@@ -18,10 +16,9 @@ const MessageForm = ({activeChannel}) => {
             content,
             channel_id: activeChannel.id
         }
-        console.log(payload)
 
         dispatch(createMessageThunk(payload))
-
+        setContent('')
     }
 
     return (

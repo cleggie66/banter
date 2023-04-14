@@ -14,21 +14,16 @@ function MessagesIndex() {
 
   const messages = useSelector((state) => Object.values(state.messages));
 
-console.log(messages)
+  console.log(messages);
 
-  const allCurrentChannelMessages = messages.filter((e) => activeChannel.id === e.channel_id)
-
-
-
-
+  const allCurrentChannelMessages = messages.filter(
+    (e) => activeChannel.id === e.channel_id
+  );
 
   if (!allCurrentChannelMessages) {
     return <LoadingIcon />;
   }
-
-  // ! if param has a channel id in it stay open...
-  // ! Idea... we could check if user has active channel it should stay open
-  // set a variable that stays on the active channel no matter what until another channel is selected.
+  console.log(activeChannel);
   return (
     <div>
       {allCurrentChannelMessages.map((message) => (
@@ -39,7 +34,7 @@ console.log(messages)
           message={message}
         />
       ))}
-      <MessageForm activeChannel={activeChannel} />
+      {activeChannel.id && <MessageForm activeChannel={activeChannel} />}
     </div>
   );
 }
