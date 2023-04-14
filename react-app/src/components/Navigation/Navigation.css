@@ -60,3 +60,15 @@ width: 30px;
 .signed-out-nav-bar-buttons > button:hover {
   color: #EAB12B;
 }
+
+.signed-out-nav-bar.workspaces {
+  background-color: #4A164B;
+}
+
+.signed-out-nav-bar.workspaces  button {
+  color: white;
+}
+
+.signed-out-nav-bar.workspaces  button:hover {
+  color: #EAB12B;
+}
