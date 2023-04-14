@@ -14,6 +14,8 @@ const DirectMessageCard = ({ channel, sessionUser }) => {
         history.push(`/dashboard/${channel.workspace_id}/${channel.id}`);
     };
 
+    console.log("CHANNEL", channel)
+
     const filteredUsersArray = []
 
     const filteredUsers = channel.users_in_channels.filter((user) => user.id !== sessionUser.id)
@@ -23,6 +25,8 @@ const DirectMessageCard = ({ channel, sessionUser }) => {
     })
 
     let title = filteredUsersArray.join(", ")
+
+    if (filteredUsersArray.length === 0) return null
 
     const dmPictureRender = () => {
         if (filteredUsers.length > 1) {
