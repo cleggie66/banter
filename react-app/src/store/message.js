@@ -1,12 +1,10 @@
-import { loadActiveChannelThunk } from "./activeChannel"
-
 const normalizer = (data) => {
-  const obj = {}
+  const obj = {};
   data.forEach((item) => {
-    obj[item.id] = item
-  })
-  return obj
-}
+    obj[item.id] = item;
+  });
+  return obj;
+};
 
 const LOAD_MESSAGE = "messages/LOAD_MESSAGE";
 const CREATE_MESSAGE = "messages/CREATE_MESSAGE";
@@ -33,11 +31,10 @@ const deleteMessage = (messageId) => ({
 });
 
 export const getAllChannelMessagesThunk = (channelId) => async (dispatch) => {
-  const response = await fetch(`/api/messages/${channelId}`);
-
+  const response = await fetch(`/api/channels/${channelId}/messages`);
   if (response.ok) {
-    const allMessageData = await response.json();
-    const normalizedMessageData = normalizer(allMessageData);
+    const { messages } = await response.json();
+    const normalizedMessageData = normalizer(messages);
     dispatch(loadMessages(normalizedMessageData));
   }
 };
@@ -48,7 +45,7 @@ export const getMessageByIdThunk = (messageId) => async (dispatch) => {
   if (response.ok) {
     const singleMessageData = await response.json();
     const normalizedMessageData = {
-      [singleMessageData.id]: singleMessageData
+      [singleMessageData.id]: singleMessageData,
     };
     dispatch(loadMessages(normalizedMessageData));
   }
@@ -64,10 +61,9 @@ export const createMessageThunk = (newMessageData) => async (dispatch) => {
 
     const data = await response.json();
     const normalizedMessageData = {
-      [data.id]: data
+      [data.id]: data,
     };
     dispatch(createMessage(normalizedMessageData));
-    dispatch(loadActiveChannelThunk(data.channel_id))
     return data;
   } catch (error) {
     console.log(error);
@@ -82,12 +78,13 @@ export const updateMessageThunk =
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newMessageData),
       });
+      console.log(response)
       const data = await response.json();
+      console.log(data)
       const normalizedMessageData = {
-        [data.id]: data
+        [data.id]: data,
       };
       dispatch(updateMessage(normalizedMessageData));
-      dispatch(loadActiveChannelThunk(data.channel_id))
       return data;
     } catch (error) {
       console.log(error);
@@ -103,7 +100,6 @@ export const deleteMessageThunk = (messageId) => async (dispatch) => {
     dispatch(deleteMessage(messageId));
   }
 };
-
 
 const initialState = {};
 

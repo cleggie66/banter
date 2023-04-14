@@ -22,7 +22,8 @@ const Dashboard = () => {
   }, [])
 
 
- 
+//  can see channel index and message index
+// 
 
   return (
     <div className="page">

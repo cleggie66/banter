@@ -1,5 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-
+from ..utils import pog
 
 class Message(db.Model):
     __tablename__ = 'messages'
@@ -16,13 +16,17 @@ class Message(db.Model):
     in_channel = db.relationship("Channel", back_populates="channel_messages")
     message_owner = db.relationship("User", back_populates="user_messages")
 
+    
     def to_dict_simple(self):
+        pog(self)
         return {
             "id": self.id,
             "content": self.content,
             "user_id": self.user_id,
             "channel_id": self.channel_id,
+            "message_owner": self.message_owner.to_dict_simple()
         }
+
 
     def to_dict(self):
         return {

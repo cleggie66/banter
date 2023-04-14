@@ -1,26 +1,32 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import LoadingIcon from "../../LoadingPage/LoadingIcon";
 
 import MessageCard from "./MessageCard";
 import "./MessagesIndex.css";
 import MessageForm from "../MessageForm";
+import { useParams } from "react-router-dom";
+// import { getAllChannelMessagesThunk } from "../../../store/message";
 
 function MessagesIndex() {
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
-  const messages = activeChannel.channel_messages;
 
-  if (!messages) {
+  const messages = useSelector((state) => Object.values(state.messages));
+
+  console.log(messages);
+
+  const allCurrentChannelMessages = messages.filter(
+    (e) => activeChannel.id === e.channel_id
+  );
+
+  if (!allCurrentChannelMessages) {
     return <LoadingIcon />;
   }
-
-  // ! if param has a channel id in it stay open...
-  // ! Idea... we could check if user has active channel it should stay open
-  // set a variable that stays on the active channel no matter what until another channel is selected.
+  console.log(activeChannel);
   return (
     <div>
-      {messages.map((message) => (
+      {allCurrentChannelMessages.map((message) => (
         <MessageCard
           key={message.id}
           sessionUser={sessionUser}
@@ -28,7 +34,7 @@ function MessagesIndex() {
           message={message}
         />
       ))}
-      <MessageForm activeChannel={activeChannel} />
+      {activeChannel.id && <MessageForm activeChannel={activeChannel} />}
     </div>
   );
 }
