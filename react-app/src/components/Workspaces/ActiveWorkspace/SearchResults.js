@@ -3,13 +3,15 @@ import { useSelector } from "react-redux";
 
 const SearchResults = ({ user }) => {
   const sessionUser = useSelector((state) => state.session.user);
-  console.log(sessionUser.id);
+  //   console.log(sessionUser.id);
 
-  console.log("hiii", user);
+  //   console.log("hiii", user);
   // also want to check if joined workspace id matches current workspace id
 
-  const handleAddUserClick = (e) => {};
+  //   const handleAddUserClick = (e) => {};
+  // going to need to dispatch a function that allows us to add user to join tables
 
+  // push user object in users_in_work
   return (
     <div>
       <h3>{user.username}</h3>
