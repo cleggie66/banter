@@ -4,8 +4,8 @@ import { createMessageThunk } from "../../../store/message";
 import { refreshActiveChannelMessages } from "../../../store/activeChannel";
 import "./MessageForm.css"
 
-const MessageForm = () => {
-    const activeChannel = useSelector((state) => state.activeChannel);
+const MessageForm = ({activeChannel}) => {
+    // const activeChannel = useSelector((state) => state.activeChannel);
 
     const dispatch = useDispatch();
     const [content, setContent] = useState('');
@@ -20,7 +20,7 @@ const MessageForm = () => {
         console.log(payload)
 
         dispatch(createMessageThunk(payload))
-    // dispatch(refreshActiveChannelMessages(activeChannel.Id))    
+    dispatch(refreshActiveChannelMessages(activeChannel.Id))    
 
     }
 

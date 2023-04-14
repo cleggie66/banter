@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import EditMessageModal from "../EditMessageModal";
-import DeleteMessageModal from "../DeleteMessageModal";
 import OpenModalButton from "../../OpenModalButton";
 import { deleteMessageThunk } from "../../../store/message";
 import { refreshUser } from "../../../store/session";
@@ -52,15 +51,6 @@ const MessageCard = ({ message, sessionUser, activeChannel }) => {
               }
             />
             <button onClick={handleDeleteMessage}>delete test</button>
-            <OpenModalButton
-              buttonText="delete"
-              modalComponent={
-                <DeleteMessageModal
-                  message={message}
-                  activeChannelId={activeChannel.channel_in_workspace.id}
-                />
-              }
-            />
           </div>
         )}
       </div>

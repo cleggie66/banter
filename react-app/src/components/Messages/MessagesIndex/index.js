@@ -5,6 +5,7 @@ import { useModal } from "../../../context/Modal";
 
 import MessageCard from "./MessageCard";
 import "./MessagesIndex.css";
+import MessageForm from "../MessageForm";
 
 function MessagesIndex() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -28,8 +29,9 @@ function MessagesIndex() {
        {messages.map((message) => (
             <MessageCard key={message.id} sessionUser={sessionUser} activeChannel={activeChannel} message={message} />
           ))}
+        <MessageForm activeChannel={activeChannel}/>
       </div>
-      
+
   );
 }
 
