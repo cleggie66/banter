@@ -1,6 +1,13 @@
+.left-bar{
+  height: 100vh;
+  border-right: solid 1px #9a9a9d;
+  border-top: solid 1px #9a9a9d;
+}
+
 .channel-dropdown-container {
   color: rgb(0, 0, 0);
   background-color: rgb(37 37 38);
+  border-bottom: solid 1px #9a9a9d;
 }
 
 .channel-dropdown-container.active {
