@@ -35,6 +35,9 @@ const MessageForm = () => {
             channel_id: activeChannel.id
         }
         console.log(payload)
+        socket.emit("chat", { user: user.username, msg: chatInput });
+        // clear the input field after the message is sent
+        setChatInput("")
 
         dispatch(createMessageThunk(payload))
     }
@@ -46,9 +49,7 @@ const MessageForm = () => {
     const sendChat = (e) => {
         e.preventDefault()
         // emit a message
-        socket.emit("chat", { user: user.username, msg: chatInput });
-        // clear the input field after the message is sent
-        setChatInput("")
+
     }
 
     return (
