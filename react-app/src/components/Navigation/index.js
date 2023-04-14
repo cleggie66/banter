@@ -12,6 +12,8 @@ import { faHome} from "@fortawesome/free-solid-svg-icons";
 import "./Navigation.css";
 import UserIconModal from "../User/UserIcon";
 import { useModal } from "../../context/Modal";
+import banter from '../../media/banter-logo.png'
+import banterLight from '../../media/banter-logo.png'
 
 function Navigation() {
   const [homePage, setHomePage] = useState(true);
@@ -60,15 +62,20 @@ function Navigation() {
   return (
     <div>
       {homePage && sessionUser && !profile && (
-        <>
+        <div className="signed-out-nav-bar workspaces">
+          <img className="banter-nav-logo" src={banter}/>
+          <div className="signed-out-nav-bar-buttons">
           <button onClick={handleLogoutClick}>SIGN OUT</button>
           <button onClick={handleCreateWorkspace}>
             CREATE A NEW WORKSPACE{" "}
           </button>
-        </>
+          </div>
+          </div>
       )}
       {homePage && !sessionUser && (
-        <>
+        <div className="signed-out-nav-bar">
+          <img className="banter-nav-logo" src={banter}/>
+          <div className="signed-out-nav-bar-buttons">
           <DemoLogin />
           <OpenModalButton
             className="log-in-button"
@@ -80,7 +87,8 @@ function Navigation() {
             buttonText="TRY FOR FREE"
             modalComponent={<SignupFormModal />}
           />
-        </>
+          </div>
+        </div>
       )}
       {!homePage && sessionUser && (
         <div className="dashboard-navbar-container">

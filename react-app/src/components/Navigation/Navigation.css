@@ -14,8 +14,6 @@
 
 .dashboard-navbar-container{
 display: flex;
-
-
 }
 .user-icon-button{
 position: absolute;
@@ -24,4 +22,53 @@ left: 95%;
 color: rgb(95, 93, 93);
 height:30px;
 width: 30px;
+}
+
+.signed-out-nav-bar {
+  background-color: #F6EFE8;
+  padding: 1rem;
+  padding-bottom: 4rem;
+  padding-left: 6vw;
+  padding-right: 6vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.banter-nav-logo {
+  width: 20vw;
+}
+
+.signed-out-nav-bar-buttons {
+  display: flex;
+}
+
+.signed-out-nav-bar-buttons > button{
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid #4A164B;
+  color: #4A164B;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-right: 1rem;
+  border: none;
+}
+
+
+.signed-out-nav-bar-buttons > button:hover {
+  color: #EAB12B;
+}
+
+.signed-out-nav-bar.workspaces {
+  background-color: #4A164B;
+}
+
+.signed-out-nav-bar.workspaces  button {
+  color: white;
+}
+
+.signed-out-nav-bar.workspaces  button:hover {
+  color: #EAB12B;
 }
