@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { updateUserThunk } from "../../../store/session";
 import { useModal } from "../../../context/Modal";
-import { refreshUser } from "../../../store/session";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,6 +9,13 @@ function AddUserModal() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [username, setUsername] = useState("");
+
+  useEffect(()=>{
+    
+
+  },[username])
+
+
 
   const { closeModal } = useModal();
 
