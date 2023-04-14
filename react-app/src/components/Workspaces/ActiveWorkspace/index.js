@@ -4,7 +4,7 @@ import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { useParams } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
 import ManageWorkspaceModal from "./ManageWorkspaceModal";
-import "../../Dashboard/Dashboard.css"
+import "../../Dashboard/Dashboard.css";
 const ActiveWorkspace = () => {
   const dispatch = useDispatch();
   const { workspaceId } = useParams();
@@ -17,16 +17,12 @@ const ActiveWorkspace = () => {
   const activeWorkspace = useSelector((state) => state.workspaces);
   const newActiveWorkspace = activeWorkspace[workspaceId];
 
-console.log("one", activeWorkspace)
-console.log("two", newActiveWorkspace)
-
-
   if (!newActiveWorkspace) {
     return <h1>Loading...</h1>;
   }
 
   const handleWorkspaceNameClick = () => {
-    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace}/>);
+    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace} />);
   };
 
   return (

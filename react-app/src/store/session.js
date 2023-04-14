@@ -141,8 +141,6 @@ export const deleteUserThunk = (userId) => async (dispatch) => {
     method: "DELETE",
   });
 
-  console.log(response)
-
   if (response.ok) {
     dispatch(deleteUser(userId));
   }
