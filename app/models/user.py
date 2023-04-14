@@ -15,8 +15,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String, nullable=False, unique=True)
     first_name = db.Column(db.String, nullable=False)
     last_name = db.Column(db.String, nullable=False)
-    profile_picture = db.Column(db.String, nullable=False)
-    title = db.Column(db.String(55), nullable=False)
+    profile_picture = db.Column(db.String)
+    title = db.Column(db.String(55))
     about_me = db.Column(db.Text)
 
     # * Relationships 💚
