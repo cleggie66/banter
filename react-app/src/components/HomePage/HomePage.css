@@ -134,6 +134,60 @@
     margin-right: 2rem;
 }
 
-.banter-logged-out-header {
-
+.carousel-container {
+    overflow: hidden;
+    margin-bottom: 6rem;
 }
+
+.carousel-slides {
+    display: flex;
+    align-items: center;
+    animation: carousel-slide 20s linear infinite both;
+    animation-fill-mode: both;
+}
+
+.carousel-slide {
+    margin-right: 6rem;
+}
+
+
+
+.carousel-image {
+    width: 10vw;
+}
+
+.carousel-image >div:last-child{
+    margin-right: 0;
+}
+
+.technologies-utilized-text {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.carousel-slide:last-child {
+    margin-right: -100%; /* or margin-bottom: -100%, depending on the direction */
+}
+
+/* .carousel-slide:nth-child(1) {
+    animation: carouselAnimation 5s infinite;
+}
+
+.carousel-slide:nth-child(2) {
+    animation: carouselAnimation 5s infinite;
+    animation-delay: 1s;
+}
+
+.carousel-slide:nth-child(3) {
+    animation: carouselAnimation 5s infinite;
+    animation-delay: 1s;
+} */
+
+  @keyframes carousel-slide {
+    0% {
+      transform: translateX(-150%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }

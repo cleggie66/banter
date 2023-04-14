@@ -10,6 +10,15 @@ import hand from '../../media/waving-hand@2x.gif'
 import spencer from '../../media/spencer.png'
 import caleb from '../../media/caleb.png'
 import steven from '../../media/steven.png'
+import postgres from '../../media/postgres.png'
+import react from '../../media/react.png'
+import redux from '../../media/redux.png'
+import flask from '../../media/flask.png'
+import sqlalchemy from '../../media/sqlalchemy.png'
+import python from '../../media/python.png'
+import js from '../../media/js.png'
+import css from '../../media/css.png'
+import html from '../../media/html.png'
 
 const HomePage = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -26,7 +35,7 @@ const HomePage = () => {
         {!sessionUser && (<div className="home-page-main-section-logged-out">
             <div className="home-page-main-section-logged-out-left">
                 <div className="home-page-logged-out-left">
-            <h1 className="banter-logged-out-header">Banter is your Digital HQ</h1>
+            <h1 className="banter-logged-out-header">Just a bit of Banter.</h1>
             <p>The only place you need to get stuff done.</p>
             <div className="home-page-button-div">
             <button className='home-page-demo-login' onClick={onClick}>TRY A DEMO</button>
@@ -72,6 +81,21 @@ const HomePage = () => {
                 </div>
                 </a>
             </div>
+            </div>
+
+            <div className="carousel-container">
+            <h1 className="technologies-utilized-text">Technologies Utilized</h1>
+                <div className="carousel-slides">
+                <div className="carousel-slide"><img className="carousel-image" src={postgres}/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={react}/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={redux}/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={flask}/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={sqlalchemy}/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={python}/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={js}/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={css}/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={html}/></div>
+                </div>
             </div>
         </div>)}
 
