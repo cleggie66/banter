@@ -13,7 +13,7 @@ import "./Navigation.css";
 import UserIconModal from "../User/UserIcon";
 import { useModal } from "../../context/Modal";
 import banter from '../../media/banter-logo.png'
-import banterLight from '../../media/banter-logo.png'
+import banterDark from '../../media/banter-logo-dark.png'
 
 function Navigation() {
   const [homePage, setHomePage] = useState(true);
@@ -63,7 +63,7 @@ function Navigation() {
     <div>
       {homePage && sessionUser && !profile && (
         <div className="signed-out-nav-bar workspaces">
-          <img className="banter-nav-logo" src={banter}/>
+          <img className="banter-nav-logo" src={banterDark}/>
           <div className="signed-out-nav-bar-buttons">
           <button onClick={handleLogoutClick}>SIGN OUT</button>
           <button onClick={handleCreateWorkspace}>

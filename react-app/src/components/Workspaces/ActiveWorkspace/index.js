@@ -4,7 +4,11 @@ import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { useParams } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
 import ManageWorkspaceModal from "./ManageWorkspaceModal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import "../../Dashboard/Dashboard.css";
+
+
 const ActiveWorkspace = () => {
   const dispatch = useDispatch();
   const { workspaceId } = useParams();
@@ -29,11 +33,14 @@ const ActiveWorkspace = () => {
     <>
       {/* <h2>{`${newActiveWorkspace.name}`}</h2> */}
       <button
-        className="dashboard-workspace-name"
-        onClick={handleWorkspaceNameClick}
-      >{`${newActiveWorkspace.name}`}</button>
-    </>
-  );
+      className="dashboard-workspace-name"
+      onClick={handleWorkspaceNameClick}
+    >
+      {`${newActiveWorkspace.name}`}
+      <FontAwesomeIcon id="workspace-arrow-down" icon={faAngleDown} />
+    </button>
+  </>
+);
 };
 
 export default ActiveWorkspace;

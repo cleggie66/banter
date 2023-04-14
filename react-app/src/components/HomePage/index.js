@@ -6,6 +6,7 @@ import SignupFormModal from "../SignupFormModal";
 import OpenModalButton from "../OpenModalButton";
 import './HomePage.css'
 import arnold from '../../media/arnold.png'
+import mockup from '../../media/banter-mockup.png'
 import hand from '../../media/waving-hand@2x.gif'
 import spencer from '../../media/spencer.png'
 import caleb from '../../media/caleb.png'
@@ -47,7 +48,7 @@ const HomePage = () => {
           </div>
           </div>
           <div className="home-page-main-section-logged-out-left">
-          <img className='home-page-main-section-logged-out-image'src={arnold}/>
+          <img className='home-page-main-section-logged-out-image'src={mockup}/>
           </div>
           </div>
           <div className="team-flex-test">

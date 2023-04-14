@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import ChannelsIndex from "../Channels/ChannelsIndex";
 import ActiveWorkspace from "../Workspaces/ActiveWorkspace";
 import MessagesIndex from "../Messages/MessagesIndex";
-import MessageForm from "../Messages/MessageForm";
 import LoadingPage from "../LoadingPage";
+
 import "./Dashboard.css"
 
 const Dashboard = () => {
@@ -35,7 +35,6 @@ const Dashboard = () => {
           </div>
           <div className="right-bar">
             <MessagesIndex />
-            <MessageForm />
           </div>
         </>
       )}

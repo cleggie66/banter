@@ -45,6 +45,21 @@
     width: 8em;
 }
 
+.add-channel-container {
+    margin-bottom: 1em;
+    /* margin-left: .5em; */
+    margin-top: .5em
+}
+
 .channel-modal-border {
     border-bottom: solid 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+/* #new-messsage-sidebar {
+    font-size: 16px;
+    font-weight: normal;
+} */
