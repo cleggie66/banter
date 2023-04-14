@@ -10,7 +10,7 @@ const DemoLogin = () => {
 
   };
 
-  return <button onClick={onClick} >Demo login</button>;
+  return <button onClick={onClick} >DEMO LOGIN</button>;
 };
 
 export default DemoLogin;

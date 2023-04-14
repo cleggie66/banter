@@ -12,6 +12,7 @@ import { faHome, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import "./Navigation.css";
 import UserIconModal from "../User/UserIcon";
 import { useModal } from "../../context/Modal";
+import banter from '../../media/banter-logo.png'
 
 function Navigation({ isLoaded }) {
   const [homePage, setHomePage] = useState(true);
@@ -68,7 +69,9 @@ function Navigation({ isLoaded }) {
         </>
       )}
       {homePage && !sessionUser && (
-        <>
+        <div className="signed-out-nav-bar">
+          <img className="banter-nav-logo" src={banter}/>
+          <div className="signed-out-nav-bar-buttons">
           <DemoLogin />
           <OpenModalButton
             buttonText="SIGN IN"
@@ -78,7 +81,8 @@ function Navigation({ isLoaded }) {
             buttonText="TRY FOR FREE"
             modalComponent={<SignupFormModal />}
           />
-        </>
+          </div>
+        </div>
       )}
       {!homePage && sessionUser && (
         <div className="dashboard-navbar-container">
