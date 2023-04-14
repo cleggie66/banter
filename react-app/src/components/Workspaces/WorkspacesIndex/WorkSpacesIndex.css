@@ -10,3 +10,16 @@
     color: #EBB22E;
     cursor: pointer;
 }
+
+.workspace-card{
+    display: flex;
+
+}
+
+.workspace-card-image{
+    padding: 0 10px;
+    margin-top: 20px;
+    text-align: center;
+    height: 30px;
+    width: 30px;
+} 
