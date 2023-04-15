@@ -12,20 +12,17 @@ import { io } from 'socket.io-client';
 import { deleteMessageThunk } from "../../../store/message";
 
 let socket;
-let sortedMessages;
 
 function MessagesIndex() {
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
   const allMessages = useSelector((state) => Object.values(state.messages));
+  const state = useSelector(state => state)
   const dispatch = useDispatch();
   const [content, setContent] = useState('');
   const [messages, setMessages] = useState([])
   const user = useSelector((state) => state.session.user);
 
-  useEffect(() => {
-    console.log(sortedMessages)
-  }, [sortedMessages])
 
     useEffect(() => {
         socket = io();
@@ -34,17 +31,24 @@ function MessagesIndex() {
             setMessages(messages => [...messages, chat])
         });
 
+
+
         socket.on('delete', (chat) => {
-          let index = sortedMessages?.findIndex(msg => msg.id == chat.id);
-
-          let foundMessages = messages.filter((_, i) => i !== index)
+          let messages = Object.values(state.messages);
+          console.log('ALL',messages)
+          let foundMessages = [];
+          messages.forEach(message => {
+            if (message.id !== chat.id) {
+              foundMessages.push(message)
+            }
+          })
+          console.log('FOUND',foundMessages)
           setMessages(foundMessages)
-
         })
         return (() => {
             socket.disconnect()
         })
-    }, [activeChannel, user])
+    }, [])
 
 
     const allCurrentChannelMessages = allMessages.filter(
@@ -72,10 +76,43 @@ function MessagesIndex() {
 
 
     const handleDeleteMessage = async (e, message) => {
-      await dispatch(deleteMessageThunk(message.id))
-      socket.emit('delete', {user: user.username, msg: message.content})
+      e.preventDefault()
+      if (socket) {
+        await dispatch(deleteMessageThunk(message.id))
+        socket.emit('delete', {id: message.id, user: user.username, msg: message.content})
+      }
+
     }
 
+
+    let arr;
+    if (allCurrentChannelMessages && messages) {
+        arr = [...allCurrentChannelMessages, ...messages]
+    }
+
+    let uniqueIds = {};
+
+    let noDupes;
+    if (arr) {
+        noDupes = arr.filter(message => {
+            if (!uniqueIds[message.id]) {
+                uniqueIds[message.id] = true
+                return true
+            }
+            return false
+        })
+    }
+
+
+    let channelFiltered;
+    if (noDupes) {
+        channelFiltered = noDupes.filter(message => {
+            return (message.channelId == activeChannel?.id) || (message.channel_id == activeChannel?.id)
+        })
+    }
+
+
+    let sortedMessages = channelFiltered?.sort((a, b) => a.id - b.id)
 
   if (!allCurrentChannelMessages) {
     return <LoadingIcon />;
@@ -84,7 +121,7 @@ function MessagesIndex() {
 
   return (
     <div>
-      {messages?.map((message) => (
+      {sortedMessages?.map((message) => (
         <MessageCard
           key={message.id}
           sessionUser={sessionUser}

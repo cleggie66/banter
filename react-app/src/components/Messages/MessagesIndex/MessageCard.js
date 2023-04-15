@@ -10,7 +10,6 @@ const MessageCard = ({ message, sessionUser, activeChannel, socket, handleDelete
 
 
 
-
   return (
     <div>
       <div key={message?.id} className="message">
