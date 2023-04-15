@@ -23,6 +23,7 @@ function MessagesIndex() {
   }
   return (
     <div className="message-dashboard-section">
+      <div className="only-messages-div">
       {allCurrentChannelMessages.map((message) => (
         <MessageCard
           key={message.id}
@@ -31,6 +32,7 @@ function MessagesIndex() {
           message={message}
         />
       ))}
+      </div>
       {activeChannel.id && <MessageForm activeChannel={activeChannel} />}
     </div>
   );

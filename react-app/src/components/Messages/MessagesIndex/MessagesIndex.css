@@ -5,6 +5,10 @@
     justify-content: flex-end;
 }
 
+.only-messages-div {
+    overflow: auto;
+}
+
 .message {
     display: flex;
     flex-direction: row;
