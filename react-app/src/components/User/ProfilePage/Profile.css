@@ -56,7 +56,14 @@
   border: none;
   color: #ffffff;
   padding: 1em;
-  margin-left: 8em;
+}
+
+.no-delete-button {
+  background-color: #e01d59;
+  border-radius: 1em;
+  border: none;
+  color: #ffffff;
+  padding: 1em;
   margin-top: 2em;
 }
 
@@ -82,3 +89,9 @@
   margin-left: 4em;
 }
 
+
+.delete-user-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
