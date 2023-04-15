@@ -18,7 +18,6 @@ class Message(db.Model):
 
     
     def to_dict_simple(self):
-        pog(self)
         return {
             "id": self.id,
             "content": self.content,

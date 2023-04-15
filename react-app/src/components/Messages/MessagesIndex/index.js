@@ -14,8 +14,6 @@ function MessagesIndex() {
 
   const messages = useSelector((state) => Object.values(state.messages));
 
-  console.log(messages);
-
   const allCurrentChannelMessages = messages.filter(
     (e) => activeChannel.id === e.channel_id
   );
@@ -23,7 +21,6 @@ function MessagesIndex() {
   if (!allCurrentChannelMessages) {
     return <LoadingIcon />;
   }
-  console.log(activeChannel);
   return (
     <div>
       {allCurrentChannelMessages.map((message) => (

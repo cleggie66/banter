@@ -8,7 +8,6 @@ const DirectMessageCard = ({ channel, sessionUser }) => {
     const dispatch = useDispatch();
 
     const handleCardClick = (e) => {
-        console.log(filteredUsers)
         e.preventDefault();
         dispatch(loadActiveChannel(channel.id))
         history.push(`/dashboard/${channel.workspace_id}/${channel.id}`);

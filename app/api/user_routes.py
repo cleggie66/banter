@@ -6,8 +6,6 @@ import random
 from ..utils import pog 
 user_routes = Blueprint('users', __name__)
 
-# * -----------  GET  --------------
-#Query for all users and returns them in a list of user dictionaries
 
 # * -----------  GET  --------------
 #Query for all users and returns them in a list of user dictionaries
@@ -25,6 +23,14 @@ def users():
 def get_current_user():
     user = User.query.get(current_user.id)
     return user.to_dict()
+
+# * -----------  GET  --------------
+
+@user_routes.route('/<string:username>')
+@login_required
+def search_all_users(username):
+    users = User.query.filter(User.username.like(f"{username}%")).all()
+    return [user.to_dict_search() for user in users]
 
 
 # * -----------  GET  --------------
@@ -83,7 +89,6 @@ def delete_user(id):
     # workspaces = Workspace.query.filter(Workspace.owner_id == user.id).all()
     # workspace_users = [workspace.users_in_workspaces for workspace in workspaces]
 
-    # pog(workspace_users)
 
 
 
