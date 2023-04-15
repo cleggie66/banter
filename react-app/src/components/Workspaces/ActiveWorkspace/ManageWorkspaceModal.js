@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { useModal } from "../../../context/Modal";
 import { useHistory } from "react-router-dom";
 import "./ManageWorkspaceModal.css";
 import AddUserModal from "./AddUserModal";
 
-function ManageWorkspaceModal({ workspace, workspaceId }) {
-  const dispatch = useDispatch();
+function ManageWorkspaceModal({ workspace }) {
   const { setModalContent, setOnModalClose } = useModal();
   const { closeModal } = useModal();
   const history = useHistory();

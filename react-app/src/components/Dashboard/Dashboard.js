@@ -34,8 +34,8 @@ const Dashboard = () => {
         <>
           <LoadingPage visibility={loadingVisibility} />
           <div className="left-bar">
-            <ActiveWorkspace />
-            <ChannelsIndex />
+            <ActiveWorkspace workspaceId={workspaceId}/>
+            <ChannelsIndex workspaceId={workspaceId}/>
           </div>
           <div className="right-bar">
             <MessagesIndex workspaceId={workspaceId}/>

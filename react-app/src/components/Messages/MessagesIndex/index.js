@@ -17,6 +17,8 @@ function MessagesIndex({workspaceId}) {
 
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
+  const allChannels = useSelector((state) => state.channels);
+
 
 
 
@@ -39,10 +41,17 @@ function MessagesIndex({workspaceId}) {
   return (
     <div>
       {activeChannel.id && (
+        <>
+        
+        <h2>{allChannels[activeChannel.id].name}</h2>
         <FontAwesomeIcon
           icon={faUsersRectangle}
           onClick={handleAddUserToChannel}
         />
+        
+        
+        
+        </>
       )}
       {allCurrentChannelMessages.map((message) => (
         <MessageCard
