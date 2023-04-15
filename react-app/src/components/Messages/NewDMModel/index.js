@@ -70,7 +70,7 @@ function NewDMModal({ workspaceId }) {
         <>
             <div className="new-message-container">
                 <h1 className="title-text">New Message</h1>
-                <div className="recipients-list">
+                <div className="title-text">
                     {[...recipients].map((user) => (
                         <h4>{`${user.first_name} ${user.last_name}`}</h4>
                     ))}

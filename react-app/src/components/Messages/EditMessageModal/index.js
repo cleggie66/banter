@@ -40,12 +40,13 @@ function EditMessageModal({ message, activeChannelId }) {
   };
 
   return (
-    <>
-      <h1>Edit Your Message</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Text
+    <div className="edit-message-modal-container">
+      <h1 className="title-text">Edit Your Message</h1>
+      <form className="profile-edit-container" onSubmit={handleFormSubmit}>
+        <label className="title-text">
+          Text:{" "}
           <textarea
+            className="edit-message-textarea"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required
@@ -56,12 +57,13 @@ function EditMessageModal({ message, activeChannelId }) {
           <p className="errors">{errors.text}</p>
         )}
         <input
+          className="profile-edit-submit-button"
           type="submit"
           value={"Update Message"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
         />
       </form>
-    </>
+    </div>
   );
 }
 

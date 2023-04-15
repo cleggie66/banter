@@ -39,3 +39,11 @@
 .create-message-icon {
     color: white;
 }
+
+.edit-message-textarea {
+    width: 20em;
+    color: rgb(175 176 177);
+    background-color: rgb(34 37 41);
+    padding: 1em;
+    border: 0;
+}

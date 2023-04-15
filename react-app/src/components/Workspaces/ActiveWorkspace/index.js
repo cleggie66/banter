@@ -7,6 +7,7 @@ import ManageWorkspaceModal from "./ManageWorkspaceModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import "../../Dashboard/Dashboard.css";
+import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
 
 const ActiveWorkspace = () => {
@@ -26,12 +27,12 @@ const ActiveWorkspace = () => {
   }
 
   const handleWorkspaceNameClick = () => {
-    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace} />);
+    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace} workspaceId={workspaceId}/>);
+    dispatch(loadActiveWorkspace(workspaceId))
   };
 
   return (
     <>
-      {/* <h2>{`${newActiveWorkspace.name}`}</h2> */}
       <button
       className="dashboard-workspace-name"
       onClick={handleWorkspaceNameClick}

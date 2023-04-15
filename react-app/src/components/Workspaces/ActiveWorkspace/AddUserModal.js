@@ -18,23 +18,26 @@ function AddUserModal() {
 
   return (
     <>
-      <h2>Add people to your workspace!</h2>
+      <h2 className="title-text">Add people to your workspace!</h2>
       <input
+        className="search-input-login"
         type="search"
         placeholder="Add a user by username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-
       <FontAwesomeIcon
+        id="search-icon"
+        className="title-text"
         icon={faMagnifyingGlass}
         //   onClick={handleSearch}
-        //   className=""
       />
-      <h3>All Users</h3>
-      {searchResult.map((user) => (
-        <SearchResults key={user.id} user={user} />
-      ))}
+      <h3 className="title-text">All Users</h3>
+      <div className="title-text">
+        {searchResult.map((user) => (
+          <SearchResults key={user.id} user={user} />
+        ))}
+      </div>
     </>
   );
 }

@@ -61,3 +61,10 @@
     margin: 10px;
     border: none;
 }
+
+.edit-message-modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -40,20 +40,23 @@ function EditProfilePictureModal({ sessionUser }) {
 
   return (
     <>
-      <h1>Update Your Profile Picture</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Profile Picture
-          <input
-            type="text"
-            value={profilePicture}
-            placeholder="image url here"
-            // style={{ backgroundColor: "white" }}
-            onChange={(e) => setProfilePicture(e.target.value)}
-          />
-        </label>
+      <h1 className="title-text">Update Your Profile Picture</h1>
+      <form className="profile-edit-container" onSubmit={handleFormSubmit}>
+        <div className="profile-picture-label">
+          <label className="title-text">
+            Profile Picture:{" "}
+            <input
+              className="text-input-login"
+              type="text"
+              value={profilePicture}
+              placeholder="image url here"
+              onChange={(e) => setProfilePicture(e.target.value)}
+            />
+          </label>
+        </div>
         <p></p>
         <input
+          className="profile-edit-submit-button"
           type="submit"
           value={"Save Changes"}
           disabled={hasSubmitted && Object.values(errors).length > 0}

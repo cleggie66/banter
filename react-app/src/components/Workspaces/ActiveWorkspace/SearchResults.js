@@ -1,23 +1,50 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useModal } from "../../../context/Modal";
+import { addUserToWorkspaceThunk } from "../../../store/workspace";
+import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
 const SearchResults = ({ user }) => {
+  const { closeModal } = useModal();
+  const activeWorkspace = useSelector((state) => state.activeWorkspace);
+  const workspaceId = activeWorkspace.id;
+
   const sessionUser = useSelector((state) => state.session.user);
-  //   console.log(sessionUser.id);
 
-  //   console.log("hiii", user);
-  // also want to check if joined workspace id matches current workspace id
+  const currentworkspace = useSelector((state) => state.workspaces);
+  const usersInWorkspace = currentworkspace[workspaceId].users_in_workspaces;
 
-  //   const handleAddUserClick = (e) => {};
-  // going to need to dispatch a function that allows us to add user to join tables
+  const dispatch = useDispatch();
 
-  // push user object in users_in_work
+  const userInCurrentWorkspace = usersInWorkspace.filter(
+    (e) => e.id === user.id
+  );
+
+  const handleAddUserClick = (e) => {
+    e.preventDefault();
+    dispatch(addUserToWorkspaceThunk(user.id, workspaceId));
+    dispatch(loadActiveWorkspace(workspaceId));
+    closeModal();
+  };
+
   return (
-    <div>
-      <h3>{user.username}</h3>
-      {/* <img src={user.profile_picture} /> */}
-      {sessionUser.id !== user.id && <button>add user</button>}
-    </div>
+    <>
+      {" "}
+      <div className="search-result-container">
+        <div className="image-container">
+          <img className="message-profile-pic" src={user.profile_picture} />
+        </div>
+        <h3>{user.username}</h3>
+        {sessionUser.id !== user.id && !userInCurrentWorkspace.length && (
+          <button
+            className="profile-edit-submit-button"
+            onClick={handleAddUserClick}
+          >
+            add user
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

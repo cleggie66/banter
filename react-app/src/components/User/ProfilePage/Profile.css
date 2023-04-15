@@ -1,27 +1,28 @@
 .profile-page-container {
   display: flex;
   flex-direction: column;
+  /* flex-wrap: wrap; */
+  margin-left: 36em;
+  width: 20em;
 }
 
-.username-container {
+.profile-edit-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.name-container {
+.edit-section-container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 50%;
+  border-bottom: solid 1px;
+  margin-bottom: .5em;
+  padding: .5em;
 }
-.password-container {
-  display: flex;
-}
-.email-container {
-  display: flex;
-}
-.title-container {
-  display: flex;
-}
-.about-me-container {
-  display: flex;
-}
+
 
 .profile-page-picture {
   height: 100px;
@@ -34,14 +35,50 @@
   color: rgb(101, 103, 211, 0.6);
 }
 
+.edit-profile-buttons {
+  color: rgb(101, 103, 211, 0.6);
+  margin-left: 2em;
+}
 
+.edit-profile-picture:hover,
+.edit-profile-buttons:hover {
+  background-color: rgb(205, 202, 202);
+  cursor: pointer;
+}
 
-
-
+.edit-profile-button-containers {
+  margin-left: 5em;
+}
 
 .delete-user-account-button{
-    width: 20%;
-    justify-content: center;
-    background-color: rgba(234, 34, 34);
-
+  background-color: #e01d59;
+  border-radius: 1em;
+  border: none;
+  color: #ffffff;
+  padding: 1em;
+  margin-left: 8em;
+  margin-top: 2em;
 }
+
+.profile-picture-label {
+  margin-left: 4em;
+}
+
+.profile-edit-submit-button {
+  background-color: #2aac76;
+  border-radius: 1em;
+  border: none;
+  color: #ffffff;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+.profile-edit-submit-button:hover {
+  color: #EBB22E;
+  cursor: pointer;
+}
+
+#password {
+  margin-left: 4em;
+}
+
