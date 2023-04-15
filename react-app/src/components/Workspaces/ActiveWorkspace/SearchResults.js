@@ -6,17 +6,20 @@ import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
 const SearchResults = ({ user }) => {
   const { closeModal } = useModal();
-
-  const sessionUser = useSelector((state) => state.session.user);
-  const currentworkspace = useSelector((state) => state.workspaces);
   const activeWorkspace = useSelector((state) => state.activeWorkspace);
   const workspaceId = activeWorkspace.id;
 
-  console.log("wowza", currentworkspace);
+  const sessionUser = useSelector((state) => state.session.user);
+
+  const currentworkspace = useSelector((state) => state.workspaces);
+  const usersInWorkspace = currentworkspace[workspaceId].users_in_workspaces
+
+
+  console.log("wowza", usersInWorkspace);
   const dispatch = useDispatch();
 
-  const userInCurrentWorkspace = user.joined_workspaces.filter(
-    (e) => e.id === workspaceId
+  const userInCurrentWorkspace = usersInWorkspace.filter(
+    (e) => e.id === user.id
   );
   console.log(userInCurrentWorkspace, "hola")
 

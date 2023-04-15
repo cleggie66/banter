@@ -93,9 +93,9 @@ def add_user_to_workspace(workspace_id):
     
 
     workspace.users_in_workspaces.append(user)
-    user.joined_workspaces.append(workspace)
+    # user.joined_workspaces.append(workspace)
     db.session.commit()
-    return {"message": "Added user to the workspace"}
+    return workspace.to_dict()
 
 
 

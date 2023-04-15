@@ -94,17 +94,22 @@ export const updateWorkspaceThunk =
 
 export const addUserToWorkspaceThunk =
   (userId, workspaceId) => async (dispatch) => {
-    const response = await fetch(`/api/workspaces/${workspaceId}/users`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        user_id: userId,
-      }),
-    });
-    const data = await response.json();
-    console.log(data, 'what is this???')
-    dispatch(loadWorkspaces(data));
-    return data;
+    try {
+      const response = await fetch(`/api/workspaces/${workspaceId}/users`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          user_id: userId,
+        }),
+      });
+      const data = await response.json();
+      const normalizedWorkspaceData = {};
+      normalizedWorkspaceData[data.id] = data;
+      dispatch(loadWorkspaces(normalizedWorkspaceData));
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
 export const deleteWorkspaceThunk = (workspaceId) => async (dispatch) => {
