@@ -11,16 +11,13 @@ import "./MessagesIndex.css";
 import AddUserToChannelModal from "./AddUserModal";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
-function MessagesIndex({workspaceId}) {
+function MessagesIndex({ workspaceId }) {
   const { setModalContent } = useModal();
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
   const allChannels = useSelector((state) => state.channels);
-
-
-
 
   const messages = useSelector((state) => Object.values(state.messages));
 
@@ -34,23 +31,18 @@ function MessagesIndex({workspaceId}) {
 
   const handleAddUserToChannel = () => {
     setModalContent(<AddUserToChannelModal />);
-    dispatch(loadActiveWorkspace(workspaceId))
-
+    dispatch(loadActiveWorkspace(workspaceId));
   };
 
   return (
     <div>
       {activeChannel.id && (
         <>
-        
-        <h2>{allChannels[activeChannel.id].name}</h2>
-        <FontAwesomeIcon
-          icon={faUsersRectangle}
-          onClick={handleAddUserToChannel}
-        />
-        
-        
-        
+          <h2>{allChannels[activeChannel.id].name}</h2>
+          <FontAwesomeIcon
+            icon={faUsersRectangle}
+            onClick={handleAddUserToChannel}
+          />
         </>
       )}
       {allCurrentChannelMessages.map((message) => (
