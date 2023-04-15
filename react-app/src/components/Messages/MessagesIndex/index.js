@@ -20,40 +20,32 @@ function MessagesIndex() {
   const state = useSelector(state => state)
   const dispatch = useDispatch();
   const [content, setContent] = useState('');
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState(allMessages)
   const user = useSelector((state) => state.session.user);
 
+  console.log(messages)
 
-    useEffect(() => {
-        socket = io();
-        socket.on("chat", (chat) => {
-            // when we recieve a chat, add it into our messages array in state
-            setMessages(messages => [...messages, chat])
-        });
+  const allCurrentChannelMessages = allMessages.filter(
+    (e) => activeChannel.id === e.channel_id
+  );
 
+  useEffect(() => {
+    socket = io();
+    socket.on("chat", (chat) => {
+        // when we recieve a chat, add it into our messages array in state
+        setMessages(messages => [...messages, chat])
+    });
 
+    socket.on('delete', (chat) => {
+      setMessages(messages => {
+        return messages.filter(message => message.id !== chat.id);
+      });
+    });
+    return (() => {
+        socket.disconnect()
+    })
+}, [])
 
-        socket.on('delete', (chat) => {
-          let messages = Object.values(state.messages);
-          console.log('ALL',messages)
-          let foundMessages = [];
-          messages.forEach(message => {
-            if (message.id !== chat.id) {
-              foundMessages.push(message)
-            }
-          })
-          console.log('FOUND',foundMessages)
-          setMessages(foundMessages)
-        })
-        return (() => {
-            socket.disconnect()
-        })
-    }, [])
-
-
-    const allCurrentChannelMessages = allMessages.filter(
-      (e) => activeChannel.id === e.channel_id
-    );
 
 
     const handleCreate = async (e) => {
@@ -85,43 +77,19 @@ function MessagesIndex() {
     }
 
 
-    let arr;
-    if (allCurrentChannelMessages && messages) {
-        arr = [...allCurrentChannelMessages, ...messages]
-    }
-
-    let uniqueIds = {};
-
-    let noDupes;
-    if (arr) {
-        noDupes = arr.filter(message => {
-            if (!uniqueIds[message.id]) {
-                uniqueIds[message.id] = true
-                return true
-            }
-            return false
-        })
-    }
-
-
-    let channelFiltered;
-    if (noDupes) {
-        channelFiltered = noDupes.filter(message => {
-            return (message.channelId == activeChannel?.id) || (message.channel_id == activeChannel?.id)
-        })
-    }
-
-
-    let sortedMessages = channelFiltered?.sort((a, b) => a.id - b.id)
-
   if (!allCurrentChannelMessages) {
     return <LoadingIcon />;
   }
 
-
   return (
     <div>
-      {sortedMessages?.map((message) => (
+      {allMessages?.map((message) => (
+        <MessageCard
+        key={message.id}
+        message={message}
+        />
+      ))}
+      {messages?.map((message) => (
         <MessageCard
           key={message.id}
           sessionUser={sessionUser}
