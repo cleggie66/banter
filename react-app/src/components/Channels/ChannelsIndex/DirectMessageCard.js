@@ -2,17 +2,17 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { loadActiveChannel } from "../../../store/activeChannel";
 import "./Card.css"
+import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
-const DirectMessageCard = ({ channel, sessionUser }) => {
+const DirectMessageCard = ({ channel, sessionUser, workspaceId }) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
     const handleCardClick = (e) => {
         e.preventDefault();
         dispatch(loadActiveChannel(channel.id))
-
-        // not sure if history push is working here
-        history.push(`/dashboard/${channel.workspace_id}/${channel.id}`);
+        dispatch(loadActiveWorkspace(workspaceId))
+        history.push(`/dashboard/${workspaceId}/${channel.id}`);
     };
 
     const filteredUsersArray = []
