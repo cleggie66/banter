@@ -67,6 +67,11 @@
   margin-top: 2em;
 }
 
+.profile-edit-submit-button:hover {
+  color: #EBB22E;
+  cursor: pointer;
+}
+
 #password {
   margin-left: 4em;
 }
