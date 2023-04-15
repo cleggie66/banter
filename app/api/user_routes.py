@@ -30,6 +30,7 @@ def get_current_user():
 @login_required
 def search_all_users(username):
     users = User.query.filter(User.username.like(f"{username}%")).all()
+    pog(users)
     return [user.to_dict_search() for user in users]
 
 

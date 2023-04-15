@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import DirectMessageCard from "./DirectMessageCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretRight, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretDown,
+  faCaretRight,
+  faPlusSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
 import ManageChannelModal from "../ManageChannel";
 import NewDMModal from "../../Messages/NewDMModel";
 import "./ChannelIndex.css";
 
-const ChannelsIndex = () => {
+const ChannelsIndex = ({ workspaceId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -20,7 +24,6 @@ const ChannelsIndex = () => {
 
   const [openChannelMenu, setOpenChannelMenu] = useState(false);
   const [openMessageMenu, setOpenMessageMenu] = useState(false);
-  const { workspaceId } = useParams();
 
   useEffect(() => {
     dispatch(getWorkspaceByIdThunk(workspaceId));
@@ -72,25 +75,24 @@ const ChannelsIndex = () => {
 
   function AnimatedCaret({ open, onClick, className }) {
     const [icon, setIcon] = useState(open ? faCaretDown : faCaretRight);
-  
+
     const handleClick = () => {
       setIcon((icon) => (icon === faCaretRight ? faCaretDown : faCaretRight));
       onClick();
     };
-  
+
     useEffect(() => {
       setIcon(open ? faCaretDown : faCaretRight);
     }, [open]);
-  
+
     return (
       <FontAwesomeIcon
         icon={icon}
         onClick={handleClick}
         id="fa-dropdown-arrow"
       />
-      );
-    }
-
+    );
+  }
 
   return (
     <>
@@ -118,11 +120,13 @@ const ChannelsIndex = () => {
             <ChannelCard key={channel.id} channel={channel} />
           ))}
           <div className="channel-list-item" onClick={handleAddChannel}>
-            <FontAwesomeIcon
-              icon={faPlusSquare}
-              id="fa-dropdown-arrow"
-            />
-            <p id="add-channel-sidebar" className="channels-button-modal-sidebar">Add a Channel</p>
+            <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />
+            <p
+              id="add-channel-sidebar"
+              className="channels-button-modal-sidebar"
+            >
+              Add a Channel
+            </p>
           </div>
         </div>
       </div>
@@ -131,8 +135,7 @@ const ChannelsIndex = () => {
           open={openMessageMenu}
           onClick={handleMessageMenuClick}
           className="caret-right"
-        />
-        {" "}
+        />{" "}
         <div className="channel-heading-2">
           <OpenModalButton
             className="channels-button-modal-sidebar"
@@ -154,10 +157,7 @@ const ChannelsIndex = () => {
           />
         ))}
         <div className="channel-list-item">
-          <FontAwesomeIcon
-            icon={faPlusSquare}
-            id="fa-dropdown-arrow"
-          />
+          <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />
           <OpenModalButton
             className="channels-button-modal-sidebar"
             buttonText="New Message"
@@ -166,7 +166,7 @@ const ChannelsIndex = () => {
         </div>
       </div>
     </>
-  );  
+  );
 };
 
 export default ChannelsIndex;

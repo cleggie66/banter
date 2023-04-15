@@ -77,7 +77,7 @@ def get_all_channels():
 # * -----------  POST  --------------
 # Adds a user to a channel
 
-@channel_routes.route("/<channel_id>/users", methods=['POST'])
+@channel_routes.route("/<int:channel_id>/users", methods=['POST'])
 @login_required
 def add_user_to_channel(channel_id):
     channel = Channel.query.get(channel_id)
@@ -94,16 +94,10 @@ def add_user_to_channel(channel_id):
             "status_code": 404
         }, 404
 
-    # for channel2 in user.joined_channels:
-    #     if channel2.id == channel.id:
-    #         return {"message": "User is already in channel"}
-
     channel.users_in_channels.append(user)
-    user.joined_channels.append(channel)
-
     db.session.commit()
 
-    return {"message": "Added user to the channel"}
+    return channel.to_dict_no_messages()
 
 
 # * -----------  DELETE  --------------
