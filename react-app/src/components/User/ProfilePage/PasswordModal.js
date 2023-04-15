@@ -58,27 +58,27 @@ function EditPasswordModal({ sessionUser }) {
   };
 
   return (
-    <>
-      <h1>Update Your Password</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          password
+    <div className="profile-edit-container">
+      <h1 className="title-text">Update Your Password</h1>
+      <form className="profile-edit-container" onSubmit={handleFormSubmit}>
+        <label id="password" className="title-text">
+          Password:{" "}
           <input
+            className="text-input-login"
             type="text"
             value={password}
-            // style={{ backgroundColor: "white" }}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
         {hasSubmitted && errors.password && (
           <p className="errors">{errors.password}</p>
         )}
-        <label>
-          Confirm Password
+        <label className="title-text">
+          Confirm Password:{" "}
           <input
+            className="text-input-login"
             type="text"
             value={confirmPassword}
-            // style={{ backgroundColor: "white" }}
             onChange={(e) => setCofirmPassword(e.target.value)}
           />
         </label>
@@ -87,12 +87,13 @@ function EditPasswordModal({ sessionUser }) {
         )}
         <p></p>
         <input
+          className="profile-edit-submit-button"
           type="submit"
           value={"Save Changes"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
         />
       </form>
-    </>
+    </div>
   );
 }
 

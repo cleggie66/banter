@@ -55,23 +55,26 @@ function EditUsernameModal({ sessionUser }) {
 
   return (
     <>
-      <h1>Update Your Username</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          username
-          <input
-            type="text"
-            value={username}
-            // style={{ backgroundColor: "white" }}
-            placeholder={sessionUser.username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
+      <h1 className="title-text">Update Your Username</h1>
+      <form className="profile-edit-container" onSubmit={handleFormSubmit}>
+        <div className="profile-picture-label">
+          <label className="title-text">
+            Username:{" "}
+            <input
+              className="text-input-login"
+              type="text"
+              value={username}
+              placeholder={sessionUser.username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </label>
+        </div>
         {hasSubmitted && errors.username && (
           <p className="errors">{errors.username}</p>
         )}
         <p></p>
         <input
+          className="profile-edit-submit-button"
           type="submit"
           value={"Save Changes"}
           disabled={hasSubmitted && Object.values(errors).length > 0}

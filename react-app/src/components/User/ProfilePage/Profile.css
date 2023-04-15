@@ -6,6 +6,13 @@
   width: 20em;
 }
 
+.profile-edit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .edit-section-container {
   display: flex;
   justify-content: space-between;
@@ -47,6 +54,20 @@
   margin-top: 2em;
 }
 
-/* .delete-user-container {
+.profile-picture-label {
+  margin-left: 4em;
+}
 
-} */
+.profile-edit-submit-button {
+  background-color: #2aac76;
+  border-radius: 1em;
+  border: none;
+  color: #ffffff;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+#password {
+  margin-left: 4em;
+}
+
