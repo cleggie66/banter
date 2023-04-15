@@ -21,9 +21,6 @@ const MessageForm = ({activeChannel}) => {
     const [content, setContent] = useState('');
     const [messages, setMessages] = useState([])
 
-    useEffect(() => {
-        dispatch(loadActiveChannel(activeChannel?.id))
-    }, [dispatch, activeChannel.id])
 
     useEffect(() => {
         socket = io();
@@ -59,7 +56,7 @@ const MessageForm = ({activeChannel}) => {
 
     return (
         <div className="create-message-form">
-            {false && <MessagesIndex newMessages={messages}/>}
+            {<MessagesIndex newMessages={messages}/>}
             <form onSubmit={handleSubmit} id="form-1">
                 <input
                     className="create-message-input"
