@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LoadingIcon from "../../LoadingPage/LoadingIcon";
 import { useModal } from "../../../context/Modal";
 import MessageCard from "./MessageCard";
@@ -9,12 +9,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
 import "./MessagesIndex.css";
 import AddUserToChannelModal from "./AddUserModal";
+import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
-function MessagesIndex() {
+function MessagesIndex({workspaceId}) {
   const { setModalContent } = useModal();
+  const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
+
+
 
   const messages = useSelector((state) => Object.values(state.messages));
 
@@ -28,6 +32,8 @@ function MessagesIndex() {
 
   const handleAddUserToChannel = () => {
     setModalContent(<AddUserToChannelModal />);
+    dispatch(loadActiveWorkspace(workspaceId))
+
   };
 
   return (

@@ -2,12 +2,23 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import UsersInWorkspaceSearchResults from "./UserSearchResults";
+import { useSelector } from "react-redux";
 // import SearchResults from "./SearchResults";
-
 
 function AddUserToChannelModal() {
   const [username, setUsername] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const activeWorkspace = useSelector((state) => state.activeWorkspace);
+  const workspaceId = activeWorkspace.id;
+
+  const currentworkspace = useSelector((state) => state.workspaces);
+  const usersInWorkspace = currentworkspace[workspaceId].users_in_workspaces;
+  const allIdsOfUsersInWorkspace = [];
+  usersInWorkspace.map((e) => allIdsOfUsersInWorkspace.push(e.id));
+
+  // I have a list of all the users in a workspace
+  // I could get all the ids for users in a workspace and do a nested for each .
+
   useEffect(async () => {
     if (username.length) {
       const results = await fetch(`/api/users/${username}`);
@@ -15,9 +26,10 @@ function AddUserToChannelModal() {
       setSearchResult(data);
     }
   }, [username]);
-  console.log('hello',searchResult)
-// filter the search result for users in the active workspace
-  // want to refactor to be able to add by email later
+
+  const searchResultsCurrentWorkspace = searchResult.filter((e) =>
+    allIdsOfUsersInWorkspace.includes(e.id)
+  );
 
   return (
     <>
@@ -36,7 +48,7 @@ function AddUserToChannelModal() {
       />
       <h3 className="title-text">All Users</h3>
       <div className="title-text">
-        {searchResult.map((user) => (
+        {searchResultsCurrentWorkspace.map((user) => (
           <UsersInWorkspaceSearchResults key={user.id} user={user} />
         ))}
       </div>

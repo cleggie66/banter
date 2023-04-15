@@ -7,9 +7,12 @@ import MessagesIndex from "../Messages/MessagesIndex";
 import LoadingPage from "../LoadingPage";
 
 import "./Dashboard.css"
+import { useParams } from "react-router-dom";
 
 const Dashboard = () => {
   const sessionUser = useSelector((state) => state.session.user);
+  const {workspaceId} = useParams()
+
   // const activeChannel = useSelector((state) => state.activeChannel)
   const [loadingVisibility, setLoadingVisibility] = useState("visible")
   // const history = useHistory();
@@ -23,7 +26,7 @@ const Dashboard = () => {
 
 
 //  can see channel index and message index
-// 
+// ! REFACTOR REFACTOR LETS UPDATE ACTIVE WORKSPACE FOR EVERYTHING
 
   return (
     <div className="page">
@@ -35,7 +38,7 @@ const Dashboard = () => {
             <ChannelsIndex />
           </div>
           <div className="right-bar">
-            <MessagesIndex />
+            <MessagesIndex workspaceId={workspaceId}/>
           </div>
         </>
       )}
