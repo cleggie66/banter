@@ -105,12 +105,8 @@ function Navigation() {
             onClick={onClick}
             className="nav-profile-section"
           >
-            <FontAwesomeIcon
-              icon={faUserTie}
-              className="user-icon-button"
-            />
             <div className="nav-image-container">
-              <img
+              <img 
                 src={
                   sessionUser.profile_picture === null
                     ? sessionUser.name[0]
