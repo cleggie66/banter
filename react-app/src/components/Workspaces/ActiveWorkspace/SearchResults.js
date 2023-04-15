@@ -13,11 +13,14 @@ const SearchResults = ({ user }) => {
 
   // push user object in users_in_work
   return (
-    <div>
+    <>    <div className="search-result-container">
+      <div className="image-container">
+      <img className="message-profile-pic" src={user.profile_picture} />
+      </div>
       <h3>{user.username}</h3>
-      {/* <img src={user.profile_picture} /> */}
-      {sessionUser.id !== user.id && <button className="profile-edit-submit-button">Add User</button>}
     </div>
+      {sessionUser.id !== user.id && <button className="profile-edit-submit-button">Add User</button>}
+    </>  
   );
 };
 

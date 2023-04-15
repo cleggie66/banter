@@ -79,3 +79,8 @@
 #search-icon {
   margin-left: 1em;
 }
+
+.search-result-container {
+  display: flex;
+  align-items: center;
+}
