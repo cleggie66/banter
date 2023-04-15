@@ -25,7 +25,7 @@ def get_current_user():
     return user.to_dict()
 
 # * -----------  GET  --------------
-
+# Search all users by their username
 @user_routes.route('/<string:username>')
 @login_required
 def search_all_users(username):
@@ -44,7 +44,12 @@ def user(id):
     return user.to_dict()
 
 
-# TODO -----------  PUT  --------------
+
+
+
+
+
+# -----------  PUT  --------------
 #  Update a user by id and returns that user in a dictionary
 
 @user_routes.route('/<int:id>', methods=['PUT'])

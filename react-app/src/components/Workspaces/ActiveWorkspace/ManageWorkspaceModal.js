@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import "./ManageWorkspaceModal.css";
 import AddUserModal from "./AddUserModal";
 
-function ManageWorkspaceModal({ workspace }) {
+function ManageWorkspaceModal({ workspace, workspaceId }) {
   const dispatch = useDispatch();
   const { setModalContent, setOnModalClose } = useModal();
   const { closeModal } = useModal();
@@ -18,7 +18,7 @@ function ManageWorkspaceModal({ workspace }) {
   };
 
   const handleAddUsers = () => {
-    setModalContent(<AddUserModal />);
+    setModalContent(<AddUserModal workspaceId={workspaceId}/>);
   };
 
   return (

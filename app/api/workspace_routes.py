@@ -71,6 +71,35 @@ def create_workspace():
     return {"message": "Bad data"}
 
 
+
+# -----------  POST  --------------
+# Adds a user to a workspace
+
+@workspace_routes.route('/<int:workspace_id>/users', methods=['POST'])
+@login_required
+def add_user_to_workspace(workspace_id):
+    workspace = Workspace.query.get(workspace_id)
+    if not workspace:
+        return {
+            "message": "Workspace could not be found",
+            "status_code": 404
+        }, 404
+    user = User.query.get(request.json['user_id'])
+    if not user:
+            return {
+                "message": "User could not be found",
+                "status_code": 404
+            }, 404
+    
+
+    workspace.users_in_workspaces.append(user)
+    user.joined_workspaces.append(workspace)
+    db.session.commit()
+    return {"message": "Added user to the workspace"}
+
+
+
+
 # ! -----------  DELETE  --------------
 # Delete a workspace
 

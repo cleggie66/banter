@@ -26,12 +26,11 @@ const ActiveWorkspace = () => {
   }
 
   const handleWorkspaceNameClick = () => {
-    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace} />);
+    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace} workspaceId={workspaceId}/>);
   };
 
   return (
     <>
-      {/* <h2>{`${newActiveWorkspace.name}`}</h2> */}
       <button
       className="dashboard-workspace-name"
       onClick={handleWorkspaceNameClick}

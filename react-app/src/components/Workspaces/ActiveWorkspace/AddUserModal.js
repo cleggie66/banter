@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SearchResults from "./SearchResults";
 
-function AddUserModal() {
+function AddUserModal({workspaceId}) {
   const [username, setUsername] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   useEffect(async () => {
@@ -33,7 +33,7 @@ function AddUserModal() {
       />
       <h3>All Users</h3>
       {searchResult.map((user) => (
-        <SearchResults key={user.id} user={user} />
+        <SearchResults key={user.id} user={user} workspaceId={workspaceId}/>
       ))}
     </>
   );
