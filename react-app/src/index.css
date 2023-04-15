@@ -11,9 +11,9 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+/* button:hover {
     color: #EBB22E
-}
+} */
 
 input[type="text"] {
     background-color: #000000;

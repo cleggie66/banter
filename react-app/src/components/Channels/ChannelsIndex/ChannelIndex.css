@@ -49,12 +49,12 @@
 } */
 
 .channel-heading:hover {
-  background-color: rgb(205, 202, 202);
-  width: 4.5em;
+  color: white;
+  /* width: 4.5em; */
 }
 
 .channel-heading-2:hover {
-  background-color: rgb(205, 202, 202);
+  /* background-color: rgb(205, 202, 202); */
   width: 7em;
 }
 
@@ -73,7 +73,8 @@
   padding: 0;
   border: none;
   background: none;
-  color: white;
+  color: rgb(189 189 191);
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .add-channel-button {
