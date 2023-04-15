@@ -65,7 +65,7 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-page-container">
-      <h1 className="title-text">Your Profile 💁‍♀️ </h1>
+      <h1 id="your-profile" className="title-text">Your Profile 💁‍♀️ </h1>
       <div className="profile-picture-container">
         <img
           src={sessionUser.profile_picture}

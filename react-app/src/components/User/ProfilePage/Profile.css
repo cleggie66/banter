@@ -1,9 +1,13 @@
 .profile-page-container {
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
-  margin-left: 36em;
-  width: 20em;
+  width: 18em;
+  height: 100vh;
+  background-color:rgb(37 37 38);
+}
+
+.profile-picture-container {
+  margin-left: 5em;
 }
 
 .profile-edit-container {
@@ -87,6 +91,10 @@
 
 #password {
   margin-left: 4em;
+}
+
+#your-profile {
+  margin-left: 1em;
 }
 
 
