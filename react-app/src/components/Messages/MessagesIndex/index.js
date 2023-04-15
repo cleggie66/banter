@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingIcon from "../../LoadingPage/LoadingIcon";
-
 import MessageCard from "./MessageCard";
 import "./MessagesIndex.css";
 import MessageForm from "../MessageForm";
