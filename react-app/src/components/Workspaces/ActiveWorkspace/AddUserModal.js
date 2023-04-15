@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SearchResults from "./SearchResults";
 
-function AddUserModal({workspaceId}) {
+
+function AddUserModal() {
   const [username, setUsername] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   useEffect(async () => {
@@ -11,12 +12,14 @@ function AddUserModal({workspaceId}) {
       const results = await fetch(`/api/users/${username}`);
       const data = await results.json();
       setSearchResult(data);
+
     }
   }, [username]);
 
   // want to refactor to be able to add by email later
 
-  
+
+
 
   return (
     <>
@@ -35,7 +38,7 @@ function AddUserModal({workspaceId}) {
       />
       <h3>All Users</h3>
       {searchResult.map((user) => (
-        <SearchResults key={user.id} user={user} workspaceId={workspaceId}/>
+        <SearchResults key={user.id} user={user} />
       ))}
     </>
   );

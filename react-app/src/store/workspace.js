@@ -102,7 +102,8 @@ export const addUserToWorkspaceThunk =
       }),
     });
     const data = await response.json();
-    dispatch(getAllWorkspacesThunk());
+    console.log(data, 'what is this???')
+    dispatch(loadWorkspaces(data));
     return data;
   };
 
