@@ -1,19 +1,66 @@
 .workspace-modal-container{
-    display:flex;
-    flex-direction: column;
+  display:flex;
+  flex-direction: column;
+  width: 18em;
+  height: 17em;
+}
+
+/* .workspace-modal-button-container {
+  margin-top: 4em;
+} */
+
+.workspace-icon-modal {
+    width: 4em;
+    height: 4em;
+  }
+
+.workspace-modal-name-desc-container{
+  gap: 20px;
 }
 
 
-.workspace-icon-modal {
-    width: 30px;
-    height: 30px;
-  }
+.workspace-modal-top{
+  display: flex;
+}
 
-  .workspace-modal-name-desc-container{
-    gap: 20px;
-  }
+#workspace-modal-button {
+  display: flex;
+  padding: 0;
+  border: none;
+  border-bottom: solid 1px;
+  background: none;
+  width: 86%;
+  justify-content: flex-start;
+  padding: 5px;
+  margin-top: 5px;
+  margin-left: 1em;
+  font-size: large;
+  
+}
 
+.sign-out-workspace-button {
+  background-color: #e01d59;
+  border-radius: 1em;
+  border: none;
+  color: #ffffff;
+  padding: 1em;
+  margin-left: 4.4em;
+  margin-top: 3em;
+}
 
-  .workspace-modal-top{
-    display: flex;
-  }
+#workspace-name{
+  font-size: large;
+}
+
+.workspace-modal-title-container{
+  margin-left: 2em;
+}
+
+.status-button {
+  margin-left: 1em;
+  font-size: small;
+}
+
+.status-container {
+  margin-right: 1em;
+}

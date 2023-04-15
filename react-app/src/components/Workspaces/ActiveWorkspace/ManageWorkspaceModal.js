@@ -31,29 +31,31 @@ function ManageWorkspaceModal({ workspace }) {
           // this might want an active or not active class ternary to style letter for Profile pic
         />
         <div className="workspace-modal-name-desc-container">
-          <div>
-            {workspace.name}
+          <div className="workspace-modal-title-container">
+            <h2 className="title-text">{workspace.name}</h2>
             {/* {sessionUser.last_name} */}
           </div>
           <div className="status-container">
             <button className="status-button">
-              a single place for your team and your work
+              <p className="title-text">A single place for your team and your work</p>
             </button>
           </div>
         </div>
       </div>
+      <div className="workspace-modal-button-container">
+        <button
+          className="title-text"
+          id="workspace-modal-button"
+          onClick={handleAddUsers}
+        >{`Invite People to ${workspace.name} `}</button>
 
-      <button
-        className="user-profile-button"
-        onClick={handleAddUsers}
-      >{`Invite People to ${workspace.name} `}</button>
-
-      <button
-        className="user-icon-modal-sign-out-button"
-        onClick={handleSignOutWorkspace}
-      >
-        {`Sign out of workspace`}
-      </button>
+        <button
+          className="sign-out-workspace-button"
+          onClick={handleSignOutWorkspace}
+        >
+          {`Sign out of workspace`}
+        </button>
+      </div>
     </div>
   );
 }
