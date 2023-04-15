@@ -22,7 +22,7 @@ function MessagesIndex() {
     return <LoadingIcon />;
   }
   return (
-    <div>
+    <div className="message-dashboard-section">
       {allCurrentChannelMessages.map((message) => (
         <MessageCard
           key={message.id}

@@ -10,10 +10,21 @@
 }
 
 .left-bar {
+    margin-top: 8vh;
     background-color: rgb(37 37 38);
+    height: 92vh;
+    width: 15vw;
+    border-right: solid 1px #515151;
+    border-top: solid 1px #515151;
 }
 
-.dashboard-workspace-name{
+.right-bar {
+    margin-top: 8vh;
+    height: 92vh;
+    width: 85vw;
+}
+
+.dashboard-workspace-name {
     margin-top: .5em;
     margin-left: .5em;
     padding: 0;
@@ -27,4 +38,4 @@
     margin-left: 0.6em;
     font-size: 0.6em;
     transform: scale(0.8);
-  }
+}

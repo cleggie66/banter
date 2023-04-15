@@ -1,3 +1,10 @@
+.message-dashboard-section {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 .message {
     display: flex;
     flex-direction: row;
