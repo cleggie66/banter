@@ -16,7 +16,7 @@ const SearchResults = ({ user }) => {
     <div>
       <h3>{user.username}</h3>
       {/* <img src={user.profile_picture} /> */}
-      {sessionUser.id !== user.id && <button>add user</button>}
+      {sessionUser.id !== user.id && <button className="profile-edit-submit-button">Add User</button>}
     </div>
   );
 };

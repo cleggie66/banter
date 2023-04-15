@@ -64,3 +64,18 @@
 .status-container {
   margin-right: 1em;
 }
+
+.search-input-login {
+  width: 22em;
+  height: 2em;
+  margin: 0.5em 0;
+  border: 2px solid #214357;
+  border-radius: 2em;
+  box-shadow: 0 0 20px #1f3645;
+  background-color: #222529;
+  padding: 1em;
+}
+
+#search-icon {
+  margin-left: 1em;
+}
