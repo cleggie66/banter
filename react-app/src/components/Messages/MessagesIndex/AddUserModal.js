@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import SearchResults from "./SearchResults";
+import UsersInWorkspaceSearchResults from "./UserSearchResults";
+// import SearchResults from "./SearchResults";
 
-function AddUserModal() {
+
+function AddUserToChannelModal() {
   const [username, setUsername] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   useEffect(async () => {
@@ -13,12 +15,13 @@ function AddUserModal() {
       setSearchResult(data);
     }
   }, [username]);
-console.log(searchResult,"work")
+  console.log('hello',searchResult)
+// filter the search result for users in the active workspace
   // want to refactor to be able to add by email later
 
   return (
     <>
-      <h2 className="title-text">Add people to your workspace!</h2>
+      <h2 className="title-text">Add people to your channel!</h2>
       <input
         className="search-input-login"
         type="search"
@@ -34,11 +37,11 @@ console.log(searchResult,"work")
       <h3 className="title-text">All Users</h3>
       <div className="title-text">
         {searchResult.map((user) => (
-          <SearchResults key={user.id} user={user} />
+          <UsersInWorkspaceSearchResults key={user.id} user={user} />
         ))}
       </div>
     </>
   );
 }
 
-export default AddUserModal;
+export default AddUserToChannelModal;

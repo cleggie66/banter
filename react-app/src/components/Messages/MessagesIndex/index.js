@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import LoadingIcon from "../../LoadingPage/LoadingIcon";
-
+import { useModal } from "../../../context/Modal";
 import MessageCard from "./MessageCard";
-import "./MessagesIndex.css";
 import MessageForm from "../MessageForm";
-import { useParams } from "react-router-dom";
-// import { getAllChannelMessagesThunk } from "../../../store/message";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
+import "./MessagesIndex.css";
+import AddUserToChannelModal from "./AddUserModal";
 
 function MessagesIndex() {
+  const { setModalContent } = useModal();
+
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
 
@@ -21,8 +25,19 @@ function MessagesIndex() {
   if (!allCurrentChannelMessages) {
     return <LoadingIcon />;
   }
+
+  const handleAddUserToChannel = () => {
+    setModalContent(<AddUserToChannelModal />);
+  };
+
   return (
     <div>
+      {activeChannel.id && (
+        <FontAwesomeIcon
+          icon={faUsersRectangle}
+          onClick={handleAddUserToChannel}
+        />
+      )}
       {allCurrentChannelMessages.map((message) => (
         <MessageCard
           key={message.id}

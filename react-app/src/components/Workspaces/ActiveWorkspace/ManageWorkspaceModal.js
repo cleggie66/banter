@@ -18,7 +18,7 @@ function ManageWorkspaceModal({ workspace, workspaceId }) {
   };
 
   const handleAddUsers = () => {
-    setModalContent(<AddUserModal workspaceId={workspaceId}/>);
+    setModalContent(<AddUserModal />);
   };
 
   return (
