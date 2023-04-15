@@ -11,6 +11,8 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { io } from 'socket.io-client';
 import { deleteMessageThunk } from "../../../store/message";
 import { getAllChannelMessagesThunk } from "../../../store/message";
+import { updateMessageThunk } from "../../../store/message";
+import { loadActiveChannel } from "../../../store/activeChannel";
 
 let socket;
 
@@ -21,6 +23,7 @@ function MessagesIndex() {
   const state = useSelector(state => state)
   const dispatch = useDispatch();
   const [content, setContent] = useState('');
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [messages, setMessages] = useState(allMessages)
   const user = useSelector((state) => state.session.user);
 
@@ -42,6 +45,14 @@ function MessagesIndex() {
         return messages.filter(message => message.id !== chat.id);
       });
     });
+
+    socket.on('edit', (chat) => {
+      setMessages(messages => {
+        let index = messages?.findIndex(message => message?.id === chat.id)
+        messages[index] = chat
+      })
+    });
+
     return (() => {
         socket.disconnect()
     })
@@ -71,6 +82,7 @@ function MessagesIndex() {
             setContent("")
         }
     }
+
 
 
     const handleDeleteMessage = async (e, message) => {

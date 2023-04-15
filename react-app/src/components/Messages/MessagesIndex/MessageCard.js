@@ -6,7 +6,7 @@ import { deleteMessageThunk } from "../../../store/message";
 import { useEffect } from "react";
 
 
-const MessageCard = ({ message, sessionUser, activeChannel, socket, handleDeleteMessage , messages, setMessages}) => {
+const MessageCard = ({ message, sessionUser, activeChannel, socket, handleDeleteMessage , messages, setMessages, handleEdit}) => {
 
 
 
@@ -34,6 +34,8 @@ const MessageCard = ({ message, sessionUser, activeChannel, socket, handleDelete
                 <EditMessageModal
                   message={message}
                   activeChannelId={activeChannel?.id}
+                  handleEdit={handleEdit}
+                  socket={socket}
                 />
               }
             />
