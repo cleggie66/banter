@@ -13,7 +13,7 @@ function AddUserModal() {
       setSearchResult(data);
     }
   }, [username]);
-console.log(searchResult,"work")
+  
   // want to refactor to be able to add by email later
 
   return (

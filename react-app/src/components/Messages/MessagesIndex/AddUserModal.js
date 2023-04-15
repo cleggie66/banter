@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import UsersInWorkspaceSearchResults from "./UserSearchResults";
-import { useSelector } from "react-redux";
-// import SearchResults from "./SearchResults";
 
 function AddUserToChannelModal() {
   const [username, setUsername] = useState("");
@@ -15,9 +14,6 @@ function AddUserToChannelModal() {
   const usersInWorkspace = currentworkspace[workspaceId].users_in_workspaces;
   const allIdsOfUsersInWorkspace = [];
   usersInWorkspace.map((e) => allIdsOfUsersInWorkspace.push(e.id));
-
-  // I have a list of all the users in a workspace
-  // I could get all the ids for users in a workspace and do a nested for each .
 
   useEffect(async () => {
     if (username.length) {
