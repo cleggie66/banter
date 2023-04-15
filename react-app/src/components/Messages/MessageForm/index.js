@@ -4,6 +4,10 @@ import { createMessageThunk } from "../../../store/message";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import "./MessageForm.css"
+import { io } from 'socket.io-client';
+
+
+let socket;
 
 const MessageForm = ({activeChannel}) => {
 
