@@ -95,7 +95,10 @@ function NewDMModal({ workspaceId }) {
                     ))}
                 </div>
                 <div className="create-message-button-container">
-                    <button className="create-channel-button" onClick={handleSubmit}>Create Message</button>
+                    {recipients ? (
+                        <button className="create-channel-button" onClick={handleSubmit}>Create Message</button>
+                    ) : <h2>No other users in this workspace!</h2>}
+
                 </div>
             </div>
         </>

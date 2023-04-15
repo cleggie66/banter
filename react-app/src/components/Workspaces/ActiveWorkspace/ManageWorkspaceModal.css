@@ -12,6 +12,7 @@
 .workspace-icon-modal {
     width: 4em;
     height: 4em;
+    border-radius: 12px;
   }
 
 .workspace-modal-name-desc-container{
@@ -35,7 +36,7 @@
   margin-top: 5px;
   margin-left: 1em;
   font-size: large;
-  
+
 }
 
 .sign-out-workspace-button {
