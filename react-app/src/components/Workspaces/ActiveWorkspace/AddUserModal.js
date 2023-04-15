@@ -16,6 +16,8 @@ function AddUserModal({workspaceId}) {
 
   // want to refactor to be able to add by email later
 
+  
+
   return (
     <>
       <h2>Add people to your workspace!</h2>
