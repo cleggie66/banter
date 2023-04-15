@@ -7,8 +7,21 @@ import "./NewDMModel.css"
 import { loadActiveChannel } from "../../../store/activeChannel";
 
 function NewDMModal({ workspaceId }) {
+
+    const activeChannel = useSelector((state) => state.activeChannel);
+    
+
+
+
+
+
     const dispatch = useDispatch();
+
+
     const [recipients, setRecipients] = useState(new Set())
+
+
+
 
     useEffect(() => {
         dispatch(getWorkspaceByIdThunk(workspaceId));
@@ -65,6 +78,21 @@ function NewDMModal({ workspaceId }) {
             closeModal()
         }
     }
+
+
+    // const handleCardClick = (e) => {
+    //     e.preventDefault();
+    //     dispatch(getChannelByIdThunk(channel.id));
+    //     dispatch(getAllChannelMessagesThunk(channel.id));
+    //     dispatch(loadActiveChannel(channel.id));
+    //     history.push(`/dashboard/${channel.workspace_id}/${channel.name}`);
+    //   };
+
+
+
+
+
+
 
     return (
         <>
