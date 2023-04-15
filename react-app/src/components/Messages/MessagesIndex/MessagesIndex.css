@@ -66,6 +66,19 @@
     border: none;
 }
 
+.message  button {
+    display: none;
+}
+
+.message:hover button {
+    display: flex;
+}
+
+.message-buttons {
+    display: flex;
+}
+
+
 .edit-message-modal-container {
     display: flex;
     align-items: center;

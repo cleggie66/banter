@@ -10,9 +10,11 @@ import "./Dashboard.css"
 
 const Dashboard = () => {
   const sessionUser = useSelector((state) => state.session.user);
-  // const activeChannel = useSelector((state) => state.activeChannel)
+  const activeChannel = useSelector((state) => state.activeChannel)
+  const currentChannel = useSelector((state) => state.channels[activeChannel.id])
   const [loadingVisibility, setLoadingVisibility] = useState("visible")
   // const history = useHistory();
+
 
   useEffect(() => {
     const loadingPageTimer = setTimeout(() => {
@@ -23,7 +25,7 @@ const Dashboard = () => {
 
 
 //  can see channel index and message index
-// 
+//
 
   return (
     <div className="page">
@@ -35,6 +37,9 @@ const Dashboard = () => {
             <ChannelsIndex />
           </div>
           <div className="right-bar">
+            <div className="current-channel-name-bar">
+              <span className="current-channel-name-text">#{currentChannel?.name}</span>
+           </div>
             <MessagesIndex />
           </div>
         </>
