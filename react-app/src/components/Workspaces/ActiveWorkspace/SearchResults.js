@@ -1,11 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { addUserToWorkspaceThunk } from "../../../store/workspace";
 
 const SearchResults = ({ user, workspaceId }) => {
   const sessionUser = useSelector((state) => state.session.user);
   const { closeModal } = useModal();
+  const dispatch = useDispatch();
 
   console.log("session", sessionUser);
 
@@ -30,10 +31,12 @@ const SearchResults = ({ user, workspaceId }) => {
     (e) => e.id !== workspaceId
   );
   // console.log(notInWorkspace)
-  handleAddUserClick = async (e) => {
-    e.preventDefault();
 
-    dispatchEvent(addUserToWorkspaceThunk(user.id, workspaceId));
+  console.log('oi',user.id)
+  const handleAddUserClick = (e) => {
+    e.preventDefault();
+    const workspaceIdInt = Number(workspaceId)
+    dispatch(addUserToWorkspaceThunk(user.id, workspaceIdInt));
     closeModal();
   };
 
