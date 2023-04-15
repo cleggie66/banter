@@ -42,9 +42,6 @@ const Dashboard = () => {
             <ChannelsIndex workspaceId={workspaceId}/>
           </div>
           <div className="right-bar">
-            <div className="current-channel-name-bar">
-              <span className="current-channel-name-text">#{currentChannel?.name}</span>
-           </div>
             <MessagesIndex workspaceId={workspaceId}/>
           </div>
         </>
