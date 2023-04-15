@@ -20,11 +20,11 @@ function MessagesIndex() {
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
   const allMessages = useSelector((state) => Object.values(state.messages));
-  const state = useSelector(state => state)
   const dispatch = useDispatch();
   const [content, setContent] = useState('');
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [messages, setMessages] = useState(allMessages)
+  const [editMessage, setEditMessage] = useState(null);
   const user = useSelector((state) => state.session.user);
 
   console.log(messages)
@@ -50,6 +50,7 @@ function MessagesIndex() {
       setMessages(messages => {
         let index = messages?.findIndex(message => message?.id === chat.id)
         messages[index] = chat
+        return [...messages];
       })
     });
 
@@ -65,34 +66,73 @@ function MessagesIndex() {
 
 
 
-    const handleCreate = async (e) => {
-        e.preventDefault()
+  const handleCreate = async (e) => {
+    e.preventDefault()
 
-        const payload = {
-            content,
-            channel_id: activeChannel?.id
-        }
-
-
-        let res = await dispatch(createMessageThunk(payload))
-        if (res) {
-            if (socket) {
-                socket.emit("chat", {id: res.id, user_id: user?.id, channel_id: activeChannel?.id, username: user?.username, content: content, profile_picture: user?.profile_picture, first_name: user?.first_name, last_name: user?.last_name});
-            }
-            setContent("")
-        }
-    }
-
-
-
-    const handleDeleteMessage = async (e, message) => {
-      e.preventDefault()
-      if (socket) {
-        await dispatch(deleteMessageThunk(message.id))
-        socket.emit('delete', {id: message.id, user: user.username, msg: message.content})
+    if (editMessage) { // if editMessage is set, update the message
+      const payload = {
+        id: editMessage.id, // pass the id of the edited message
+        content,
+        channel_id: activeChannel?.id
       }
-
+      let res = await dispatch(updateMessageThunk(payload))
+      if (res) {
+        if (socket) {
+          socket.emit("edit", { // emit edit event
+            id: res.id,
+            user_id: user?.id,
+            channel_id: activeChannel?.id,
+            username: user?.username,
+            content: content,
+            profile_picture: user?.profile_picture,
+            first_name: user?.first_name,
+            last_name: user?.last_name
+          });
+        }
+        setContent("")
+        setEditMessage(null)
+      }
+    } else { // if editMessage is not set, create a new message
+      const payload = {
+        content,
+        channel_id: activeChannel?.id
+      }
+      let res = await dispatch(createMessageThunk(payload))
+      if (res) {
+        if (socket) {
+          socket.emit("chat", { // emit chat event
+            id: res.id,
+            user_id: user?.id,
+            channel_id: activeChannel?.id,
+            username: user?.username,
+            content: content,
+            profile_picture: user?.profile_picture,
+            first_name: user?.first_name,
+            last_name: user?.last_name
+          });
+        }
+        setContent("")
+      }
     }
+  }
+
+  const handleDeleteMessage = async (e, message) => {
+    e.preventDefault()
+    if (socket) {
+      await dispatch(deleteMessageThunk(message.id))
+      socket.emit('delete', { 
+        id: message.id,
+        user: user.username,
+        msg: message.content
+      })
+    }
+  }
+
+  const handleEditMessage = (e, message) => {
+    e.preventDefault();
+    setEditMessage(message);
+    setContent(message.content);
+  }
 
 
   if (!allCurrentChannelMessages) {
@@ -110,6 +150,7 @@ function MessagesIndex() {
           socket={socket}
           user={sessionUser}
           handleDeleteMessage={handleDeleteMessage}
+          handleEditMessage={handleEditMessage}
           messages={messages}
           setMessages={setMessages}
         />
