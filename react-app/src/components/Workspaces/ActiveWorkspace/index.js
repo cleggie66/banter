@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
-import { useParams } from "react-router-dom";
 import { useModal } from "../../../context/Modal";
 import ManageWorkspaceModal from "./ManageWorkspaceModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,9 +9,8 @@ import "../../Dashboard/Dashboard.css";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
 
-const ActiveWorkspace = () => {
+const ActiveWorkspace = ({workspaceId}) => {
   const dispatch = useDispatch();
-  const { workspaceId } = useParams();
   const { setModalContent, setOnModalClose } = useModal();
 
   useEffect(() => {
@@ -27,7 +25,7 @@ const ActiveWorkspace = () => {
   }
 
   const handleWorkspaceNameClick = () => {
-    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace} workspaceId={workspaceId}/>);
+    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace}/>);
     dispatch(loadActiveWorkspace(workspaceId))
   };
 
