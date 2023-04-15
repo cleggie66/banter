@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { io } from 'socket.io-client';
 import { deleteMessageThunk } from "../../../store/message";
+import { getAllChannelMessagesThunk } from "../../../store/message";
 
 let socket;
 
@@ -45,6 +46,11 @@ function MessagesIndex() {
         socket.disconnect()
     })
 }, [])
+
+
+  useEffect(() => {
+   setMessages(allCurrentChannelMessages)
+  }, [allCurrentChannelMessages?.length])
 
 
 
@@ -83,12 +89,6 @@ function MessagesIndex() {
 
   return (
     <div>
-      {allMessages?.map((message) => (
-        <MessageCard
-        key={message.id}
-        message={message}
-        />
-      ))}
       {messages?.map((message) => (
         <MessageCard
           key={message.id}
