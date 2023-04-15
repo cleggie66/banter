@@ -56,9 +56,11 @@
   margin-left: 2em;
 }
 
-.status-button {
+.status-button-2 {
   margin-left: 1em;
   font-size: small;
+  background-color: #1b1d21;
+  border: none;
 }
 
 .status-container {

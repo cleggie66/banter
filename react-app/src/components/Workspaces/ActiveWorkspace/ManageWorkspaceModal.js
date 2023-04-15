@@ -36,7 +36,7 @@ function ManageWorkspaceModal({ workspace }) {
             {/* {sessionUser.last_name} */}
           </div>
           <div className="status-container">
-            <button className="status-button">
+            <button className="status-button-2">
               <p className="title-text">A single place for your team and your work</p>
             </button>
           </div>
