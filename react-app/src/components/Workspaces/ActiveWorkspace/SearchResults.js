@@ -1,23 +1,45 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useModal } from "../../../context/Modal";
+import { addUserToWorkspaceThunk } from "../../../store/workspace";
+import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
 const SearchResults = ({ user }) => {
+  const { closeModal } = useModal();
+  const activeWorkspace = useSelector((state) => state.activeWorkspace);
+  const workspaceId = activeWorkspace.id;
+
   const sessionUser = useSelector((state) => state.session.user);
-  //   console.log(sessionUser.id);
 
-  //   console.log("hiii", user);
-  // also want to check if joined workspace id matches current workspace id
+  const currentworkspace = useSelector((state) => state.workspaces);
+  const usersInWorkspace = currentworkspace[workspaceId].users_in_workspaces
 
-  //   const handleAddUserClick = (e) => {};
-  // going to need to dispatch a function that allows us to add user to join tables
 
-  // push user object in users_in_work
+  console.log("wowza", usersInWorkspace);
+  const dispatch = useDispatch();
+
+  const userInCurrentWorkspace = usersInWorkspace.filter(
+    (e) => e.id === user.id
+  );
+  console.log(userInCurrentWorkspace, "hola")
+
+  const handleAddUserClick = (e) => {
+    e.preventDefault();
+    dispatch(addUserToWorkspaceThunk(user.id, workspaceId));
+    dispatch(loadActiveWorkspace(workspaceId));
+    closeModal();
+  };
+
   return (
     <>    <div className="search-result-container">
       <div className="image-container">
       <img className="message-profile-pic" src={user.profile_picture} />
       </div>
       <h3>{user.username}</h3>
+      {/* <img src={user.profile_picture} /> */}
+      {sessionUser.id !== user.id && !userInCurrentWorkspace.length && (
+        <button onClick={handleAddUserClick}>add user</button>
+      )}
     </div>
       {sessionUser.id !== user.id && <button className="profile-edit-submit-button">Add User</button>}
     </>  
