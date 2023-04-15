@@ -40,6 +40,12 @@
   margin-left: 2em;
 }
 
+.edit-profile-picture:hover,
+.edit-profile-buttons:hover {
+  background-color: rgb(205, 202, 202);
+  cursor: pointer;
+}
+
 .edit-profile-button-containers {
   margin-left: 5em;
 }
