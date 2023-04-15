@@ -12,16 +12,13 @@ const SearchResults = ({ user }) => {
   const sessionUser = useSelector((state) => state.session.user);
 
   const currentworkspace = useSelector((state) => state.workspaces);
-  const usersInWorkspace = currentworkspace[workspaceId].users_in_workspaces
+  const usersInWorkspace = currentworkspace[workspaceId].users_in_workspaces;
 
-
-  console.log("wowza", usersInWorkspace);
   const dispatch = useDispatch();
 
   const userInCurrentWorkspace = usersInWorkspace.filter(
     (e) => e.id === user.id
   );
-  console.log(userInCurrentWorkspace, "hola")
 
   const handleAddUserClick = (e) => {
     e.preventDefault();
@@ -31,18 +28,23 @@ const SearchResults = ({ user }) => {
   };
 
   return (
-    <>    <div className="search-result-container">
-      <div className="image-container">
-      <img className="message-profile-pic" src={user.profile_picture} />
+    <>
+      {" "}
+      <div className="search-result-container">
+        <div className="image-container">
+          <img className="message-profile-pic" src={user.profile_picture} />
+        </div>
+        <h3>{user.username}</h3>
+        {sessionUser.id !== user.id && !userInCurrentWorkspace.length && (
+          <button
+            className="profile-edit-submit-button"
+            onClick={handleAddUserClick}
+          >
+            add user
+          </button>
+        )}
       </div>
-      <h3>{user.username}</h3>
-      {/* <img src={user.profile_picture} /> */}
-      {sessionUser.id !== user.id && !userInCurrentWorkspace.length && (
-        <button onClick={handleAddUserClick}>add user</button>
-      )}
-    </div>
-      {sessionUser.id !== user.id && <button className="profile-edit-submit-button">Add User</button>}
-    </>  
+    </>
   );
 };
 
