@@ -28,7 +28,7 @@ const MessageCard = ({ message, sessionUser, activeChannel }) => {
             />
           </div>
           <div className="message-details">
-            <h4>{message.message_owner.first_name}</h4>
+            <h4 className="message-sender-first-name">{message.message_owner.first_name}</h4>
             <p>{message.content}</p>
           </div>
         </div>

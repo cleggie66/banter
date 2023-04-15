@@ -8,7 +8,7 @@ const WorkspaceForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector((state) => state.session.user);
-    
+
     const [name, setName] = useState('');
     const [icon, setIcon] = useState('');
     const [validationErrors, setValidationErrors] = useState([]);
@@ -18,6 +18,11 @@ const WorkspaceForm = () => {
     function isImage(url) {
         const check = /\.(png|jpe?g)$/i;
         return check.test(url)
+    }
+
+
+      const goBack = () => {
+        return history.goBack()
     }
 
     useEffect(() => {
@@ -48,6 +53,7 @@ const WorkspaceForm = () => {
 
     return (
       <div className="workspace-form-container">
+        <button onClick={goBack}>Go back</button>
         {!user && <h1 className="signin-error">Please sign in to attempt to make a workspace</h1>}
         {user && (
           <form className="workspace-form-container" onSubmit={handleSubmit}>

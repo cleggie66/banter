@@ -17,10 +17,10 @@ function EditNameModal({ sessionUser }) {
   const handleInputErrors = () => {
     const errorsObj = {};
     if (firstName.length === 0) {
-      errorsObj.firstName = "firstName is required";
+      errorsObj.firstName = "First name is required";
     }
     if (lastName.length === 0) {
-      errorsObj.lastName = "lastName is required";
+      errorsObj.lastName = "Last name is required";
     }
 
     setErrors(errorsObj);
@@ -52,7 +52,7 @@ function EditNameModal({ sessionUser }) {
       );
       dispatch(refreshUser(sessionUser.id));
       closeModal();
-      history.push(`/profile/${updatedUser.id}`);
+      history.push(`/profile/${updatedUser?.id}`);
     }
     setHasSubmitted(true);
   };

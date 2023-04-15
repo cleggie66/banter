@@ -11,16 +11,13 @@ import "./MessagesIndex.css";
 import AddUserToChannelModal from "./AddUserModal";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
-function MessagesIndex({workspaceId}) {
+function MessagesIndex({ workspaceId }) {
   const { setModalContent } = useModal();
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
   const allChannels = useSelector((state) => state.channels);
-
-
-
 
   const messages = useSelector((state) => Object.values(state.messages));
 
@@ -34,33 +31,31 @@ function MessagesIndex({workspaceId}) {
 
   const handleAddUserToChannel = () => {
     setModalContent(<AddUserToChannelModal />);
-    dispatch(loadActiveWorkspace(workspaceId))
-
+    dispatch(loadActiveWorkspace(workspaceId));
   };
 
   return (
     <div className="message-dashboard-section">
-      {activeChannel.id && (
-        <>
-        
-        <h2>{allChannels[activeChannel.id].name}</h2>
-        <FontAwesomeIcon
-          icon={faUsersRectangle}
-          onClick={handleAddUserToChannel}
-        />
-        
-        
-        
-        </>
-      )}
-      {allCurrentChannelMessages.map((message) => (
-        <MessageCard
-          key={message.id}
-          sessionUser={sessionUser}
-          activeChannel={activeChannel}
-          message={message}
-        />
-      ))}
+      <div className="only-messages-div">
+        {activeChannel.id && (
+          <div className="current-channel-name-bar">
+            <h2>{allChannels[activeChannel.id].name}</h2>
+            <FontAwesomeIcon
+              icon={faUsersRectangle}
+              style={{ color: "red" }}
+              onClick={handleAddUserToChannel}
+            />
+          </div>
+        )}
+        {allCurrentChannelMessages.map((message) => (
+          <MessageCard
+            key={message.id}
+            sessionUser={sessionUser}
+            activeChannel={activeChannel}
+            message={message}
+          />
+        ))}
+      </div>
       {activeChannel.id && <MessageForm activeChannel={activeChannel} />}
     </div>
   );

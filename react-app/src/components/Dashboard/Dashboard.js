@@ -11,11 +11,14 @@ import { useParams } from "react-router-dom";
 
 const Dashboard = () => {
   const sessionUser = useSelector((state) => state.session.user);
+  const activeChannel = useSelector((state) => state.activeChannel)
+  const currentChannel = useSelector((state) => state.channels[activeChannel.id])
   const {workspaceId} = useParams()
 
   // const activeChannel = useSelector((state) => state.activeChannel)
   const [loadingVisibility, setLoadingVisibility] = useState("visible")
   // const history = useHistory();
+
 
   useEffect(() => {
     const loadingPageTimer = setTimeout(() => {
@@ -26,6 +29,7 @@ const Dashboard = () => {
 
 
 //  can see channel index and message index
+//
 // ! REFACTOR REFACTOR LETS UPDATE ACTIVE WORKSPACE FOR EVERYTHING
 
   return (
