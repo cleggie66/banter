@@ -3,27 +3,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { addUserToWorkspaceThunk } from "../../../store/workspace";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
+import { addUserToChannelThunk } from "../../../store/channel";
+import { loadActiveChannel } from "../../../store/activeChannel";
 
 const UsersInWorkspaceSearchResults = ({ user }) => {
   const { closeModal } = useModal();
-  const activeWorkspace = useSelector((state) => state.activeWorkspace);
-  const workspaceId = activeWorkspace.id;
+//   const activeWorkspace = useSelector((state) => state.activeWorkspace);
+  const activeChannel = useSelector((state) => state.activeChannel);
+  const channelId = activeChannel.id;
 
   const sessionUser = useSelector((state) => state.session.user);
 
-  const currentworkspace = useSelector((state) => state.workspaces);
-  const usersInWorkspace = currentworkspace[workspaceId].users_in_workspaces;
+  const currentChannel = useSelector((state) => state.channels);
+
+  const usersInChannel = currentChannel[channelId].users_in_channels;
+  console.log('bananaman', usersInChannel)
 
   const dispatch = useDispatch();
 
-  const userInCurrentWorkspace = usersInWorkspace.filter(
+  const userInCurrentChannel = usersInChannel.filter(
     (e) => e.id === user.id
   );
 
   const handleAddUserClick = (e) => {
     e.preventDefault();
-    dispatch(addUserToWorkspaceThunk(user.id, workspaceId));
-    dispatch(loadActiveWorkspace(workspaceId));
+    dispatch(addUserToChannelThunk(user.id, channelId));
+    dispatch(loadActiveChannel(channelId));
     closeModal();
   };
 
@@ -35,7 +40,8 @@ const UsersInWorkspaceSearchResults = ({ user }) => {
           <img className="message-profile-pic" src={user.profile_picture} />
         </div>
         <h3>{user.username}</h3>
-        {sessionUser.id !== user.id && !userInCurrentWorkspace.length && (
+        {/*  */}
+        {sessionUser.id !== user.id  && !userInCurrentChannel.length &&(
           <button
             className="profile-edit-submit-button"
             onClick={handleAddUserClick}
