@@ -8,28 +8,15 @@ import "./UserModal.css";
 // todo  When you click a user name it should show their profile on the right...
 
 function UserIconModal() {
-  const dispatch = useDispatch();
   const history = useHistory();
   const { closeModal } = useModal();
-  // const { workspaceId } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
   const currentWorkspace = useSelector((state) => state.workspaces);
 
-  // todo potential idea to grab path name
-  // todo create a split function that grabs the first /number to identify workspace
-  // todo worry is that /number is just a string Number=True ????
-
-  // useEffect(() => {
-  //   dispatch(getWorkspaceByIdThunk(workspaceId));
-  // }, [dispatch, workspaceId]);
-
-  // const WorkspaceName = currentWorkspace[workspaceId].name
-  // ! Nav bar how to access workspace Id? Can't use Params for some reason
   const handleStatusClick = (e) => {
     e.preventDefault();
     window.alert("Status Coming Soon!");
   };
-  // grab workspaces.name
 
   const handleProfileClick = (e) => {
     e.preventDefault();
@@ -42,8 +29,6 @@ function UserIconModal() {
     history.push(``);
     closeModal();
   };
-
-  // ! Cant grab workspace id from param
 
   return (
     <>
@@ -79,7 +64,6 @@ function UserIconModal() {
         className="sign-out-workspace-button"
         onClick={handleSignOutWorkspace}
       >{`Sign out of Workspace`}</button>
-      {/* ${WorkspaceName} */}
     </>
   );
 }

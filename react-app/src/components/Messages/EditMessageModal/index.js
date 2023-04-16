@@ -6,7 +6,6 @@ import { loadActiveChannel } from "../../../store/activeChannel";
 
 function EditMessageModal({ message, activeChannelId, socket }) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
   const [content, setContent] = useState(message.content);
   const [errors, setErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
