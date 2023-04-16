@@ -69,8 +69,18 @@ function MessagesIndex({ workspaceId }) {
   }, []);
 
   useEffect(() => {
+<<<<<<< HEAD
     setMessages(allCurrentChannelMessages);
   }, [allCurrentChannelMessages.length]);
+=======
+   setMessages(allCurrentChannelMessages)
+  }, [allCurrentChannelMessages?.length])
+
+
+  useEffect(() => {
+    dispatch(getAllChannelMessagesThunk(activeChannel.id))
+   }, [allCurrentChannelMessages?.length])
+>>>>>>> css_final_3
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -162,35 +172,40 @@ function MessagesIndex({ workspaceId }) {
 
   return (
     <div className="message-dashboard-section">
-      <div className="only-messages-div">
+
         {activeChannel.id && (
           <div className="current-channel-name-bar">
             <h2>{allChannels[activeChannel.id].name}</h2>
-            <FontAwesomeIcon
-              icon={faUsersRectangle}
-              style={{ color: "red" }}
-              onClick={handleAddUserToChannel}
-            />
+            <button
+           onClick={handleAddUserToChannel}
+            >
+              Add a User to this Channel
+            </button>
+
           </div>
         )}
+
+      {/* {activeChannel.id && <MessageForm activeChannel={activeChannel} />} */}
+    <div className="messages-display">
+      {messages?.map((message) => (
+        <MessageCard
+          key={message.id}
+          sessionUser={sessionUser}
+          activeChannel={activeChannel}
+          message={message}
+          socket={socket}
+          user={sessionUser}
+          handleDeleteMessage={handleDeleteMessage}
+          handleEditMessage={handleEditMessage}
+          messages={messages}
+          setMessages={setMessages}
+        />
+      ))}
       </div>
-      <div>
-        {messages.map((message) => (
-          <MessageCard
-            key={message.id}
-            sessionUser={sessionUser}
-            activeChannel={activeChannel}
-            message={message}
-            socket={socket}
-            user={sessionUser}
-            handleDeleteMessage={handleDeleteMessage}
-            handleEditMessage={handleEditMessage}
-          />
-        ))}
-        {activeChannel.id && (
-          <div className="create-message-form">
-            <form onSubmit={handleCreate} id="form-1">
-              <input
+      {activeChannel.id && (
+        <div className="create-message-form">
+        <form onSubmit={handleCreate} id="form-1">
+            <input
                 className="create-message-input"
                 type="textarea"
                 placeholder="Type your message here..."
@@ -208,9 +223,8 @@ function MessagesIndex({ workspaceId }) {
                 className="create-message-icon"
               />
             </button>
-          </div>
-        )}
-      </div>
+    </div>
+      )}
     </div>
   );
 }

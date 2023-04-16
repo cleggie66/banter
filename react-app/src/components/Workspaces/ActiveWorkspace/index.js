@@ -31,14 +31,14 @@ const ActiveWorkspace = ({ workspaceId }) => {
   return (
     <>
       <button
-        className="dashboard-workspace-name"
-        onClick={handleWorkspaceNameClick}
-      >
-        {`${newActiveWorkspace.name}`}
-        <FontAwesomeIcon id="workspace-arrow-down" icon={faAngleDown} />
-      </button>
-    </>
-  );
+      className="dashboard-workspace-name"
+      onClick={handleWorkspaceNameClick}
+    >
+      {`${newActiveWorkspace.name}`}
+      <button>Add a User to this Workspace</button>
+    </button>
+  </>
+);
 };
 
 export default ActiveWorkspace;
