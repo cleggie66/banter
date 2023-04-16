@@ -13,12 +13,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
 import ManageChannelModal from "../ManageChannel";
-import NewDMModal from "../../Messages/NewDMModel";
+import NewDMModal from "../../Messages/NewDMModel/CreateDmModal";
 import "./ChannelIndex.css";
+import CreateDmModal from "../../Messages/NewDMModel/CreateDmModal";
+import { useModal } from "../../../context/Modal";
+import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
 const ChannelsIndex = ({ workspaceId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { setModalContent } = useModal();
 
   const sessionUser = useSelector((state) => state.session.user);
 
@@ -50,7 +54,7 @@ const ChannelsIndex = ({ workspaceId }) => {
   const allChannels = channelState.filter(
     (e) => Number(workspaceId) === e.workspace_id && e.is_channel === true
   );
-  const allDMS = channelState.filter(
+  const allDirectMessages = channelState.filter(
     (e) =>
       Number(workspaceId) === e.workspace_id &&
       e.is_channel === false &&
@@ -93,6 +97,11 @@ const ChannelsIndex = ({ workspaceId }) => {
       />
     );
   }
+
+  const handleCreateDmClick = () => {
+    dispatch(loadActiveWorkspace(workspaceId))
+    setModalContent(<CreateDmModal />);
+  };
 
   return (
     <>
@@ -137,11 +146,12 @@ const ChannelsIndex = ({ workspaceId }) => {
           className="caret-right"
         />{" "}
         <div className="channel-heading-2">
-          <OpenModalButton
+          <button
             className="channels-button-modal-sidebar"
-            buttonText="Direct messages"
-            modalComponent={<NewDMModal workspaceId={workspaceId} />}
-          />
+            onClick={handleCreateDmClick}
+          >
+            Direct messages
+          </button>
         </div>
       </div>
       <div
@@ -149,7 +159,7 @@ const ChannelsIndex = ({ workspaceId }) => {
           openMessageMenu ? "active" : "inactive"
         }`}
       >
-        {allDMS.map((channel) => (
+        {allDirectMessages.map((channel) => (
           <DirectMessageCard
             key={channel.id}
             channel={channel}
@@ -159,11 +169,12 @@ const ChannelsIndex = ({ workspaceId }) => {
         ))}
         <div className="channel-list-item">
           <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />
-          <OpenModalButton
+          <button
             className="channels-button-modal-sidebar"
-            buttonText="New Message"
-            modalComponent={<NewDMModal workspaceId={workspaceId} />}
-          />
+            onClick={handleCreateDmClick}
+          >
+            New Message
+          </button>
         </div>
       </div>
     </>
