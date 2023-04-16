@@ -13,7 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
 import ManageChannelModal from "../ManageChannel";
-import NewDMModal from "../../Messages/NewDMModel/CreateDmModal";
 import "./ChannelIndex.css";
 import CreateDmModal from "../../Messages/NewDMModel/CreateDmModal";
 import { useModal } from "../../../context/Modal";

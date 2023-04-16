@@ -12,9 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { io } from 'socket.io-client';
 import { deleteMessageThunk } from "../../../store/message";
-import { getAllChannelMessagesThunk } from "../../../store/message";
 import { updateMessageThunk } from "../../../store/message";
-import { loadActiveChannel } from "../../../store/activeChannel";
 import { faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
 import "./MessagesIndex.css";
 import AddUserToChannelModal from "./AddUserModal";
@@ -30,12 +28,10 @@ function MessagesIndex({ workspaceId }) {
   const allMessages = useSelector((state) => Object.values(state.messages));
   const dispatch = useDispatch();
   const [content, setContent] = useState('');
-  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [messages, setMessages] = useState(allMessages)
   const [editMessage, setEditMessage] = useState(null);
   const user = useSelector((state) => state.session.user);
 
-  console.log(allChannels)
 
   const allCurrentChannelMessages = allMessages.filter(
     (e) => activeChannel.id === e.channel_id
