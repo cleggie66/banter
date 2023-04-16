@@ -8,26 +8,17 @@ import "./Dashboard.css";
 import { useParams } from "react-router-dom";
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
 
   const { workspaceId } = useParams();
 
-  const { status } = useParams();
-  const [loadingVisibility, setLoadingVisibility] = useState(status);
 
-  useEffect(() => {
-    const loadingPageTimer = setTimeout(() => {
-      setLoadingVisibility("hidden");
-    }, 3000);
-    return () => clearTimeout(loadingPageTimer);
-  }, [dispatch]);
+
 
   return (
     <div className="page">
       {sessionUser && (
         <>
-          <LoadingPage visibility={loadingVisibility} />
           <div className="left-bar">
             <ActiveWorkspace workspaceId={workspaceId} />
             <ChannelsIndex workspaceId={workspaceId} />

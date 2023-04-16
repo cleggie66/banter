@@ -3,10 +3,10 @@ import lightGif from '../../media/banter-logo-gif-light.gif'
 import "./LoadingPage.css"
 
 
-const LoadingPage = ({ visibility }) => {
+const LoadingPage = () => {
 
     return (
-        <div className={`loading-page ${ visibility }`}>
+        <div className={`loading-page visible`}>
             <img src={lightGif} alt="loading..." className='loading-gif'/>
         </div>
     )
