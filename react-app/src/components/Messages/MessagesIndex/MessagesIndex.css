@@ -24,6 +24,7 @@
 
 .message-sender-first-name {
     font-family: 'Noto Sans', sans-serif;
+    font-weight: 900;
     font-weight: bold;
     color: black;
 }

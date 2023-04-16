@@ -6,9 +6,9 @@
   flex-direction: column;
   align-items: flex-start;
   float: left;
-  margin-left: 1rem;
-        overflow: hidden;
-        text-overflow: clip;
+  margin-left: .5rem;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .channel-dropdown-container.active {
@@ -63,7 +63,6 @@
   align-items: center;
   margin-top: 1em;
   /* gap: 2px; */
-  padding-left: 2rem;
 }
 
 .channels-button-modal-sidebar {

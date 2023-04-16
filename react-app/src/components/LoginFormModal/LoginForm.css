@@ -19,6 +19,7 @@
     background-color: white;
 
     padding: 0 5rem;
+    padding-bottom: 2rem;
 }
 
 #login {
@@ -55,15 +56,17 @@
     flex-direction: column;
     align-items: center;
     color: #d1d2d3;
+    margin-bottom: .5rem;
 }
 
 .text-input-login {
-    width: 10em;
+    /* width: 10em;
     height: 2em;
-    margin: 0.5em 0;
-    border: 2px solid #214357;
-    border-radius: 2em;
-    box-shadow: 0 0 20px #1f3645;
+    margin: 0.5em 0; */
+    border: 1px solid #b9b9b9;
+    border-radius: 5px;
+    padding: 8px 0;
+    /* box-shadow: 0 0 20px #1f3645; */
 }
 
 .login-form {
