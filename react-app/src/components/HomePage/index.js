@@ -48,7 +48,7 @@ const HomePage = () => {
           </div>
           </div>
           <div className="home-page-main-section-logged-out-left">
-          <img className='home-page-main-section-logged-out-image'src={mockup}/>
+          <img className='home-page-main-section-logged-out-image'src={mockup} alt='alt'/>
           </div>
           </div>
           <div className="team-flex-test">
@@ -56,28 +56,28 @@ const HomePage = () => {
             <div className="meet-the-team-home">
             <a target="_blank" href="https://github.com/spencerwilf">
                 <div className="team-member-card">
-                    <img className="team-member-card-image" src={spencer}/>
+                    <img className="team-member-card-image" src={spencer} alt='alt'/>
                     <h3>Spencer Wilfahrt</h3>
                     <h5>Check out my Github!</h5>
                 </div>
                 </a>
                 <a target="_blank" href="https://github.com/cleggie66">
                 <div className="team-member-card">
-                    <img className="team-member-card-image" src={caleb}/>
+                    <img className="team-member-card-image" src={caleb} alt='alt'/>
                     <h3>Caleb Cleghorn</h3>
                     <h5>Check out my Github!</h5>
                 </div>
                 </a>
                 <a target="_blank" href="https://github.com/StevenBradleyA">
                 <div className="team-member-card">
-                    <img className="team-member-card-image" src={steven}/>
+                    <img className="team-member-card-image" src={steven} alt='alt'/>
                 <h3>Steven Anderson</h3>
                 <h5>Check out my Github!</h5>
                 </div>
                 </a>
                 <a target="_blank" href="https://github.com/JakeG97">
                 <div className="team-member-card">
-                    <img className="team-member-card-image" src={arnold}/>
+                    <img className="team-member-card-image" src={arnold} alt='alt'/>
                 <h3>Jake Gularte</h3>
                 <h5>Check out my Github!</h5>
                 </div>
@@ -88,15 +88,15 @@ const HomePage = () => {
             <div className="carousel-container">
             <h1 className="technologies-utilized-text">Technologies Utilized</h1>
                 <div className="carousel-slides">
-                <div className="carousel-slide"><img className="carousel-image" src={postgres}/></div>
-                <div className="carousel-slide"><img className="carousel-image" src={react}/></div>
-                <div className="carousel-slide"><img className="carousel-image" src={redux}/></div>
-                <div className="carousel-slide"><img className="carousel-image" src={flask}/></div>
-                <div className="carousel-slide"><img className="carousel-image" src={sqlalchemy}/></div>
-                <div className="carousel-slide"><img className="carousel-image" src={python}/></div>
-                <div className="carousel-slide"><img className="carousel-image" src={js}/></div>
-                <div className="carousel-slide"><img className="carousel-image" src={css}/></div>
-                <div className="carousel-slide"><img className="carousel-image" src={html}/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={postgres} alt='alt'/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={react} alt='alt'/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={redux} alt='alt'/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={flask} alt='alt'/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={sqlalchemy} alt='alt'/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={python} alt='alt'/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={js} alt='alt'/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={css} alt='alt'/></div>
+                <div className="carousel-slide"><img className="carousel-image" src={html} alt='alt'/></div>
                 </div>
             </div>
         </div>)}
