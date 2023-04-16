@@ -12,6 +12,7 @@ from .api.message_routes import message_routes
 from .api.workspace_routes import workspace_routes
 from .seeds import seed_commands
 from .config import Config
+from .sockets import socketio
 
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
@@ -37,12 +38,13 @@ app.register_blueprint(message_routes, url_prefix='/api/messages')
 
 db.init_app(app)
 Migrate(app, db)
+socketio.init_app(app)
 
 # Application Security
 CORS(app)
 
 #! if you get a cors error you have to connect to /api/users/
-# ! or just don't include / in route lol 
+# ! or just don't include / in route lol
 
 
 # Since we are deploying with Docker and Flask,
@@ -89,7 +91,7 @@ def react_root(path):
     """
     This route will direct to the public directory in our
     react builds in the production environment for favicon
-    or index.html requests. Handles a hard refresh. 
+    or index.html requests. Handles a hard refresh.
     """
     if path == 'favicon.ico':
         return app.send_from_directory('public', 'favicon.ico')
@@ -99,3 +101,7 @@ def react_root(path):
 @app.errorhandler(404)
 def not_found(e):
     return app.send_static_file('index.html')
+
+
+if __name__ == '__main__':
+    socketio.run(app)
