@@ -27,7 +27,6 @@ function MessagesIndex({ workspaceId }) {
   const allMessages = useSelector((state) => Object.values(state.messages));
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
-  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [messages, setMessages] = useState(allMessages);
   const [editMessage, setEditMessage] = useState(null);
   const user = useSelector((state) => state.session.user);
