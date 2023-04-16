@@ -17,6 +17,7 @@ import { faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
 import "./MessagesIndex.css";
 import AddUserToChannelModal from "./AddUserModal";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
+import { getAllChannelMessagesThunk } from "../../../store/message";
 let socket;
 
 function MessagesIndex({ workspaceId }) {
@@ -89,14 +90,15 @@ function MessagesIndex({ workspaceId }) {
             id: res.id,
             user_id: user.id,
             channel_id: activeChannel.id,
-            username: user.username,
             content: content,
-            profile_picture:
-              user.profile_picture === null
-                ? user.first_name[0]
-                : user.profile_picture,
-            first_name: user.first_name,
-            last_name: user.last_name,
+
+            message_owner: {
+              id: user.id,
+              username: user.username,
+              profile_picture: user.profile_picture,
+              first_name: user.first_name,
+              last_name: user.last_name,
+            },
           });
         }
         setContent("");
@@ -116,14 +118,14 @@ function MessagesIndex({ workspaceId }) {
             id: res.id,
             user_id: user.id,
             channel_id: activeChannel.id,
-            username: user.username,
             content: content,
-            profile_picture:
-              user.profile_picture === null
-                ? user.first_name[0]
-                : user.profile_picture,
-            first_name: user.first_name,
-            last_name: user.last_name,
+            message_owner: {
+              id: user.id,
+              username: user.username,
+              profile_picture: user.profile_picture,
+              first_name: user.first_name,
+              last_name: user.last_name,
+            },
           });
         }
         setContent("");

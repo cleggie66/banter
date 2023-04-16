@@ -1,5 +1,7 @@
 import EditMessageModal from "../EditMessageModal";
 import OpenModalButton from "../../OpenModalButton";
+import { useDispatch } from "react-redux";
+import { getAllChannelMessagesThunk } from "../../../store/message";
 
 const MessageCard = ({
   message,
@@ -9,6 +11,11 @@ const MessageCard = ({
   handleDeleteMessage,
   handleEdit,
 }) => {
+  const dispatch = useDispatch();
+  if (!message.message_owner) {
+    dispatch(getAllChannelMessagesThunk(activeChannel.id));
+  }
+  console.log("hey man wtf", message);
   return (
     <div>
       <div key={message.id} className="message">
@@ -26,7 +33,7 @@ const MessageCard = ({
           </div>
           <div className="message-details">
             <h4 className="message-sender-first-name">
-              {message.message_owner.first_name || message.first_name}
+              {message.message_owner.first_name}
             </h4>
             <p>{message.content}</p>
           </div>
