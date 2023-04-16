@@ -25,21 +25,10 @@ const DirectMessageUsersSearchResults = ({ user, workspaceId }) => {
     allDirectMessageChannelNamesArr.push(e.name);
   });
 
-  // there is no channel id yet... we need to get it from the thunk
-  // we can simply check if channel name exists and can redirect .
-  console.log("test", allDirectMessageChannelNamesArr);
-  //   lets get one dm working first
-  // need to be able to add users to array start a group message
-
-  // This needs to create a new channel with boolean false and
-
-  // list of all channel names with is channel false
 
   const handleAddUserClick = async (e) => {
     e.preventDefault();
 
-    // have to create a channel and send the new id first!
-    // name is going to be `sessionUser.name, selected users names`
     const channelInformation = {
       name: `${user.first_name} ${user.last_name}`,
       workspace_id: workspaceId,
