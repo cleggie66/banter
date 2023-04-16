@@ -7,7 +7,7 @@ const LoadingPage = ({ visibility }) => {
 
     return (
         <div className={`loading-page ${ visibility }`}>
-            <img src={lightGif} alt="loading..." className='loading-gif'/>
+             <img src={lightGif} alt="loading..." className='loading-gif'/>
         </div>
     )
 }

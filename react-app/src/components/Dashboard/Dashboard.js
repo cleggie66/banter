@@ -13,13 +13,12 @@ const Dashboard = () => {
 
   const { workspaceId } = useParams();
 
-  const { status } = useParams();
-  const [loadingVisibility, setLoadingVisibility] = useState(status);
+  const [loadingVisibility, setLoadingVisibility] = useState("visible");
 
   useEffect(() => {
     const loadingPageTimer = setTimeout(() => {
       setLoadingVisibility("hidden");
-    }, 3000);
+    }, 2500);
     return () => clearTimeout(loadingPageTimer);
   }, [dispatch]);
 

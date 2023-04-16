@@ -9,7 +9,7 @@ const WorkspaceCard = ({ workspace }) => {
   const handleCardClick = (e) => {
     e.preventDefault();
     dispatch(loadActiveWorkspace(workspace.id));
-    history.push(`/dashboard/${workspace.id}/visible`);
+    history.push(`/dashboard/${workspace.id}`);
   };
 
   return (
