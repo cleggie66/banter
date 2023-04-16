@@ -12,16 +12,13 @@ def seed_channels():
     project = Channel(
         name='lecture questions', workspace_id=1, is_channel=True, users_in_channels=[demo, alec, brad])
     dm = Channel(
-        name='direct message', workspace_id=1, is_channel=False, users_in_channels=[demo, brad])
-    dgm = Channel(
-        name='direct group message', workspace_id=1, is_channel=False, users_in_channels=[demo, alec, brad])
+        name='Brad Instructor', workspace_id=1, is_channel=False, users_in_channels=[demo, brad])
 
     db.session.add(general)
     db.session.add(november)
     db.session.add(lecture)
     db.session.add(project)
     db.session.add(dm)
-    db.session.add(dgm)
     db.session.commit()
 
 def undo_channels():
