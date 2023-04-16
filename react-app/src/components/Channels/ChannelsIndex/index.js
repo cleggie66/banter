@@ -18,7 +18,7 @@ const ChannelsIndex = () => {
 
   const sessionUser = useSelector((state) => state.session.user);
 
-  const [openChannelMenu, setOpenChannelMenu] = useState(false);
+  const [openChannelMenu, setOpenChannelMenu] = useState(true);
   const [openMessageMenu, setOpenMessageMenu] = useState(false);
   const { workspaceId } = useParams();
 
