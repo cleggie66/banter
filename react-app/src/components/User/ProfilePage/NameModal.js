@@ -52,7 +52,7 @@ function EditNameModal({ sessionUser }) {
       );
       dispatch(refreshUser(sessionUser.id));
       closeModal();
-      history.push(`/profile/${updatedUser?.id}`);
+      history.push(`/profile/${updatedUser.id}`);
     }
     setHasSubmitted(true);
   };
