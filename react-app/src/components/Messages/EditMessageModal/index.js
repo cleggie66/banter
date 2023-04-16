@@ -12,7 +12,6 @@ function EditMessageModal({ message, activeChannelId, socket }) {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const { closeModal } = useModal();
 
-  console.log(state);
   const handleInputErrors = () => {
     const errorsObj = {};
     if (content.length === 0) {
