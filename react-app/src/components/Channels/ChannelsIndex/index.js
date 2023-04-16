@@ -25,6 +25,7 @@ const ChannelsIndex = ({ workspaceId }) => {
   const { setModalContent } = useModal();
 
   const sessionUser = useSelector((state) => state.session.user);
+  const activeChannel = useSelector((state) => state.activeChannel)
 
   const [openChannelMenu, setOpenChannelMenu] = useState(true);
   const [openMessageMenu, setOpenMessageMenu] = useState(false);
@@ -126,7 +127,7 @@ const ChannelsIndex = ({ workspaceId }) => {
           }`}
         >
           {allChannels.map((channel) => (
-            <ChannelCard key={channel.id} channel={channel} />
+            <ChannelCard key={channel.id} channel={channel} activeChannel={activeChannel}/>
           ))}
           <div className="channel-list-item" onClick={handleAddChannel}>
             <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />

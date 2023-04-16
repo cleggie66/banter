@@ -7,9 +7,13 @@ import { getAllChannelMessagesThunk } from "../../../store/message";
 
 // todo as url changes messages not associated with url at all
 
-const ChannelCard = ({ channel }) => {
+const ChannelCard = ({ channel, activeChannel }) => {
   const history = useHistory();
   const dispatch = useDispatch();
+  let isActive = ""
+  if (channel.id === activeChannel.id) {
+    isActive = 'channel-active'
+  }
 
   const handleCardClick = (e) => {
     e.preventDefault();
@@ -20,7 +24,7 @@ const ChannelCard = ({ channel }) => {
   };
 
   return (
-    <div className="channel-list-item" onClick={handleCardClick}>
+    <div className={`channel-list-item ${isActive}`} onClick={handleCardClick}>
       <h2 className="channel-list-names">#</h2>
       <h2 className="channel-list-names">{channel.name}</h2>
     </div>
