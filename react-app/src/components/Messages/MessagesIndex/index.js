@@ -36,9 +36,15 @@ function MessagesIndex() {
   useEffect(() => {
     socket = io();
     socket.on("chat", (chat) => {
-        // when we recieve a chat, add it into our messages array in state
-        setMessages(messages => [...messages, chat])
-    });
+      // when we recieve a chat, add it into our messages array in state
+      setMessages(messages => {
+        if (messages.filter(m => m.id === chat.id).length > 0) {
+          return messages;
+        } else {
+          return [...messages, chat];
+        }
+      });
+  });
 
     socket.on('delete', (chat) => {
       setMessages(messages => {
@@ -120,7 +126,7 @@ function MessagesIndex() {
     e.preventDefault()
     if (socket) {
       await dispatch(deleteMessageThunk(message.id))
-      socket.emit('delete', { 
+      socket.emit('delete', {
         id: message.id,
         user: user.username,
         msg: message.content
