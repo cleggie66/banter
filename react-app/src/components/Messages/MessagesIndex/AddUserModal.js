@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import SearchResults from "./SearchResults";
+import UsersInWorkspaceSearchResults from "./UserSearchResults";
 
-function AddUserModal() {
+function AddUserToChannelModal() {
   const [username, setUsername] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const activeWorkspace = useSelector((state) => state.activeWorkspace);
+  const workspaceId = activeWorkspace.id;
+
+  const currentworkspace = useSelector((state) => state.workspaces);
+  const usersInWorkspace = currentworkspace[workspaceId].users_in_workspaces;
+  const allIdsOfUsersInWorkspace = [];
+  usersInWorkspace.map((e) => allIdsOfUsersInWorkspace.push(e.id));
+
   useEffect(async () => {
     if (username.length) {
       const results = await fetch(`/api/users/${username}`);
@@ -13,12 +22,14 @@ function AddUserModal() {
       setSearchResult(data);
     }
   }, [username]);
-  
-  // want to refactor to be able to add by email later
+
+  const searchResultsCurrentWorkspace = searchResult.filter((e) =>
+    allIdsOfUsersInWorkspace.includes(e.id)
+  );
 
   return (
     <>
-      <h2 className="title-text">Add people to your workspace!</h2>
+      <h2 className="title-text">Add people to your channel!</h2>
       <input
         className="search-input-login"
         type="search"
@@ -33,12 +44,12 @@ function AddUserModal() {
       />
       <h3 className="title-text">All Users</h3>
       <div className="title-text">
-        {searchResult.map((user) => (
-          <SearchResults key={user.id} user={user} />
+        {searchResultsCurrentWorkspace.map((user) => (
+          <UsersInWorkspaceSearchResults key={user.id} user={user} />
         ))}
       </div>
     </>
   );
 }
 
-export default AddUserModal;
+export default AddUserToChannelModal;

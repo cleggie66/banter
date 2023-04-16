@@ -48,18 +48,20 @@ function UserIconModal() {
   return (
     <>
       <div className="user-image-container-modal">
-        <img
-          src={
-            sessionUser.profile_picture === null
-              ? sessionUser.name[0]
-              : sessionUser.profile_picture
-          }
-          alt="User"
-          className="profile-picture-modal"
-          // this might want an active or not active class ternary to style letter for Profile pic
-        />
+        <div className="image-container-2">
+          <img
+            src={
+              sessionUser.profile_picture === null
+                ? sessionUser.name[0]
+                : sessionUser.profile_picture
+            }
+            alt="User"
+            className="profile-picture-modal"
+            // this might want an active or not active class ternary to style letter for Profile pic
+          />
+        </div>
         <div className="user-modal-name-status-container">
-          <div>
+          <div id="profile-names" className="title-text">
             {sessionUser.first_name}
             {sessionUser.last_name}
           </div>
@@ -74,7 +76,7 @@ function UserIconModal() {
         Profile
       </button>
       <button
-        className="user-icon-modal-sign-out-button"
+        className="sign-out-workspace-button"
         onClick={handleSignOutWorkspace}
       >{`Sign out of Workspace`}</button>
       {/* ${WorkspaceName} */}

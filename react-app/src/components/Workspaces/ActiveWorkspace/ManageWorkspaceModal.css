@@ -1,19 +1,90 @@
 .workspace-modal-container{
-    display:flex;
-    flex-direction: column;
+  display:flex;
+  flex-direction: column;
+  width: 18em;
+  height: 17em;
+}
+
+/* .workspace-modal-button-container {
+  margin-top: 4em;
+} */
+
+.workspace-icon-modal {
+    width: 4em;
+    height: 4em;
+    border-radius: 12px;
+  }
+
+.workspace-modal-name-desc-container{
+  gap: 20px;
 }
 
 
-.workspace-icon-modal {
-    width: 30px;
-    height: 30px;
-  }
+.workspace-modal-top{
+  display: flex;
+}
 
-  .workspace-modal-name-desc-container{
-    gap: 20px;
-  }
+#workspace-modal-button {
+  display: flex;
+  padding: 0;
+  border: none;
+  border-bottom: solid 1px;
+  background: none;
+  width: 86%;
+  justify-content: flex-start;
+  padding: 5px;
+  margin-top: 5px;
+  margin-left: 1em;
+  font-size: large;
 
+}
 
-  .workspace-modal-top{
-    display: flex;
-  }
+.sign-out-workspace-button {
+  background-color: #e01d59;
+  border-radius: 1em;
+  border: none;
+  color: #ffffff;
+  padding: 1em;
+  margin-left: 4.4em;
+  margin-top: 3em;
+}
+
+#workspace-name{
+  font-size: large;
+}
+
+.workspace-modal-title-container{
+  margin-left: 2em;
+}
+
+.status-button-2 {
+  margin-left: 1em;
+  font-size: small;
+  background-color: #1b1d21;
+  border: none;
+}
+
+.status-container {
+  margin-right: 1em;
+}
+
+.search-input-login {
+  width: 22em;
+  height: 2em;
+  margin: 0.5em 0;
+  border: 2px solid #214357;
+  border-radius: 2em;
+  box-shadow: 0 0 20px #1f3645;
+  background-color: #222529;
+  color: #ababad;
+  padding: 1em;
+}
+
+#search-icon {
+  margin-left: 1em;
+}
+
+.search-result-container {
+  display: flex;
+  align-items: center;
+}

@@ -1,26 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import DirectMessageCard from "./DirectMessageCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretRight, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretDown,
+  faCaretRight,
+  faPlusSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
 import ManageChannelModal from "../ManageChannel";
-import NewDMModal from "../../Messages/NewDMModel";
+import NewDMModal from "../../Messages/NewDMModel/CreateDmModal";
 import "./ChannelIndex.css";
+import CreateDmModal from "../../Messages/NewDMModel/CreateDmModal";
+import { useModal } from "../../../context/Modal";
+import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
-const ChannelsIndex = () => {
+const ChannelsIndex = ({ workspaceId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const { setModalContent } = useModal();
 
   const sessionUser = useSelector((state) => state.session.user);
 
-  const [openChannelMenu, setOpenChannelMenu] = useState(false);
+  const [openChannelMenu, setOpenChannelMenu] = useState(true);
   const [openMessageMenu, setOpenMessageMenu] = useState(false);
-  const { workspaceId } = useParams();
 
   useEffect(() => {
     dispatch(getWorkspaceByIdThunk(workspaceId));
@@ -47,7 +54,7 @@ const ChannelsIndex = () => {
   const allChannels = channelState.filter(
     (e) => Number(workspaceId) === e.workspace_id && e.is_channel === true
   );
-  const allDMS = channelState.filter(
+  const allDirectMessages = channelState.filter(
     (e) =>
       Number(workspaceId) === e.workspace_id &&
       e.is_channel === false &&
@@ -72,25 +79,29 @@ const ChannelsIndex = () => {
 
   function AnimatedCaret({ open, onClick, className }) {
     const [icon, setIcon] = useState(open ? faCaretDown : faCaretRight);
-  
+
     const handleClick = () => {
       setIcon((icon) => (icon === faCaretRight ? faCaretDown : faCaretRight));
       onClick();
     };
-  
+
     useEffect(() => {
       setIcon(open ? faCaretDown : faCaretRight);
     }, [open]);
-  
+
     return (
       <FontAwesomeIcon
         icon={icon}
         onClick={handleClick}
         id="fa-dropdown-arrow"
       />
-      );
-    }
+    );
+  }
 
+  const handleCreateDmClick = () => {
+    dispatch(loadActiveWorkspace(workspaceId))
+    setModalContent(<CreateDmModal />);
+  };
 
   return (
     <>
@@ -118,11 +129,13 @@ const ChannelsIndex = () => {
             <ChannelCard key={channel.id} channel={channel} />
           ))}
           <div className="channel-list-item" onClick={handleAddChannel}>
-            <FontAwesomeIcon
-              icon={faPlusSquare}
-              id="fa-dropdown-arrow"
-            />
-            <p id="add-channel-sidebar" className="channels-button-modal-sidebar">Add a Channel</p>
+            <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />
+            <p
+              id="add-channel-sidebar"
+              className="channels-button-modal-sidebar"
+            >
+              Add a Channel
+            </p>
           </div>
         </div>
       </div>
@@ -131,14 +144,14 @@ const ChannelsIndex = () => {
           open={openMessageMenu}
           onClick={handleMessageMenuClick}
           className="caret-right"
-        />
-        {" "}
+        />{" "}
         <div className="channel-heading-2">
-          <OpenModalButton
+          <button
             className="channels-button-modal-sidebar"
-            buttonText="Direct messages"
-            modalComponent={<NewDMModal workspaceId={workspaceId} />}
-          />
+            onClick={handleCreateDmClick}
+          >
+            Direct messages
+          </button>
         </div>
       </div>
       <div
@@ -146,27 +159,26 @@ const ChannelsIndex = () => {
           openMessageMenu ? "active" : "inactive"
         }`}
       >
-        {allDMS.map((channel) => (
+        {allDirectMessages.map((channel) => (
           <DirectMessageCard
             key={channel.id}
             channel={channel}
             sessionUser={sessionUser}
+            workspaceId={workspaceId}
           />
         ))}
         <div className="channel-list-item">
-          <FontAwesomeIcon
-            icon={faPlusSquare}
-            id="fa-dropdown-arrow"
-          />
-          <OpenModalButton
+          <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />
+          <button
             className="channels-button-modal-sidebar"
-            buttonText="New Message"
-            modalComponent={<NewDMModal workspaceId={workspaceId} />}
-          />
+            onClick={handleCreateDmClick}
+          >
+            New Message
+          </button>
         </div>
       </div>
     </>
-  );  
+  );
 };
 
 export default ChannelsIndex;

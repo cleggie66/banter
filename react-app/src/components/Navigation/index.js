@@ -8,7 +8,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import DemoLogin from "./DemoLogin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome} from "@fortawesome/free-solid-svg-icons";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "./Navigation.css";
 import UserIconModal from "../User/UserIcon";
 import { useModal } from "../../context/Modal";
@@ -92,34 +92,30 @@ function Navigation() {
       )}
       {!homePage && sessionUser && (
         <div className="dashboard-navbar-container">
-          <div className="temporary-home">
+          <div>
             <NavLink
               exact
               to="/"
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
-              <FontAwesomeIcon icon={faHome} />
-              <> </>
-              SODO
+              <FontAwesomeIcon icon={faHome} className="home-icon"/>
             </NavLink>
           </div>
-          <div>
-            {/* <FontAwesomeIcon
-              icon={faUserTie}
-              onClick={onClick}
-              className="user-icon-button"
-            /> */}
-            <img
-              src={
-                sessionUser.profile_picture === null
-                  ? sessionUser.name[0]
-                  : sessionUser.profile_picture
-              }
-              onClick={onClick}
-              className="user-icon-button"
-              alt="User"
-              // this might want an active or not active class ternary to style letter for Profile pic
-            />
+          <div
+            onClick={onClick}
+            className="nav-profile-section"
+          >
+            <div className="nav-image-container">
+              <img 
+                src={
+                  sessionUser.profile_picture === null
+                    ? sessionUser.name[0]
+                    : sessionUser.profile_picture
+                }
+                alt="profile"
+                className="nav-profile-pic"
+              />
+            </div>
           </div>
         </div>
       )}

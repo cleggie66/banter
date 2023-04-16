@@ -3,15 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateMessageThunk } from "../../../store/message";
 import { useModal } from "../../../context/Modal";
 import { loadActiveChannel } from "../../../store/activeChannel";
+import { getAllChannelMessagesThunk } from "../../../store/message";
 
-function EditMessageModal({ message, activeChannelId }) {
+function EditMessageModal({ message, activeChannelId, socket }) {
 
   const dispatch = useDispatch();
+  const state = useSelector((state) => state)
   const [content, setContent] = useState(message.content);
   const [errors, setErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const { closeModal } = useModal();
 
+  console.log(state)
   const handleInputErrors = () => {
     const errorsObj = {};
     if (content.length === 0) {
@@ -24,6 +27,7 @@ function EditMessageModal({ message, activeChannelId }) {
     handleInputErrors();
   }, [content]);
 
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -31,21 +35,34 @@ function EditMessageModal({ message, activeChannelId }) {
       const messageInformation = {
         content,
       };
+      if (socket) {
+        let res = await dispatch(updateMessageThunk(messageInformation, message.id));
+        if (res) {
+          socket.emit('edit', {
+            channel_id: res.channel_id,
+            content: res.content,
+            id: res.id,
+            message_owner: res.message_owner,
+            user_id: res.user_id
+          })
+        }
 
-      await dispatch(updateMessageThunk(messageInformation, message.id));
+
       await dispatch(loadActiveChannel(activeChannelId))
       closeModal();
+      }
     }
     setHasSubmitted(true);
   };
 
   return (
-    <>
-      <h1>Edit Your Message</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Text
+    <div className="edit-message-modal-container">
+      <h1 className="title-text">Edit Your Message</h1>
+      <form className="profile-edit-container" onSubmit={handleFormSubmit}>
+        <label className="title-text">
+          Text:{" "}
           <textarea
+            className="edit-message-textarea"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required
@@ -56,12 +73,13 @@ function EditMessageModal({ message, activeChannelId }) {
           <p className="errors">{errors.text}</p>
         )}
         <input
+          className="profile-edit-submit-button"
           type="submit"
           value={"Update Message"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
         />
       </form>
-    </>
+    </div>
   );
 }
 

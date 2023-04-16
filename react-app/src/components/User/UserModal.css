@@ -1,5 +1,6 @@
 .status-container {
   display: flex;
+  margin-right: 3em;
 }
 
 select::-ms-expand {
@@ -14,7 +15,15 @@ select::-ms-expand {
   font-size: 8px;
 }
 
+.image-container-2 {
+  position: relative;
+}
 
+.status-button {
+  position: absolute;
+  top: 12em;
+  left: 12em;
+}
 
 .status {
   font-size: 12px;
@@ -22,12 +31,14 @@ select::-ms-expand {
 }
 
 .profile-picture-modal {
-  width: 30px;
-  height: 30px;
+  width: 96px;
+  height: 96px;
 }
 
 .user-image-container-modal {
   display: flex;
+  width: 18em;
+  height:6em;
 }
 
 .user-modal-name-status-container {
@@ -41,8 +52,12 @@ select::-ms-expand {
   background: none;
   width: 100%;
   justify-content: flex-start;
-  padding: 5px;
-  margin-top: 5px;
+  border-bottom: solid 1px;
+  border-top: solid 1px;
+  padding: .6em;
+  margin-top: 1.5em;
+  color: #ababad;
+  font-size: large;
 }
 .user-profile-button:hover {
   background-color: rgb(121, 177, 233, 0.3);
@@ -61,3 +76,11 @@ select::-ms-expand {
 .user-icon-modal-sign-out-button:hover {
   background-color: rgb(121, 177, 233, 0.3);
 }
+
+#profile-names {
+  margin-top: .5em;
+  margin-left: 1em;
+  font-size: x-large;
+}
+
+

@@ -11,9 +11,9 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+/* button:hover {
     color: #EBB22E
-}
+} */
 
 input[type="text"] {
     background-color: #000000;
@@ -26,7 +26,7 @@ input[type="text"]::placeholder {
 }
 
 input[type="password"] {
-    background-color: #222529;
+    background-color: #000000;
     padding-left: 2em;
     color: #ababad;
 }

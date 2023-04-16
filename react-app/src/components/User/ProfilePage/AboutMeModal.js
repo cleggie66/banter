@@ -50,16 +50,17 @@ function EditAboutMeModal({ sessionUser }) {
   };
 
   return (
-    <>
-      <h1>Tell others about yourself!</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          About Me
+    <div className="profile-edit-container">
+      <h1 className="title-text">Tell others about yourself!</h1>
+      <form className="profile-edit-container" onSubmit={handleFormSubmit}>
+        <label className="title-text">
+          About Me:{" "}
+          <p></p>
           <textarea
+            className="text-input-about-me"
             type="text"
             value={aboutMe}
             placeholder={sessionUser.about_me}
-            // style={{ backgroundColor: "white" }}
             onChange={(e) => setAboutMe(e.target.value)}
           />
         </label>
@@ -68,12 +69,13 @@ function EditAboutMeModal({ sessionUser }) {
         )}
         <p></p>
         <input
+          className="profile-edit-submit-button"
           type="submit"
           value={"Save Changes"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
         />
       </form>
-    </>
+    </div>
   );
 }
 

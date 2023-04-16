@@ -54,30 +54,31 @@ function EditTitleModal({ sessionUser }) {
   };
 
   return (
-    <>
-      <h1>Update Your Title</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Title
+    <div className="profile-edit-container">
+      <h1 className="title-text">Update Your Title</h1>
+      <form className="profile-edit-container" onSubmit={handleFormSubmit}>
+        <label className="title-text">
+          Title:{" "}
           <input
+            className="text-input-login"
             type="text"
             value={title}
             placeholder={sessionUser.title}
-            // style={{ backgroundColor: "white" }}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
         {hasSubmitted && errors.title && (
           <p className="errors">{errors.title}</p>
         )}
-
+        <p></p>
         <input
+          className="profile-edit-submit-button"
           type="submit"
           value={"Save Changes"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
         />
       </form>
-    </>
+    </div>
   );
 }
 

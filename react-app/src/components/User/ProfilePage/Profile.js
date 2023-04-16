@@ -48,12 +48,27 @@ const ProfilePage = () => {
     setModalContent(<EditAboutMeModal sessionUser={sessionUser} />);
   };
 
+  const isDemoUser = sessionUser && sessionUser.id === 1;
+  const deleteButton = isDemoUser ? (
+    <div className="delete-user-container">
+      <p>You cannot delete your account as a demo user</p>
+    </div>
+  ) : (
+    <div className="delete-user-container">
+      <OpenModalButton
+        buttonText="Delete My Account"
+        modalComponent={<DeleteUserModal />}
+        className="delete-user-account-button"
+      />
+    </div>
+  );
+
   return (
     <div className="profile-page-container">
-      <h1>Your Profile 💁‍♀️ </h1>
+      <h1 id="your-profile" className="title-text">Your Profile 💁‍♀️ </h1>
       <div className="profile-picture-container">
         <img
-          src={sessionUser.profile_picture}
+          src={sessionUser?.profile_picture}
           alt="Profile"
           className="profile-page-picture"
         />
@@ -63,66 +78,64 @@ const ProfilePage = () => {
           className="edit-profile-picture"
         />
       </div>
-      <div className="username-container">
-        <div>{`Username:  ${sessionUser.username}`}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{`Username:  ${sessionUser.username}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleUserNameEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
 
-      <div className="email-container">
-        <div>{`Email:  ${sessionUser.email}`}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{`Email:  ${sessionUser.email}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleEmailEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
 
-      <div className="name-container">
-        <div>{`First name:  ${sessionUser.first_name}`}</div>
-        <div>{`Last name:  ${sessionUser.last_name}`}</div>
-
+      <div className="edit-section-container">
+      <div id="profile-titles" className="title-text">
+        {`First name:  ${sessionUser.first_name}`}
+        <br />
+        {`Last name:  ${sessionUser.last_name}`}
+      </div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleFirstNameEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
-      <div className="password-container">
-        <div>{"Change your password"}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{"Change your password"}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handlePasswordEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
 
-      <div className="title-container">
-        <div>{`Title:  ${sessionUser.title}`}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{`Title:  ${sessionUser.title}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleTitleEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
-      <div className="about-me-container">
-        <div>{`About me:  ${sessionUser.about_me}`}</div>
+      <div className="edit-section-container">
+        <div id="profile-titles" className="title-text">{`About me:  ${sessionUser.about_me}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleAboutMeEdit}
-          // className=""
+          className="edit-profile-buttons"
         />
       </div>
-
-      {/* <UpdateUserForm sessionUser={sessionUser} /> */}
-      <OpenModalButton
-        buttonText="Delete My Account"
-        modalComponent={<DeleteUserModal />}
-        // className="delete-user-account-button"
-      />
+      <div className="delete-user-container">
+          <div className="no-delete-button">{deleteButton}</div>
+      </div>
     </div>
   );
 };

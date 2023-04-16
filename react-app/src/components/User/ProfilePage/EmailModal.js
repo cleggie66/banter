@@ -54,29 +54,32 @@ function EditEmailModal({ sessionUser }) {
   };
 
   return (
-    <>
-      <h1>Update Your Email</h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          email
-          <input
-            type="text"
-            value={email}
-            // style={{ backgroundColor: "white" }}
-            placeholder={sessionUser.email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
+    <div className="profile-edit-container">
+      <h1 className="title-text">Update Your Email</h1>
+      <form className="profile-edit-container" onSubmit={handleFormSubmit}>
+        <div className="profile-email-label">
+          <label className="title-text">
+            Email:{" "}
+            <input
+              className="text-input-login"
+              type="text"
+              value={email}
+              placeholder={sessionUser.email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+        </div>
         {hasSubmitted && errors.email && (
           <p className="errors">{errors.email}</p>
         )}
         <input
+          className="profile-edit-submit-button"
           type="submit"
           value={"Save Changes"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
         />
       </form>
-    </>
+    </div>
   );
 }
 

@@ -17,10 +17,10 @@ function EditNameModal({ sessionUser }) {
   const handleInputErrors = () => {
     const errorsObj = {};
     if (firstName.length === 0) {
-      errorsObj.firstName = "firstName is required";
+      errorsObj.firstName = "First name is required";
     }
     if (lastName.length === 0) {
-      errorsObj.lastName = "lastName is required";
+      errorsObj.lastName = "Last name is required";
     }
 
     setErrors(errorsObj);
@@ -52,35 +52,35 @@ function EditNameModal({ sessionUser }) {
       );
       dispatch(refreshUser(sessionUser.id));
       closeModal();
-      history.push(`/profile/${updatedUser.id}`);
+      history.push(`/profile/${updatedUser?.id}`);
     }
     setHasSubmitted(true);
   };
 
   return (
-    <>
-      <h1>Update Your First and Last Name </h1>
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          First Name
+    <div className="profile-edit-container">
+      <h1 className="title-text">Update Your First and Last Name </h1>
+      <form className="profile-edit-container" onSubmit={handleFormSubmit}>
+        <label className="title-text">
+          First Name:{" "}
           <input
+            className="text-input-login"
             type="text"
             value={firstName}
             placeholder={sessionUser.first_name}
-            // style={{ backgroundColor: "white" }}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </label>
         {hasSubmitted && errors.firstName && (
           <p className="errors">{errors.firstName}</p>
         )}
-        <label>
-          Last Name
+        <label id="last-name" className="title-text">
+          Last Name:{" "}
           <input
+            className="text-input-login"
             type="text"
             value={lastName}
             placeholder={sessionUser.last_name}
-            // style={{ backgroundColor: "white" }}
             onChange={(e) => setLastName(e.target.value)}
           />
         </label>
@@ -89,12 +89,13 @@ function EditNameModal({ sessionUser }) {
         )}
         <p></p>
         <input
+          className="profile-edit-submit-button"
           type="submit"
           value={"Save Changes"}
           disabled={hasSubmitted && Object.values(errors).length > 0}
         />
       </form>
-    </>
+    </div>
   );
 }
 

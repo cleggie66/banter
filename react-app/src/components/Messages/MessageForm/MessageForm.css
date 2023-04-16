@@ -2,17 +2,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 600px;
-    height: 100px;
-    background-color: rgb(34 37 41);
+    width: auto;
+    height: 10vh;
+    background-color: rgb(255, 255, 255);
     border-radius: 15px;
-    border: 1px solid rgb(86 88 86);
+    border: 1px solid rgb(183, 193, 183);
+    margin: 10px;
 }
 
 .create-message-input {
     width: 450px;
-    color: rgb(175 176 177);
-    background-color: rgb(34 37 41);
+    color: black;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    background-color: rgb(255, 255, 255);
     margin: 10px;
     padding: 0;
     border: 0;
@@ -30,10 +33,19 @@
     padding: 10px;
     border: none;
 }
+
 .create-message-button:hover {
     background-color: rgb(60 130 100);
 }
 
 .create-message-icon {
     color: white;
+}
+
+.edit-message-textarea {
+    width: 20em;
+    color: rgb(175 176 177);
+    background-color: rgb(34 37 41);
+    padding: 1em;
+    border: 0;
 }
