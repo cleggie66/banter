@@ -4,7 +4,7 @@ import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { useModal } from "../../../context/Modal";
 import ManageWorkspaceModal from "./ManageWorkspaceModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faPlus } from "@fortawesome/free-solid-svg-icons";
 import "../../Dashboard/Dashboard.css";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
@@ -29,15 +29,17 @@ const ActiveWorkspace = ({ workspaceId }) => {
   };
 
   return (
-    <>
+    <div className="workspace-upper-section">
       <button
       className="dashboard-workspace-name"
       onClick={handleWorkspaceNameClick}
     >
       {`${newActiveWorkspace.name}`}
-      <button>Add a User to this Workspace</button>
+      <FontAwesomeIcon
+      icon={faPlus}
+      />
     </button>
-  </>
+    </div>
 );
 };
 

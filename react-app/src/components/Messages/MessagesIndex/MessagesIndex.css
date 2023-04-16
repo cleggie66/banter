@@ -12,6 +12,7 @@
 
 .messages-display {
     overflow: auto;
+    margin-top: 6rem;
 }
 
 .message {

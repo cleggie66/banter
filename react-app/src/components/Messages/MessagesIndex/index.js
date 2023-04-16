@@ -9,11 +9,10 @@ import "../MessageForm/MessageForm.css";
 import { useState } from "react";
 import { createMessageThunk } from "../../../store/message";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faPaperPlane, faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
 import { io } from "socket.io-client";
 import { deleteMessageThunk } from "../../../store/message";
 import { updateMessageThunk } from "../../../store/message";
-import { faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
 import "./MessagesIndex.css";
 import AddUserToChannelModal from "./AddUserModal";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
@@ -170,12 +169,12 @@ function MessagesIndex({ workspaceId }) {
 
         {activeChannel.id && (
           <div className="current-channel-name-bar">
-            <h2>{allChannels[activeChannel.id].name}</h2>
-            <button
-           onClick={handleAddUserToChannel}
-            >
-              Add a User to this Channel
-            </button>
+            <h2>#{allChannels[activeChannel.id].name}</h2>
+
+            <FontAwesomeIcon
+            onClick={handleAddUserToChannel}
+            icon={faUsersRectangle}
+            />
 
           </div>
         )}

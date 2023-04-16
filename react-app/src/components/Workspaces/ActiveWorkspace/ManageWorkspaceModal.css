@@ -19,6 +19,10 @@
   gap: 20px;
 }
 
+.workspace-upper-section {
+  display: flex;
+}
+
 
 .workspace-modal-top{
   display: flex;
