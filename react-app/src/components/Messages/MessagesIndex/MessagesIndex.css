@@ -10,6 +10,11 @@
     overflow: auto;
 }
 
+.all-messages-container {
+    overflow: auto;
+    margin-right: 2rem;
+}
+
 .message {
     display: flex;
     flex-direction: row;

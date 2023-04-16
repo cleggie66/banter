@@ -157,7 +157,7 @@ function MessagesIndex({ workspaceId }) {
 
   return (
     <div className="message-dashboard-section">
-      <div className="only-messages-div">
+
         {activeChannel.id && (
           <div className="current-channel-name-bar">
             <h2>{allChannels[activeChannel.id].name}</h2>
@@ -168,9 +168,9 @@ function MessagesIndex({ workspaceId }) {
             />
           </div>
         )}
-      </div>
+
       {/* {activeChannel.id && <MessageForm activeChannel={activeChannel} />} */}
-    <div>
+    <div className='all-messages-container'>
       {messages?.map((message) => (
         <MessageCard
           key={message.id}
@@ -185,6 +185,7 @@ function MessagesIndex({ workspaceId }) {
           setMessages={setMessages}
         />
       ))}
+      </div>
       {activeChannel.id && (
         <div className="create-message-form">
         <form onSubmit={handleCreate} id="form-1">
@@ -207,7 +208,6 @@ function MessagesIndex({ workspaceId }) {
             </button>
     </div>
       )}
-    </div>
     </div>
   );
 }
