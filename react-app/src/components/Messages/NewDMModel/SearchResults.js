@@ -47,13 +47,10 @@ const DirectMessageUsersSearchResults = ({ user, workspaceId }) => {
     };
 
     if (allDirectMessageChannelNamesArr.includes(channelInformation.name)) {
-
-       const existingChannel = allDirectMessageChannels.filter((e)=>
-        e.name === channelInformation.name
-       ) 
-       console.log('wowowowowowo', existingChannel[0].id)
+      const existingChannel = allDirectMessageChannels.filter(
+        (e) => e.name === channelInformation.name
+      );
       dispatch(loadActiveChannel(existingChannel[0].id));
-
       history.push(`/dashboard/${workspaceId}/${existingChannel[0].id}`);
     } else {
       // I want it to push to the channel id of the channel name that is matching
