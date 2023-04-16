@@ -69,18 +69,13 @@ function MessagesIndex({ workspaceId }) {
   }, []);
 
   useEffect(() => {
-<<<<<<< HEAD
-    setMessages(allCurrentChannelMessages);
-  }, [allCurrentChannelMessages.length]);
-=======
    setMessages(allCurrentChannelMessages)
   }, [allCurrentChannelMessages?.length])
 
 
-  useEffect(() => {
-    dispatch(getAllChannelMessagesThunk(activeChannel.id))
-   }, [allCurrentChannelMessages?.length])
->>>>>>> css_final_3
+  // useEffect(() => {
+  //   dispatch(getAllChannelMessagesThunk(activeChannel.id))
+  //  }, [allCurrentChannelMessages?.length])
 
   const handleCreate = async (e) => {
     e.preventDefault();
