@@ -21,7 +21,7 @@ const ActiveWorkspace = ({workspaceId}) => {
   const newActiveWorkspace = activeWorkspace[workspaceId];
 
   if (!newActiveWorkspace) {
-    return <h1>Loading...</h1>;
+    return null;
   }
 
   const handleWorkspaceNameClick = () => {

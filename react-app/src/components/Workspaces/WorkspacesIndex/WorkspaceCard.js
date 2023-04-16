@@ -5,7 +5,7 @@ const WorkspaceCard = ({ workspace }) => {
   const history = useHistory();
   const handleCardClick = (e) => {
     e.preventDefault();
-    history.push(`/dashboard/${workspace.id}`);
+    history.push(`/dashboard/${workspace.id}/visible`);
   };
 
   return (

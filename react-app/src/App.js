@@ -33,7 +33,7 @@ function App() {
           <Route path="/dashboard/:workspaceId/newchannel">
             <CreateChannel />
           </Route>
-          <Route path="/dashboard/:workspaceId">
+          <Route path="/dashboard/:workspaceId/:status">
             <Dashboard />
           </Route>
           <Route path="/profile/:userId">
