@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   workspaces: workspacesReducer,
   messages: messagesReducer,
   activeChannel: activeChannelReducer,
-  activeWorkspace: activeWorkspaceReducer
+  activeWorkspace: activeWorkspaceReducer,
 });
 
 let enhancer;
