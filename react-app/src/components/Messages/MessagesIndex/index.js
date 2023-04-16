@@ -5,22 +5,19 @@ import { useEffect } from "react";
 import { useModal } from "../../../context/Modal";
 import MessageCard from "./MessageCard";
 import "./MessagesIndex.css";
-import '../MessageForm/MessageForm.css'
+import "../MessageForm/MessageForm.css";
 import { useState } from "react";
 import { createMessageThunk } from "../../../store/message";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { io } from 'socket.io-client';
+import { io } from "socket.io-client";
 import { deleteMessageThunk } from "../../../store/message";
-import { getAllChannelMessagesThunk } from "../../../store/message";
 import { updateMessageThunk } from "../../../store/message";
-import { loadActiveChannel } from "../../../store/activeChannel";
 import { faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
 import "./MessagesIndex.css";
 import AddUserToChannelModal from "./AddUserModal";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 let socket;
-
 
 function MessagesIndex({ workspaceId }) {
   const { setModalContent } = useModal();
@@ -29,13 +26,12 @@ function MessagesIndex({ workspaceId }) {
   const allChannels = useSelector((state) => state.channels);
   const allMessages = useSelector((state) => Object.values(state.messages));
   const dispatch = useDispatch();
-  const [content, setContent] = useState('');
-  const [hasSubmitted, setHasSubmitted] = useState(false);
-  const [messages, setMessages] = useState(allMessages)
+  const [content, setContent] = useState("");
+  const [messages, setMessages] = useState(allMessages);
   const [editMessage, setEditMessage] = useState(null);
   const user = useSelector((state) => state.session.user);
 
-  console.log(allChannels)
+  console.log(allChannels);
 
   const allCurrentChannelMessages = allMessages.filter(
     (e) => activeChannel.id === e.channel_id
@@ -45,54 +41,53 @@ function MessagesIndex({ workspaceId }) {
     socket = io();
     socket.on("chat", (chat) => {
       // when we recieve a chat, add it into our messages array in state
-      setMessages(messages => {
-        if (messages.filter(m => m.id === chat.id).length > 0) {
+      setMessages((messages) => {
+        if (messages.filter((m) => m.id === chat.id).length > 0) {
           return messages;
         } else {
           return [...messages, chat];
         }
       });
-  });
+    });
 
-    socket.on('delete', (chat) => {
-      setMessages(messages => {
-        return messages.filter(message => message.id !== chat.id);
+    socket.on("delete", (chat) => {
+      setMessages((messages) => {
+        return messages.filter((message) => message.id !== chat.id);
       });
     });
 
-    socket.on('edit', (chat) => {
-      setMessages(messages => {
-        let index = messages?.findIndex(message => message?.id === chat.id)
-        messages[index] = chat
+    socket.on("edit", (chat) => {
+      setMessages((messages) => {
+        let index = messages?.findIndex((message) => message?.id === chat.id);
+        messages[index] = chat;
         return [...messages];
-      })
+      });
     });
 
-    return (() => {
-        socket.disconnect()
-    })
-}, [])
-
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
-   setMessages(allCurrentChannelMessages)
-  }, [allCurrentChannelMessages?.length])
-
-
+    setMessages(allCurrentChannelMessages);
+  }, [allCurrentChannelMessages?.length]);
 
   const handleCreate = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (editMessage) { // if editMessage is set, update the message
+    if (editMessage) {
+      // if editMessage is set, update the message
       const payload = {
         id: editMessage.id, // pass the id of the edited message
         content,
-        channel_id: activeChannel?.id
-      }
-      let res = await dispatch(updateMessageThunk(payload))
+        channel_id: activeChannel?.id,
+      };
+      let res = await dispatch(updateMessageThunk(payload));
       if (res) {
         if (socket) {
-          socket.emit("edit", { // emit edit event
+          socket.emit("edit", {
+            // emit edit event
             id: res.id,
             user_id: user?.id,
             channel_id: activeChannel?.id,
@@ -100,21 +95,23 @@ function MessagesIndex({ workspaceId }) {
             content: content,
             profile_picture: user?.profile_picture,
             first_name: user?.first_name,
-            last_name: user?.last_name
+            last_name: user?.last_name,
           });
         }
-        setContent("")
-        setEditMessage(null)
+        setContent("");
+        setEditMessage(null);
       }
-    } else { // if editMessage is not set, create a new message
+    } else {
+      // if editMessage is not set, create a new message
       const payload = {
         content,
-        channel_id: activeChannel?.id
-      }
-      let res = await dispatch(createMessageThunk(payload))
+        channel_id: activeChannel?.id,
+      };
+      let res = await dispatch(createMessageThunk(payload));
       if (res) {
         if (socket) {
-          socket.emit("chat", { // emit chat event
+          socket.emit("chat", {
+            // emit chat event
             id: res.id,
             user_id: user?.id,
             channel_id: activeChannel?.id,
@@ -122,32 +119,31 @@ function MessagesIndex({ workspaceId }) {
             content: content,
             profile_picture: user?.profile_picture,
             first_name: user?.first_name,
-            last_name: user?.last_name
+            last_name: user?.last_name,
           });
         }
-        setContent("")
+        setContent("");
       }
     }
-  }
+  };
 
   const handleDeleteMessage = async (e, message) => {
-    e.preventDefault()
+    e.preventDefault();
     if (socket) {
-      await dispatch(deleteMessageThunk(message.id))
-      socket.emit('delete', {
+      await dispatch(deleteMessageThunk(message.id));
+      socket.emit("delete", {
         id: message.id,
         user: user.username,
-        msg: message.content
-      })
+        msg: message.content,
+      });
     }
-  }
+  };
 
   const handleEditMessage = (e, message) => {
     e.preventDefault();
     setEditMessage(message);
     setContent(message.content);
-  }
-
+  };
 
   if (!allCurrentChannelMessages) {
     return <LoadingIcon />;
@@ -173,44 +169,45 @@ function MessagesIndex({ workspaceId }) {
         )}
       </div>
       {/* {activeChannel.id && <MessageForm activeChannel={activeChannel} />} */}
-    <div>
-      {messages?.map((message) => (
-        <MessageCard
-          key={message.id}
-          sessionUser={sessionUser}
-          activeChannel={activeChannel}
-          message={message}
-          socket={socket}
-          user={sessionUser}
-          handleDeleteMessage={handleDeleteMessage}
-          handleEditMessage={handleEditMessage}
-          messages={messages}
-          setMessages={setMessages}
-        />
-      ))}
-      {activeChannel.id && (
-        <div className="create-message-form">
-        <form onSubmit={handleCreate} id="form-1">
-            <input
+      <div>
+        {messages?.map((message) => (
+          <MessageCard
+            key={message.id}
+            sessionUser={sessionUser}
+            activeChannel={activeChannel}
+            message={message}
+            socket={socket}
+            user={sessionUser}
+            handleDeleteMessage={handleDeleteMessage}
+            handleEditMessage={handleEditMessage}
+            messages={messages}
+            setMessages={setMessages}
+          />
+        ))}
+        {activeChannel.id && (
+          <div className="create-message-form">
+            <form onSubmit={handleCreate} id="form-1">
+              <input
                 className="create-message-input"
                 type="textarea"
                 placeholder="Type your message here..."
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-            />
-        </form>
-        <button
-        className="create-message-button"
-        type="submit"
-        form="form-1">
-            <FontAwesomeIcon
-            icon={faPaperPlane}
-            className="create-message-icon"
-            />
+              />
+            </form>
+            <button
+              className="create-message-button"
+              type="submit"
+              form="form-1"
+            >
+              <FontAwesomeIcon
+                icon={faPaperPlane}
+                className="create-message-icon"
+              />
             </button>
-    </div>
-      )}
-    </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -3,18 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateMessageThunk } from "../../../store/message";
 import { useModal } from "../../../context/Modal";
 import { loadActiveChannel } from "../../../store/activeChannel";
-import { getAllChannelMessagesThunk } from "../../../store/message";
 
 function EditMessageModal({ message, activeChannelId, socket }) {
-
   const dispatch = useDispatch();
-  const state = useSelector((state) => state)
+  const state = useSelector((state) => state);
   const [content, setContent] = useState(message.content);
   const [errors, setErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const { closeModal } = useModal();
 
-  console.log(state)
+  console.log(state);
   const handleInputErrors = () => {
     const errorsObj = {};
     if (content.length === 0) {
@@ -27,7 +25,6 @@ function EditMessageModal({ message, activeChannelId, socket }) {
     handleInputErrors();
   }, [content]);
 
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -36,20 +33,21 @@ function EditMessageModal({ message, activeChannelId, socket }) {
         content,
       };
       if (socket) {
-        let res = await dispatch(updateMessageThunk(messageInformation, message.id));
+        let res = await dispatch(
+          updateMessageThunk(messageInformation, message.id)
+        );
         if (res) {
-          socket.emit('edit', {
+          socket.emit("edit", {
             channel_id: res.channel_id,
             content: res.content,
             id: res.id,
             message_owner: res.message_owner,
-            user_id: res.user_id
-          })
+            user_id: res.user_id,
+          });
         }
 
-
-      await dispatch(loadActiveChannel(activeChannelId))
-      closeModal();
+        await dispatch(loadActiveChannel(activeChannelId));
+        closeModal();
       }
     }
     setHasSubmitted(true);

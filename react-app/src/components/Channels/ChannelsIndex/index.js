@@ -13,7 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
 import ManageChannelModal from "../ManageChannel";
-import NewDMModal from "../../Messages/NewDMModel/CreateDmModal";
 import "./ChannelIndex.css";
 import CreateDmModal from "../../Messages/NewDMModel/CreateDmModal";
 import { useModal } from "../../../context/Modal";
@@ -37,10 +36,6 @@ const ChannelsIndex = ({ workspaceId }) => {
   useEffect(() => {
     dispatch(getAllChannelsThunk());
   }, [dispatch]);
-
-  // const allChannels = sessionUser.joined_channels.filter(
-  //   (e) =>  e.is_channel === true
-  // );
 
   const usersCheck = (usersArray) => {
     let bool = false;
@@ -100,7 +95,7 @@ const ChannelsIndex = ({ workspaceId }) => {
   }
 
   const handleCreateDmClick = () => {
-    dispatch(loadActiveWorkspace(workspaceId))
+    dispatch(loadActiveWorkspace(workspaceId));
     setModalContent(<CreateDmModal />);
   };
 
