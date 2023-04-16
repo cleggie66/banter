@@ -37,18 +37,6 @@ const ChannelsIndex = ({ workspaceId }) => {
     dispatch(getAllChannelsThunk());
   }, [dispatch]);
 
-  // const allChannels = sessionUser.joined_channels.filter(
-  //   (e) =>  e.is_channel === true
-  // );
-
-  const usersCheck = (usersArray) => {
-    let bool = false;
-    if (!usersArray) return false;
-    usersArray.forEach((user) => {
-      if (user.id === sessionUser.id) bool = true;
-    });
-    return bool;
-  };
 
   const channelState = useSelector((state) => Object.values(state.channels));
   const allChannels = channelState.filter(
@@ -57,8 +45,7 @@ const ChannelsIndex = ({ workspaceId }) => {
   const allDirectMessages = channelState.filter(
     (e) =>
       Number(workspaceId) === e.workspace_id &&
-      e.is_channel === false &&
-      usersCheck(e.users_in_channels)
+      e.is_channel === false 
   );
 
   // Arrow drop down
