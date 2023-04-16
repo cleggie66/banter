@@ -36,10 +36,6 @@ const ChannelsIndex = ({ workspaceId }) => {
     dispatch(getAllChannelsThunk());
   }, [dispatch]);
 
-  // const allChannels = sessionUser.joined_channels.filter(
-  //   (e) =>  e.is_channel === true
-  // );
-
   const usersCheck = (usersArray) => {
     let bool = false;
     if (!usersArray) return false;
@@ -98,7 +94,7 @@ const ChannelsIndex = ({ workspaceId }) => {
   }
 
   const handleCreateDmClick = () => {
-    dispatch(loadActiveWorkspace(workspaceId))
+    dispatch(loadActiveWorkspace(workspaceId));
     setModalContent(<CreateDmModal />);
   };
 

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateMessageThunk } from "../../../store/message";
 import { useModal } from "../../../context/Modal";
 import { loadActiveChannel } from "../../../store/activeChannel";
-import { getAllChannelMessagesThunk } from "../../../store/message";
 
 function EditMessageModal({ message, activeChannelId, socket }) {
   const dispatch = useDispatch();
