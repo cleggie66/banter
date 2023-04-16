@@ -167,9 +167,8 @@ function MessagesIndex({ workspaceId }) {
           </div>
         )}
       </div>
-      {/* {activeChannel.id && <MessageForm activeChannel={activeChannel} />} */}
       <div>
-        {messages?.map((message) => (
+        {messages.map((message) => (
           <MessageCard
             key={message.id}
             sessionUser={sessionUser}
@@ -179,8 +178,6 @@ function MessagesIndex({ workspaceId }) {
             user={sessionUser}
             handleDeleteMessage={handleDeleteMessage}
             handleEditMessage={handleEditMessage}
-            messages={messages}
-            setMessages={setMessages}
           />
         ))}
         {activeChannel.id && (

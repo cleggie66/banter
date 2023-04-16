@@ -7,8 +7,6 @@ const MessageCard = ({
   activeChannel,
   socket,
   handleDeleteMessage,
-  messages,
-  setMessages,
   handleEdit,
 }) => {
   return (
@@ -37,8 +35,8 @@ const MessageCard = ({
             <p>{message.content}</p>
           </div>
         </div>
-        {(sessionUser?.id === message?.message_owner?.id ||
-          sessionUser?.id === message.user_id) && (
+        {(sessionUser.id === message.message_owner.id ||
+          sessionUser.id === message.user_id) && (
           <div className="message-buttons">
             <OpenModalButton
               buttonText="edit"

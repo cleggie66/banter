@@ -10,6 +10,7 @@ const LOAD_MESSAGE = "messages/LOAD_MESSAGE";
 const CREATE_MESSAGE = "messages/CREATE_MESSAGE";
 const UPDATE_MESSAGE = "messages/UPDATE_MESSAGE";
 const DELETE_MESSAGE = "messages/DELETE_MESSAGE";
+const CLEAR_MESSAGE = "messages/CLEAR_MESSAGE";
 
 const loadMessages = (allMessageData) => ({
   type: LOAD_MESSAGE,
@@ -28,6 +29,9 @@ const updateMessage = (updatedMessageData) => ({
 const deleteMessage = (messageId) => ({
   type: DELETE_MESSAGE,
   payload: messageId,
+});
+export const clearMessage = () => ({
+  type: CLEAR_MESSAGE,
 });
 
 export const getAllChannelMessagesThunk = (channelId) => async (dispatch) => {
@@ -112,6 +116,8 @@ const messagesReducer = (state = initialState, action) => {
     case DELETE_MESSAGE:
       delete newState[action.payload];
       return newState;
+    case CLEAR_MESSAGE:
+      return {};
     default:
       return state;
   }
