@@ -24,7 +24,7 @@ const ChannelsIndex = ({ workspaceId }) => {
   const { setModalContent } = useModal();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const activeChannel = useSelector((state) => state.activeChannel)
+  const activeChannel = useSelector((state) => state.activeChannel);
 
   const [openChannelMenu, setOpenChannelMenu] = useState(true);
   const [openMessageMenu, setOpenMessageMenu] = useState(false);
@@ -58,13 +58,11 @@ const ChannelsIndex = ({ workspaceId }) => {
   );
 
   // Arrow drop down
-  const handleChannelMenuClick = (e) => {
-    e?.preventDefault();
+  const handleChannelMenuClick = () => {
     setOpenChannelMenu((open) => !open);
   };
 
-  const handleMessageMenuClick = (e) => {
-    e?.preventDefault();
+  const handleMessageMenuClick = () => {
     setOpenMessageMenu((open) => !open);
   };
 
@@ -122,7 +120,11 @@ const ChannelsIndex = ({ workspaceId }) => {
           }`}
         >
           {allChannels.map((channel) => (
-            <ChannelCard key={channel.id} channel={channel} activeChannel={activeChannel}/>
+            <ChannelCard
+              key={channel.id}
+              channel={channel}
+              activeChannel={activeChannel}
+            />
           ))}
           <div className="channel-list-item" onClick={handleAddChannel}>
             <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />
