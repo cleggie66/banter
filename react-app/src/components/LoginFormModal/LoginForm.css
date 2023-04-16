@@ -3,9 +3,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin-right: 6em;
     height: 25em;
-    width: 110%;
+    background-color: #1b1d21;
+}
+
+.new-signup-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-right: 6em; */
+    height: 48em;
+    /* width: 110%; */
     background-color: #1b1d21;
 }
 
@@ -29,6 +38,7 @@
     border: none;
     color: #ffffff;
     padding: 1em;
+    margin-top: 1em;
     margin-bottom: 1em;
     width: 8em;
 }

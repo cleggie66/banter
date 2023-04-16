@@ -48,12 +48,27 @@ const ProfilePage = () => {
     setModalContent(<EditAboutMeModal sessionUser={sessionUser} />);
   };
 
+  const isDemoUser = sessionUser && sessionUser.id === 1;
+  const deleteButton = isDemoUser ? (
+    <div className="delete-user-container">
+      <p>You cannot delete your account as a demo user</p>
+    </div>
+  ) : (
+    <div className="delete-user-container">
+      <OpenModalButton
+        buttonText="Delete My Account"
+        modalComponent={<DeleteUserModal />}
+        className="delete-user-account-button"
+      />
+    </div>
+  );
+
   return (
     <div className="profile-page-container">
-      <h1 className="title-text">Your Profile 💁‍♀️ </h1>
+      <h1 id="your-profile" className="title-text">Your Profile 💁‍♀️ </h1>
       <div className="profile-picture-container">
         <img
-          src={sessionUser.profile_picture}
+          src={sessionUser?.profile_picture}
           alt="Profile"
           className="profile-page-picture"
         />
@@ -118,13 +133,8 @@ const ProfilePage = () => {
           className="edit-profile-buttons"
         />
       </div>
-      {/* <UpdateUserForm sessionUser={sessionUser} /> */}
       <div className="delete-user-container">
-      <OpenModalButton
-        buttonText="Delete My Account"
-        modalComponent={<DeleteUserModal />}
-        className="delete-user-account-button"
-      />
+          <div className="no-delete-button">{deleteButton}</div>
       </div>
     </div>
   );

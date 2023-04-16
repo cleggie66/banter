@@ -46,95 +46,104 @@ function SignupFormModal() {
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="new-signup-form-container">
+      <h1 className="title-text">Sign Up</h1>
+      <form className="profile-edit-container" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
+        <label className="login-labels">
           First Name
           <input
+            className="text-input-login"
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className="login-labels">
           Last Name
           <input
+            className="text-input-login"
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className="login-labels">
           Email
           <input
+            className="text-input-login"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className="login-labels">
           Username
           <input
+            className="text-input-login"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className="login-labels">
           Password
           <input
+            className="text-input-login"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className="login-labels">
           Confirm Password
           <input
+            className="text-input-login"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className="login-labels">
           Title
           <input
+            className="text-input-login"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
-        <label>
+        <label className="login-labels">
           Profile Picture
           <input
+            className="text-input-login"
             type="text"
             value={profilePicture}
             onChange={(e) => setProfilePicture(e.target.value)}
           />
         </label>
-        <label>
+        <label className="login-labels">
           About Me
           <input
+            className="text-input-login"
             type="text"
             value={aboutMe}
             onChange={(e) => setAboutMe(e.target.value)}
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <button className="profile-edit-submit-button" type="submit">Sign Up</button>
       </form>
-    </>
+    </div>
   );
 }
 

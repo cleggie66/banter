@@ -1,16 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingIcon from "../../LoadingPage/LoadingIcon";
-
+import { useModal } from "../../../context/Modal";
 import MessageCard from "./MessageCard";
-import "./MessagesIndex.css";
 import MessageForm from "../MessageForm";
-import { useParams } from "react-router-dom";
-// import { getAllChannelMessagesThunk } from "../../../store/message";
 
-function MessagesIndex() {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
+import "./MessagesIndex.css";
+import AddUserToChannelModal from "./AddUserModal";
+import { loadActiveWorkspace } from "../../../store/activeWorkspace";
+
+function MessagesIndex({ workspaceId }) {
+  const { setModalContent } = useModal();
+  const dispatch = useDispatch();
+
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
+  const allChannels = useSelector((state) => state.channels);
 
   const messages = useSelector((state) => Object.values(state.messages));
 
@@ -21,16 +28,34 @@ function MessagesIndex() {
   if (!allCurrentChannelMessages) {
     return <LoadingIcon />;
   }
+
+  const handleAddUserToChannel = () => {
+    setModalContent(<AddUserToChannelModal />);
+    dispatch(loadActiveWorkspace(workspaceId));
+  };
+
   return (
     <div className="message-dashboard-section">
-      {allCurrentChannelMessages.map((message) => (
-        <MessageCard
-          key={message.id}
-          sessionUser={sessionUser}
-          activeChannel={activeChannel}
-          message={message}
-        />
-      ))}
+      <div className="only-messages-div">
+        {activeChannel.id && (
+          <div className="current-channel-name-bar">
+            <h2>{allChannels[activeChannel.id].name}</h2>
+            <FontAwesomeIcon
+              icon={faUsersRectangle}
+              style={{ color: "red" }}
+              onClick={handleAddUserToChannel}
+            />
+          </div>
+        )}
+        {allCurrentChannelMessages.map((message) => (
+          <MessageCard
+            key={message.id}
+            sessionUser={sessionUser}
+            activeChannel={activeChannel}
+            message={message}
+          />
+        ))}
+      </div>
       {activeChannel.id && <MessageForm activeChannel={activeChannel} />}
     </div>
   );

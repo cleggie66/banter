@@ -8,7 +8,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import DemoLogin from "./DemoLogin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "./Navigation.css";
 import UserIconModal from "../User/UserIcon";
 import { useModal } from "../../context/Modal";
@@ -105,12 +105,8 @@ function Navigation() {
             onClick={onClick}
             className="nav-profile-section"
           >
-            <FontAwesomeIcon
-              icon={faUserTie}
-              className="user-icon-button"
-            />
             <div className="nav-image-container">
-              <img
+              <img 
                 src={
                   sessionUser.profile_picture === null
                     ? sessionUser.name[0]

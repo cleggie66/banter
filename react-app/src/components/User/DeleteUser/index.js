@@ -29,8 +29,8 @@ function DeleteUserModal() {
 
   return (
     <div>
-      <h1>Confirm Delete 😟</h1>
-      <h2>Are you sure you want to delete yourself? </h2>
+      <h1 className="title-text">Confirm Delete 😟</h1>
+      <h2 className="title-text">Are you sure you want to delete yourself? </h2>
       <button
         className="yes-delete-yeet"
         onClick={handleDeleteUser}

@@ -30,6 +30,10 @@ function CreateChannelForm({ workspaceId }) {
     handleInputErrors();
   }, [name]);
 
+  const goBack = () => {
+    return history.goBack()
+}
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
@@ -50,6 +54,7 @@ function CreateChannelForm({ workspaceId }) {
 
   return (
     <div className="channel-form-container">
+      <button onClick={goBack}>Go back</button>
       {!sessionUser && (
         <h1 className="signin-error">
           Please sign in to attempt to make a workspace
