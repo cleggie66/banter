@@ -11,11 +11,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    border-radius: 12px;
+    /* justify-content: center; */
     /* margin-right: 6em; */
     height: 48em;
     /* width: 110%; */
-    background-color: #1b1d21;
+    background-color: white;
+
+    padding: 0 5rem;
 }
 
 #login {

@@ -79,6 +79,9 @@ function MessagesIndex({ workspaceId }) {
   }, [allCurrentChannelMessages?.length])
 
 
+  useEffect(() => {
+    dispatch(getAllChannelMessagesThunk(activeChannel.id))
+   }, [allCurrentChannelMessages?.length])
 
   const handleCreate = async (e) => {
     e.preventDefault()
@@ -160,20 +163,21 @@ function MessagesIndex({ workspaceId }) {
 
   return (
     <div className="message-dashboard-section">
-      <div className="only-messages-div">
+
         {activeChannel.id && (
           <div className="current-channel-name-bar">
             <h2>{allChannels[activeChannel.id].name}</h2>
-            <FontAwesomeIcon
-              icon={faUsersRectangle}
-              style={{ color: "red" }}
-              onClick={handleAddUserToChannel}
-            />
+            <button
+           onClick={handleAddUserToChannel}
+            >
+              Add a User to this Channel
+            </button>
+
           </div>
         )}
-      </div>
+
       {/* {activeChannel.id && <MessageForm activeChannel={activeChannel} />} */}
-    <div>
+    <div className="messages-display">
       {messages?.map((message) => (
         <MessageCard
           key={message.id}
@@ -188,6 +192,7 @@ function MessagesIndex({ workspaceId }) {
           setMessages={setMessages}
         />
       ))}
+      </div>
       {activeChannel.id && (
         <div className="create-message-form">
         <form onSubmit={handleCreate} id="form-1">
@@ -210,7 +215,6 @@ function MessagesIndex({ workspaceId }) {
             </button>
     </div>
       )}
-    </div>
     </div>
   );
 }

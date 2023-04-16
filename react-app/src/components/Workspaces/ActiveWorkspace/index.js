@@ -36,7 +36,7 @@ const ActiveWorkspace = ({workspaceId}) => {
       onClick={handleWorkspaceNameClick}
     >
       {`${newActiveWorkspace.name}`}
-      <FontAwesomeIcon id="workspace-arrow-down" icon={faAngleDown} />
+      <button>Add a User to this Workspace</button>
     </button>
   </>
 );
