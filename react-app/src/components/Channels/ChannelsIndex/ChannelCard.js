@@ -7,7 +7,6 @@ import {
   clearMessage,
   getAllChannelMessagesThunk,
 } from "../../../store/message";
-import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
 const ChannelCard = ({ channel, activeChannel, workspaceId }) => {
   const history = useHistory();
@@ -23,7 +22,6 @@ const ChannelCard = ({ channel, activeChannel, workspaceId }) => {
     dispatch(clearMessage);
     dispatch(getAllChannelMessagesThunk(channel.id));
     dispatch(loadActiveChannel(channel.id));
-    dispatch(loadActiveWorkspace(workspaceId));
     history.push(`/dashboard/${workspaceId}/${channel.name}`);
   };
 

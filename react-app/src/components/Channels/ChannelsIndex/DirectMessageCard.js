@@ -3,10 +3,7 @@ import { useHistory } from "react-router-dom";
 import { loadActiveChannel } from "../../../store/activeChannel";
 import "./Card.css";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
-import {
-  clearMessage,
-  getAllChannelMessagesThunk,
-} from "../../../store/message";
+import { clearMessage, getAllChannelMessagesThunk } from "../../../store/message";
 
 const DirectMessageCard = ({ channel, sessionUser, workspaceId }) => {
   const history = useHistory();
@@ -14,7 +11,7 @@ const DirectMessageCard = ({ channel, sessionUser, workspaceId }) => {
 
   const handleCardClick = (e) => {
     e.preventDefault();
-    dispatch(clearMessage());
+    dispatch(clearMessage())
     dispatch(getAllChannelMessagesThunk(channel.id));
     dispatch(loadActiveChannel(channel.id));
     dispatch(loadActiveWorkspace(workspaceId));
