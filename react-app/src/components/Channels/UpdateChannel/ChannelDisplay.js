@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import OpenModalButton from "../../OpenModalButton";
 import DeleteChannelModal from "../DeleteChannel";
 import EditChannelModal from "./EditChannelModal";
