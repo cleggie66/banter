@@ -31,7 +31,6 @@ function MessagesIndex({ workspaceId }) {
   const [editMessage, setEditMessage] = useState(null);
   const user = useSelector((state) => state.session.user);
 
-
   const allCurrentChannelMessages = allMessages.filter(
     (e) => activeChannel.id === e.channel_id
   );
@@ -57,7 +56,7 @@ function MessagesIndex({ workspaceId }) {
 
     socket.on("edit", (chat) => {
       setMessages((messages) => {
-        let index = messages?.findIndex((message) => message?.id === chat.id);
+        let index = messages.findIndex((message) => message.id === chat.id);
         messages[index] = chat;
         return [...messages];
       });
@@ -70,7 +69,7 @@ function MessagesIndex({ workspaceId }) {
 
   useEffect(() => {
     setMessages(allCurrentChannelMessages);
-  }, [allCurrentChannelMessages?.length]);
+  }, [allCurrentChannelMessages.length]);
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -80,7 +79,7 @@ function MessagesIndex({ workspaceId }) {
       const payload = {
         id: editMessage.id, // pass the id of the edited message
         content,
-        channel_id: activeChannel?.id,
+        channel_id: activeChannel.id,
       };
       let res = await dispatch(updateMessageThunk(payload));
       if (res) {
@@ -88,13 +87,16 @@ function MessagesIndex({ workspaceId }) {
           socket.emit("edit", {
             // emit edit event
             id: res.id,
-            user_id: user?.id,
-            channel_id: activeChannel?.id,
-            username: user?.username,
+            user_id: user.id,
+            channel_id: activeChannel.id,
+            username: user.username,
             content: content,
-            profile_picture: user?.profile_picture,
-            first_name: user?.first_name,
-            last_name: user?.last_name,
+            profile_picture:
+              user.profile_picture === null
+                ? user.first_name[0]
+                : user.profile_picture,
+            first_name: user.first_name,
+            last_name: user.last_name,
           });
         }
         setContent("");
@@ -112,13 +114,16 @@ function MessagesIndex({ workspaceId }) {
           socket.emit("chat", {
             // emit chat event
             id: res.id,
-            user_id: user?.id,
-            channel_id: activeChannel?.id,
-            username: user?.username,
+            user_id: user.id,
+            channel_id: activeChannel.id,
+            username: user.username,
             content: content,
-            profile_picture: user?.profile_picture,
-            first_name: user?.first_name,
-            last_name: user?.last_name,
+            profile_picture:
+              user.profile_picture === null
+                ? user.first_name[0]
+                : user.profile_picture,
+            first_name: user.first_name,
+            last_name: user.last_name,
           });
         }
         setContent("");
