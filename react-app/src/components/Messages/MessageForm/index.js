@@ -1,16 +1,1 @@
-
-
-
-let socket;
-
-const MessageForm = ({activeChannel}) => {
-
-
-
-
-    return (
-        <div></div>
-    )
-}
-
-export default MessageForm
+//moved to messages index
