@@ -21,10 +21,9 @@ const DirectMessageUsersSearchResults = ({ user, workspaceId }) => {
   );
 
   const allDirectMessageChannelNamesArr = [];
-  const allDirectMessageChannelNames = allDirectMessageChannels.map((e) => {
+  allDirectMessageChannels.map((e) => {
     allDirectMessageChannelNamesArr.push(e.name);
   });
-
 
   const handleAddUserClick = async (e) => {
     e.preventDefault();
@@ -58,7 +57,11 @@ const DirectMessageUsersSearchResults = ({ user, workspaceId }) => {
       {" "}
       <div className="search-result-container">
         <div className="image-container">
-          <img className="message-profile-pic" src={user.profile_picture} />
+          <img
+            className="message-profile-pic"
+            alt="profile"
+            src={user.profile_picture}
+          />
         </div>
         <h3>{user.username}</h3>
         {sessionUser.id !== user.id && (

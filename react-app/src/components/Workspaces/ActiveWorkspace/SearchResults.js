@@ -32,7 +32,7 @@ const SearchResults = ({ user }) => {
       {" "}
       <div className="search-result-container">
         <div className="image-container">
-          <img className="message-profile-pic" src={user.profile_picture} />
+          <img className="message-profile-pic" src={user.profile_picture} alt="profile"/>
         </div>
         <h3>{user.username}</h3>
         {sessionUser.id !== user.id && !userInCurrentWorkspace.length && (

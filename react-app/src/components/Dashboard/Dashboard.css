@@ -5,7 +5,7 @@
     padding: 0;
     display: flex;
     flex-direction: row;
-    background-color: rgb(27 29 33);
+    background-color: white;
     color: white;
 }
 
@@ -51,10 +51,17 @@
 
 .current-channel-name-bar {
     border-bottom: 1px solid rgb(221, 218, 218);
-    padding: 1.5rem 0;
+    top: 0;
+    position: absolute;
+    top: 3.7rem;
+    width: 70%;
+    padding: 0 1.5rem;
     background-color: white;
     color: black;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .current-channel-name-text {

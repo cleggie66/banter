@@ -19,6 +19,10 @@
   gap: 20px;
 }
 
+.workspace-upper-section {
+  display: flex;
+}
+
 
 .workspace-modal-top{
   display: flex;
@@ -60,7 +64,8 @@
 .status-button-2 {
   margin-left: 1em;
   font-size: small;
-  background-color: #1b1d21;
+  background-color: white;
+  color: black;
   border: none;
 }
 

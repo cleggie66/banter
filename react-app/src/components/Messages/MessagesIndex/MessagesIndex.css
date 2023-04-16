@@ -1,5 +1,5 @@
 .message-dashboard-section {
-    height: inherit;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -7,7 +7,12 @@
 }
 
 .only-messages-div {
+
+}
+
+.messages-display {
     overflow: auto;
+    margin-top: 6rem;
 }
 
 .message {
