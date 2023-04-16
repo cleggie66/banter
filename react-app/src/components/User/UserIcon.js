@@ -1,17 +1,13 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom";
 import "./UserModal.css";
-// todo  USER NEEDS TO BE REFACTORED TO SHOW UP ON DASHBOARD LATER
-// todo  NOW IT WILL JUST OPEN A NEW PAGE FOR SIMPLICITY
-// todo  When you click a user name it should show their profile on the right...
 
 function UserIconModal() {
   const history = useHistory();
   const { closeModal } = useModal();
   const sessionUser = useSelector((state) => state.session.user);
-  const currentWorkspace = useSelector((state) => state.workspaces);
 
   const handleStatusClick = (e) => {
     e.preventDefault();
