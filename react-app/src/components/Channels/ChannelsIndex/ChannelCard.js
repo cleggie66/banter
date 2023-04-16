@@ -3,24 +3,28 @@ import { useHistory } from "react-router-dom";
 import { loadActiveChannel } from "../../../store/activeChannel";
 import "./Card.css";
 import { getChannelByIdThunk } from "../../../store/channel";
-import { getAllChannelMessagesThunk } from "../../../store/message";
+import {
+  clearMessage,
+  getAllChannelMessagesThunk,
+} from "../../../store/message";
+import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
-// todo as url changes messages not associated with url at all
-
-const ChannelCard = ({ channel, activeChannel }) => {
+const ChannelCard = ({ channel, activeChannel, workspaceId }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  let isActive = ""
+  let isActive = "";
   if (channel.id === activeChannel.id) {
-    isActive = 'channel-active'
+    isActive = "channel-active";
   }
 
   const handleCardClick = (e) => {
     e.preventDefault();
     dispatch(getChannelByIdThunk(channel.id));
+    dispatch(clearMessage);
     dispatch(getAllChannelMessagesThunk(channel.id));
     dispatch(loadActiveChannel(channel.id));
-    history.push(`/dashboard/${channel.workspace_id}/${channel.name}`);
+    dispatch(loadActiveWorkspace(workspaceId));
+    history.push(`/dashboard/${workspaceId}/${channel.name}`);
   };
 
   return (

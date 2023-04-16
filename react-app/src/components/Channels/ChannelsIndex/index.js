@@ -123,6 +123,7 @@ const ChannelsIndex = ({ workspaceId }) => {
             <ChannelCard
               key={channel.id}
               channel={channel}
+              workspaceId={workspaceId}
               activeChannel={activeChannel}
             />
           ))}
