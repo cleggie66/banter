@@ -11,19 +11,29 @@ import { useHistory } from "react-router-dom";
 
 const DirectMessageUsersSearchResults = ({ user, workspaceId }) => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const { closeModal } = useModal();
-  const activeChannel = useSelector((state) => state.activeChannel);
-  const channelId = activeChannel.id;
   const sessionUser = useSelector((state) => state.session.user);
+  const allChannels = useSelector((state) => Object.values(state.channels));
+
+  const allDirectMessageChannels = allChannels.filter(
+    (e) => e.is_channel === false
+  );
+
+  const allDirectMessageChannelNamesArr = [];
+  const allDirectMessageChannelNames = allDirectMessageChannels.map((e) => {
+    allDirectMessageChannelNamesArr.push(e.name);
+  });
 
   // there is no channel id yet... we need to get it from the thunk
   // we can simply check if channel name exists and can redirect .
-
-  const currentChannel = useSelector((state) => state.channels);
-
-  const dispatch = useDispatch();
+  console.log("test", allDirectMessageChannelNamesArr);
+  //   lets get one dm working first
+  // need to be able to add users to array start a group message
 
   // This needs to create a new channel with boolean false and
+
+  // list of all channel names with is channel false
 
   const handleAddUserClick = async (e) => {
     e.preventDefault();
@@ -31,16 +41,29 @@ const DirectMessageUsersSearchResults = ({ user, workspaceId }) => {
     // have to create a channel and send the new id first!
     // name is going to be `sessionUser.name, selected users names`
     const channelInformation = {
-      name: `${sessionUser.username}`,
-      workspace_id: Number(workspaceId),
-      is_channel: true,
+      name: `${user.first_name} ${user.last_name}`,
+      workspace_id: workspaceId,
+      is_channel: false,
     };
 
-    let newChannel = await dispatch(createChannelThunk(channelInformation));
-    dispatch(refreshUser(sessionUser.id));
-    dispatch(addUserToChannelThunk(user.id, newChannel.id));
-    dispatch(loadActiveChannel(newChannel.id));
-    history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
+    if (allDirectMessageChannelNamesArr.includes(channelInformation.name)) {
+
+       const existingChannel = allDirectMessageChannels.filter((e)=>
+        e.name === channelInformation.name
+       ) 
+       console.log('wowowowowowo', existingChannel[0].id)
+      dispatch(loadActiveChannel(existingChannel[0].id));
+
+      history.push(`/dashboard/${workspaceId}/${existingChannel[0].id}`);
+    } else {
+      // I want it to push to the channel id of the channel name that is matching
+      let newChannel = await dispatch(createChannelThunk(channelInformation));
+      dispatch(refreshUser(sessionUser.id));
+      dispatch(addUserToChannelThunk(user.id, newChannel.id));
+      dispatch(loadActiveChannel(newChannel.id));
+      history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
+    }
+
     closeModal();
   };
 
