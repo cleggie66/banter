@@ -8,10 +8,9 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import "../../Dashboard/Dashboard.css";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
-
-const ActiveWorkspace = ({workspaceId}) => {
+const ActiveWorkspace = ({ workspaceId }) => {
   const dispatch = useDispatch();
-  const { setModalContent, setOnModalClose } = useModal();
+  const { setModalContent } = useModal();
 
   useEffect(() => {
     dispatch(getWorkspaceByIdThunk(workspaceId));
@@ -25,21 +24,21 @@ const ActiveWorkspace = ({workspaceId}) => {
   }
 
   const handleWorkspaceNameClick = () => {
-    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace}/>);
-    dispatch(loadActiveWorkspace(workspaceId))
+    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace} />);
+    dispatch(loadActiveWorkspace(workspaceId));
   };
 
   return (
     <>
       <button
-      className="dashboard-workspace-name"
-      onClick={handleWorkspaceNameClick}
-    >
-      {`${newActiveWorkspace.name}`}
-      <FontAwesomeIcon id="workspace-arrow-down" icon={faAngleDown} />
-    </button>
-  </>
-);
+        className="dashboard-workspace-name"
+        onClick={handleWorkspaceNameClick}
+      >
+        {`${newActiveWorkspace.name}`}
+        <FontAwesomeIcon id="workspace-arrow-down" icon={faAngleDown} />
+      </button>
+    </>
+  );
 };
 
 export default ActiveWorkspace;

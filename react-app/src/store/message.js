@@ -93,7 +93,6 @@ export const deleteMessageThunk = (messageId) => async (dispatch) => {
   const response = await fetch(`/api/messages/${messageId}`, {
     method: "DELETE",
   });
-  const data = await response.json();
   if (response.ok) {
     dispatch(deleteMessage(messageId));
   }

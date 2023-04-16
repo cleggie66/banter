@@ -31,7 +31,6 @@ function MessagesIndex({ workspaceId }) {
   const [editMessage, setEditMessage] = useState(null);
   const user = useSelector((state) => state.session.user);
 
-  console.log(allChannels);
 
   const allCurrentChannelMessages = allMessages.filter(
     (e) => activeChannel.id === e.channel_id
