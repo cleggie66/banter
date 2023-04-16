@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from app.models import User, Workspace, Channel
 from app import db
 import random
-from ..utils import pog 
+from ..utils import pog
 user_routes = Blueprint('users', __name__)
 
 
@@ -64,7 +64,7 @@ def update_user(id):
 
     user.username = request.json.get('username', user.username)
     user.email = request.json.get('email', user.email)
-    user.password = request.json.get('password', user.password)
+    user.hashed_password = request.json.get('password', user.password)
     user.first_name = request.json.get('first_name', user.first_name)
     user.last_name = request.json.get('last_name', user.last_name)
     user.profile_picture = request.json.get('profile_picture', user.profile_picture)
