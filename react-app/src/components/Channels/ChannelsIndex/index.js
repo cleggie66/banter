@@ -166,6 +166,7 @@ const ChannelsIndex = ({ workspaceId }) => {
             channel={channel}
             sessionUser={sessionUser}
             workspaceId={workspaceId}
+            activeChannel={activeChannel}
           />
         ))}
         <div className="channel-list-item">

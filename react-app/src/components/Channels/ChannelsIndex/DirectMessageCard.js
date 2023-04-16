@@ -4,9 +4,13 @@ import { loadActiveChannel } from "../../../store/activeChannel";
 import "./Card.css"
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
-const DirectMessageCard = ({ channel, sessionUser, workspaceId }) => {
+const DirectMessageCard = ({ channel, activeChannel, sessionUser, workspaceId }) => {
     const history = useHistory();
     const dispatch = useDispatch();
+    let isActive = ""
+    if (channel.id === activeChannel.id) {
+        isActive = 'channel-active'
+    }
 
     const handleCardClick = (e) => {
         e.preventDefault();
@@ -45,7 +49,7 @@ const DirectMessageCard = ({ channel, sessionUser, workspaceId }) => {
 
 
     return (
-        <div className="channel-list-item" onClick={handleCardClick}>
+        <div className={`channel-list-item ${isActive}`} onClick={handleCardClick}>
             <div className='dm-image-container'>
                 {dmPictureRender()}
             </div>
