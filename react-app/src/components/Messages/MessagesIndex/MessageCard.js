@@ -27,7 +27,7 @@ const MessageCard = ({ message, sessionUser, activeChannel, socket, handleDelete
           </div>
           <div className="message-details">
             <h4 className="message-sender-first-name">
-              { message.message_owner.first_name  || message.first_name }
+              { message?.message_owner?.first_name  || message?.first_name }
             </h4>
             <p>{message.content}</p>
           </div>

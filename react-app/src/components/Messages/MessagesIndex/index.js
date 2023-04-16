@@ -1,9 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingIcon from "../../LoadingPage/LoadingIcon";
+import { useEffect } from "react";
 import { useModal } from "../../../context/Modal";
-import MessageCard from "./MessageCard";
-import MessageForm from "../MessageForm";
 import MessageCard from "./MessageCard";
 import "./MessagesIndex.css";
 import '../MessageForm/MessageForm.css'
@@ -16,14 +15,12 @@ import { deleteMessageThunk } from "../../../store/message";
 import { getAllChannelMessagesThunk } from "../../../store/message";
 import { updateMessageThunk } from "../../../store/message";
 import { loadActiveChannel } from "../../../store/activeChannel";
-
-let socket;
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
 import "./MessagesIndex.css";
 import AddUserToChannelModal from "./AddUserModal";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
+let socket;
+
 
 function MessagesIndex({ workspaceId }) {
   const { setModalContent } = useModal();
@@ -174,17 +171,8 @@ function MessagesIndex({ workspaceId }) {
             />
           </div>
         )}
-        {allCurrentChannelMessages.map((message) => (
-          <MessageCard
-            key={message.id}
-            sessionUser={sessionUser}
-            activeChannel={activeChannel}
-            message={message}
-          />
-        ))}
       </div>
-      {activeChannel.id && <MessageForm activeChannel={activeChannel} />}
-  return (
+      {/* {activeChannel.id && <MessageForm activeChannel={activeChannel} />} */}
     <div>
       {messages?.map((message) => (
         <MessageCard
