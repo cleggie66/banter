@@ -4,14 +4,13 @@ import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { useModal } from "../../../context/Modal";
 import ManageWorkspaceModal from "./ManageWorkspaceModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faPlus } from "@fortawesome/free-solid-svg-icons";
 import "../../Dashboard/Dashboard.css";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
-
-const ActiveWorkspace = ({workspaceId}) => {
+const ActiveWorkspace = ({ workspaceId }) => {
   const dispatch = useDispatch();
-  const { setModalContent, setOnModalClose } = useModal();
+  const { setModalContent } = useModal();
 
   useEffect(() => {
     dispatch(getWorkspaceByIdThunk(workspaceId));
@@ -25,20 +24,22 @@ const ActiveWorkspace = ({workspaceId}) => {
   }
 
   const handleWorkspaceNameClick = () => {
-    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace}/>);
-    dispatch(loadActiveWorkspace(workspaceId))
+    setModalContent(<ManageWorkspaceModal workspace={newActiveWorkspace} />);
+    dispatch(loadActiveWorkspace(workspaceId));
   };
 
   return (
-    <>
+    <div className="workspace-upper-section">
       <button
       className="dashboard-workspace-name"
       onClick={handleWorkspaceNameClick}
     >
       {`${newActiveWorkspace.name}`}
-      <FontAwesomeIcon id="workspace-arrow-down" icon={faAngleDown} />
+      <FontAwesomeIcon
+      icon={faPlus}
+      />
     </button>
-  </>
+    </div>
 );
 };
 

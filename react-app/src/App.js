@@ -19,8 +19,6 @@ function App() {
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
-  // steven testing
-  // {!window.location.pathname.includes("/channels") ? <Navigation isLoaded={isLoaded} />: <div>yo whatsup</div>}
 
   return (
     <>
@@ -33,7 +31,7 @@ function App() {
           <Route path="/dashboard/:workspaceId/newchannel">
             <CreateChannel />
           </Route>
-          <Route path="/dashboard/:workspaceId/:status">
+          <Route path="/dashboard/:workspaceId">
             <Dashboard />
           </Route>
           <Route path="/profile/:userId">

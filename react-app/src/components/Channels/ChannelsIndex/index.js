@@ -13,7 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import OpenModalButton from "../../OpenModalButton";
 import ManageChannelModal from "../ManageChannel";
-import NewDMModal from "../../Messages/NewDMModel/CreateDmModal";
 import "./ChannelIndex.css";
 import CreateDmModal from "../../Messages/NewDMModel/CreateDmModal";
 import { useModal } from "../../../context/Modal";
@@ -25,6 +24,7 @@ const ChannelsIndex = ({ workspaceId }) => {
   const { setModalContent } = useModal();
 
   const sessionUser = useSelector((state) => state.session.user);
+  const activeChannel = useSelector((state) => state.activeChannel);
 
   const [openChannelMenu, setOpenChannelMenu] = useState(true);
   const [openMessageMenu, setOpenMessageMenu] = useState(false);
@@ -36,10 +36,6 @@ const ChannelsIndex = ({ workspaceId }) => {
   useEffect(() => {
     dispatch(getAllChannelsThunk());
   }, [dispatch]);
-
-  // const allChannels = sessionUser.joined_channels.filter(
-  //   (e) =>  e.is_channel === true
-  // );
 
   const usersCheck = (usersArray) => {
     let bool = false;
@@ -62,13 +58,11 @@ const ChannelsIndex = ({ workspaceId }) => {
   );
 
   // Arrow drop down
-  const handleChannelMenuClick = (e) => {
-    e?.preventDefault();
+  const handleChannelMenuClick = () => {
     setOpenChannelMenu((open) => !open);
   };
 
-  const handleMessageMenuClick = (e) => {
-    e?.preventDefault();
+  const handleMessageMenuClick = () => {
     setOpenMessageMenu((open) => !open);
   };
 
@@ -99,7 +93,7 @@ const ChannelsIndex = ({ workspaceId }) => {
   }
 
   const handleCreateDmClick = () => {
-    dispatch(loadActiveWorkspace(workspaceId))
+    dispatch(loadActiveWorkspace(workspaceId));
     setModalContent(<CreateDmModal />);
   };
 
@@ -126,7 +120,12 @@ const ChannelsIndex = ({ workspaceId }) => {
           }`}
         >
           {allChannels.map((channel) => (
-            <ChannelCard key={channel.id} channel={channel} />
+            <ChannelCard
+              key={channel.id}
+              channel={channel}
+              workspaceId={workspaceId}
+              activeChannel={activeChannel}
+            />
           ))}
           <div className="channel-list-item" onClick={handleAddChannel}>
             <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />
@@ -165,6 +164,7 @@ const ChannelsIndex = ({ workspaceId }) => {
             channel={channel}
             sessionUser={sessionUser}
             workspaceId={workspaceId}
+            activeChannel={activeChannel}
           />
         ))}
         <div className="channel-list-item">

@@ -15,8 +15,6 @@ const WorkspacesIndex = () => {
 
   const dispatch = useDispatch();
 
-  // every workspace ever made
-  // const allWorkspaces = useSelector((state) => Object.values(state.workspaces));
 
   useEffect(() => {
     dispatch(getAllWorkspacesThunk());

@@ -5,7 +5,7 @@ import "./ManageWorkspaceModal.css";
 import AddUserModal from "./AddUserModal";
 
 function ManageWorkspaceModal({ workspace }) {
-  const { setModalContent, setOnModalClose } = useModal();
+  const { setModalContent } = useModal();
   const { closeModal } = useModal();
   const history = useHistory();
 
@@ -35,7 +35,9 @@ function ManageWorkspaceModal({ workspace }) {
           </div>
           <div className="status-container">
             <button className="status-button-2">
-              <p className="title-text">A single place for your team and your work</p>
+              <p className="title-text">
+                A single place for your team and your work
+              </p>
             </button>
           </div>
         </div>

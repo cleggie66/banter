@@ -65,10 +65,16 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-page-container">
-      <h1 id="your-profile" className="title-text">Your Profile 💁‍♀️ </h1>
+      <h1 id="your-profile" className="title-text">
+        Your Profile 💁‍♀️{" "}
+      </h1>
       <div className="profile-picture-container">
         <img
-          src={sessionUser?.profile_picture}
+          src={
+            sessionUser.profile_picture === null
+              ? sessionUser.first_name[0]
+              : sessionUser.profile_picture
+          }
           alt="Profile"
           className="profile-page-picture"
         />
@@ -79,7 +85,10 @@ const ProfilePage = () => {
         />
       </div>
       <div className="edit-section-container">
-        <div id="profile-titles" className="title-text">{`Username:  ${sessionUser.username}`}</div>
+        <div
+          id="profile-titles"
+          className="title-text"
+        >{`Username:  ${sessionUser.username}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleUserNameEdit}
@@ -88,7 +97,10 @@ const ProfilePage = () => {
       </div>
 
       <div className="edit-section-container">
-        <div id="profile-titles" className="title-text">{`Email:  ${sessionUser.email}`}</div>
+        <div
+          id="profile-titles"
+          className="title-text"
+        >{`Email:  ${sessionUser.email}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleEmailEdit}
@@ -97,11 +109,11 @@ const ProfilePage = () => {
       </div>
 
       <div className="edit-section-container">
-      <div id="profile-titles" className="title-text">
-        {`First name:  ${sessionUser.first_name}`}
-        <br />
-        {`Last name:  ${sessionUser.last_name}`}
-      </div>
+        <div id="profile-titles" className="title-text">
+          {`First name:  ${sessionUser.first_name}`}
+          <br />
+          {`Last name:  ${sessionUser.last_name}`}
+        </div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleFirstNameEdit}
@@ -109,7 +121,9 @@ const ProfilePage = () => {
         />
       </div>
       <div className="edit-section-container">
-        <div id="profile-titles" className="title-text">{"Change your password"}</div>
+        <div id="profile-titles" className="title-text">
+          {"Change your password"}
+        </div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handlePasswordEdit}
@@ -118,7 +132,10 @@ const ProfilePage = () => {
       </div>
 
       <div className="edit-section-container">
-        <div id="profile-titles" className="title-text">{`Title:  ${sessionUser.title}`}</div>
+        <div
+          id="profile-titles"
+          className="title-text"
+        >{`Title:  ${sessionUser.title}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleTitleEdit}
@@ -126,7 +143,10 @@ const ProfilePage = () => {
         />
       </div>
       <div className="edit-section-container">
-        <div id="profile-titles" className="title-text">{`About me:  ${sessionUser.about_me}`}</div>
+        <div
+          id="profile-titles"
+          className="title-text"
+        >{`About me:  ${sessionUser.about_me}`}</div>
         <FontAwesomeIcon
           icon={faUserPen}
           onClick={handleAboutMeEdit}
@@ -134,7 +154,7 @@ const ProfilePage = () => {
         />
       </div>
       <div className="delete-user-container">
-          <div className="no-delete-button">{deleteButton}</div>
+        <div className="no-delete-button">{deleteButton}</div>
       </div>
     </div>
   );

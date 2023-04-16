@@ -4,10 +4,6 @@ import { useModal } from "../../../context/Modal";
 import { useHistory } from "react-router-dom";
 import { deleteUserThunk, logout } from "../../../store/session";
 
-
-// ! create delete and update actions/thunks for session user
-
-
 function DeleteUserModal() {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
@@ -16,9 +12,9 @@ function DeleteUserModal() {
 
   const handleDeleteUser = async (e) => {
     e.preventDefault();
-    await dispatch(deleteUserThunk(sessionUser.id))
+    await dispatch(deleteUserThunk(sessionUser.id));
     closeModal();
-    dispatch(logout())
+    dispatch(logout());
     history.push(``);
   };
 
@@ -36,10 +32,7 @@ function DeleteUserModal() {
         onClick={handleDeleteUser}
       >{`Yes 👌`}</button>
 
-      <button
-        className="no-delete"
-        onClick={handleKeepUser}
-      >{`No ❌`}</button>
+      <button className="no-delete" onClick={handleKeepUser}>{`No ❌`}</button>
     </div>
   );
 }

@@ -9,7 +9,7 @@
 .home-page-main-section-logged-out {
     align-items: flex-start;
     background-color: #F6EFE8;
-    margin-top: 2;
+    padding: 0 2rem;
     overflow: auto;
     justify-content: space-around;
 }

@@ -8,6 +8,7 @@
     border-radius: 15px;
     border: 1px solid rgb(183, 193, 183);
     margin: 10px;
+    bottom: 0;
 }
 
 .create-message-input {

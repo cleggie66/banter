@@ -63,7 +63,7 @@ function Navigation() {
     <div>
       {homePage && sessionUser && !profile && (
         <div className="signed-out-nav-bar workspaces">
-          <img className="banter-nav-logo" src={banterDark}/>
+          <img className="banter-nav-logo" src={banterDark} alt="logo"/>
           <div className="signed-out-nav-bar-buttons">
           <button onClick={handleLogoutClick}>SIGN OUT</button>
           <button onClick={handleCreateWorkspace}>
@@ -74,7 +74,7 @@ function Navigation() {
       )}
       {homePage && !sessionUser && (
         <div className="signed-out-nav-bar">
-          <img className="banter-nav-logo" src={banter}/>
+          <img className="banter-nav-logo" src={banter} alt="logo"/>
           <div className="signed-out-nav-bar-buttons">
           <DemoLogin />
           <OpenModalButton
