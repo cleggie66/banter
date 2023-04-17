@@ -6,7 +6,16 @@
     margin-right: 6em;
     height: 100vh;
     width: 110%;
-    background-color: #1b1d21;
+    background-color: #4A164B;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+#name-title-text {
+    color: white;
+}
+
+#name-title-subtext {
+    color: white;
 }
 
 .channel-name-label,
@@ -19,7 +28,7 @@
 }
 
 .text-input-workspace {
-    width: 50em;
+    width: 40%;
     height: 4em;
     margin-bottom: 1em;
     border: 2px solid #214357;
@@ -27,12 +36,22 @@
     box-shadow: 0 0 20px #1f3645;
 }
 
+#icon-title-text {
+    color: white;
+}
+
+#icon-title-subtext {
+    color: white;
+}
+
 .create-workspace-button {
-    background-color: #4a154b;
+    background-color: white;
     border-radius: 1em;
     border: none;
-    color: #ffffff;
+    color: #4A164B;
     padding: 2em;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bolder;
 }
 
 .create-workspace-button-container {

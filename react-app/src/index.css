@@ -19,7 +19,6 @@ input[type="text"] {
     /* background-color: #000000; */
     padding-left: 2em;
     color: #ababad;
-    text-align: center;
 }
 
 input[type="text"]::placeholder {
