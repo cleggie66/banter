@@ -4,6 +4,7 @@
     width: 100%;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .home-page-main-section-logged-out {
