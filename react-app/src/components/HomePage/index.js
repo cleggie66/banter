@@ -178,9 +178,12 @@ const HomePage = () => {
                   alt="coding language"
                 />
               </div>
+
             </div>
+
           </div>
         </div>
+
       )}
 
       {sessionUser && (

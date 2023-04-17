@@ -126,6 +126,7 @@
     height: 16vh;
     width: 9vw;
     border-radius: 10px;
+    object-fit:cover;
 }
 
 
