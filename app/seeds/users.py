@@ -14,17 +14,19 @@ spongebob = User(
 patrick = User(
     username='patrick',  password='password', email='patrick@aa.io', first_name="Patrick", last_name="Star", profile_picture="https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/1200px-Patrick_Star.svg.png", title="Dr Professor Patrick to you", about_me="I live under a rock in Bikini Bottom. Hmu for embarrassing photos of Spongebob at last years christmas party") 
 mr_krabs = User(
-    username='MrKrabs',  password='password', email='MrKrabs@aa.io', first_name="Mr", last_name="Krabs", profile_picture="", title="CEO of the Krusty Krab", about_me="Hi, I like money.") 
+    username='MrKrabs',  password='password', email='MrKrabs@aa.io', first_name="Mr", last_name="Krabs", profile_picture="https://www.pngkey.com/png/full/435-4350208_mr-krabs-png-spongebob-mr-krabs-png.png", title="CEO of the Krusty Krab", about_me="Hi, I like money.") 
 squidward = User(
-    username='patrick',  password='password', email='patrick@aa.io', first_name="Patrick", last_name="Star", profile_picture="", title="Dr Professor Patrick to you", about_me="I live under a rock in Bikini Bottom. Hmu for embarrassing photos of Spongebob at last years christmas party") 
+    username='squidward',  password='password', email='squidward@aa.io', first_name="Squidward", last_name="Tentacles", profile_picture="https://is4-ssl.mzstatic.com/image/thumb/Video118/v4/4c/36/79/4c3679e8-4b33-ccea-ce28-c205652f845a/Jobbda093ff-fcef-4128-87fc-2b501bac952c-97368840-PreviewImage_Chocolate-Time1498404492754.png/1200x675.jpg", title="Divine talent", about_me="The most unrecognized talent in all of Bikini Bottom.") 
 sandy = User(
-    username='patrick',  password='password', email='patrick@aa.io', first_name="Patrick", last_name="Star", profile_picture="", title="Dr Professor Patrick to you", about_me="I live under a rock in Bikini Bottom. Hmu for embarrassing photos of Spongebob at last years christmas party") 
+    username='sandy',  password='password', email='sandy@aa.io', first_name="Sandy", last_name="Cheeks", profile_picture="https://comicvine.gamespot.com/a/uploads/scale_small/11132/111325030/5880115-spongebob%20squarepants%20sandy%20cheeks.jpg", title="Scientist and Karate Master", about_me="I wish I was back in Texas") 
 larry = User(
-    username='patrick',  password='password', email='patrick@aa.io', first_name="Patrick", last_name="Star", profile_picture="", title="Dr Professor Patrick to you", about_me="I live under a rock in Bikini Bottom. Hmu for embarrassing photos of Spongebob at last years christmas party") 
+    username='larry',  password='password', email='larry@aa.io', first_name="Larry", last_name="Lobster", profile_picture="https://i.pinimg.com/550x/e4/73/4e/e4734efaed57f5d9a800586dd85e43a5.jpg", title="Living like Larry", about_me="Thanks, I workout") 
 bubble_bass = User(
-    username='patrick',  password='password', email='patrick@aa.io', first_name="Patrick", last_name="Star", profile_picture="", title="Dr Professor Patrick to you", about_me="I live under a rock in Bikini Bottom. Hmu for embarrassing photos of Spongebob at last years christmas party") 
+    username='bubblebass',  password='password', email='bubblebass@aa.io', first_name="Bubble", last_name="Bass", profile_picture="https://i.kym-cdn.com/entries/icons/mobile/000/026/636/Screen_Shot_2018-08-20_at_7.12.25_PM.jpg", title="Burger Connoisseur", about_me="I live for krabby pattys but only made my way") 
 man_ray = User(
-    username='patrick',  password='password', email='patrick@aa.io', first_name="Patrick", last_name="Star", profile_picture="", title="Dr Professor Patrick to you", about_me="I live under a rock in Bikini Bottom. Hmu for embarrassing photos of Spongebob at last years christmas party") 
+    username='manray',  password='password', email='manray@aa.io', first_name="Man", last_name="Ray", profile_picture="https://www.vhv.rs/dpng/d/482-4827175_man-ray-is-the-second-major-archenemy-of.png", title="Arch Villain", about_me="I am pure evil, watch out Bikini Bottom") 
+reggie = User(
+    username='reggie',  password='password', email='reggie@aa.io', first_name="Reggie", last_name="Fish", profile_picture="https://i.ytimg.com/vi/vySI1ld25bs/hqdefault.jpg", title="Bouncer", about_me="To get in the salty spitoon, you gotta have muscles on your muscles") 
 
 
 def seed_users():
@@ -39,14 +41,8 @@ def seed_users():
     db.session.add(larry)
     db.session.add(bubble_bass)
     db.session.add(man_ray)
-
-
-
-
-
-
+    db.session.add(reggie)
     db.session.commit()
-
 
 # Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't
 # have a built in function to do this. With postgres in production TRUNCATE
