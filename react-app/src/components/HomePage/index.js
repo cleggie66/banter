@@ -47,7 +47,7 @@ const HomePage = () => {
                 </button>
                 <OpenModalButton
                   className="sign-up-button"
-                  buttonText="TRY FOR FREE"
+                  buttonText="SIGN UP"
                   modalComponent={<SignupFormModal />}
                 />
               </div>
