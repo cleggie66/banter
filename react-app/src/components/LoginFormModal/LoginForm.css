@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: flex-start;
     height: 25em;
-    background-color: #1b1d21;
+    background-color: white;
+    border-radius: 12px;
 }
 
 .new-signup-form-container {

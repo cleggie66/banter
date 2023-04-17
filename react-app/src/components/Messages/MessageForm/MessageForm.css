@@ -44,9 +44,8 @@
 }
 
 .edit-message-textarea {
-    width: 20em;
+    width: 80%;
     color: rgb(175 176 177);
-    background-color: rgb(34 37 41);
+    border: 1px solid #B9B9B9;
     padding: 1em;
-    border: 0;
 }

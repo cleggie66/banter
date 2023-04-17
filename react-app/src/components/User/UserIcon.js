@@ -53,8 +53,8 @@ function UserIconModal() {
           </div>
         </div>
       </div>
-      <button className="user-profile-button" onClick={handleProfileClick}>
-        Profile
+      <button className="sign-out-workspace-button" onClick={handleProfileClick}>
+        Manage My Profile
       </button>
       <button
         className="sign-out-workspace-button"
