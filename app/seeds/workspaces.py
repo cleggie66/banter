@@ -24,14 +24,13 @@ def seed_workspaces():
         owner_id = 4,
         name='Bikini Bottom',
         icon='https://wallpapercave.com/wp/wp6073059.png',
-        users_in_workspaces=[spongebob, patrick, mr_krabs, larry, sandy, squidward, man_ray, bubble_bass, reggie]
+        users_in_workspaces=[demo, spongebob, patrick, mr_krabs, larry, sandy, squidward, man_ray, bubble_bass, reggie]
     )
 
     db.session.add(appacademy)
     db.session.add(gamers)
     db.session.add(work)
     db.session.add(bikini_bottom)
-
     db.session.commit()
 
 
