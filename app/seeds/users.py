@@ -19,11 +19,10 @@ brad = User(
     username='Brad',  password='password', email='brad@aa.io', first_name="Brad", last_name="Simpson", profile_picture="https://ca.slack-edge.com/T03GU501J-USQFVK3GT-947b84c598b8-512", title="Food variable master", about_me="The father of Patches and Blue")
 david = User(
     username='DavidN',  password='password', email='david@aa.io', first_name="David", last_name="Nash", profile_picture="https://ca.slack-edge.com/T03GU501J-U020VSQHVU5-bc5b2bc91a6e-512", title="Best TA in town", about_me="I will not rest until the whole world has been assisted")
+rogers = User(
+    username='DavidR',  password='password', email='ziggy@aa.io', first_name="David", last_name="Rogers", profile_picture="https://avatars.githubusercontent.com/u/75019436?v=4", title="G.O.A.T", about_me="")
 slack_bot = User(
     username='slack_bot',  password='password', email='bot@aa.io', first_name="Slack", last_name="Bot", profile_picture="https://ca.slack-edge.com/T03GU501J-U015BUWSSP4-ade0b4e03cd6-512", title="What is my purpose?", about_me="Why do i exist?")
-
-david = User(
-username='',  password='password', email='@aa.io', first_name="", last_name="", profile_picture="", title="", about_me="")
 
 def seed_users():
     db.session.add(demo)
@@ -34,6 +33,7 @@ def seed_users():
     db.session.add(dan)
     db.session.add(brad)
     db.session.add(david)
+    db.session.add(rogers)
     db.session.add(slack_bot)
     db.session.commit()
 
