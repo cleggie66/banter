@@ -268,16 +268,111 @@ def seed_messages():
         channel_id = 6,
     )
     dm_53 = Message(
-        content="I'll take a double triple bossy deluxe, on a raft, four by four animal style, extra shingles with a shimmy and a squeeze, light axle grease, make it cry, burn it, and let it swim. ",
+        content="I'll take a double triple bossy deluxe 🍔🍔🍔, on a raft 🚣🏽‍♂️, four by four animal style 🦁🦁 , extra shingles with a shimmy and a squeeze 🧅, light axle grease 🛢️, make it cry 😭, burn it 🔥, and let it swim 🐟 ",
         user_id = 10,
         channel_id = 6,
     )
     dm_54 = Message(
-        content="We serve food here, Sir. 😑😑😑😑😑 ",
+        content="We serve food here, Sir. ",
         user_id = 7,
         channel_id = 6,
     )
-   
+    dm_55 = Message(
+        content="Wish I was back in Texas. The ocean is no place for a squirrrellll. Wish I was in Texas the prettiest place in the woooooorlllddd.  ",
+        user_id = 8,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="I wanna wake up in Texas. I miss those wide open skies. I miss my 20 acres bbq and peacon pieeee oooo whyyyy. When I'm so far from you Texas. All I can doooo is cryyy. ",
+        user_id = 8,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="I can't believe she's gone... 😔 ",
+        user_id = 4,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="What's so great about dumb old Texas anyway... ",
+        user_id = 5,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="🚌🚌🚌💨 What'd you say",
+        user_id = 8,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="Texas is dumb... 👉👈",
+        user_id = 5,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="Don't you dare take the name of Texas in vain 😡 ",
+        user_id = 8,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="You mean we can't say anything bad about dumb old Texas...  ",
+        user_id = 4,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="Then can we say people from Texas are dumb...",
+        user_id = 5,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="NO, you can't say nothing about Texas! 😡 ",
+        user_id = 8,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="Hey, Patrick. What am I now?🤠🤠🤠 ",
+        user_id = 4,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="uhhhhhhhhhhh stupid",
+        user_id = 5,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="nooooooo, I'm Texas!!!",
+        user_id = 4,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="WHATS THE DIFFERENCE 💀💀💀💀💀 ",
+        user_id = 5,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="🤬🤬🤬🤬 💣💣💣💣💣💣💣💣💣💣💣",
+        user_id = 8,
+        channel_id = 9,
+    )
+    dm_55 = Message(
+        content="By living like larry",
+        user_id = 9,
+        channel_id = 7,
+    )
+    dm_55 = Message(
+        content="by living like larry...",
+        user_id = 4,
+        channel_id = 7,
+    )
+    dm_55 = Message(
+        content="Living Like Larry...",
+        user_id = 5,
+        channel_id = 7,
+    )
+    dm_55 = Message(
+        content="LIVING LIKE LARRY 🙌🙌🙌🙌",
+        user_id = 9,
+        channel_id = 7,
+    )
+
 
     db.session.add(dm_1)
     db.session.add(dm_2)
