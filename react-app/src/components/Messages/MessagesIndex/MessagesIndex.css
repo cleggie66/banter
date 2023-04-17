@@ -24,9 +24,14 @@
 
 .message-sender-first-name {
     font-family: 'Noto Sans', sans-serif;
+    font-weight: 900;
     font-weight: bold;
     color: black;
 }
+
+/* .message-buttons > button {
+    background-color: rgba(255, 255, 255, 0);
+} */
 
 .message:hover {
     background-color: rgb(214, 215, 216);
@@ -74,10 +79,12 @@
 }
 
 .message-buttons>button {
-    background-color: rgb(27 29 33);
-    color: rgb(175 176 177);
+    background-color: rgba(27, 29, 33, 0);
+    color: #3F0F40;
     margin: 10px;
-    border: none;
+    border: 1px solid #3F0F40;
+    border-radius: 6px;
+    font-family: 'Noto Sans', sans-serif;;
 }
 
 .message  button {
@@ -98,4 +105,5 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 0 2rem;
 }

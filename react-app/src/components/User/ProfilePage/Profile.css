@@ -1,9 +1,11 @@
 .profile-page-container {
+  color: white;
   display: flex;
   flex-direction: column;
-  width: 18em;
+  width: 100vw;
   height: 100vh;
-  background-color:rgb(37 37 38);
+  background-color:white;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .profile-picture-container {
@@ -13,8 +15,9 @@
 .profile-edit-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items:center;
+  gap: 10px;
 }
 
 .edit-section-container {
@@ -24,7 +27,7 @@
   flex-basis: 50%;
   border-bottom: solid 1px;
   margin-bottom: .5em;
-  padding: .5em;
+  padding: 2em;
 }
 
 

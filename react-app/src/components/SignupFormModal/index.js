@@ -55,59 +55,59 @@ function SignupFormModal() {
           ))}
         </ul>
         <label className="login-labels">
-          First Name
           <input
             className="text-input-login"
             type="text"
+            placeholder="First Name"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
           />
         </label>
         <label className="login-labels">
-          Last Name
           <input
             className="text-input-login"
             type="text"
+            placeholder="Last Name"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             required
           />
         </label>
         <label className="login-labels">
-          Email
           <input
             className="text-input-login"
             type="text"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </label>
         <label className="login-labels">
-          Username
           <input
             className="text-input-login"
             type="text"
             value={username}
+            placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </label>
         <label className="login-labels">
-          Password
           <input
             className="text-input-login"
             type="password"
             value={password}
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
         <label className="login-labels">
-          Confirm Password
           <input
             className="text-input-login"
+            placeholder="Confirm Password"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -115,29 +115,29 @@ function SignupFormModal() {
           />
         </label>
         <label className="login-labels">
-          Title
           <input
             className="text-input-login"
             type="text"
+            placeholder="Title (optional)"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
         <label className="login-labels">
-          Profile Picture
           <input
             className="text-input-login"
             type="text"
+            placeholder="Profile Picture (optional)"
             value={profilePicture}
             onChange={(e) => setProfilePicture(e.target.value)}
           />
         </label>
         <label className="login-labels">
-          About Me
           <input
             className="text-input-login"
             type="text"
             value={aboutMe}
+            placeholder="About Me (optional)"
             onChange={(e) => setAboutMe(e.target.value)}
           />
         </label>

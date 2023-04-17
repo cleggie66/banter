@@ -8,7 +8,11 @@
 }
 
 .channel-list-item:hover {
-    color: white;
+    color: red;
+}
+
+.channel-list-item h4 {
+    color: red
 }
 
 .channel-active {
@@ -16,14 +20,17 @@
 }
 
 .channel-list-names {
-    color: rgb(255, 255, 255);
+    color: #afa0b0;
     font-size: 16px;
     font-weight: normal;
     margin: 5px;
+    /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
 }
 
 .channel-list-names:hover {
-    color: white;
+    color: white
 }
 
 .dm-image-container {
