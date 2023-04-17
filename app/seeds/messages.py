@@ -200,7 +200,7 @@ def seed_messages():
     dm_40 = Message(
         content="",
         user_id = 8,
-        channel_id = 11,
+        channel_id = 13,
     )
 
 
