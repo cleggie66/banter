@@ -28,6 +28,7 @@
     margin-top: 8vh;
     height: 92vh;
     width: 85vw;
+    position:relative
 }
 
 .dashboard-workspace-name {
@@ -37,11 +38,15 @@
     border: none;
     background: none;
     color: white;
-    font-size: 25px;
+    font-size: 18px;
     font-weight: bold;
     margin-left: 1.7rem;
     font-family: 'Noto Sans', sans-serif;
     border-bottom: solid 1px #515151;
+}
+
+.fa-circle-chevron-down {
+    font-size: 12px;
 }
 
 #workspace-arrow-down {
@@ -52,17 +57,24 @@
 
 .current-channel-name-bar {
     border-bottom: 1px solid rgb(221, 218, 218);
-    top: 0;
+    top:0;
     position: absolute;
-    top: 3.7rem;
-    width: 70%;
-    padding: 0 1.5rem;
+    /* top: 3.7rem; */
+    width: 100%;
     background-color: white;
     color: black;
     font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.active-channel-header-text {
+    margin-left: 2rem
+}
+
+.add-to-channel-user-icon {
+    margin-right: 2rem;
 }
 
 .current-channel-name-text {

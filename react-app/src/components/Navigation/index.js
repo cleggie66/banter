@@ -98,7 +98,7 @@ function Navigation() {
               to="/"
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
-              <FontAwesomeIcon icon={faHome} className="home-icon"/>
+              <img id='signed-in-nav-logo' className="banter-nav-logo" src={banterDark} alt="alt"/>
             </NavLink>
           </div>
           <div
@@ -106,7 +106,7 @@ function Navigation() {
             className="nav-profile-section"
           >
             <div className="nav-image-container">
-              <img 
+              <img
                 src={
                   sessionUser.profile_picture === null
                     ? sessionUser.name[0]

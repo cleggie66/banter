@@ -24,6 +24,9 @@
     font-size: 16px;
     font-weight: normal;
     margin: 5px;
+    /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
 }
 
 .channel-list-names:hover {

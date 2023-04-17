@@ -47,5 +47,7 @@ input[type="password"]::placeholder {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute
+    position: absolute;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 0 1rem;
 }

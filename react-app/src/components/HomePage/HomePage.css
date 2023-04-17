@@ -10,7 +10,6 @@
 .home-page-main-section-logged-out {
     align-items: flex-start;
     background-color: #F6EFE8;
-    padding: 0 2rem;
     overflow: auto;
     justify-content: space-around;
 }
@@ -20,6 +19,7 @@
     margin-right: 0;
     display: flex;
     justify-content: center;
+    padding: 0 2rem;
 }
 
 .home-page-main-section-logged-out-image {
@@ -27,6 +27,7 @@
     height: 60vh;
     margin-left: 2rem;
     border-radius: 12px;
+    object-fit: contain;
 }
 
 .home-page-button-div {

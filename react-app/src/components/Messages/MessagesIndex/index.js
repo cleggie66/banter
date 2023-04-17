@@ -169,11 +169,12 @@ function MessagesIndex({ workspaceId }) {
 
         {activeChannel.id && (
           <div className="current-channel-name-bar">
-            <h2>#{allChannels[activeChannel.id].name}</h2>
+            <h2 className="active-channel-header-text" >#{allChannels[activeChannel.id].name}</h2>
 
             <FontAwesomeIcon
             onClick={handleAddUserToChannel}
             icon={faUsersRectangle}
+            className="add-to-channel-user-icon"
             />
 
           </div>
