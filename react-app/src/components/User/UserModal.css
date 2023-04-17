@@ -27,7 +27,7 @@ select::-ms-expand {
 
 .status {
   font-size: 12px;
-  
+
 }
 
 .profile-picture-modal {
@@ -46,7 +46,7 @@ select::-ms-expand {
 }
 
 .user-profile-button {
-  display: flex;
+  /* display: flex;
   padding: 0;
   border: none;
   background: none;
@@ -57,8 +57,9 @@ select::-ms-expand {
   padding: .6em;
   margin-top: 1.5em;
   color: #ababad;
-  font-size: large;
+  font-size: large; */
 }
+
 .user-profile-button:hover {
   background-color: rgb(121, 177, 233, 0.3);
 }
@@ -82,5 +83,3 @@ select::-ms-expand {
   margin-left: 1em;
   font-size: x-large;
 }
-
-

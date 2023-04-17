@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { updateMessageThunk } from "../../../store/message";
 import { useModal } from "../../../context/Modal";
 import { loadActiveChannel } from "../../../store/activeChannel";
+import './EditMessage.css'
 
 function EditMessageModal({ message, activeChannelId, socket }) {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ function EditMessageModal({ message, activeChannelId, socket }) {
     <div className="edit-message-modal-container">
       <h1 className="title-text">Edit Your Message</h1>
       <form className="profile-edit-container" onSubmit={handleFormSubmit}>
-        <label className="title-text">
+        <label id='edit-message-header' className="title-text">
           Text:{" "}
           <textarea
             className="edit-message-textarea"
