@@ -121,8 +121,14 @@ function Navigation() {
       )}
       {homePage && profile && sessionUser && (
         <>
-          <button onClick={handleLogoutClick}>Sign me out</button>
-          <button onClick={handleHomeClick}>Country roads, take me home</button>
+          {/* <button onClick={handleLogoutClick}>Sign me out</button> */}
+          <img
+          src={banter}
+          alt='alt'
+          id='signed-in-nav-logo'
+          className="manage-user-nav-logo"
+          onClick={handleHomeClick}
+          />
         </>
       )}
     </div>

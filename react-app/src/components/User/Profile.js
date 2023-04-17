@@ -28,7 +28,7 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <h1>Your Profile 💁‍♀️ </h1>
+      <h1> Manage Your Profile </h1>
 
       <UpdateUserForm user={sessionUser} />
       <OpenModalButton

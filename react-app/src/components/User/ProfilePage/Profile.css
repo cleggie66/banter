@@ -2,9 +2,10 @@
   color: white;
   display: flex;
   flex-direction: column;
-  width: 18em;
+  width: 100vw;
   height: 100vh;
-  background-color:rgb(58 19 62);
+  background-color:white;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .profile-picture-container {
@@ -26,7 +27,7 @@
   flex-basis: 50%;
   border-bottom: solid 1px;
   margin-bottom: .5em;
-  padding: .5em;
+  padding: 2em;
 }
 
 

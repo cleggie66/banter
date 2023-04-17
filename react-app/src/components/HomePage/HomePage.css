@@ -179,19 +179,6 @@
     margin-right: -100%; /* or margin-bottom: -100%, depending on the direction */
 }
 
-/* .carousel-slide:nth-child(1) {
-    animation: carouselAnimation 5s infinite;
-}
-
-.carousel-slide:nth-child(2) {
-    animation: carouselAnimation 5s infinite;
-    animation-delay: 1s;
-}
-
-.carousel-slide:nth-child(3) {
-    animation: carouselAnimation 5s infinite;
-    animation-delay: 1s;
-} */
 
   @keyframes carousel-slide {
     0% {

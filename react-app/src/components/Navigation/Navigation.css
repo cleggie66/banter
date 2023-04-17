@@ -19,6 +19,14 @@
   padding-right: 1rem;
 }
 
+.manage-user-nav-logo {
+  margin-top: 1rem;
+}
+
+.manage-user-nav-logo:hover {
+  cursor: pointer;
+}
+
 #signed-in-nav-logo {
   padding: 0 2rem;
   width: 10rem;
