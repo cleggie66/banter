@@ -282,92 +282,92 @@ def seed_messages():
         user_id = 8,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_56 = Message(
         content="I wanna wake up in Texas. I miss those wide open skies. I miss my 20 acres bbq and peacon pieeee oooo whyyyy. When I'm so far from you Texas. All I can doooo is cryyy. ",
         user_id = 8,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_57 = Message(
         content="I can't believe she's gone... 😔 ",
         user_id = 4,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_58 = Message(
         content="What's so great about dumb old Texas anyway... ",
         user_id = 5,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_59 = Message(
         content="🚌🚌🚌💨 What'd you say",
         user_id = 8,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_60 = Message(
         content="Texas is dumb... 👉👈",
         user_id = 5,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_61 = Message(
         content="Don't you dare take the name of Texas in vain 😡 ",
         user_id = 8,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_62 = Message(
         content="You mean we can't say anything bad about dumb old Texas...  ",
         user_id = 4,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_63 = Message(
         content="Then can we say people from Texas are dumb...",
         user_id = 5,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_64 = Message(
         content="NO, you can't say nothing about Texas! 😡 ",
         user_id = 8,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_65 = Message(
         content="Hey, Patrick. What am I now?🤠🤠🤠 ",
         user_id = 4,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_66 = Message(
         content="uhhhhhhhhhhh stupid",
         user_id = 5,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_67 = Message(
         content="nooooooo, I'm Texas!!!",
         user_id = 4,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_68 = Message(
         content="WHATS THE DIFFERENCE 💀💀💀💀💀 ",
         user_id = 5,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_69 = Message(
         content="🤬🤬🤬🤬 💣💣💣💣💣💣💣💣💣💣💣",
         user_id = 8,
         channel_id = 9,
     )
-    dm_55 = Message(
+    dm_70 = Message(
         content="By living like larry",
         user_id = 9,
         channel_id = 7,
     )
-    dm_55 = Message(
+    dm_71 = Message(
         content="by living like larry...",
         user_id = 4,
         channel_id = 7,
     )
-    dm_55 = Message(
+    dm_72 = Message(
         content="Living Like Larry...",
         user_id = 5,
         channel_id = 7,
     )
-    dm_55 = Message(
+    dm_73 = Message(
         content="LIVING LIKE LARRY 🙌🙌🙌🙌",
         user_id = 9,
         channel_id = 7,
@@ -428,6 +428,29 @@ def seed_messages():
     db.session.add(dm_52)
     db.session.add(dm_53)
     db.session.add(dm_54)
+    db.session.add(dm_55)
+    db.session.add(dm_56)
+    db.session.add(dm_57)
+    db.session.add(dm_58)
+    db.session.add(dm_59)
+    db.session.add(dm_60)
+    db.session.add(dm_61)
+    db.session.add(dm_62)
+    db.session.add(dm_63)
+    db.session.add(dm_64)
+    db.session.add(dm_65)
+    db.session.add(dm_66)
+    db.session.add(dm_67)
+    db.session.add(dm_68)
+    db.session.add(dm_69)
+    db.session.add(dm_70)
+    db.session.add(dm_71)
+    db.session.add(dm_72)
+    db.session.add(dm_73)
+
+
+
+
 
 
 

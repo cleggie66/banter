@@ -4,7 +4,7 @@ from sqlalchemy.sql import text
 
 # Adds a demo user, you can add other users here if you want
 demo = User(
-    username='Demo', password='password', email='demo@aa.io', first_name="Demo", last_name="Lition", profile_picture="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png", title="Demo User", about_me="I am a demo user testintg this application!" )
+    username='Demo', password='password', email='demo@aa.io', first_name="Demo", last_name="Lition", profile_picture="https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg", title="Demo User", about_me="I am a demo user testintg this application!" )
 alec = User(
     username='Alec', password='password', email='mod4god@aa.io', first_name="Alec", last_name="Instructor", profile_picture="https://i0.wp.com/d37ck3jytu9wl0.cloudfront.net/wp-content/uploads/2022/05/31141519/Neckbeard-BLOG.jpg?fit=1200%2C777&ssl=1", title="Mod 4 Gate Keeper", about_me="I am the greatest mod 4 instructor of all time")
 brad = User(
