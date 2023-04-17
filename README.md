@@ -1,70 +1,38 @@
-# Banter: *Slack Clone*
+# Banter
 
 [banter-logo]: ./public/banter-logo.png
 
 ![banter-logo]
 
 
-Live site here: *Link*
+Access the live site here: https://banter-k9ts.onrender.com/
 
-Summary of Project
+Banter is a full-stack web application inspired by Slack. Users have the ability to live chat with other users in channels as well as in direct messages.
 
-List of techs/languages/plugins/api used
+List of technologies utilized:
 
-To-Dos/Feature reviews
-
-Technical Implementation Details
+*React
+*Redux
+*Python
+*Postgres
+*Flask
+*SQLAlchemy
+*Socket.io
 
 ## Feature List
-### FIRST FEATURE: Direct messages
 
-Create:
-/messages/direct_message/new
+### Full Feature: Users
 
-READ:
-/messages/:direct_message_id
+Create, Read, Update, Delete
 
-Update:
-/messages/:direct_message_id/update
+### Full Feature: Messages
 
-Delete:
-/messages/:direct_message_id/delete
+Create, Read, Update, Delete
 
-### SECOND FEATURE: Group messages
+### Full Feature: Channels
 
-Create:
-/messages/group_dm/new
+Create, Read, Update, Delete
 
-READ:
-/messages/:group_dm_id
+### Partial Feature: Workspaces
 
-Update:
-/messages/:group_dm_id/update
-
-Delete:
-/messages/:group_dm_id/delete
-
-### THIRD FEATURE: Channels
-
-Create:
-/channels/new
-
-READ:
-/channels
-/:channel_id
-
-### FOURTH FEATURE: Reactions
-
-CREATE
-/messages/:messageId/new
-
-READ
-/messages/:messageId/
-
-## React Components List
-
-## Frontend Routes Document
-
-## API Routes Document
-
-## Redux Store Tree
+Create, Read
