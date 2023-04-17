@@ -80,3 +80,13 @@
 .current-channel-name-text {
     margin-left: 2rem;
 }
+
+
+.messages-display::-webkit-scrollbar{
+    background-color: #ffffff;
+  }
+
+  .messages-display::-webkit-scrollbar-thumb {
+    background-color: #cacaca;
+    border-radius: 10px;
+  }
