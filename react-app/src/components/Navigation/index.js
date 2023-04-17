@@ -51,6 +51,11 @@ function Navigation() {
     history.push(``);
   };
 
+  const handleUserInfoClick = (e) => {
+    e.preventDefault();
+    history.push(`/profile/${sessionUser.id}`);
+  };
+
   const profile = window.location.pathname.includes("/profile");
 
   const { setModalContent } = useModal();
@@ -67,10 +72,11 @@ function Navigation() {
           <img className="banter-nav-logo" src={banterDark} alt="logo"/>
           </NavLink>
           <div className="signed-out-nav-bar-buttons">
-          <button onClick={handleLogoutClick}>SIGN OUT</button>
-          <button onClick={handleCreateWorkspace}>
+            <button onClick={handleUserInfoClick}>MY PROFILE</button>
+            <button onClick={handleCreateWorkspace}>
             CREATE A NEW WORKSPACE{" "}
           </button>
+          <button onClick={handleLogoutClick}>SIGN OUT</button>
           </div>
           </div>
       )}
