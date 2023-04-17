@@ -6,9 +6,9 @@
   flex-direction: column;
   align-items: flex-start;
   float: left;
-  margin-left: 1rem;
-        overflow: hidden;
-        text-overflow: clip;
+  margin-left: .5rem;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .channel-dropdown-container.active {
@@ -62,8 +62,8 @@
   display: flex;
   align-items: center;
   margin-top: 1em;
+  font-family: 'Noto Sans', sans-serif;
   /* gap: 2px; */
-  padding-left: 2rem;
 }
 
 .channels-button-modal-sidebar {
@@ -73,7 +73,7 @@
   padding: 0;
   border: none;
   background: none;
-  color: rgb(255, 255, 255);
+  color: rgb(173, 155, 155);
   font-family: 'Noto Sans', sans-serif;
 }
 

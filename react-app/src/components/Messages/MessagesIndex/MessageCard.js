@@ -2,6 +2,7 @@ import EditMessageModal from "../EditMessageModal";
 import OpenModalButton from "../../OpenModalButton";
 import { useDispatch } from "react-redux";
 import { getAllChannelMessagesThunk } from "../../../store/message";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const MessageCard = ({
   message,
@@ -42,7 +43,7 @@ const MessageCard = ({
           sessionUser.id === message.user_id) && (
           <div className="message-buttons">
             <OpenModalButton
-              buttonText="edit"
+              buttonText="Edit"
               modalComponent={
                 <EditMessageModal
                   message={message}
@@ -53,7 +54,7 @@ const MessageCard = ({
               }
             />
             <button onClick={(e) => handleDeleteMessage(e, message)}>
-              delete test
+              Delete
             </button>
           </div>
         )}

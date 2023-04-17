@@ -84,7 +84,7 @@ function Navigation() {
           />
           <OpenModalButton
             className="sign-up-button"
-            buttonText="TRY FOR FREE"
+            buttonText="SIGN UP"
             modalComponent={<SignupFormModal />}
           />
           </div>
@@ -98,7 +98,7 @@ function Navigation() {
               to="/"
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
-              <FontAwesomeIcon icon={faHome} className="home-icon"/>
+              <img id='signed-in-nav-logo' className="banter-nav-logo" src={banterDark} alt="alt"/>
             </NavLink>
           </div>
           <div
@@ -106,7 +106,7 @@ function Navigation() {
             className="nav-profile-section"
           >
             <div className="nav-image-container">
-              <img 
+              <img
                 src={
                   sessionUser.profile_picture === null
                     ? sessionUser.name[0]
@@ -121,8 +121,14 @@ function Navigation() {
       )}
       {homePage && profile && sessionUser && (
         <>
-          <button onClick={handleLogoutClick}>Sign me out</button>
-          <button onClick={handleHomeClick}>Country roads, take me home</button>
+          {/* <button onClick={handleLogoutClick}>Sign me out</button> */}
+          <img
+          src={banter}
+          alt='alt'
+          id='signed-in-nav-logo'
+          className="manage-user-nav-logo"
+          onClick={handleHomeClick}
+          />
         </>
       )}
     </div>
