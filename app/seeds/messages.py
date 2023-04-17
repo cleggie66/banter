@@ -3,9 +3,9 @@ from sqlalchemy.sql import text
 
 def seed_messages():
     dm_1 = Message(
-        content="I would say that is a good, but not great answer.",
-        user_id = 1,
-        channel_id = 1,
+        content="Banter is hands down the greatest group project i have ever laid my mortal eyes on",
+        user_id = 8,
+        channel_id = 5,
     )
     dm_2 = Message(
         content="I would say that is a good, but not great answer.",
@@ -27,30 +27,12 @@ def seed_messages():
         user_id = 1,
         channel_id = 5,
     )
-    # dm_6 = Message(
-    #     content="This group message is very pog",
-    #     user_id = 1,
-    #     channel_id = 6,
-    # )
-    # dm_7 = Message(
-    #     content="Holy Guacamole!",
-    #      user_id = 2,
-    #     channel_id = 1,
-    # )
-    # dm_8 = Message(
-    #     content="Just a bit of banter",
-    #     user_id = 3,
-    #     channel_id = 1,
-    # )
 
     db.session.add(dm_1)
     db.session.add(dm_2)
     db.session.add(dm_3)
     db.session.add(dm_4)
     db.session.add(dm_5)
-    # db.session.add(dm_6)
-    # db.session.add(dm_7)
-    # db.session.add(dm_8)
 
     db.session.commit()
 
