@@ -58,6 +58,10 @@
   width: 7em;
 }
 
+.channels-button-modal-sidebar.manage {
+  padding: 1rem 0;
+}
+
 .channel-dropdown-heading-container {
   display: flex;
   align-items: center;

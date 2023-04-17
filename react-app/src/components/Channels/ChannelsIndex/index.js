@@ -5,7 +5,9 @@ import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import DirectMessageCard from "./DirectMessageCard";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon,  } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+
 import {
   faCaretDown,
   faCaretRight,
@@ -107,13 +109,10 @@ const ChannelsIndex = ({ workspaceId }) => {
             className="caret-down"
           />
           <div className="channel-heading">
-            <OpenModalButton
-              className="channels-button-modal-sidebar"
-              buttonText="Channels"
-              modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
-            />
+            <button className="channels-button-modal-sidebar">Channels</button>
           </div>
         </div>
+
         <div
           className={`channel-dropdown-container ${
             openChannelMenu ? "active" : "inactive"
@@ -137,7 +136,13 @@ const ChannelsIndex = ({ workspaceId }) => {
             </p>
           </div>
         </div>
+        <OpenModalButton
+              className="channels-button-modal-sidebar manage"
+              buttonText="Manage Channels"
+              modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
+            />
       </div>
+
       <div className="channel-dropdown-heading-container">
         <AnimatedCaret
           open={openMessageMenu}
