@@ -48,5 +48,5 @@ input[type="password"]::placeholder {
     align-items: center;
     position: absolute;
     font-family: 'Noto Sans', sans-serif;
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
 }
