@@ -120,86 +120,91 @@ def seed_messages():
     dm_24 = Message(
         content="Excuse me sir, but I do believe you've dropped your wallet",
         user_id = 11,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_25 = Message(
         content="Doesn't look familiar to me...",
         user_id = 1,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_26 = Message(
         content="what?🧐 I just saw you drop it... here 🫲",
         user_id = 11,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_27 = Message(
         content="Nope it's not mine...🗿",
         user_id = 1,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_28 = Message(
         content="It is yours, I'm trying to be a good person and return it to you 😇",
         user_id = 11,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_29 = Message(
         content="return what to who",
         user_id = 1,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_30 = Message(
         content="😑",
         user_id = 11,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_31 = Message(
         content="Aren't you Patrick Star?",
         user_id = 11,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_32 = Message(
         content="yep",
         user_id = 1,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_33 = Message(
         content="And this is your Id?",
         user_id = 11,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_34 = Message(
         content="yep",
         user_id = 1,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_35 = Message(
         content="I found this Id in this wallet. And if that's the case than this must be YOUR Wallet 😠😤",
         user_id = 11,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_36 = Message(
         content="that makes sense to me",
         user_id = 1,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_37 = Message(
         content="then take it...",
         user_id = 11,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_38 = Message(
         content="it's not my wallet",
         user_id = 1,
-        channel_id = 8,
+        channel_id = 11,
     )
     dm_39 = Message(
         content="💀💀💀💀💀💀",
         user_id = 11,
-        channel_id = 8,
+        channel_id = 11,
+    )
+    dm_40 = Message(
+        content="",
+        user_id = 8,
+        channel_id = 11,
     )
 
 
-    
+
    
 
     db.session.add(dm_1)
