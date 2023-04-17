@@ -5,7 +5,23 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-color: #1b1d21;
+    background-color: #4a154b;
+    font-family: 'Noto Sans', sans-serif;
+
+}
+
+#channel-create-header-main {
+    color: white;
+}
+
+#banter-quote {
+    color: white;
+}
+
+#channel-label-item-text {
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 .channel-create-container {
@@ -22,12 +38,13 @@
 }
 
 .create-channel-button {
-    background-color: #4a154b;
+    background-color: white;
+    color: #4a154b;;
     border-radius: 1em;
     border: none;
-    color: #ffffff;
     padding: 1em;
     margin-left: 4.5em;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .create-channel-button:hover {

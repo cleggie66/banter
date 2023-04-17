@@ -16,7 +16,6 @@ const MessageCard = ({
   if (!message.message_owner) {
     dispatch(getAllChannelMessagesThunk(activeChannel.id));
   }
-  console.log("hey man wtf", message);
   return (
     <div>
       <div key={message.id} className="message">

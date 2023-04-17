@@ -72,9 +72,9 @@ function MessagesIndex({ workspaceId }) {
   }, [allCurrentChannelMessages?.length])
 
 
-  // useEffect(() => {
-  //   dispatch(getAllChannelMessagesThunk(activeChannel.id))
-  //  }, [allCurrentChannelMessages?.length])
+  useEffect(() => {
+    dispatch(getAllChannelMessagesThunk(activeChannel.id))
+   }, [allCurrentChannelMessages?.length])
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -95,7 +95,6 @@ function MessagesIndex({ workspaceId }) {
             user_id: user.id,
             channel_id: activeChannel.id,
             content: content,
-
             message_owner: {
               id: user.id,
               username: user.username,

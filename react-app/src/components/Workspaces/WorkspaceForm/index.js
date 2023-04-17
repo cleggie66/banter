@@ -57,7 +57,6 @@ const WorkspaceForm = () => {
 
   return (
     <div className="workspace-form-container">
-      <button onClick={goBack}>Go back</button>
       {!user && (
         <h1 className="signin-error">
           Please sign in to attempt to make a workspace

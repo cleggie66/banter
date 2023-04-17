@@ -71,6 +71,11 @@
   background: none;
 }
 
+.channel-edit-icon {
+  color: white;
+  margin-left: 5px;
+}
+
 .signed-out-nav-bar {
   background-color: #F6EFE8;
   padding: 1rem;

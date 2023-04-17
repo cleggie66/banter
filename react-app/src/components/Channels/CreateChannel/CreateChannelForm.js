@@ -54,7 +54,7 @@ function CreateChannelForm({ workspaceId }) {
 
   return (
     <div className="channel-form-container">
-      <button onClick={goBack}>Go back</button>
+      {/* <button onClick={goBack}>Go back</button> */}
       {!sessionUser && (
         <h1 className="signin-error">
           Please sign in to attempt to make a workspace
@@ -63,16 +63,17 @@ function CreateChannelForm({ workspaceId }) {
       {sessionUser && (
         <>
           <div className="channel-create-container">
-            <h1 className="title-text">Create a Channel</h1>
+            <h1 id="channel-create-header-main" className="title-text">Create a Channel</h1>
             <p id="banter-quote" className="title-text">
               Just a bit of banter!
             </p>
             <form className="channel-form-form" onSubmit={handleFormSubmit}>
-              <label className="channel-name-label">
-                Name:{" "}
+              <label id='channel-label-item-text' className="channel-name-label">
+                {/* Name:{" "} */}
                 <input
                   className="text-input-channel"
                   type="text"
+                  placeholder="Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
