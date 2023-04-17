@@ -198,13 +198,85 @@ def seed_messages():
         channel_id = 11,
     )
     dm_40 = Message(
-        content="",
+        content="Don't you have to be stupid somewhere else? 🤨",
         user_id = 8,
         channel_id = 13,
     )
-
-
-
+    dm_41 = Message(
+        content="Not until 4",
+        user_id = 1,
+        channel_id = 13,
+    )
+    dm_42 = Message(
+        content="I guess we should open these cans of permanent paint now 😅",
+        user_id = 4,
+        channel_id = 10,
+    )
+    dm_43 = Message(
+        content="careful, spongebob. Careful Spongebob, CAREFULE SPONGEBOB SPONNGEBOOOOOOB",
+        user_id = 5,
+        channel_id = 10,
+    )
+    dm_44 = Message(
+        content="Patrick, the lids already off... ",
+        user_id = 4,
+        channel_id = 10,
+    )
+    dm_45 = Message(
+        content="We did it! We painted the whole house without getting a single drop of FLIPPING FLAPJACKS WHATS THAT 😱😱😱",
+        user_id = 4,
+        channel_id = 10,
+    )
+    dm_46 = Message(
+        content="That's not just a dollar... it's Mr.Krabs most prized possesion. AND WE GOT PAINT ON IT",
+        user_id = 4,
+        channel_id = 10,
+    )
+    dm_46 = Message(
+        content="FORGET what Mr.Krabs said every paint comes off with something",
+        user_id = 5,
+        channel_id = 10,
+    )
+    dm_47 = Message(
+        content="🚰🚰🚰🌊🌊👊👊👊👊🤲🤲🤲🤲",
+        user_id = 4,
+        channel_id = 10,
+    )
+    dm_48 = Message(
+        content="wait spongebob... we Are Not Cavemen... We have technology!",
+        user_id = 5,
+        channel_id = 10,
+    )
+    dm_49 = Message(
+        content="🖥️ ⬆️ ⏬ ⬆️ ⏬ ⬆️ ⏬ ⬆️ ⏬ 💥",
+        user_id = 5,
+        channel_id = 10,
+    )
+    dm_50 = Message(
+        content="You may be an open book, but I'm a bit more complicated than that. ",
+        user_id = 5,
+        channel_id = 14,
+    )
+    dm_51 = Message(
+        content="The inner machinations of my mind are an enigma 💭💭💭🥛⬇️ ",
+        user_id = 5,
+        channel_id = 14,
+    )
+    dm_52 = Message(
+        content="Let me guess, Tiny. A small salad...😑 ",
+        user_id = 7,
+        channel_id = 6,
+    )
+    dm_53 = Message(
+        content="I'll take a double triple bossy deluxe, on a raft, four by four animal style, extra shingles with a shimmy and a squeeze, light axle grease, make it cry, burn it, and let it swim. ",
+        user_id = 10,
+        channel_id = 6,
+    )
+    dm_54 = Message(
+        content="We serve food here, Sir. 😑😑😑😑😑 ",
+        user_id = 7,
+        channel_id = 6,
+    )
    
 
     db.session.add(dm_1)
@@ -246,6 +318,25 @@ def seed_messages():
     db.session.add(dm_37)
     db.session.add(dm_38)
     db.session.add(dm_39)
+    db.session.add(dm_40)
+    db.session.add(dm_41)
+    db.session.add(dm_42)
+    db.session.add(dm_43)
+    db.session.add(dm_44)
+    db.session.add(dm_45)
+    db.session.add(dm_46)
+    db.session.add(dm_47)
+    db.session.add(dm_48)
+    db.session.add(dm_49)
+    db.session.add(dm_50)
+    db.session.add(dm_51)
+    db.session.add(dm_52)
+    db.session.add(dm_53)
+    db.session.add(dm_54)
+
+
+
+
 
 
     

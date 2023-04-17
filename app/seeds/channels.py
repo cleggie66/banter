@@ -14,24 +14,24 @@ def seed_channels():
     dm = Channel(
         name='Brad Instructor', workspace_id=1, is_channel=False, users_in_channels=[demo, brad])
     krusty_krab = Channel(
-        name='Krusty Krab', workspace_id=4, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
+        name='Krusty Krab', workspace_id=2, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
     town_meeting = Channel(
-        name='Town Meeting', workspace_id=4, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
+        name='Town Meeting', workspace_id=2, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
     salty_spitoon = Channel(
-        name='Salty Spitoon', workspace_id=4, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
+        name='Salty Spitoon', workspace_id=2, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
     home_sick = Channel(
-        name='Home Sick', workspace_id=4, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
+        name='Home Sick', workspace_id=2, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
     painting = Channel(
-        name='The Painting', workspace_id=4, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
+        name='The Painting', workspace_id=2, is_channel=True, users_in_channels=[demo,spongebob, patrick, mr_krabs, sandy, squidward, larry, bubble_bass, man_ray])
     wallet = Channel(
-        name='Man Ray', workspace_id=4, is_channel=False, users_in_channels=[demo, man_ray])
+        name='Man Ray', workspace_id=2, is_channel=False, users_in_channels=[demo, man_ray])
     krabby_patty = Channel(
-        name='Squidward Tentacles', workspace_id=4, is_channel=False, users_in_channels=[demo, squidward])
+        name='Squidward Tentacles', workspace_id=2, is_channel=False, users_in_channels=[demo, squidward])
     stupid_somewhere = Channel(
-        name='Sandy Cheeks', workspace_id=4, is_channel=False, users_in_channels=[demo, sandy])
+        name='Sandy Cheeks', workspace_id=2, is_channel=False, users_in_channels=[demo, sandy])
     patrick_dm = Channel(
-        name='Patrick Star', workspace_id=4, is_channel=False, users_in_channels=[demo, patrick])
-
+        name='Patrick Star', workspace_id=2, is_channel=False, users_in_channels=[demo, patrick])
+    
 
 
 
