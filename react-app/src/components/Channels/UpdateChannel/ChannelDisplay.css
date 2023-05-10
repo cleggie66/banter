@@ -9,9 +9,9 @@
 }
 
 .your-channels-container {
-    background-color: rgb(37 37 38);
     width: 20em;
     padding: .5em;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .edit-name-label {
