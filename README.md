@@ -12,15 +12,11 @@
   <img src="https://skillicons.dev/icons?i=react,redux,js,py,flask,webpack,github,postgres,sqlite,babel,vscode,git,html,postman&perline=7"/>
 </p>
 
-
 - Welcome to Banter, a state-of-the-art collaboration tool that takes inspiration from Slack and harnesses the full power of Websockets, React, Redux, Flask, and SQLAlchemy. Crafted by a team of four exceptional developers, Banter sets out to create an effortless and effective platform for team communication and collaboration.
 
 - With Banter, users can experience lightning-fast, real-time messaging capabilities, thanks to the power of Websockets. This feature allows multiple team members to stay up-to-date with each other's progress, leading to a highly productive and engaged team. Moreover, Banter leverages the power of React and Redux to provide swift updates with every re-render, ensuring seamless and uninterrupted communication between users. These cutting-edge technologies also allow for efficient state management and a user-friendly interface.
 
 - As a team collaboration project, we approached Banter with a unified mindset, working closely to pair program, communicate, and plan. We tackled merge conflicts, debugged each other's code, and crafted an innovative design that sets Banter apart. We hope you check it out!
-
-
-
 
 <h2 align="center">Landing Page</h2>
 
@@ -37,21 +33,6 @@
 <h2 align="center">Add Users to Workspaces or Channels</h2>
 
 <img align="center" src="./react-app/src/media/readmeFour.gif" height="450"  width="100%" loop/>
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
 
 <h2 align="center">Banter <a href="https://github.com/cleggie66/banter/wiki/Feature-List">Feature List</a></h2>
 
@@ -74,6 +55,8 @@
 
 <h2 align="center">Connect with Us! </h2>
 
+<p align="center">
+
 <p>
   <img src="./react-app/src/media/steven.png" height="100" width='100'/>
 
@@ -85,35 +68,37 @@
   </a>
 </p>
 
-<p >
+<p>
   <img src="./react-app/src/media/caleb.png" height="100" width='100'/>
 
-<a  href="https://www.linkedin.com/in/caleb-cleghorn-31843b189/">
+<a href="https://www.linkedin.com/in/caleb-cleghorn-31843b189/">
   <img src="https://skillicons.dev/icons?i=linkedin&perline=1" height="50"/>
   </a>
-<a  href="https://github.com/cleggie66">
+<a href="https://github.com/cleggie66">
   <img src="https://skillicons.dev/icons?i=github&perline=1" height="50"/>
   </a>
 </p>
 
-<p >
+<p>
   <img src="./react-app/src/media/arnold.png" height="100" width='100'/>
 
-<a  href="https://www.linkedin.com/in/jake-gularte-a8904b19b/">
+<a href="https://www.linkedin.com/in/jake-gularte-a8904b19b/">
   <img src="https://skillicons.dev/icons?i=linkedin&perline=1" height="50"/>
   </a>
-<a  href="https://github.com/JakeG97">
+<a href="https://github.com/JakeG97">
   <img src="https://skillicons.dev/icons?i=github&perline=1" height="50"/>
   </a>
 </p>
 
-<p >
+<p>
   <img src="./react-app/src/media/spencer.png" height="100" width='100'/>
 
-<a  href="https://www.linkedin.com/in/spencer-wilfahrt-1a4604156/">
+<a href="https://www.linkedin.com/in/spencer-wilfahrt-1a4604156/">
   <img src="https://skillicons.dev/icons?i=linkedin&perline=1" height="50"/>
   </a>
-<a  href="https://github.com/spencerwilf">
+<a href="https://github.com/spencerwilf">
   <img src="https://skillicons.dev/icons?i=github&perline=1" height="50"/>
   </a>
+</p>
+
 </p>
