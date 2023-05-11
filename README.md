@@ -23,7 +23,6 @@
   </picture>
 </p>
 
-
 <h1 align="center"> </h1>
 <p align="center"> 
   <img src="https://skillicons.dev/icons?i=react,redux,js,py,flask,webpack,github,postgres,sqlite,babel,vscode,git,html,postman&perline=7"/>
@@ -70,9 +69,10 @@
 - ⏱️ message timestamps
 - 🌎 user location
 
-<h2 align="center">Connect with Us! </h2>
+<h2 align="center">Connect with Us <img alt="socials" src="https://a.slack-edge.com/6c404/marketing/img/homepage/bold-existing-users/waving-hand.gif" height="25" width="25"/></h2>
 
-<p align="center">
+<!-- Cards on there own lines -->
+<!-- <p align="center">
 
 <p>
   <img src="./react-app/src/media/steven.png" height="100" width='100'/>
@@ -118,4 +118,46 @@
   </a>
 </p>
 
+</p> -->
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/stevenanderson-dev/">
+    <img src="./react-app/src/media/steven.png" alt="Steven Anderson" height="100" width="100" />
+  </a>
+  <a href="https://www.linkedin.com/in/caleb-cleghorn-31843b189/">
+    <img src="./react-app/src/media/caleb.png" alt="Caleb Cleghorn" height="100" width="100" />
+  </a>
+  <a href="https://www.linkedin.com/in/jake-gularte-a8904b19b/">
+    <img src="./react-app/src/media/arnold.png" alt="Jake Gularte" height="100" width="100" />
+  </a>
+  <a href="https://www.linkedin.com/in/spencer-wilfahrt-1a4604156/">
+    <img src="./react-app/src/media/spencer.png" alt="Spencer Wilfahrt" height="100" width="100" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/stevenanderson-dev/">
+    <img src="https://skillicons.dev/icons?i=linkedin&perline=1" alt="Steven Anderson's LinkedIn Profile" height="50" />
+  </a>
+  <a href="https://github.com/StevenBradleyA">
+    <img src="https://skillicons.dev/icons?i=github&perline=1" alt="Steven Anderson's GitHub Profile" height="50" />
+  </a>
+  <a href="https://www.linkedin.com/in/caleb-cleghorn-31843b189/">
+    <img src="https://skillicons.dev/icons?i=linkedin&perline=1" alt="Caleb Cleghorn's LinkedIn Profile" height="50" />
+  </a>
+  <a href="https://github.com/cleggie66">
+    <img src="https://skillicons.dev/icons?i=github&perline=1" alt="Caleb Cleghorn's GitHub Profile" height="50" />
+  </a>
+  <a href="https://www.linkedin.com/in/jake-gularte-a8904b19b/">
+    <img src="https://skillicons.dev/icons?i=linkedin&perline=1" alt="Jake Gularte's LinkedIn Profile" height="50" />
+  </a>
+  <a href="https://github.com/JakeG97">
+    <img src="https://skillicons.dev/icons?i=github&perline=1" alt="Jake Gularte's GitHub Profile" height="50" />
+  </a>
+  <a href="https://www.linkedin.com/in/spencer-wilfahrt-1a4604156/">
+    <img src="https://skillicons.dev/icons?i=linkedin&perline=1" alt="Spencer Wilfahrt's LinkedIn Profile" height="50" />
+  </a>
+  <a href="https://github.com/spencerwilf">
+    <img src="https://skillicons.dev/icons?i=github&perline=1" alt="Spencer Wilfahrt's GitHub Profile" height="50" />
+  </a>
 </p>
