@@ -3,7 +3,16 @@
     color: #4A164B;
     border-radius: 12px;
     text-align: center;
-    padding: 0 10px;
+    /* padding: 0 10px; */
+    width: 80vw;
+}
+
+.workspaces-index-header {
+    background-color: rgb(236, 221, 236);
+        margin: 0;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        padding: 1rem 0;
 }
 
 .workspace-card:hover {

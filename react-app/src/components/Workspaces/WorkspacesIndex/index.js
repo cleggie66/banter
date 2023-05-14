@@ -24,8 +24,8 @@ const WorkspacesIndex = () => {
 
   return (
     <>
-      <h1>Your Workspaces</h1>
       <div className="workspace-list-area">
+        <h3 className="workspaces-index-header">Workspaces for {sessionUser.email}</h3>
         {allJoinedWorkspaces.map((workspace) => (
           <WorkspaceCard key={workspace.id} workspace={workspace} />
         ))}
