@@ -13,15 +13,16 @@ const WorkspaceForm = () => {
   const [icon, setIcon] = useState("");
   const [validationErrors, setValidationErrors] = useState([]);
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  // const [page, setPage] = useState(1)
 
   function isImage(url) {
     const check = /\.(png|jpe?g)$/i;
     return check.test(url);
   }
 
-  const goBack = () => {
-    return history.goBack();
-  };
+  // const goBack = () => {
+  //   return history.goBack();
+  // };
 
   useEffect(() => {
     const errors = [];
@@ -55,16 +56,32 @@ const WorkspaceForm = () => {
     }
   };
 
+
+  // const nextPage = () => {
+  //   setPage((prev) => prev + 1)
+  // }
+
+
   return (
     <div className="workspace-form-container">
+
+      <div className="create-workapce-page-left-area">{name}</div>
+
+
       {!user && (
         <h1 className="signin-error">
           Please sign in to attempt to make a workspace
         </h1>
       )}
+
+
+
       {user && (
+        
+        <div className="create-workspace-page-wrapper">
         <form className="workspace-form-container" onSubmit={handleSubmit}>
           <div className="form-field">
+            <div className="create-workspace-page-1">
             <h1 id="name-title-text" className="title-text">
               What’s the name of your company or team?
             </h1>
@@ -72,6 +89,7 @@ const WorkspaceForm = () => {
               This will be the name of your Banter workspace — choose something
               that your team will recognize.
             </p>
+
             {hasSubmitted &&
               validationErrors.includes(
                 "Please enter a name for your new workspace"
@@ -95,56 +113,75 @@ const WorkspaceForm = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-          </div>
-          <div className="form-field">
-            <h1 id="icon-title-text" className="title-text">
-              How will users recognize your Workspace?
-            </h1>
-            <p id="icon-title-subtext" className="title-text">
-              This will be an image of your Banter workspace — you want
-              something to represent your team.
-            </p>
-            {hasSubmitted &&
-              validationErrors.includes(
-                "Please link an image to set as the icon for your workspace"
-              ) && (
-                <p className="error">
-                  Please link an image to set as the icon for your workspace
+                
+            </div>
+              <div className="form-field">
+                <h1 id="name-title-text" className="title-text">
+                  How will users recognize your Workspace?
+                </h1>
+                <p id="icon-title-subtext" className="title-text">
+                  This will be an image of your Banter workspace — you want
+                  something to represent your team.
                 </p>
-              )}
-            {hasSubmitted &&
-              validationErrors.includes(
-                "Please enter a link that is no larger than 255 characters"
-              ) && (
-                <p className="error">
-                  Please enter a link that is no larger than 255 characters
-                </p>
-              )}
-            {hasSubmitted &&
-              validationErrors.includes(
-                "Please enter a valid image URL ending in .png, .jpg, or .jpeg"
-              ) && (
-                <p className="error">
-                  Please enter a link that is a proper image file (ie. jpg,
-                  jpeg, png, etc.)
-                </p>
-              )}
-            <input
-              className="text-input-workspace"
-              type="text"
-              placeholder="Icon Image Link"
-              value={icon}
-              onChange={(e) => setIcon(e.target.value)}
-            />
-          </div>
-          <div className="create-workspace-button-container">
-            <button className="create-workspace-button" type="submit">
-              Create Workspace
-            </button>
-          </div>
+                {hasSubmitted &&
+                  validationErrors.includes(
+                    "Please link an image to set as the icon for your workspace"
+                  ) && (
+                    <p className="error">
+                      Please link an image to set as the icon for your workspace
+                    </p>
+                  )}
+                {hasSubmitted &&
+                  validationErrors.includes(
+                    "Please enter a link that is no larger than 255 characters"
+                  ) && (
+                    <p className="error">
+                      Please enter a link that is no larger than 255 characters
+                    </p>
+                  )}
+                {hasSubmitted &&
+                  validationErrors.includes(
+                    "Please enter a valid image URL ending in .png, .jpg, or .jpeg"
+                  ) && (
+                    <p className="error">
+                      Please enter a link that is a proper image file (ie. jpg,
+                      jpeg, png, etc.)
+                    </p>
+                  )}
+
+                <input
+                  className="text-input-workspace"
+                  type="text"
+                  placeholder="Icon Image Link"
+                  value={icon}
+                  onChange={(e) => setIcon(e.target.value)}
+                />
+              </div>
+              <div className="create-workspace-button-container">
+      
+              </div>
+              <button className="create-workspace-button" type="submit">
+                Create Workspace
+              </button>
+            </div>
+
+            
+
+            {/* {user && page === 2 && (
+              <>
+              
+              </>
+            )} */}
+
+
+
         </form>
+        </div>
+
+
       )}
     </div>
+    
   );
 };
 

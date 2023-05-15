@@ -1,21 +1,43 @@
 .workspace-form-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin-right: 6em;
+    /* flex-direction: column; */
+    /* align-items: center;
+    justify-content: flex-start; */
+    /* margin-right: 6em; */
     height: 100vh;
-    width: 110%;
-    background-color: #4A164B;
+    /* width: 110%; */
+    position: relative;
+    /* background-color: #4A164B; */
     font-family: 'Noto Sans', sans-serif;
 }
 
 #name-title-text {
-    color: white;
+    /* color: white; */
 }
 
 #name-title-subtext {
-    color: white;
+    /* color: white; */
+}
+
+.create-workapce-page-left-area {
+    background-color: #4A164B;
+    width: 20%;
+
+    left: 0;
+}
+
+.create-workspace-page-wrapper {
+    display: flex;
+    position: relative;
+    width: 70%;
+    margin-left: 5rem;
+    /* margin-top: 1rem; */
+    justify-self: flex-start;
+}
+
+.create-workspace-page-left-area {
+    background-color: #4A164B;
+     width: 30%;
 }
 
 .channel-name-label,
@@ -28,30 +50,41 @@
 }
 
 .text-input-workspace {
-    width: 40%;
-    height: 4em;
+    width: 50vw;
+    height: 3.5em;
     margin-bottom: 1em;
-    border: 2px solid #214357;
-    border-radius: 2em;
-    box-shadow: 0 0 20px #1f3645;
+    border: 1px solid #BBBABB;
+    border-radius: 6px;
+    /* box-shadow: 0 0 20px #1f3645; */
 }
 
 #icon-title-text {
-    color: white;
+    /* color: white; */
 }
 
 #icon-title-subtext {
-    color: white;
+    /* color: white; */
 }
 
 .create-workspace-button {
     background-color: white;
     border-radius: 1em;
     border: none;
-    color: #4A164B;
+    color: white;
     padding: 2em;
     font-family: 'Noto Sans', sans-serif;
     font-weight: bolder;
+    align-self: center;
+    background-color: #4A164B;
+    margin-top: 3rem;
+
+}
+
+
+.create-workspace-button:hover {
+    background-color: rgba(255, 222, 173, 0);
+    border: 1px solid #4A164B;
+    color: #4A164B;
 }
 
 .create-workspace-button-container {
@@ -66,5 +99,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    margin-top: 4rem;
+    /* justify-content: center; */
+    align-items: flex-start;
+}
+
+.create-workspace-page-1 {
+    display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
 }
