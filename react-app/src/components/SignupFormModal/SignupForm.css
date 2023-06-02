@@ -8,3 +8,18 @@
     width: 110%;
     background-color: #1b1d21;
 }
+
+
+#sign-in-button {
+    background-color: #4A164B;
+    font-size: 14px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+
+}
+
+
+#sign-in-button:hover {
+    background-color: #4a164beb;
+    color: white;
+}

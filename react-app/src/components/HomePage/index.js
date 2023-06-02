@@ -204,7 +204,7 @@ const HomePage = () => {
           <WorkspacesIndex />
           <div className="add-a-workspace">
             <img className="signed-in-workspaces-clipart"  src={workspace} alt="" />
-            <p style={{color:'black', marginLeft:'17vw', fontWeight:'700'}}>Want to use Banter with a different team?</p>
+            <p style={{ color:'#4A174B', marginLeft:'17vw', fontWeight:'700'}}>Want to use Banter with a different team?</p>
             <button className="create-new-ws-container-button" onClick={handleCreateWorkspace}>CREATE A NEW WORKSPACE</button>
           </div>
         </div>

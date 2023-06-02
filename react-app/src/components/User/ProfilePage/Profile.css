@@ -20,6 +20,10 @@
   gap: 10px;
 }
 
+.profile-edit-container input {
+  width: 100%;
+}
+
 .edit-section-container {
   display: flex;
   justify-content: space-between;
