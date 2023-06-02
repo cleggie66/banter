@@ -14,6 +14,7 @@ import UserIconModal from "../User/UserIcon";
 import { useModal } from "../../context/Modal";
 import banter from '../../media/banter-logo.png'
 import banterDark from '../../media/banter-logo-dark.png'
+import UserIcon from "./UserModal";
 
 function Navigation() {
   const [homePage, setHomePage] = useState(true);
@@ -33,7 +34,7 @@ function Navigation() {
   const handleLogoutClick = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
-    history.push(``);
+    history.push(`/`);
   };
 
   // const handleUserIconClick = (e) => {
@@ -111,10 +112,12 @@ function Navigation() {
               <img id='signed-in-nav-logo' className="banter-nav-logo" src={banterDark} alt="alt"/>
             </NavLink>
           </div>
-          <div
+          <div>{<UserIcon />}</div>
+          {/* <div
             onClick={onClick}
             className="nav-profile-section"
           >
+            
             <div className="nav-image-container">
               <img
                 src={
@@ -126,7 +129,7 @@ function Navigation() {
                 className="nav-profile-pic"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       )}
       {homePage && profile && sessionUser && (
