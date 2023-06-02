@@ -1,13 +1,17 @@
 .workspace-modal-container{
   display:flex;
   flex-direction: column;
-  width: 18em;
-  height: 17em;
+  width: 40vw;
+  /* height: 60vh; */
+  align-items: center;
 }
 
-/* .workspace-modal-button-container {
-  margin-top: 4em;
-} */
+.workspace-modal-button-container {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 .workspace-icon-modal {
     width: 4em;
@@ -17,6 +21,9 @@
 
 .workspace-modal-name-desc-container{
   gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .workspace-upper-section {
@@ -27,21 +34,30 @@
 
 .workspace-modal-top{
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #workspace-modal-button {
   display: flex;
-  padding: 0;
-  border: none;
-  border-bottom: solid 1px;
-  background: none;
-  width: 86%;
-  justify-content: flex-start;
-  padding: 5px;
-  margin-top: 5px;
-  margin-left: 1em;
-  font-size: large;
+  border: 1px solid #E01D59;
+  /* border-bottom: solid 1px; */
+  background: #E01D59;
+  justify-content: center;
+  padding: .6rem;
+  /* width: 86%; */
+  /* justify-content: flex-start; */
+  /* margin-top: 5px; */
+  /* margin-left: 1em; */
+  /* font-size: large; */
+border-radius: 1em;
+color: white;
+font-family: 'Noto Sans', sans-serif;
+}
 
+#workspace-modal-button:hover {
+  background-color: white;
+  color: #E01D59;
 }
 
 .sign-out-workspace-button {
@@ -49,9 +65,20 @@
   border-radius: 1em;
   border: none;
   color: #ffffff;
-  padding: 1em;
-  margin-left: 4.4em;
-  margin-top: 3em;
+  /* padding: 1em; */
+  /* margin-left: 4.4em;
+  margin-top: 3em; */
+  width: 10.5rem;
+  display: flex;
+  justify-content: center;
+  padding: .7rem;
+  border: 1px solid #E01D59;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.sign-out-workspace-button:hover {
+  color: #E01D59;
+  background-color: white;
 }
 
 #workspace-name{
@@ -79,9 +106,10 @@
   height: 2em;
   margin: 0.5em 0;
   border: 1px solid #DDDDDD;
-  border-radius: 2em;
+  border-radius: 10px;
   color: #ababad;
-  padding: 1em 1em;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 #search-icon {
@@ -91,6 +119,11 @@
 .search-result-container {
   display: flex;
   align-items: center;
+  gap: 20px;
+}
+
+.name-and-pfp-workspace {
+  display: flex;
 }
 
 .workspace-and-icon-menu {

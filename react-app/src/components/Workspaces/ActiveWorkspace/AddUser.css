@@ -1,0 +1,16 @@
+.workspace-add-user-modal-wrapper {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 90%;
+    /* justify-content: space-between; */
+}
+
+
+.add-user-header-and-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}

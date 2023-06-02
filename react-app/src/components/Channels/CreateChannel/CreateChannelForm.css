@@ -26,6 +26,9 @@ align-items: center;
 
 .channel-create-container {
     margin-bottom: 12em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .text-input-channel {
@@ -43,7 +46,7 @@ align-items: center;
     border-radius: 1em;
     border: none;
     padding: 1em;
-    margin-left: 4.5em;
+    /* margin-left: 4.5em; */
     font-family: 'Noto Sans', sans-serif;
 }
 
@@ -52,5 +55,5 @@ align-items: center;
 }
 
 #banter-quote {
-    margin-left: 3em;
+    /* margin-left: 3em; */
 }

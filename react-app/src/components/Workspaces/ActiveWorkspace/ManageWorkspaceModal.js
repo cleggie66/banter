@@ -47,7 +47,7 @@ function ManageWorkspaceModal({ workspace }) {
           className="title-text"
           id="workspace-modal-button"
           onClick={handleAddUsers}
-        >{`Invite People to ${workspace.name} `}</button>
+        >{`Invite user`}</button>
 
         <button
           className="sign-out-workspace-button"
