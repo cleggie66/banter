@@ -209,6 +209,7 @@
         left: 0;
         top: 0;
         width: 20%;
+        max-width: 210px;
   }
 
 
