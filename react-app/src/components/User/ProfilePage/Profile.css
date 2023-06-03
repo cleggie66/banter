@@ -26,6 +26,11 @@
   padding: 1rem;
 }
 
+.signup-edit-inner-form {
+  width: 17rem;
+    padding: 1rem;
+}
+
 
 #edit-profile-modal-wrapper {
   width: 40vw;
