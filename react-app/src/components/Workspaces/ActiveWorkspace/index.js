@@ -40,6 +40,7 @@ const ActiveWorkspace = ({ workspaceId }) => {
       <FontAwesomeIcon icon={faCircleChevronDown}/>
 
     </button>
+    {/* <div>Explore channels</div> */}
     </div>
 );
 };

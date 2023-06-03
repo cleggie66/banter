@@ -43,7 +43,6 @@ function UserIcon({ user }) {
     history.push(`/profile/${sessionUser.id}`);
   };
 
-  console.log(sessionUser)
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);

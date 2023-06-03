@@ -43,7 +43,7 @@
     font-weight: bold;
     margin-left: 1.7rem;
     font-family: 'Noto Sans', sans-serif;
-    border-bottom: solid 1px #515151;
+    /* border-bottom: solid 1px #515151; */
 }
 
 .fa-circle-chevron-down {

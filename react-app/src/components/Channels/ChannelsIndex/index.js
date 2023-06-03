@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getWorkspaceByIdThunk } from "../../../store/workspace";
@@ -7,6 +7,7 @@ import ChannelCard from "./ChannelCard";
 import DirectMessageCard from "./DirectMessageCard";
 import { FontAwesomeIcon,  } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import AddChannelModal from "../CreateChannel/CreateChannelModal";
 
 import {
   faCaretDown,
@@ -27,6 +28,7 @@ const ChannelsIndex = ({ workspaceId }) => {
 
   const sessionUser = useSelector((state) => state.session.user);
   const activeChannel = useSelector((state) => state.activeChannel);
+  const activeWorkspace = useSelector((state) => state.activeWorkspace.id);
 
   const [openChannelMenu, setOpenChannelMenu] = useState(true);
   const [openMessageMenu, setOpenMessageMenu] = useState(false);
@@ -70,7 +72,7 @@ const ChannelsIndex = ({ workspaceId }) => {
 
   const handleAddChannel = (e) => {
     e.preventDefault();
-    history.push(`/dashboard/${workspaceId}/newchannel`);
+    setModalContent(<AddChannelModal workspaceId={Number(workspaceId)}/>)
   };
 
   function AnimatedCaret({ open, onClick, className }) {
@@ -99,8 +101,57 @@ const ChannelsIndex = ({ workspaceId }) => {
     setModalContent(<CreateDmModal />);
   };
 
+
+  const [showMenu, setShowMenu] = useState(false);
+  const ulRef = useRef();
+
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = (e) => {
+      if (!ulRef.current?.contains(e.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+  console.log(activeChannel)
+
+
+  const ulClassName = "new-dropdown" + (showMenu ? "" : " hidden");
+  const closeMenu = () => setShowMenu(false);
+
+
+  const setManageChannel = () => {
+    history.push(`/dashboard/${Number(activeWorkspace)}/manage`)
+  }
+
+
+  const createChannel = () => {
+    setModalContent(<AddChannelModal workspaceId={activeWorkspace}/>)
+    closeMenu()
+  }
+
   return (
     <>
+      <div ref={ulRef} className={ulClassName}>
+        <div style={{ borderBottom:'1px solid #DCDCDC'}}>
+        <div className="manage-channels-menu-click" onClick={setManageChannel}>Manage channels</div>
+        </div>
+        <div>
+        <div onClick={createChannel} className="create-channel-div-label" style={{padding:'1rem', fontSize:'14px', borderBottomRightRadius:'8px', borderBottomLeftRadius:'8px', cursor:'pointer'}}>Create channel</div>
+        </div>
+      </div>
       <div className="channel-dropdown-container">
         <div className="channel-dropdown-heading-container">
           <AnimatedCaret
@@ -109,10 +160,12 @@ const ChannelsIndex = ({ workspaceId }) => {
             className="caret-down"
           />
           <div className="channel-heading">
-            <button className="channels-button-modal-sidebar">Channels</button>
+            <button onClick={openMenu}
+            className="channels-button-modal-sidebar">Channels</button>
           </div>
+        
         </div>
-
+        
         <div
           className={`channel-dropdown-container ${
             openChannelMenu ? "active" : "inactive"
@@ -136,11 +189,11 @@ const ChannelsIndex = ({ workspaceId }) => {
             </p>
           </div>
         </div>
-        <OpenModalButton
+        {/* <OpenModalButton
               className="channels-button-modal-sidebar manage"
               buttonText="Manage Channels"
               modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
-            />
+            /> */}
       </div>
 
       <div className="channel-dropdown-heading-container">

@@ -18,6 +18,52 @@
     color: white;
 }
 
+.create-channel-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+
+#create-channel-submit-button {
+    width: 100%;
+    height: 3rem;
+    background-color: #4a154b;
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#create-channel-submit-button:hover {
+    background-color: #4a154bea;
+    cursor: pointer;
+}
+
+#create-channel-input-field {
+    width: 50%;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #b6b6b6;
+    width: 10.7rem;
+    color: black;
+}
+
+
+.create-channel-modal-wrapper-2 {
+    display: flex;
+    width: 50vw;
+    /* height: 20vh; */
+    /* height: 80%; */
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
+
+}
+
 #channel-label-item-text {
 display: flex;
 flex-direction: column;
