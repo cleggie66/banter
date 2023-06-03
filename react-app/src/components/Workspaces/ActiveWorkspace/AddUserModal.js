@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SearchResults from "./SearchResults";
+import './AddUser.css'
 
 function AddUserModal() {
   const [username, setUsername] = useState("");
@@ -17,8 +18,10 @@ function AddUserModal() {
   // want to refactor to be able to add by email later
 
   return (
-    <>
+    <div className="workspace-add-user-modal-wrapper">
+      <div className="add-user-header-and-bar">
       <h2 className="title-text">Add people to your workspace!</h2>
+      <div>
       <input
         className="search-input-login"
         type="search"
@@ -31,13 +34,15 @@ function AddUserModal() {
         className="title-text"
         icon={faMagnifyingGlass}
       />
-      <h3 className="title-text">All Users</h3>
+      </div>
+      </div>
+      {/* <h3 className="title-text">All Users</h3> */}
       <div className="title-text">
         {searchResult.map((user) => (
           <SearchResults key={user.id} user={user} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

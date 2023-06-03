@@ -35,8 +35,8 @@ function ManageWorkspaceModal({ workspace }) {
           </div>
           <div className="status-container">
             <button className="status-button-2">
-              <p className="title-text">
-                A single place for your team and your work
+              <p style={{fontFamily: 'Noto Sans, sans-serif'}} className="title-text">
+                A single place for your team and your work.
               </p>
             </button>
           </div>
@@ -47,7 +47,7 @@ function ManageWorkspaceModal({ workspace }) {
           className="title-text"
           id="workspace-modal-button"
           onClick={handleAddUsers}
-        >{`Invite People to ${workspace.name} `}</button>
+        >{`Invite user`}</button>
 
         <button
           className="sign-out-workspace-button"

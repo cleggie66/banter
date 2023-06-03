@@ -17,23 +17,24 @@ button {
 
 input[type="text"] {
     /* background-color: #000000; */
-    padding-left: 2em;
+    /* padding-left: 2em; */
     color: #ababad;
 }
 
 input[type="text"]::placeholder {
     color: #ababad;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 input[type="password"] {
     /* background-color: #000000; */
-    padding-left: 2em;
+    /* padding-left: 2em; */
     color: #ababad;
 }
 
 input[type="password"]::placeholder {
     /* background-color: #222529; */
-    padding-left: 2em;
+    /* padding-left: 2em; */
     color: #ababad;
 }
 
@@ -49,4 +50,6 @@ input[type="password"]::placeholder {
     position: absolute;
     font-family: 'Noto Sans', sans-serif;
     /* padding: 0 1rem; */
+    max-width: 480px;
+    min-width: 300px
 }

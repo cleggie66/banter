@@ -28,8 +28,9 @@ function AddUserToChannelModal() {
   );
 
   return (
-    <>
+    <div className="workspace-add-user-modal-wrapper">
       <h2 className="title-text">Add people to your channel!</h2>
+      <div>
       <input
         className="search-input-login"
         type="search"
@@ -42,13 +43,14 @@ function AddUserToChannelModal() {
         className="title-text"
         icon={faMagnifyingGlass}
       />
-      <h3 className="title-text">All Users</h3>
+      </div>
+      {/* <h3 className="title-text">All Users</h3> */}
       <div className="title-text">
         {searchResultsCurrentWorkspace.map((user) => (
           <UsersInWorkspaceSearchResults key={user.id} user={user} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

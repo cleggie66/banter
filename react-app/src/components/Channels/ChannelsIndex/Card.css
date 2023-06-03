@@ -16,12 +16,18 @@
 }
 
 .channel-active {
-    background-color: rgb(45 100 158)
+    background-color: rgb(45 100 158);
+    color: white;
+    /* padding: 2px 0 */
+}
+
+.channel-active h2 {
+    color: white;
 }
 
 .channel-list-names {
     color: #afa0b0;
-    font-size: 16px;
+    font-size: 14.5px;
     font-weight: normal;
     margin: 5px;
     /* overflow: hidden;

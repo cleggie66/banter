@@ -12,16 +12,18 @@
 .left-bar {
     margin-top: 8vh;
     background-color: #3F0F40;
-    height: 100vh;
-    width: 20%;
-    padding-right: 4rem;
-    border-right: solid 1px #515151;
-    border-top: solid 1px #515151;
+    /* height: 100vh; */
+    /* padding-right: 4rem; */
+    /* border-right: solid 1px #515151; */
+    /* border-top: solid 1px #515151; */
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'Noto Sans', sans-serif;
     color: white;
+    align-items: flex-start;
+    width: 300px;
+    z-index: 1;
 }
 
 .right-bar {
@@ -42,7 +44,7 @@
     font-weight: bold;
     margin-left: 1.7rem;
     font-family: 'Noto Sans', sans-serif;
-    border-bottom: solid 1px #515151;
+    /* border-bottom: solid 1px #515151; */
 }
 
 .fa-circle-chevron-down {
@@ -67,10 +69,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 99;
 }
 
 .active-channel-header-text {
-    margin-left: 2rem
+    margin-left: 2rem;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
 }
 
 .add-to-channel-user-icon {

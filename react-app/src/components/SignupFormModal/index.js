@@ -47,8 +47,8 @@ function SignupFormModal() {
 
   return (
     <div className="new-signup-form-container">
-      <h1 className="title-text">Sign Up</h1>
-      <form className="profile-edit-container" onSubmit={handleSubmit}>
+      <h1 style={{marginBottom:'0', textAlign:'center'}} className="title-text">Sign up for Banter</h1>
+      <form className="signup-edit-inner-form" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -141,7 +141,7 @@ function SignupFormModal() {
             onChange={(e) => setAboutMe(e.target.value)}
           />
         </label>
-        <button className="profile-edit-submit-button" type="submit">Sign Up</button>
+        <button id="sign-in-button" style={{width:'100%', borderRadius:'5px', marginTop:'20px'}} className="profile-edit-submit-button" type="submit">Sign Up</button>
       </form>
     </div>
   );

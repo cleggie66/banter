@@ -27,7 +27,7 @@ function UserIconModal() {
   };
 
   return (
-    <>
+    <div className="user-info-modal-wrapper">
       <div className="user-image-container-modal">
         <div className="image-container-2">
           <img
@@ -43,16 +43,17 @@ function UserIconModal() {
         </div>
         <div className="user-modal-name-status-container">
           <div id="profile-names" className="title-text">
-            {sessionUser.first_name}
-            {sessionUser.last_name}
+            {`${sessionUser.first_name} ${sessionUser.last_name}`}
+            {/* {sessionUser.last_name} */}
           </div>
-          <div className="status-container">
+          {/* <div className="status-container">
             <button className="status-button" onClick={handleStatusClick}>
               🟢{" "}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
+      <div className="user-info-modal-info-wrapper">
       <button className="sign-out-workspace-button" onClick={handleProfileClick}>
         Manage My Profile
       </button>
@@ -60,7 +61,8 @@ function UserIconModal() {
         className="sign-out-workspace-button"
         onClick={handleSignOutWorkspace}
       >{`Sign out of Workspace`}</button>
-    </>
+    </div>
+    </div>
   );
 }
 

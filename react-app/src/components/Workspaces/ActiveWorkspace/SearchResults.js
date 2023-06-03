@@ -31,16 +31,18 @@ const SearchResults = ({ user }) => {
     <>
       {" "}
       <div className="search-result-container">
+        <div className="name-and-pfp-workspace">
         <div className="image-container">
           <img className="message-profile-pic" src={user.profile_picture} alt="profile"/>
         </div>
         <h3>{user.username}</h3>
+        </div>
         {sessionUser.id !== user.id && !userInCurrentWorkspace.length && (
           <button
             className="profile-edit-submit-button"
             onClick={handleAddUserClick}
           >
-            add user
+            Add user
           </button>
         )}
       </div>

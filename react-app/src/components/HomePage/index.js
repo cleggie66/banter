@@ -20,6 +20,7 @@ import python from "../../media/python.png";
 import js from "../../media/js.png";
 import css from "../../media/css.png";
 import html from "../../media/html.png";
+import workspace from '../../media/add-workspace.png'
 
 const HomePage = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -29,6 +30,11 @@ const HomePage = () => {
   const onClick = () => {
     dispatch(login("demo@aa.io", "password"));
     history.push("/");
+  };
+
+  const handleCreateWorkspace = (e) => {
+    e.preventDefault();
+    history.push(`/create-workspace`);
   };
 
   return (
@@ -196,8 +202,14 @@ const HomePage = () => {
           </div>
 
           <WorkspacesIndex />
+          <div className="add-a-workspace">
+            <img className="signed-in-workspaces-clipart"  src={workspace} alt="" />
+            <p style={{ color:'#4A174B', marginLeft:'17vw', fontWeight:'700'}}>Want to use Banter with a different team?</p>
+            <button className="create-new-ws-container-button" onClick={handleCreateWorkspace}>CREATE A NEW WORKSPACE</button>
+          </div>
         </div>
       )}
+
     </div>
   );
 };

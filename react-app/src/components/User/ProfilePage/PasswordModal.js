@@ -58,34 +58,34 @@ function EditPasswordModal({ sessionUser }) {
   };
 
   return (
-    <div className="profile-edit-container">
-      <h1 className="title-text">Update Your Password</h1>
+    <div id="edit-profile-modal-wrapper" className="profile-edit-container">
+      <h1  className="title-text">Update Your Password</h1>
       <form className="profile-edit-container" onSubmit={handleFormSubmit}>
-        <label id="password" className="title-text">
-          Password:{" "}
+
           <input
             className="text-input-login"
             type="text"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </label>
+   
         {hasSubmitted && errors.password && (
           <p className="errors">{errors.password}</p>
         )}
-        <label className="title-text">
-          Confirm Password:{" "}
+
           <input
             className="text-input-login"
             type="text"
+            placeholder="Confirm password"
             value={confirmPassword}
             onChange={(e) => setCofirmPassword(e.target.value)}
           />
-        </label>
+
         {hasSubmitted && errors.confirmPassword && (
           <p className="errors">{errors.confirmPassword}</p>
         )}
-        <p></p>
+   
         <input
           className="profile-edit-submit-button"
           type="submit"

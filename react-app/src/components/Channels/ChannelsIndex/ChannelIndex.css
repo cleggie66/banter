@@ -1,7 +1,7 @@
 .channel-dropdown-container {
   color: rgb(0, 0, 0);
   background-color: #3F0F40;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.391);
+  /* border-bottom: solid 1px rgba(255, 255, 255, 0.391); */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -16,6 +16,41 @@
   visibility: visible;
   transform: translateY(0);
   transition: 300ms ease;
+  margin-top: .5rem;
+}
+
+.new-dropdown {
+  position: absolute;
+  left: 40px;
+  top: 170px;
+  background-color: #F8F8F8;
+  z-index: 999;
+  color: black;
+  border-radius: 8px;
+  width: 300px;
+  /* padding: 1rem; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px; */
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, .25);
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.manage-channels-menu-click {
+  padding: 1rem;
+  font-size: 14px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+}
+
+.manage-channels-menu-click:hover {
+  background-color: #dedede;
+}
+
+
+.create-channel-div-label:hover {
+  background-color: #dedede;
 }
 
 .channel-dropdown-container.inactive {
@@ -55,7 +90,7 @@
 
 .channel-heading-2:hover {
   /* background-color: rgb(205, 202, 202); */
-  width: 7em;
+  /* width: 7em; */
 }
 
 .channels-button-modal-sidebar.manage {
@@ -75,10 +110,16 @@
   font-weight: normal;
   margin-left: .5em;
   padding: 0;
+  border-radius: 8px;
   border: none;
   background: none;
   color: rgb(173, 155, 155);
   font-family: 'Noto Sans', sans-serif;
+}
+
+
+.channels-button-modal-sidebar:hover {
+  color: white;
 }
 
 .add-channel-button {
