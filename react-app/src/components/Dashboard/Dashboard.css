@@ -69,6 +69,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 99;
 }
 
 .active-channel-header-text {

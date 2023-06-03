@@ -105,14 +105,15 @@ background-color: #e01d57e2;
 }
 
 .search-input-login {
-  width: 22em;
+  /* width: 22em; */
   height: 2em;
   margin: 0.5em 0;
   border: 1px solid #DDDDDD;
   border-radius: 10px;
-  color: #ababad;
+  color: black;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 #search-icon {

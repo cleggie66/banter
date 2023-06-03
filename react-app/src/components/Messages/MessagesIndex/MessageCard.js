@@ -75,6 +75,7 @@ const MessageCard = ({
             <div onClick={(e) => handleDeleteMessage(e, message)} className="message-edit-menu-items">Delete message</div>
           </div>
         </div>
+    
         <div className="message-content">
           <div className="image-container">
             <img

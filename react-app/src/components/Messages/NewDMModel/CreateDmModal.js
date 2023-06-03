@@ -35,13 +35,13 @@ function CreateDmModal() {
   );
 
   return (
-    <>
+    <div className="direct-message-wrapper-container">
       <div className="new-message-container">
-        <h1 className="title-text">Enter a username to send a DM</h1>
+        {/* <h1 className="title-text">Enter a username to send a DM</h1> */}
 
-        <h2 className="title-text">Add people to your channel!</h2>
-        <label>
-          To:
+        <h2 style={{marginBottom:'2rem'}} className="title-text">Start direct message</h2>
+
+<div>
           <input
             className="search-input-login"
             type="search"
@@ -49,13 +49,14 @@ function CreateDmModal() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-        </label>
+
         <FontAwesomeIcon
           id="search-icon"
           className="title-text"
           icon={faMagnifyingGlass}
         />
-        <h3 className="title-text">All Users</h3>
+        </div>
+        {/* <h3 className="title-text">All Users</h3> */}
         <div className="title-text">
           {searchResultsCurrentWorkspace.map((user) => (
             <DirectMessageUsersSearchResults
@@ -66,7 +67,7 @@ function CreateDmModal() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

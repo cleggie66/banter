@@ -56,16 +56,15 @@ function EditMessageModal({ message, activeChannelId, socket }) {
     <div className="edit-message-modal-container">
       <h1 className="title-text">Edit Your Message</h1>
       <form className="profile-edit-container" onSubmit={handleFormSubmit}>
-        <label id='edit-message-header' className="title-text">
-          Text:{" "}
+
           <textarea
             className="edit-message-textarea"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required
           />
-        </label>
-        <p></p>
+ 
+
         {hasSubmitted && errors.content && (
           <p className="errors">{errors.text}</p>
         )}

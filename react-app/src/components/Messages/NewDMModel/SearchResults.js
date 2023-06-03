@@ -69,7 +69,7 @@ const DirectMessageUsersSearchResults = ({ user, workspaceId }) => {
             className="profile-edit-submit-button"
             onClick={handleAddUserClick}
           >
-            message user
+            Message user
           </button>
         )}
       </div>
