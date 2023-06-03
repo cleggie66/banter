@@ -24,16 +24,23 @@
 
 .home-page-main-section-logged-out-image {
     width: 100%;
-    height: 60vh;
+    height: 40vh;
     margin-left: 2rem;
     border-radius: 12px;
     object-fit: contain;
 }
 
+.banter-logged-out-header {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+}
+
 .home-page-button-div {
     display: flex;
     flex-direction: column;
-    max-width: 20rem;
+    /* max-width: 20rem; */
+    margin-top: 2rem;
 }
 
 .home-page-demo-login {
@@ -45,7 +52,7 @@
     border-radius: 8px;
     font-weight: 600;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 
 .home-page-demo-login:hover {
@@ -112,6 +119,11 @@
     white-space: nowrap;
 }
 
+.team-card-socials-wrapper {
+    display: flex;
+    gap: 15px;
+}
+
 .meet-the-team-home a {
     text-decoration: none;
     color: #4A164B;
@@ -142,6 +154,10 @@
 
 .home-page-logged-out-left {
     margin-right: 2rem;
+}
+
+.home-page-logged-out-left button {
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .carousel-container {
