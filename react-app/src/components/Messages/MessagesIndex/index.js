@@ -17,7 +17,10 @@ import "./MessagesIndex.css";
 import AddUserToChannelModal from "./AddUserModal";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 import { getAllChannelMessagesThunk } from "../../../store/message";
+import UpdateChannel from "../../Channels/UpdateChannel";
 let socket;
+
+
 
 function MessagesIndex({ workspaceId }) {
   const { setModalContent } = useModal();
@@ -166,9 +169,15 @@ function MessagesIndex({ workspaceId }) {
   return (
     <div className="message-dashboard-section">
 
+{/* {!activeChannel.id && (
+  <div className="manage-channels-show-index">
+  <UpdateChannel/>
+        </div>
+)} */}
+
         {activeChannel.id && (
           <div className="current-channel-name-bar">
-            <h2 className="active-channel-header-text" >#{allChannels[activeChannel.id].name}</h2>
+            <h2 className="active-channel-header-text" ># {allChannels[activeChannel.id].name}</h2>
 
             <FontAwesomeIcon
             onClick={handleAddUserToChannel}

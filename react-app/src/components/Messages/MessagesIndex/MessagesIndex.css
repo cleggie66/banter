@@ -15,6 +15,11 @@
     margin-top: 6rem;
 }
 
+
+.manage-channels-show-index {
+    height: 100%;
+}
+
 .message {
     display: flex;
     flex-direction: row;
@@ -34,7 +39,11 @@
 } */
 
 .message:hover {
-    background-color: rgb(214, 215, 216);
+    background-color: rgba(231, 231, 231, 0.319);
+}
+
+.message.active {
+    background-color: rgba(231, 231, 231, 0.319);
 }
 
 .message-content {
@@ -82,9 +91,51 @@
     background-color: rgba(27, 29, 33, 0);
     color: #3F0F40;
     margin: 10px;
-    border: 1px solid #3F0F40;
+    border: none;
     border-radius: 6px;
-    font-family: 'Noto Sans', sans-serif;;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.message-dropdown {
+    position: absolute;
+    color: black;
+    z-index: 100;
+    background-color: #F8F8F8;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, .25);
+    /* padding: 1rem; */
+    border-radius: 8px;
+    right: 30px;
+    bottom: 50px;
+    width: 200px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.message-edit-menu-items {
+    padding: 1rem;
+}
+
+#message-update-wrap-1:hover {
+    background-color:#DEDEDE;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    cursor: pointer;
+
+}
+
+#message-update-wrap-2:hover {
+    background-color: #DEDEDE;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    cursor: pointer;
+
+}
+
+#form-1 {
+    width: 100%;
+}
+
+#message-update-wrap-2 {
+    color: red;
 }
 
 .message  button {

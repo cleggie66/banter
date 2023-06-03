@@ -220,6 +220,7 @@
     border-radius: 8px;
     padding: .6rem;
     font-weight: 700;
+    font-family: 'Noto Sans', sans-serif;
   }
 
   .create-new-ws-container-button:hover {

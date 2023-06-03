@@ -49,6 +49,8 @@ function AddChannelModal({workspaceId}) {
 
             history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
             
+        } else {
+            return alert('Please provide a channel name')
         }
         setHasSubmitted(true);
         closeModal()
@@ -64,7 +66,7 @@ function AddChannelModal({workspaceId}) {
             )}
 
             <div className="create-channel-modal-wrapper-2">
-                <h2>Create a channel</h2>
+                <h2 style={{marginBottom:'4rem'}}>Create a channel</h2>
                 <form className="create-channel-form-wrapper" onSubmit={handleFormSubmit}>
                
                         {/* Name:{" "} */}

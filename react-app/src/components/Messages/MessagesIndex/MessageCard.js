@@ -2,7 +2,11 @@ import EditMessageModal from "../EditMessageModal";
 import OpenModalButton from "../../OpenModalButton";
 import { useDispatch } from "react-redux";
 import { getAllChannelMessagesThunk } from "../../../store/message";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useState, useRef, useEffect } from "react";
+import { useModal } from "../../../context/Modal";
 
 const MessageCard = ({
   message,
@@ -16,9 +20,61 @@ const MessageCard = ({
   if (!message.message_owner) {
     dispatch(getAllChannelMessagesThunk(activeChannel.id));
   }
+
+  const {setModalContent} = useModal()
+  const [showMenu, setShowMenu] = useState(false);
+  const ulRef = useRef();
+  const history = useHistory();
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+
+  const openEdit = () => {
+    setModalContent(<EditMessageModal
+      message={message}
+      activeChannelId={activeChannel.id}
+      handleEdit={handleEdit}
+      socket={socket}
+    />)
+    closeMenu()
+  }
+
+
+
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = (e) => {
+      if (!ulRef.current.contains(e.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("click", closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+
+  const ulClassName = "message-dropdown" + (showMenu ? "" : " hidden");
+  const closeMenu = () => setShowMenu(false);
+
   return (
     <div>
-      <div key={message.id} className="message">
+      
+      <div style={{position:'relative'}} key={message.id} className={showMenu ? 'message active': 'message'}>
+        <div className={ulClassName} ref={ulRef}>
+          <div onClick={openEdit} id="message-update-wrap-1" style={{ borderBottom: '1px solid #DCDCDC' }}>
+            <div className="message-edit-menu-items">Edit message</div>
+          </div>
+          <div id="message-update-wrap-2">
+            <div onClick={(e) => handleDeleteMessage(e, message)} className="message-edit-menu-items">Delete message</div>
+          </div>
+        </div>
         <div className="message-content">
           <div className="image-container">
             <img
@@ -40,8 +96,11 @@ const MessageCard = ({
         </div>
         {(sessionUser.id === message.message_owner.id ||
           sessionUser.id === message.user_id) && (
+
           <div className="message-buttons">
-            <OpenModalButton
+        
+            <button onClick={openMenu}><i class="fa-solid fa-ellipsis"></i></button>
+            {/* <OpenModalButton
               buttonText="Edit"
               modalComponent={
                 <EditMessageModal
@@ -51,10 +110,12 @@ const MessageCard = ({
                   socket={socket}
                 />
               }
-            />
-            <button onClick={(e) => handleDeleteMessage(e, message)}>
+            /> */}
+
+            
+            {/* <button onClick={(e) => handleDeleteMessage(e, message)}>
               Delete
-            </button>
+            </button> */}
           </div>
         )}
       </div>

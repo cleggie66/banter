@@ -16,7 +16,13 @@
 }
 
 .channel-active {
-    background-color: rgb(45 100 158)
+    background-color: rgb(45 100 158);
+    color: white;
+    /* padding: 2px 0 */
+}
+
+.channel-active h2 {
+    color: white;
 }
 
 .channel-list-names {

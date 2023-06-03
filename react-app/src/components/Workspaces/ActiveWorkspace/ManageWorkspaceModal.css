@@ -61,8 +61,7 @@ font-family: 'Noto Sans', sans-serif;
 }
 
 #workspace-modal-button:hover {
-  background-color: white;
-  color: #E01D59;
+background: #e01d57dd;
 }
 
 .sign-out-workspace-button {
@@ -82,8 +81,7 @@ font-family: 'Noto Sans', sans-serif;
 }
 
 .sign-out-workspace-button:hover {
-  color: #E01D59;
-  background-color: white;
+background-color: #e01d57e2;
 }
 
 #workspace-name{

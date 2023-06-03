@@ -161,7 +161,7 @@ const WorkspaceForm = () => {
       
               </div>
               <button className="create-workspace-button" type="submit">
-                Create Workspace
+                Create workspace
               </button>
             </div>
 

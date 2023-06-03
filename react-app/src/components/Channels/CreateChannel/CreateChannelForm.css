@@ -55,9 +55,9 @@
 
 .create-channel-modal-wrapper-2 {
     display: flex;
-    width: 50vw;
+    width: 30vw;
     /* height: 20vh; */
-    /* height: 80%; */
+    height: 70%;
     flex-direction: column;
     align-items: center;
     /* justify-content: space-between; */

@@ -22,17 +22,17 @@ const UpdateChannel = () => {
   const { workspaceId } = useParams();
 
   useEffect(() => {
-    dispatch(getWorkspaceByIdThunk(workspaceId));
+    dispatch(getWorkspaceByIdThunk(Number(workspaceId)));
   }, [dispatch, workspaceId]);
 
   return (
     <div className="your-channels-container">
-      <h1 id="channels-title" className="title-text">Your Channels </h1>
+      <h1 id="channels-title" className="title-text">Explore channels </h1>
       {correctChannels.map((channel) => (
         <ChannelDisplay
           key={channel.id}
           channel={channel}
-          workspaceId={workspaceId}
+          workspaceId={Number(workspaceId)}
         />
       ))}
     </div>

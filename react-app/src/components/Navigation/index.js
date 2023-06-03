@@ -112,7 +112,7 @@ function Navigation() {
               <img id='signed-in-nav-logo' className="banter-nav-logo" src={banterDark} alt="alt"/>
             </NavLink>
           </div>
-          <div>{<UserIcon />}</div>
+          <div style={{marginRight:'1rem'}}>{<UserIcon />}</div>
           {/* <div
             onClick={onClick}
             className="nav-profile-section"
