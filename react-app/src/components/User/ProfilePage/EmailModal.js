@@ -54,12 +54,11 @@ function EditEmailModal({ sessionUser }) {
   };
 
   return (
-    <div className="profile-edit-container">
-      <h1 className="title-text">Update Your Email</h1>
+    <div id="edit-profile-modal-wrapper" className="profile-edit-container">
+      <h1 id="edit-modal-title-text-heading" className="title-text">Update Your Email</h1>
       <form className="profile-edit-container" onSubmit={handleFormSubmit}>
         <div className="profile-email-label">
-          <label className="title-text">
-            Email:{" "}
+     
             <input
               className="text-input-login"
               type="text"
@@ -67,7 +66,7 @@ function EditEmailModal({ sessionUser }) {
               placeholder={sessionUser.email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </label>
+       
         </div>
         {hasSubmitted && errors.email && (
           <p className="errors">{errors.email}</p>

@@ -28,9 +28,9 @@ function App() {
           <Route path="/dashboard/:workspaceId/manage">
             <UpdateChannel />
           </Route>
-          <Route path="/dashboard/:workspaceId/newchannel">
+          {/* <Route path="/dashboard/:workspaceId/newchannel">
             <CreateChannel />
-          </Route>
+          </Route> */}
           <Route path="/dashboard/:workspaceId">
             <Dashboard />
           </Route>

@@ -4,7 +4,7 @@ import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { useModal } from "../../../context/Modal";
 import ManageWorkspaceModal from "./ManageWorkspaceModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faCircleChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faAngleDown, faCircleChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "../../Dashboard/Dashboard.css";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 
@@ -37,7 +37,7 @@ const ActiveWorkspace = ({ workspaceId }) => {
       <span className="workspace-and-icon-menu">
       {`${newActiveWorkspace.name}`}
       </span>
-      <FontAwesomeIcon icon={faCircleChevronDown}/>
+      <FontAwesomeIcon style={{fontSize:'14px'}} icon={faChevronDown}/>
 
     </button>
     {/* <div>Explore channels</div> */}

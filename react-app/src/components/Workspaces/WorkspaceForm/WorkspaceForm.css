@@ -4,11 +4,12 @@
     /* align-items: center;
     justify-content: flex-start; */
     /* margin-right: 6em; */
-    height: 100vh;
+    /* height: 100vh; */
     /* width: 110%; */
     position: relative;
     /* background-color: #4A164B; */
     font-family: 'Noto Sans', sans-serif;
+    justify-content: center;
 }
 
 #name-title-text {
@@ -29,10 +30,10 @@
 .create-workspace-page-wrapper {
     display: flex;
     position: relative;
-    width: 70%;
-    margin-left: 5rem;
+    /* width: 70%; */
+    /* margin-left: 5rem; */
     /* margin-top: 1rem; */
-    justify-self: flex-start;
+    justify-content: center;
 }
 
 .create-workspace-page-left-area {
@@ -51,6 +52,7 @@
 
 .text-input-workspace {
     width: 50vw;
+    /* max-width: 50vw; */
     height: 3.5em;
     margin-bottom: 1em;
     border: 1px solid #BBBABB;
@@ -82,9 +84,7 @@
 
 
 .create-workspace-button:hover {
-    background-color: rgba(255, 222, 173, 0);
-    border: 1px solid #4A164B;
-    color: #4A164B;
+    background-color: #4a164bec
 }
 
 .create-workspace-button-container {

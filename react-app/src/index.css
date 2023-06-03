@@ -50,4 +50,6 @@ input[type="password"]::placeholder {
     position: absolute;
     font-family: 'Noto Sans', sans-serif;
     /* padding: 0 1rem; */
+    max-width: 480px;
+    min-width: 300px
 }

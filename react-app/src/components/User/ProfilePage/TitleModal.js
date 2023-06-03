@@ -54,11 +54,10 @@ function EditTitleModal({ sessionUser }) {
   };
 
   return (
-    <div className="profile-edit-container">
-      <h1 className="title-text">Update Your Title</h1>
+    <div id="edit-profile-modal-wrapper" className="profile-edit-container">
+      <h1  className="title-text">Update Your Title</h1>
       <form className="profile-edit-container" onSubmit={handleFormSubmit}>
-        <label className="title-text">
-          Title:{" "}
+ 
           <input
             className="text-input-login"
             type="text"
@@ -66,7 +65,7 @@ function EditTitleModal({ sessionUser }) {
             placeholder={sessionUser.title}
             onChange={(e) => setTitle(e.target.value)}
           />
-        </label>
+        
         {hasSubmitted && errors.title && (
           <p className="errors">{errors.title}</p>
         )}

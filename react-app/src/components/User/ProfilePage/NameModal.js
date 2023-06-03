@@ -58,11 +58,11 @@ function EditNameModal({ sessionUser }) {
   };
 
   return (
-    <div className="profile-edit-container">
-      <h1 className="title-text">Update Your First and Last Name </h1>
+    <div id="edit-profile-modal-wrapper" className="profile-edit-container">
+      <h1  className="title-text">Update your name </h1>
       <form className="profile-edit-container" onSubmit={handleFormSubmit}>
-        <label className="title-text">
-          First Name:{" "}
+      
+    
           <input
             className="text-input-login"
             type="text"
@@ -70,12 +70,11 @@ function EditNameModal({ sessionUser }) {
             placeholder={sessionUser.first_name}
             onChange={(e) => setFirstName(e.target.value)}
           />
-        </label>
+
         {hasSubmitted && errors.firstName && (
           <p className="errors">{errors.firstName}</p>
         )}
-        <label id="last-name" className="title-text">
-          Last Name:{" "}
+
           <input
             className="text-input-login"
             type="text"
@@ -83,11 +82,11 @@ function EditNameModal({ sessionUser }) {
             placeholder={sessionUser.last_name}
             onChange={(e) => setLastName(e.target.value)}
           />
-        </label>
+      
         {hasSubmitted && errors.lastName && (
           <p className="errors">{errors.lastName}</p>
         )}
-        <p></p>
+   
         <input
           className="profile-edit-submit-button"
           type="submit"

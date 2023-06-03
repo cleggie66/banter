@@ -50,12 +50,10 @@ function EditAboutMeModal({ sessionUser }) {
   };
 
   return (
-    <div className="profile-edit-container">
-      <h1 className="title-text">Tell others about yourself!</h1>
+    <div id="edit-profile-modal-wrapper" className="profile-edit-container">
+      <h1  className="title-text">Edit bio</h1>
       <form className="profile-edit-container" onSubmit={handleFormSubmit}>
-        <label className="title-text">
-          About Me:{" "}
-          <p></p>
+
           <textarea
             className="text-input-about-me"
             type="text"
@@ -63,7 +61,7 @@ function EditAboutMeModal({ sessionUser }) {
             placeholder={sessionUser.about_me}
             onChange={(e) => setAboutMe(e.target.value)}
           />
-        </label>
+        
         {hasSubmitted && errors.aboutMe && (
           <p className="errors">{errors.aboutMe}</p>
         )}

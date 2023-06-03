@@ -47,7 +47,7 @@ function SignupFormModal() {
 
   return (
     <div className="new-signup-form-container">
-      <h1 style={{marginBottom:'0'}} className="title-text">Sign up for Banter</h1>
+      <h1 style={{marginBottom:'0', textAlign:'center'}} className="title-text">Sign up for Banter</h1>
       <form className="profile-edit-container" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (

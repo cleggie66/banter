@@ -66,9 +66,10 @@ const ProfilePage = () => {
   return (
     <div className="profile-page-container">
       <h1 id="your-profile" className="title-text">
-        Your Profile 💁‍♀️{" "}
+        Your Profile{" "}
       </h1>
-      <div className="profile-picture-container">
+      <div>
+      <div className="edit-section-container">
         <img
           src={
             sessionUser.profile_picture === null
@@ -110,9 +111,7 @@ const ProfilePage = () => {
 
       <div className="edit-section-container">
         <div id="profile-titles" className="title-text">
-          {`First name:  ${sessionUser.first_name}`}
-          <br />
-          {`Last name:  ${sessionUser.last_name}`}
+            {`Name:  ${sessionUser.first_name} ${sessionUser.last_name}`}
         </div>
         <FontAwesomeIcon
           icon={faUserPen}
@@ -156,6 +155,7 @@ const ProfilePage = () => {
       <div className="delete-user-container">
         <div className="no-delete-button">{deleteButton}</div>
       </div>
+    </div>
     </div>
   );
 };

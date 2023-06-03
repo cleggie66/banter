@@ -65,7 +65,7 @@ const WorkspaceForm = () => {
   return (
     <div className="workspace-form-container">
 
-      <div className="create-workapce-page-left-area"></div>
+      {/* <div className="create-workapce-page-left-area"></div> */}
 
 
       {!user && (

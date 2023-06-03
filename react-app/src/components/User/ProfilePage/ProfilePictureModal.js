@@ -39,22 +39,20 @@ function EditProfilePictureModal({ sessionUser }) {
   };
 
   return (
-    <>
-      <h1 className="title-text">Update Your Profile Picture</h1>
+    <div id="edit-profile-modal-wrapper">
+      <h1 id="edit-modal-title-text-heading" className="title-text">Update profile picture</h1>
       <form className="profile-edit-container" onSubmit={handleFormSubmit}>
         <div className="profile-picture-label">
-          <label className="title-text">
-            Profile Picture:{" "}
             <input
               className="text-input-login"
               type="text"
               value={profilePicture}
-              placeholder="image url here"
+              placeholder="Image URL"
               onChange={(e) => setProfilePicture(e.target.value)}
             />
-          </label>
+  
         </div>
-        <p></p>
+    
         <input
           className="profile-edit-submit-button"
           type="submit"
@@ -62,7 +60,7 @@ function EditProfilePictureModal({ sessionUser }) {
           disabled={hasSubmitted && Object.values(errors).length > 0}
         />
       </form>
-    </>
+    </div>
   );
 }
 

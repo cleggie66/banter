@@ -1,7 +1,7 @@
 .channel-dropdown-container {
   color: rgb(0, 0, 0);
   background-color: #3F0F40;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.391);
+  /* border-bottom: solid 1px rgba(255, 255, 255, 0.391); */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -16,6 +16,7 @@
   visibility: visible;
   transform: translateY(0);
   transition: 300ms ease;
+  margin-top: .5rem;
 }
 
 .new-dropdown {
@@ -89,7 +90,7 @@
 
 .channel-heading-2:hover {
   /* background-color: rgb(205, 202, 202); */
-  width: 7em;
+  /* width: 7em; */
 }
 
 .channels-button-modal-sidebar.manage {

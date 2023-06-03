@@ -29,6 +29,11 @@
 .workspace-upper-section {
   display: flex;
   padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  border-top: 1px solid #512653;
+  border-bottom: 1px solid #512653;
+  /* margin-top: 1rem; */
 }
 
 
