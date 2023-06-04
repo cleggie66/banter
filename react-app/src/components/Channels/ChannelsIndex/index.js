@@ -133,7 +133,7 @@ const ChannelsIndex = ({ workspaceId }) => {
 
 
   const setManageChannel = () => {
-    history.push(`/dashboard/${Number(activeWorkspace)}/explore`)
+    history.push(`/dashboard/${activeWorkspace}/explore`)
     dispatch(clearActiveChannel())
     closeMenu()
   }
