@@ -13,6 +13,12 @@
   gap: 20px;
 }
 
+.explore-channels-button-section.active {
+  background-color: #2C649E;
+  color: white;
+  border-radius: 10px;
+}
+
 .workspace-icon-modal {
     width: 4em;
     height: 4em;
@@ -114,6 +120,24 @@ background-color: #e01d57e2;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   font-family: 'Noto Sans', sans-serif;
+}
+
+.explore-channels-button-section {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-size: 16px;
+  color: rgb(173, 155, 155);
+      /* border-bottom: 1px solid #512653; */
+      width: 70%;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      padding: .5rem
+}
+
+.explore-channels-button-section:hover {
+  color: white;
+  cursor: pointer;
 }
 
 #search-icon {

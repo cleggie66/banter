@@ -1,16 +1,100 @@
 .channel-display-container {
     margin-left: 2em;
     border-bottom: solid 1px;
-    padding: 0.5em
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
+
+.manage-channel-dropdown {
+    color: black;
+    position: absolute;
+    right: 20px;
+    /* bottom: 200px; */
+    background-color: #F7F7F7;
+        box-shadow: 1px 1px 8px rgba(0, 0, 0, .25);
+        width: 200px;
+        border-radius: 5px;
+}
+
+
+#channel-edit-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#manage-channel-input-bar {
+    width: 80%;
+    padding: .5rem;
+}
+
+.edit-channel-container {
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    padding: 0 3rem;
+}
+
+#manage-channel-menu-item {
+    padding: 1rem;
+}
+
+#manage-channel-menu-item-wrap-1:hover {
+    background-color: #dddddd98;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+#manage-channel-menu-item-wrap-2:hover {
+    background-color: #dddddd98;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#manage-channel-menu-item:hover {
+    cursor: pointer;
+}
+
+#manage-channel-popup {
+    background: none;
+    border: none;
+    align-self: center;
+    margin-right: 1.5rem;
+    font-size: 16px;
+}
+
+#channel-item-display-wrapper {
+    border-bottom: 1px solid #E5E5E5;
+}
+
+#channel-item-menu-name {
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    
+}
+
+
 #channels-title {
-    margin-left: .3em;
+    margin-left: .7em;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    
+}
+
+
+#manage-channels-user-wrapper {
+border-bottom: 1px solid #E8E8E8;
+    width: 100%;
 }
 
 .your-channels-container {
-    width: 20em;
-    padding: .5em;
+    /* width: 20em; */
+    /* padding: .5em; */
     font-family: 'Noto Sans', sans-serif;
 }
 

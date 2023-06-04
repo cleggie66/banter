@@ -4,6 +4,7 @@ import { useModal } from "../../../context/Modal";
 import { deleteChannelThunk } from "../../../store/channel";
 import { useHistory } from "react-router-dom";
 import { refreshUser } from "../../../store/session";
+import './DeleteChannel.css'
 
 function DeleteChannelModal({ workspaceId, channel }) {
   const history = useHistory();
@@ -16,7 +17,7 @@ function DeleteChannelModal({ workspaceId, channel }) {
     await dispatch(deleteChannelThunk(channel.id));
     dispatch(refreshUser(sessionUser.id));
     closeModal();
-    history.push(`/dashboard/${workspaceId}/${channel.id}`);
+    // history.push(`/dashboard/${workspaceId}/${channel.id}`);
   };
 
   const handleKeepChannel = (e) => {
@@ -25,18 +26,20 @@ function DeleteChannelModal({ workspaceId, channel }) {
   };
 
   return (
-    <div>
-      <h1 className="title-text">Confirm Delete 😟</h1>
-      <h3 className="title-text">Are you sure you want to delete this channel? </h3>
+    <div className="confirm-delete-wrapper-button">
+      <h2 style={{marginBottom:'4rem'}} className="title-text">Delete channel?</h2>
+
+<div className="delete-channel-wrapper-div">
       <button
         className="yes-delete-yeet"
         onClick={handleDeleteChannel}
-      >{`Yes 👌`}</button>
+      >{`Confirm`}</button>
 
       <button
         className="no-delete"
         onClick={handleKeepChannel}
-      >{`No ❌`}</button>
+      >{`Cancel`}</button>
+    </div>
     </div>
   );
 }
