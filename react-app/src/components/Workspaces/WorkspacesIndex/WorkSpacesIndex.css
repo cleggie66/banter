@@ -5,6 +5,8 @@
     text-align: center;
     /* padding: 0 10px; */
     width: 80vw;
+    max-width: 1050px;
+    border: 4px solid #6F456F;
 }
 
 .workspaces-index-header {
