@@ -41,37 +41,36 @@ function EditChannelModal({ workspaceId, channel }) {
       );
       dispatch(refreshUser(sessionUser.id));
       closeModal();
-      history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
+      // history.push(`/dashboard/${workspaceId}/${newChannel.id}`);
     }
     setHasSubmitted(true);
   };
 
   return (
     <div className="edit-channel-container">
-      <h1 className="title-text">Manage Your Channel</h1>
-      <h3 className="title-text">so, weary traveler... Looking to edit this channel eh??🧙🧙🧙</h3>
-      <form className="edit-submit-form"onSubmit={handleFormSubmit}>
-        <label className="edit-name-label">
-          Name:{" "}
+      <h1 style={{marginBottom:'4rem'}} className="title-text">Manage channel</h1>
+      <form id="channel-edit-wrapper" className="edit-submit-form"onSubmit={handleFormSubmit}>
+
           <input
             className="text-input-login"
+            id="manage-channel-input-bar"
             type="text"
+            placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
-        </label>
-        <p></p>
+  
         {hasSubmitted && errors.name && <p className="errors">{errors.name}</p>}
-        <div className="edit-submit-container">
+       
           <input
             id="edit-channel-submit-button"
             className="edit-channel-button"
             type="submit"
-            value={"Update Channel"}
+            value={"Save"}
             disabled={hasSubmitted && Object.values(errors).length > 0}
           />
-        </div>
+    
       </form>
     </div>
   );

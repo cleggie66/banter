@@ -1,7 +1,7 @@
 
 .yes-delete-yeet,
 .no-delete,
-.edit-channel-button,
+/* .edit-channel-button, */
 .delete-channel-button {
     background-color: #4a154b;
     border-radius: 1em;
@@ -13,12 +13,22 @@
 } 
 
 #edit-channel-submit-button {
-    width: 10em;
+    /* width: 80%; */
+    /* justify-self: center; */
+    background-color: #4a154b;
+    color: white;
+    border: none;
+    width: 80%;
+    font-family: 'Noto Sans', sans-serif;
+    height: 2rem;
+    font-weight: 600;
+    border-radius: 5px;
 }
+
 
 #edit-channel-submit-button:hover {
     cursor: pointer;
-    color: #EBB22E
+    background-color: #4a154bec;
 }
 
 

@@ -1,0 +1,21 @@
+.confirm-delete-wrapper-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+}
+
+.delete-channel-wrapper-div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.delete-channel-wrapper-div button {
+        font-family: 'Noto Sans', sans-serif;
+        font-weight: 600;
+}
+
+.delete-channel-wrapper-div button:hover {
+    background: #4a164bec;
+}

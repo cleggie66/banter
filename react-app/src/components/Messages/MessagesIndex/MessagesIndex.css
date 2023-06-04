@@ -20,6 +20,7 @@
 
 .manage-channels-show-index {
     height: 100%;
+    overflow: auto;
 }
 
 .message {

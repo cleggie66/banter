@@ -18,6 +18,7 @@ import AddUserToChannelModal from "./AddUserModal";
 import { loadActiveWorkspace } from "../../../store/activeWorkspace";
 import { getAllChannelMessagesThunk } from "../../../store/message";
 import UpdateChannel from "../../Channels/UpdateChannel";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 let socket;
 
 
@@ -33,6 +34,7 @@ function MessagesIndex({ workspaceId }) {
   const [messages, setMessages] = useState(allMessages);
   const [editMessage, setEditMessage] = useState(null);
   const user = useSelector((state) => state.session.user);
+  const {pathname} = useLocation()
 
   const allCurrentChannelMessages = allMessages.filter(
     (e) => activeChannel.id === e.channel_id
@@ -167,13 +169,23 @@ function MessagesIndex({ workspaceId }) {
   };
 
   return (
-    <div className="message-dashboard-section">
 
-{/* {!activeChannel.id && (
+    <>
+
+    {pathname.includes('explore') && (
+      <>
+          <div className="message-dashboard-section">
   <div className="manage-channels-show-index">
   <UpdateChannel/>
         </div>
-)} */}
+          </div>
+        </>
+)}
+   
+
+      {!pathname.includes('explore') && <div className="message-dashboard-section">
+
+
 
         {activeChannel.id && (
           <div className="current-channel-name-bar">
@@ -228,7 +240,8 @@ function MessagesIndex({ workspaceId }) {
             </button>
     </div>
       )}
-    </div>
+    </div>}
+    </>
   );
 }
 

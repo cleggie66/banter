@@ -5,6 +5,7 @@
     flex-direction: row;
     align-items: center;
     cursor: pointer;
+    padding: .2rem 0;
 }
 
 .channel-list-item:hover {
