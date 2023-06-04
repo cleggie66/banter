@@ -36,7 +36,7 @@ const UpdateChannel = () => {
   return (
     <div className="your-channels-container">
       <div id="manage-channels-user-wrapper">
-      <h1 id="channels-title" className="title-text">{workspaceName} channels </h1>
+      <h1 id="channels-title" className="title-text">Explore {workspaceName} channels </h1>
       </div>
       {correctChannels.length ? correctChannels.map((channel) => (
         <ChannelDisplay
