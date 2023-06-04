@@ -28,6 +28,21 @@ man_ray = User(
 reggie = User(
     username='reggie',  password='password', email='reggie@aa.io', first_name="Reggie", last_name="Fish", profile_picture="https://i.ytimg.com/vi/vySI1ld25bs/hqdefault.jpg", title="Bouncer", about_me="To get in the salty spitoon, you gotta have muscles on your muscles") 
 
+jim = User(username='CDR', password='password', email='CDR@nasa.org', first_name="Jim", last_name="Lovell", profile_picture="https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Jim-Lovell.Apollo-13.webp", title="Commander", about_me="As the commander of Apollo 13, I am Jim Lovell, a resilient astronaut who faced adversity in space and led my crew through a harrowing mission to safely return to Earth.") 
+jack = User(username='CMP', password='password', email='CMP@nasa.org', first_name="Jack", last_name="Swigert", profile_picture="https://dejareviewer.files.wordpress.com/2014/11/kevin-bacon-in-apollo-13.jpg", title="Command Module Pilot", about_me="I am Jack Swigert, the command module pilot of Apollo 13, who stepped in as a last-minute replacement and played a critical role in troubleshooting the spacecraft's issues during the mission.") 
+fred = User(username='LMP', password='password', email='LMP@nasa.org', first_name="Fred", last_name="Haise", profile_picture="https://i0.wp.com/cms.sofrep.com/wp-content/uploads/2017/02/Apollo13_bluray.jpg?fit=580%2C273&ssl=1&w=800", title="Lunar Module Pilot", about_me=" I am Fred Haise, the lunar module pilot for Apollo 13, who experienced the disappointment of not landing on the moon but remained dedicated to the mission's success and the safe return of the crew.") 
+gene = User(username='F', password='password', email='F@nasa.org', first_name="Gene", last_name="Kranz", profile_picture="https://forcefedscifi.com/wp-content/uploads/2019/07/Ed-Harris-Apollo-13.png", title="Lead Flight Director", about_me="I am Gene Kranz, the flight director for Apollo 13, leading the team at mission control in Houston and orchestrating a remarkable rescue mission to bring the astronauts back home.") 
+joe = User(username='CAP COMM', password='password', email='CC@nasa.org', first_name="Joe", last_name="Kerwin", profile_picture="https://pbs.twimg.com/media/Eujh-w8XIAExwRP.jpg", title="CAP COMM", about_me="As one of the flight controllers during the Apollo 13 mission, I'm a key member of the team that worked tirelessly to troubleshoot and find solutions for the spacecraft's critical situation, ultimately ensuring the safe return of the crew.") 
+ken = User(username='LCC', password='password', email='LCC@nasa.org', first_name="Ken", last_name="Mattingly", profile_picture="https://jonathondsvendsen.files.wordpress.com/2015/06/mattingly.jpg", title="Launch Control Center", about_me="As the original command module pilot for Apollo 13, I am Ken Mattingly, who was grounded due to exposure to measles but played a crucial role in helping solve the mission's technical challenges from Earth.") 
+
+tony = User(username='tony', password='password', email='tony@badabing.io', first_name="Tony", last_name="Soprano", profile_picture="https://lifethroughalensdotblog.files.wordpress.com/2018/04/james-gandolfini1.jpeg?w=600", title="Boss", about_me="a family man and a respected mob boss trying to navigate the complexities of the criminal underworld while dealing with my own personal struggles.") 
+chrissy = User(username='chrissy', password='password', email='chrissy@badabing.io', first_name="Christopher", last_name="Moltisanti", profile_picture="https://upload.wikimedia.org/wikipedia/en/f/ff/Christopher_Moltisanti.jpg", title="Made man", about_me="Tony's nephew and a rising member of the family, trying to prove myself and find success in the mob world while battling my own demons.") 
+melfi = User(username='melfi', password='password', email='melfi@badabing.io', first_name="Jennifer", last_name="Melfi", profile_picture="https://telltaletv.com/wp-content/uploads/2022/08/5b654515-a0e0-4b79-b608-62d450b7066f_screenshot.jpeg", title="Therapist", about_me="Tony's psychiatrist, tasked with the challenge of treating a mobster while grappling with the ethical complexities of my profession.") 
+
+
+
+# reggie = User(username='', password='password', email='@aa.io', first_name="", last_name="", profile_picture="", title="", about_me="") 
+
 
 def seed_users():
     db.session.add(demo)
@@ -42,6 +57,18 @@ def seed_users():
     db.session.add(bubble_bass)
     db.session.add(man_ray)
     db.session.add(reggie)
+
+    db.session.add(jim) # 13
+    db.session.add(jack)
+    db.session.add(fred)
+    db.session.add(gene)
+    db.session.add(joe)
+    db.session.add(ken)
+
+    db.session.add(tony) #19
+    db.session.add(chrissy)
+    db.session.add(melfi)
+
     db.session.commit()
 
 
