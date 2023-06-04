@@ -8,6 +8,7 @@ import DirectMessageCard from "./DirectMessageCard";
 import { FontAwesomeIcon,  } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import AddChannelModal from "../CreateChannel/CreateChannelModal";
+import { clearActiveChannel } from "../../../store/activeChannel";
 
 import {
   faCaretDown,
@@ -125,7 +126,6 @@ const ChannelsIndex = ({ workspaceId }) => {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  console.log(activeChannel)
 
 
   const ulClassName = "new-dropdown" + (showMenu ? "" : " hidden");
@@ -133,7 +133,9 @@ const ChannelsIndex = ({ workspaceId }) => {
 
 
   const setManageChannel = () => {
-    history.push(`/dashboard/${Number(activeWorkspace)}/manage`)
+    history.push(`/dashboard/${Number(activeWorkspace)}/explore`)
+    dispatch(clearActiveChannel())
+    closeMenu()
   }
 
 
