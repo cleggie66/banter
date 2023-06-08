@@ -39,6 +39,14 @@ tony = User(username='tony', password='password', email='tony@badabing.io', firs
 chrissy = User(username='chrissy', password='password', email='chrissy@badabing.io', first_name="Christopher", last_name="Moltisanti", profile_picture="https://upload.wikimedia.org/wikipedia/en/f/ff/Christopher_Moltisanti.jpg", title="Made man", about_me="Tony's nephew and a rising member of the family, trying to prove myself and find success in the mob world while battling my own demons.") 
 melfi = User(username='melfi', password='password', email='melfi@badabing.io', first_name="Jennifer", last_name="Melfi", profile_picture="https://telltaletv.com/wp-content/uploads/2022/08/5b654515-a0e0-4b79-b608-62d450b7066f_screenshot.jpeg", title="Therapist", about_me="Tony's psychiatrist, tasked with the challenge of treating a mobster while grappling with the ethical complexities of my profession.") 
 
+tom = User(username='TomWambsgans', password='password', email='TomWambsgans@waystar.co', first_name="Tom", last_name="Wambsgans", profile_picture="https://static.hbo.com/content/dam/hbodata/series/succession/character/tom-wambsgans/tom-wambsgans-s1-1920.jpg", title="", about_me="") 
+greg = User(username='GregHirsch', password='password', email='GregHirsch@waystar.co', first_name="Greg", last_name="Hirsch", profile_picture="https://tvline.com/wp-content/uploads/2021/11/succession-season-3-episode-4-greg.jpg?w=619", title="", about_me="") 
+logan = User(username='LoganRoy', password='password', email='LoganRoy@waystar.co', first_name="Logan", last_name="Roy", profile_picture="https://www.pinkvilla.com/images/2023-04/684888629_logan-roy-succession-season-4_1280*720.jpg", title="", about_me="") 
+kendall = User(username='KendallRoy', password='password', email='KendallRoy@waystar.co', first_name="Kendall", last_name="Roy", profile_picture="https://media.gq-magazine.co.uk/photos/5da09d57d8907900082b7e10/master/pass/20191011-Succession-03.jpg", title="", about_me="") 
+shiv = User(username='ShivRoy', password='password', email='ShivRoy@waystar.co', first_name="Shiv", last_name="Roy", profile_picture="https://akns-images.eonline.com/eol_images/Entire_Site/2020628/rs_1200x1200-200728155419-1200-succession-9.ct.072820.jpg?fit=around%7C1080:540&output-quality=90&crop=1080:540;center,top", title="", about_me="") 
+connor = User(username='ConnorRoy', password='password', email='ConnorRoy@waystar.co', first_name="Connor", last_name="Roy", profile_picture="https://static.hbo.com/2021-10/connor-roy-s1-1920.jpg", title="", about_me="") 
+roman = User(username='RomanRoy', password='password', email='RomanRoy@waystar.co', first_name="Roman", last_name="Roy", profile_picture="https://hips.hearstapps.com/hmg-prod/images/succession-roman-1-64010771d6fe0.jpg?crop=0.491xw:1.00xh;0.210xw,0&resize=1200:*", title="", about_me="") 
+
 
 
 # reggie = User(username='', password='password', email='@aa.io', first_name="", last_name="", profile_picture="", title="", about_me="") 
@@ -48,7 +56,8 @@ def seed_users():
     db.session.add(demo)
     db.session.add(alec)
     db.session.add(brad)
-    db.session.add(spongebob)
+
+    db.session.add(spongebob) #4
     db.session.add(patrick)
     db.session.add(mr_krabs)
     db.session.add(squidward)
@@ -68,6 +77,14 @@ def seed_users():
     db.session.add(tony) #19
     db.session.add(chrissy)
     db.session.add(melfi)
+
+    db.session.add(tom) #22
+    db.session.add(greg)
+    db.session.add(logan)
+    db.session.add(kendall)
+    db.session.add(shiv)
+    db.session.add(connor)
+    db.session.add(roman) #28
 
     db.session.commit()
 
