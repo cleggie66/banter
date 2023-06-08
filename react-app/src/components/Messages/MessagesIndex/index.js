@@ -9,7 +9,7 @@ import "../MessageForm/MessageForm.css";
 import { useState } from "react";
 import { createMessageThunk } from "../../../store/message";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane, faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
+import { faPaperPlane, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { io } from "socket.io-client";
 import { deleteMessageThunk } from "../../../store/message";
 import { updateMessageThunk } from "../../../store/message";
@@ -193,7 +193,7 @@ function MessagesIndex({ workspaceId }) {
 
             <FontAwesomeIcon
             onClick={handleAddUserToChannel}
-            icon={faUsersRectangle}
+            icon={faUsers}
             className="add-to-channel-user-icon"
             />
 

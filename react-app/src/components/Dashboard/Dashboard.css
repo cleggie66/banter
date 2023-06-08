@@ -81,6 +81,9 @@
 
 .add-to-channel-user-icon {
     margin-right: 2rem;
+    color: #3F0F40;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .current-channel-name-text {
