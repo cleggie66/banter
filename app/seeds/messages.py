@@ -70,52 +70,52 @@ def seed_messages():
     dm_14 = Message(
         content="Welcome to the Salty Spitoon. How tough are you??? 💪",
         user_id = 12,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_15 = Message(
         content="how tough am i...HOW TOUGH AM I?? ",
         user_id = 1,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_16 = Message(
         content="I had a 🥣 of nails for breakfast this morning",
         user_id = 1,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_17 = Message(
         content="huhuhuyeah so??? 🤨 ",
         user_id = 12,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_18 = Message(
         content="without any milk...🙅‍♀️🥛",
         user_id = 1,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_19 = Message(
         content="😨😨😨 right this way, sir",
         user_id = 12,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_20 = Message(
         content="Welcome to the Salty Spitoon. How tough are you??? 💪",
         user_id = 12,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_21 = Message(
         content="how tough am i...HOW TOUGH AM I?? ",
         user_id = 8,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_22 = Message(
         content="😡😡😡 🫴 💖   ⬆️ 🔄 ⬇️ 💔 ",
         user_id = 8,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_23 = Message(
         content="🤕🤕😭😭 right this way, sir",
         user_id = 12,
-        channel_id = 5,
+        channel_id = 3,
     )
     dm_24 = Message(
         content="Excuse me sir, but I do believe you've dropped your wallet",
@@ -213,7 +213,7 @@ def seed_messages():
         channel_id = 5,
     )
     dm_43 = Message(
-        content="careful, spongebob. Careful Spongebob, CAREFULE SPONGEBOB SPONNGEBOOOOOOB",
+        content="careful, spongebob. Careful Spongebob, CAREFUL SPONGEBOB SPONNGEBOOOOOOB",
         user_id = 5,
         channel_id = 5,
     )
@@ -372,6 +372,9 @@ def seed_messages():
         user_id = 9,
         channel_id = 2,
     )
+
+
+
     dm_74 = Message(
         content="Okay, Jack. The battery charge has been terminated on the battery B.",
         user_id = 14,
@@ -768,212 +771,212 @@ def seed_messages():
     dm_151 = Message(
         user_id = 22,
         content="So I hear you've made an enormous faux pas and everyone's laughing up their sleeves about your date.",
-        channel_id=15
+        channel_id=16
     )
 
     dm_152 = Message(
         user_id = 23,
         content="What? Why?",
-        channel_id=15
+        channel_id=16
     )
 
     dm_153 = Message(
         user_id = 22,
         content="Why? Because she brought a ludicrously capacious bag.",
-        channel_id=15
+        channel_id=16
     )
 
     dm_154 = Message(
         user_id = 23,
         content="What's...",
-        channel_id=15
+        channel_id=16
     )
 
     dm_155 = Message(
         user_id = 22,
         content="What's even in there, huh? Flat shoes for the subway? Her lunch pail? I mean, Greg, it's monstrous. it's gargantuan. You could take it camping. You could slide it across the floor after a bank job.",
-        channel_id=15
+        channel_id=16
     )
 
     dm_156 = Message(
         user_id = 23,
         content="Well, whatever.",
-        channel_id=15
+        channel_id=16
     )
 
     dm_157 = Message(
         user_id = 22,
         content="She's used all the display towels in the bathroom and now they're sopping wet. She's gabbling about herself and posting on social media, she's asking people personal questions, and she's wolfing all the canapés like a famished warthog.",
-        channel_id=15
+        channel_id=16
     )
 
     dm_158 = Message(
         user_id = 23,
         content="People are overreacting, okay? She brought a normal sort of handbag.",
-        channel_id=15
+        channel_id=16
     )
         
     dm_159 = Message(
         user_id = 22,
         content="You are a laughingstock in polite society. You'll never go to the opera again. ",
-        channel_id=15
+        channel_id=16
     )
 
 
     dm_160 = Message(
         user_id = 26,
         content="Not wanting to put a damper on Rhea's celebration or anything, but it's time we end her",
-        channel_id=16,
+        channel_id=17,
     )
         
     dm_161 = Message(
         user_id = 25,
         content="Okay",
-        channel_id=16,
+        channel_id=17,
     )
     dm_162 = Message(
         user_id = 27,
         content="Nice. Way to ease us in, sis.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_153 = Message(
         user_id = 28,
         content="We're there nibbles at this event? I was expecting nibbles.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_164 = Message(
         user_id = 26,
         content="What I'm thinking is we just-we tell him direct. We just tell him, all of us, we won't have it.",
-        channel_id=16,
+        channel_id=17,
     )
         
     dm_165 = Message(
         user_id = 27,
         content="Should I maybe take the floor? Would Rhea really be the worst thing in the world? Or does a woman from the outside actually make sense right now?",
-        channel_id=16,
+        channel_id=17,
     )
         
     dm_166 = Message(
         user_id = 26,
         content="All right, well-okay she got to you.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_167 = Message(
         user_id = 27,
         content="I'm fighting on two fronts and I may have to make a request to dad. No, okay, I'm just... ",
-        channel_id=16,
+        channel_id=17,
     )
         
     dm_168 = Message(
         user_id = 26,
         content="This is crap, Ken?",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_169 = Message(
         user_id = 25,
         content="Well... I-I just-I think maybe you over played your hand.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_170 = Message(
         user_id = 26,
         content="You're backing her too, rebounder? How'd she get to you? You think you'll be given another shot at some point? Doubt it, Ken. And Roman? You? No. She just thinks your a looser but maybe you can't see because you're too much of a looser.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_171 = Message(
         user_id = 28,
         content="Ah, well, I mean... oh screw you. I know more about this company than any of you, dad and Gerry think so; they both care about management training.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_172 = Message(
         user_id = 26,
         content="It's corporate daycare.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_173 = Message(
         user_id = 26,
         content="Don't laugh at that, that was not a good comeback. Good to know you're taking this serious.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_174 = Message(
         user_id = 28,
         content="I do.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_175 = Message(
         user_id = 25,
         content="It's transparent. You know, Rhea's who dad wants. Clearly, so...",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_176 = Message(
         user_id = 28,
         content="In case you want it in writing.",
-        channel_id=16,
+        channel_id=17,
     )
         
     dm_177 = Message(
         user_id = 27,
         content="Full disclosure I'm starting to like her.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_178 = Message(
         user_id = 26,
         content="Aww, he likes her. Yeah, this is why you don't hatch a plan with Connor, the first pancake.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_179 = Message(
         user_id = 27,
         content="First pancake. Okay. Thank you.",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_180 = Message(
         user_id = 27,
         content="You're a brat. And none of you have been through what I've been through, so just...",
-        channel_id=16,
+        channel_id=17,
     )
 
     dm_181 = Message(
         user_id = 28,
         content="Aw, my mommy got send to the booby hatch and now I'm sad.",
-        channel_id=16,
+        channel_id=17,
     )
 
 
     dm_182 = Message(
         user_id = 24,
         content="Tell Sandy you're out. Tell Stewy the thing looks awful. Go to the desert, dry yourself out. You have not been yourself.",
-        channel_id=17
+        channel_id=18
     )
 
     dm_183 = Message(
         user_id = 25,
         content="There's nothing... I don't, I don't think, um... I wasn't there, so...",
-        channel_id=17,
+        channel_id=18,
     )
 
     dm_184 = Message(
         user_id = 24,
         content="This could be the defining moment of your life. It'd eat everything. A rich kid kills a boy, you'd never be anything else. Or, y'know, it could be what it should be: nothing at all. A sad, little detail at a lovely wedding where father and son are reconciled.",
-        channel_id=17,
+        channel_id=18,
     )
 
     dm_185 = Message(
         user_id = 24,
         content="You're my boy. You're number one boy.",
-        channel_id=17,
+        channel_id=18,
     )
 
 

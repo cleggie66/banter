@@ -41,9 +41,9 @@ def seed_workspaces():
 
     db.session.add(nasa)
     db.session.add(badabing)
-    db.session.add(appacademy)
     db.session.add(bikini_bottom)
-    db.session.add(work)
+    # db.session.add(appacademy)
+    # db.session.add(work)
     db.session.commit()
 
 

@@ -149,11 +149,11 @@ def seed_channels():
 
 
 
-    db.session.add(general)
-    db.session.add(november)
-    db.session.add(lecture)
-    db.session.add(project)
-    db.session.add(dm)
+    # db.session.add(general)
+    # db.session.add(november)
+    # db.session.add(lecture)
+    # db.session.add(project)
+    # db.session.add(dm)
     db.session.add(krusty_krab)
     db.session.add(town_meeting)
     db.session.add(salty_spitoon)
