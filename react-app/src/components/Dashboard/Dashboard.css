@@ -10,7 +10,7 @@
 }
 
 .left-bar {
-    margin-top: 8vh;
+    margin-top: 10vh;
     background-color: #3F0F40;
     /* height: 100vh; */
     /* padding-right: 4rem; */
@@ -27,7 +27,7 @@
 }
 
 .right-bar {
-    margin-top: 8vh;
+    margin-top: 10vh;
     height: 92vh;
     width: 85vw;
     position:relative
