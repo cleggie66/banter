@@ -51,19 +51,27 @@
 }
 
 .image-container {
+    min-width: 40px;
     width: 40px;
     height: 40px;
     overflow: hidden;
     border-radius: 10%;
     display: flex;
-    align-content: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     margin: 10px;
 }
 
-.message-profile-pic {
+.message-profile-pic-horizontal {
     width: auto;
     height: 100%;
+    object-fit: cover;
+    background-color: white;
+}
+
+.message-profile-pic-vertical {
+    width: 100%;
+    height: auto;
     object-fit: cover;
     background-color: white;
 }

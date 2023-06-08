@@ -21,7 +21,6 @@ const WorkspaceCard = ({ workspace }) => {
     setHeight(this.height)
   }
   img.src = workspace.icon;
-  console.log("COMPARE", width, height, width > height)
 
   return (
     <div className="workspace-card" onClick={handleCardClick}>
