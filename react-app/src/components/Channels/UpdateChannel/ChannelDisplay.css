@@ -7,16 +7,14 @@
     width: 100%;
 }
 
-
 .manage-channel-dropdown {
     color: black;
     position: absolute;
     right: 20px;
-    /* bottom: 200px; */
     background-color: #F7F7F7;
-        box-shadow: 1px 1px 8px rgba(0, 0, 0, .25);
-        width: 200px;
-        border-radius: 5px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, .25);
+    width: 200px;
+    border-radius: 5px;
 }
 
 
@@ -75,7 +73,7 @@
     font-size: 18px;
     font-weight: 600;
     cursor: pointer;
-    
+
 }
 
 
@@ -83,12 +81,12 @@
     margin-left: .7em;
     font-family: 'Noto Sans', sans-serif;
     font-weight: 600;
-    
+
 }
 
 
 #manage-channels-user-wrapper {
-border-bottom: 1px solid #E8E8E8;
+    border-bottom: 1px solid #E8E8E8;
     width: 100%;
 }
 

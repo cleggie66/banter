@@ -27,7 +27,7 @@ const ChannelCard = ({ channel, activeChannel, workspaceId }) => {
 
   return (
     <div className={`channel-list-item ${isActive}`} onClick={handleCardClick}>
-      <h2 className="channel-list-names">#</h2>
+      <h2 className="channel-list-names-icon">#</h2>
       <h2 className="channel-list-names">{channel.name}</h2>
     </div>
   );

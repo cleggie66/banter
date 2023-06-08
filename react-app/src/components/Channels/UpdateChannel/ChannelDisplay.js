@@ -85,13 +85,7 @@ const ChannelDisplay = ({ channel, workspaceId }) => {
     
     <div className={showMenu ? 'message active' : 'message'} id="channel-item-display-wrapper">
         <div className="channel-display-container">
-   
           <h2 onClick={handleCardClick} id="channel-item-menu-name" className="title-text">{`# ${channel.name}`}</h2>
-     
-      
-          
-
-
         <button onClick={openMenu} id="manage-channel-popup"><i class="fa-solid fa-ellipsis"></i></button>
 
       {/* <OpenModalButton

@@ -5,7 +5,6 @@
     flex-direction: row;
     align-items: center;
     cursor: pointer;
-    padding: .2rem 0;
 }
 
 .channel-list-item:hover {
@@ -19,21 +18,24 @@
 .channel-active {
     background-color: rgb(45 100 158);
     color: white;
-    /* padding: 2px 0 */
 }
 
 .channel-active h2 {
     color: white;
 }
 
-.channel-list-names {
+.channel-list-names-icon {
     color: #afa0b0;
-    font-size: 14.5px;
+    font-size: 16px;
     font-weight: normal;
     margin: 5px;
-    /* overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis; */
+}
+
+.channel-list-names {
+    color: #afa0b0;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 5px 5px 5px 10px;
 }
 
 .channel-list-names:hover {
@@ -57,8 +59,4 @@
     margin: 0;
     padding: 0;
     border: 0;
-}
-
-#add-channel-sidebar {
-    font-size: 13.33px;
 }

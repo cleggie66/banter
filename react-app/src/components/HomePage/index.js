@@ -5,7 +5,7 @@ import { login } from "../../store/session";
 import SignupFormModal from "../SignupFormModal";
 import OpenModalButton from "../OpenModalButton";
 import "./HomePage.css";
-import arnold from "../../media/arnold.png";
+import jake from "../../media/jake.jpg";
 import mockup from "../../media/banter-mockup.png";
 import hand from "../../media/waving-hand@2x.gif";
 import spencer from "../../media/spencer.png";
@@ -66,81 +66,82 @@ const HomePage = () => {
               />
             </div>
           </div>
+          <i className="fa-solid fa-angles-down down-arrows"></i>
           <div className="team-flex-test">
             <h1>Made with love by...</h1>
             <div className="meet-the-team-home">
-             
-                <div className="team-member-card">
-                  <img
-                    className="team-member-card-image"
-                    src={spencer}
-                    alt="spencer"
-                  />
-                  <h3>Spencer Wilfahrt</h3>
-                  <div className='team-card-socials-wrapper'>
-                  <a target="_blank" href="https://www.linkedin.com/in/spencer-wilfahrt-1a4604156/">
-                  <i class="fa-brands fa-linkedin"></i>
+
+              <div className="team-member-card">
+                <img
+                  className="team-member-card-image"
+                  src={spencer}
+                  alt="spencer"
+                />
+                <h3>Spencer Wilfahrt</h3>
+                <div className='team-card-socials-wrapper'>
+                  <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/spencer-wilfahrt-1a4604156/">
+                    <i class="fa-brands fa-linkedin"></i>
                   </a>
-                  <a target="_blank" href="https://github.com/spencerwilf">
-                  <i class="fa-brands fa-github"></i>
+                  <a target="_blank" rel="noreferrer" href="https://github.com/spencerwilf">
+                    <i class="fa-brands fa-github"></i>
                   </a>
-                  </div>
                 </div>
-            
-           
-                <div className="team-member-card">
-                  <img
-                    className="team-member-card-image"
-                    src={caleb}
-                    alt="caleb"
-                  />
-                  <h3>Caleb Cleghorn</h3>
-                  <div className='team-card-socials-wrapper'>
-                    <a target="_blank" href="https://www.linkedin.com/in/caleb-cleghorn-31843b189/">
-                      <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                    <a target="_blank" href="https://github.com/cleggie66">
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                  </div>
+              </div>
+
+
+              <div className="team-member-card">
+                <img
+                  className="team-member-card-image"
+                  src={caleb}
+                  alt="caleb"
+                />
+                <h3>Caleb Cleghorn</h3>
+                <div className='team-card-socials-wrapper'>
+                  <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/caleb-cleghorn-31843b189/">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a target="_blank" rel="noreferrer" href="https://github.com/cleggie66">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
                 </div>
-         
-             
-                <div className="team-member-card">
-                  <img
-                    className="team-member-card-image"
-                    src={steven}
-                    alt="steven"
-                  />
-                  <h3>Steven Anderson</h3>
-                  <div className='team-card-socials-wrapper'>
-                  <a target="_blank" href="https://www.linkedin.com/in/stevenanderson-dev/">
-                      <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                  <a target="_blank" href="https://github.com/StevenBradleyA">
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                  </div>
+              </div>
+
+
+              <div className="team-member-card">
+                <img
+                  className="team-member-card-image"
+                  src={steven}
+                  alt="steven"
+                />
+                <h3>Steven Anderson</h3>
+                <div className='team-card-socials-wrapper'>
+                  <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/stevenanderson-dev/">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a target="_blank" rel="noreferrer" href="https://github.com/StevenBradleyA">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
                 </div>
-            
-           
-                <div className="team-member-card">
-                  <img
-                    className="team-member-card-image"
-                    src={arnold}
-                    alt="jake"
-                  />
-                  <h3>Jake Gularte</h3>
-                  <div className='team-card-socials-wrapper'>
-                  <a target="_blank" href="https://www.linkedin.com/in/jake-gularte-a8904b19b/">
-                      <i class="fa-brands fa-linkedin"></i>
-                    </a>
-                  <a target="_blank" href="https://github.com/JakeG97">
-                      <i class="fa-brands fa-github"></i>
-                    </a>
-                  </div>
+              </div>
+
+
+              <div className="team-member-card">
+                <img
+                  className="team-member-card-image"
+                  src={jake}
+                  alt="jake"
+                />
+                <h3>Jake Gularte</h3>
+                <div className='team-card-socials-wrapper'>
+                  <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/jake-gularte-a8904b19b/">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a target="_blank" rel="noreferrer" href="https://github.com/JakeG97">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
                 </div>
-            
+              </div>
+
             </div>
           </div>
 
@@ -218,7 +219,7 @@ const HomePage = () => {
           </div>
           {/* <div>Footer</div> */}
         </div>
-       
+
 
       )}
 
@@ -226,15 +227,15 @@ const HomePage = () => {
         <div className="main-section-logged-in">
           <div className="welcome-back-title">
             <h1 className="test">
-              <img className="waving-hand" src={hand} />
+              <img className="waving-hand" src={hand} alt="waving hand" />
               Welcome back!
             </h1>
           </div>
 
           <WorkspacesIndex />
           <div className="add-a-workspace">
-            <img className="signed-in-workspaces-clipart"  src={workspace} alt="" />
-            <p style={{ color:'#4A174B', marginLeft:'17vw', fontWeight:'700'}}>Want to use Banter with a different team?</p>
+            <img className="signed-in-workspaces-clipart" src={workspace} alt="" />
+            <p style={{ color: '#4A174B', marginLeft: '17vw', fontWeight: '700' }}>Want to use Banter with a different team?</p>
             <button className="create-new-ws-container-button" onClick={handleCreateWorkspace}>CREATE A NEW WORKSPACE</button>
           </div>
         </div>

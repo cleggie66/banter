@@ -12,8 +12,8 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "./Navigation.css";
 import UserIconModal from "../User/UserIcon";
 import { useModal } from "../../context/Modal";
-import banter from '../../media/banter-logo.png'
-import banterDark from '../../media/banter-logo-dark.png'
+import banter from '../../media/banter-logo.gif'
+import banterDark from '../../media/banter-logo-dark.gif'
 import UserIcon from "./UserModal";
 
 function Navigation() {

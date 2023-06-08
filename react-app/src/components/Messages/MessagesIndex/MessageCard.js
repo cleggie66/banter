@@ -21,10 +21,23 @@ const MessageCard = ({
     dispatch(getAllChannelMessagesThunk(activeChannel.id));
   }
 
-  const {setModalContent} = useModal()
+  const { setModalContent } = useModal()
   const [showMenu, setShowMenu] = useState(false);
+  const [width, setWidth] = useState("")
+  const [height, setHeight] = useState("")
   const ulRef = useRef();
-  const history = useHistory();
+
+  const img = new Image();
+  img.onload = function () {
+    setWidth(this.width)
+    setHeight(this.height)
+  }
+  img.src =
+      message.message_owner.profile_picture === null
+      ? message.message_owner.name[0]
+      : message.message_owner.profile_picture
+    ;
+
 
   const openMenu = () => {
     if (showMenu) return;
@@ -65,8 +78,8 @@ const MessageCard = ({
 
   return (
     <div>
-      
-      <div style={{position:'relative'}} key={message.id} className={showMenu ? 'message active': 'message'}>
+
+      <div style={{ position: 'relative' }} key={message.id} className={showMenu ? 'message active' : 'message'}>
         <div className={ulClassName} ref={ulRef}>
           <div onClick={openEdit} id="message-update-wrap-1" style={{ borderBottom: '1px solid #DCDCDC' }}>
             <div className="message-edit-menu-items">Edit message</div>
@@ -75,7 +88,7 @@ const MessageCard = ({
             <div onClick={(e) => handleDeleteMessage(e, message)} className="message-edit-menu-items">Delete message</div>
           </div>
         </div>
-    
+
         <div className="message-content">
           <div className="image-container">
             <img
@@ -85,7 +98,7 @@ const MessageCard = ({
                   : message.message_owner.profile_picture
               }
               alt="profile"
-              className="message-profile-pic"
+              className={`message-profile-pic-${width > height ? "horizontal" : "vertical"}`}
             />
           </div>
           <div className="message-details">
@@ -98,10 +111,10 @@ const MessageCard = ({
         {(sessionUser.id === message.message_owner.id ||
           sessionUser.id === message.user_id) && (
 
-          <div className="message-buttons">
-        
-            <button onClick={openMenu}><i class="fa-solid fa-ellipsis"></i></button>
-            {/* <OpenModalButton
+            <div className="message-buttons">
+
+              <button onClick={openMenu}><i class="fa-solid fa-ellipsis"></i></button>
+              {/* <OpenModalButton
               buttonText="Edit"
               modalComponent={
                 <EditMessageModal
@@ -113,12 +126,12 @@ const MessageCard = ({
               }
             /> */}
 
-            
-            {/* <button onClick={(e) => handleDeleteMessage(e, message)}>
+
+              {/* <button onClick={(e) => handleDeleteMessage(e, message)}>
               Delete
             </button> */}
-          </div>
-        )}
+            </div>
+          )}
       </div>
     </div>
   );

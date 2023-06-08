@@ -1,13 +1,9 @@
 .message-dashboard-section {
-    height: 92vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     background-color: white;
-}
-
-.only-messages-div {
-
 }
 
 .messages-display {
@@ -16,7 +12,6 @@
     padding-top: 3.8rem;
     /* padding-top: 5.5rem; */
 }
-
 
 .manage-channels-show-index {
     height: 100%;
@@ -56,19 +51,27 @@
 }
 
 .image-container {
+    min-width: 40px;
     width: 40px;
     height: 40px;
     overflow: hidden;
     border-radius: 10%;
     display: flex;
-    align-content: center;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     margin: 10px;
 }
 
-.message-profile-pic {
+.message-profile-pic-horizontal {
     width: auto;
     height: 100%;
+    object-fit: cover;
+    background-color: white;
+}
+
+.message-profile-pic-vertical {
+    width: 100%;
+    height: auto;
     object-fit: cover;
     background-color: white;
 }
