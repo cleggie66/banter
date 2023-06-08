@@ -226,7 +226,7 @@ const HomePage = () => {
         <div className="main-section-logged-in">
           <div className="welcome-back-title">
             <h1 className="test">
-              <img className="waving-hand" src={hand} />
+              <img className="waving-hand" src={hand} alt="waving hand"/>
               Welcome back!
             </h1>
           </div>
