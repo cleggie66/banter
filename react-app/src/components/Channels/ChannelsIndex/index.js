@@ -5,7 +5,7 @@ import { getWorkspaceByIdThunk } from "../../../store/workspace";
 import { getAllChannelsThunk } from "../../../store/channel";
 import ChannelCard from "./ChannelCard";
 import DirectMessageCard from "./DirectMessageCard";
-import { FontAwesomeIcon,  } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon, } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import AddChannelModal from "../CreateChannel/CreateChannelModal";
 import { clearActiveChannel } from "../../../store/activeChannel";
@@ -32,7 +32,7 @@ const ChannelsIndex = ({ workspaceId }) => {
   const activeWorkspace = useSelector((state) => state.activeWorkspace.id);
 
   const [openChannelMenu, setOpenChannelMenu] = useState(true);
-  const [openMessageMenu, setOpenMessageMenu] = useState(false);
+  const [openMessageMenu, setOpenMessageMenu] = useState(true);
 
   useEffect(() => {
     dispatch(getWorkspaceByIdThunk(workspaceId));
@@ -73,7 +73,7 @@ const ChannelsIndex = ({ workspaceId }) => {
 
   const handleAddChannel = (e) => {
     e.preventDefault();
-    setModalContent(<AddChannelModal workspaceId={Number(workspaceId)}/>)
+    setModalContent(<AddChannelModal workspaceId={Number(workspaceId)} />)
   };
 
   function AnimatedCaret({ open, onClick, className }) {
@@ -140,18 +140,18 @@ const ChannelsIndex = ({ workspaceId }) => {
 
 
   const createChannel = () => {
-    setModalContent(<AddChannelModal workspaceId={activeWorkspace}/>)
+    setModalContent(<AddChannelModal workspaceId={activeWorkspace} />)
     closeMenu()
   }
 
   return (
     <>
       <div ref={ulRef} className={ulClassName}>
-        <div style={{ borderBottom:'1px solid #DCDCDC'}}>
-        <div className="manage-channels-menu-click" onClick={setManageChannel}>Manage channels</div>
+        <div style={{ borderBottom: '1px solid #DCDCDC' }}>
+          <div className="manage-channels-menu-click" onClick={setManageChannel}>Manage channels</div>
         </div>
         <div>
-        <div onClick={createChannel} className="create-channel-div-label" style={{padding:'1rem', fontSize:'14px', borderBottomRightRadius:'8px', borderBottomLeftRadius:'8px', cursor:'pointer'}}>Create channel</div>
+          <div onClick={createChannel} className="create-channel-div-label" style={{ padding: '1rem', fontSize: '14px', borderBottomRightRadius: '8px', borderBottomLeftRadius: '8px', cursor: 'pointer' }}>Create channel</div>
         </div>
       </div>
       <div className="channel-dropdown-container">
@@ -163,15 +163,15 @@ const ChannelsIndex = ({ workspaceId }) => {
           />
           <div className="channel-heading">
             <button onClick={openMenu}
-            className="channels-button-modal-sidebar">Channels</button>
+              className="channels-button-modal-sidebar">Channels</button>
           </div>
-        
+          <div className="add-icon" onClick={handleAddChannel}>
+            <i className="fa-solid fa-plus"></i>
+          </div>
         </div>
-        
         <div
-          className={`channel-dropdown-container ${
-            openChannelMenu ? "active" : "inactive"
-          }`}
+          className={`channel-dropdown-container ${openChannelMenu ? "active" : "inactive"
+            }`}
         >
           {allChannels.map((channel) => (
             <ChannelCard
@@ -191,50 +191,48 @@ const ChannelsIndex = ({ workspaceId }) => {
             </p>
           </div>
         </div>
-        {/* <OpenModalButton
-              className="channels-button-modal-sidebar manage"
-              buttonText="Manage Channels"
-              modalComponent={<ManageChannelModal workspaceId={workspaceId} />}
-            /> */}
       </div>
-
-      <div className="channel-dropdown-heading-container">
-        <AnimatedCaret
-          open={openMessageMenu}
-          onClick={handleMessageMenuClick}
-          className="caret-right"
-        />{" "}
-        <div className="channel-heading-2">
-          <button
-            className="channels-button-modal-sidebar"
-            onClick={handleCreateDmClick}
-          >
-            Direct messages
-          </button>
+      <div className="channel-dropdown-container">
+        <div className="channel-dropdown-heading-container">
+          <AnimatedCaret
+            open={openMessageMenu}
+            onClick={handleMessageMenuClick}
+            className="caret-right"
+          />{" "}
+          <div className="channel-heading-2">
+            <button
+              className="channels-button-modal-sidebar"
+              onClick={handleCreateDmClick}
+            >
+              Direct messages
+            </button>
+          </div>
+          <div className="add-icon" onClick={handleCreateDmClick}>
+            <i className="fa-solid fa-plus"></i>
+          </div>
         </div>
-      </div>
-      <div
-        className={`channel-dropdown-container ${
-          openMessageMenu ? "active" : "inactive"
-        }`}
-      >
-        {allDirectMessages.map((channel) => (
-          <DirectMessageCard
-            key={channel.id}
-            channel={channel}
-            sessionUser={sessionUser}
-            workspaceId={workspaceId}
-            activeChannel={activeChannel}
-          />
-        ))}
-        <div className="channel-list-item">
-          <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />
-          <button
-            className="channels-button-modal-sidebar"
-            onClick={handleCreateDmClick}
-          >
-            New Message
-          </button>
+        <div
+          className={`channel-dropdown-container ${openMessageMenu ? "active" : "inactive"
+            }`}
+        >
+          {allDirectMessages.map((channel) => (
+            <DirectMessageCard
+              key={channel.id}
+              channel={channel}
+              sessionUser={sessionUser}
+              workspaceId={workspaceId}
+              activeChannel={activeChannel}
+            />
+          ))}
+          <div className="channel-list-item" onClick={handleCreateDmClick}>
+            <FontAwesomeIcon icon={faPlusSquare} id="fa-dropdown-arrow" />
+            <p
+              id="add-channel-sidebar"
+              className="channels-button-modal-sidebar"
+            >
+              New Message
+            </p>
+          </div>
         </div>
       </div>
     </>

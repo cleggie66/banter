@@ -49,7 +49,6 @@
   background-color: #dedede;
 }
 
-
 .create-channel-div-label:hover {
   background-color: #dedede;
 }
@@ -65,7 +64,6 @@
 .channel-heading {
   border-radius: 3px 3px;
   height: 20px;
-  margin: 5px;
 }
 
 .channel-heading>h2 {
@@ -86,12 +84,6 @@
 
 .channel-heading:hover {
   color: white;
-  /* width: 4.5em; */
-}
-
-.channel-heading-2:hover {
-  /* background-color: rgb(205, 202, 202); */
-  /* width: 7em; */
 }
 
 .channels-button-modal-sidebar.manage {
@@ -99,17 +91,33 @@
 }
 
 .channel-dropdown-heading-container {
+  width: 100%;
   display: flex;
   align-items: center;
+  margin-left: .5rem;
   margin-top: 1em;
   font-family: 'Noto Sans', sans-serif;
-  /* gap: 2px; */
+}
+
+.add-icon {
+  color: #9a9a9d;
+  border-radius: 5px;
+  margin-top: .1em;
+  opacity: 0.8;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.add-icon:hover {
+  background-color: rgb(205, 202, 202);
+  cursor: pointer;
 }
 
 .channels-button-modal-sidebar {
   font-size: 16px;
   font-weight: normal;
-  margin-left: .5em;
+  margin: 0 0 0 .5em;
   padding: 0;
   border-radius: 8px;
   border: none;
@@ -117,7 +125,6 @@
   color: rgb(173, 155, 155);
   font-family: 'Noto Sans', sans-serif;
 }
-
 
 .channels-button-modal-sidebar:hover {
   color: white;
@@ -131,21 +138,18 @@
 
 #fa-dropdown-arrow {
   size: large;
-  color: "#c0c3c8";
+  border-radius: 5px;
   margin-top: .1em;
-  margin-left: .5em;
   opacity: 0.8;
   color: #9a9a9d;
+  padding: 5px;
 }
 
 #fa-dropdown-arrow:hover {
   background-color: rgb(205, 202, 202);
+  cursor: pointer;
 }
 
 #add-channel-sidebar:hover {
   color: #EBB22E;
-}
-
-.channel-list-item {
-  margin-bottom: .5em;
 }
