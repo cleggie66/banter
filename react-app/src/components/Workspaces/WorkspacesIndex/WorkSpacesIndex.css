@@ -11,10 +11,10 @@
 
 .workspaces-index-header {
     background-color: rgb(236, 221, 236);
-        margin: 0;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
-        padding: 1rem 0;
+    margin: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 1rem 0;
 }
 
 .workspace-card:hover {
@@ -22,15 +22,30 @@
     cursor: pointer;
 }
 
-.workspace-card{
+.workspace-card {
     display: flex;
-
+    align-items: center;
 }
 
-.workspace-card-image{
-    padding: 0 10px;
-    margin-top: 20px;
-    text-align: center;
-    height: 30px;
-    width: 30px;
-} 
+.workspace-card-image-container {
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.workspace-card-image-horizontal {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+.workspace-card-image-vertical {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
