@@ -3,7 +3,7 @@
 </div> -->
 <!-- <p align="center">
   <a align="center" href="https://banter-k9ts.onrender.com/">
-  <img src="./react-app/src/media/banter-logo-gif-dark.gif" height="80" loop/>
+  <img src="./react-app/src/media/banter-logo-dark.gif" height="80" loop/>
   </a>
 <p> -->
 
@@ -12,7 +12,7 @@
     <source
       height="80"
       loop
-      srcset="./react-app/src/media/banter-logo-gif-dark.gif"
+      srcset="./react-app/src/media/banter-logo-dark.gif"
       media="(prefers-color-scheme: dark)"
     />
     <source
