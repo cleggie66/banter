@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import OpenModalButton from "../../OpenModalButton";
 import DeleteChannelModal from "../DeleteChannel";
 import EditChannelModal from "./EditChannelModal";
@@ -15,7 +15,7 @@ const ChannelDisplay = ({ channel, workspaceId }) => {
 
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
-  const {setModalContent} = useModal();
+  const { setModalContent } = useModal();
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -74,21 +74,21 @@ const ChannelDisplay = ({ channel, workspaceId }) => {
   return (
     <>
       <div className={ulClassName} ref={ulRef}>
-        <div id="manage-channel-menu-item-wrap-1" style={{ borderBottom:'1px solid #d1d1d1'}} onClick={openEdit}>
+        <div id="manage-channel-menu-item-wrap-1" style={{ borderBottom: '1px solid #d1d1d1' }} onClick={openEdit}>
           <div id="manage-channel-menu-item">Edit channel</div>
         </div>
         <div id="manage-channel-menu-item-wrap-2">
-          <div  style={{color:'red'}} id="manage-channel-menu-item" onClick={openDelete}>Delete channel</div>
+          <div style={{ color: 'red' }} id="manage-channel-menu-item" onClick={openDelete}>Delete channel</div>
         </div>
       </div>
-    
-    
-    <div className={showMenu ? 'message active' : 'message'} id="channel-item-display-wrapper">
+
+
+      <div className={showMenu ? 'message active' : 'message'} id="channel-item-display-wrapper">
         <div className="channel-display-container">
           <h2 onClick={handleCardClick} id="channel-item-menu-name" className="title-text">{`# ${channel.name}`}</h2>
-        <button onClick={openMenu} id="manage-channel-popup"><i class="fa-solid fa-ellipsis"></i></button>
+          <button onClick={openMenu} id="manage-channel-popup"><i className="fa-solid fa-ellipsis"></i></button>
 
-      {/* <OpenModalButton
+          {/* <OpenModalButton
         className="delete-channel-button"
         buttonText="delete"
         modalComponent={
@@ -102,10 +102,10 @@ const ChannelDisplay = ({ channel, workspaceId }) => {
           <EditChannelModal workspaceId={workspaceId} channel={channel} />
         }
       /> */}
-    </div>
-    
-    </div>
-      
+        </div>
+
+      </div>
+
     </>
   );
 };
