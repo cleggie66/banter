@@ -1,3 +1,14 @@
+:root {
+    --banter-blue: #36c5f0;
+    --banter-red: #df1e5a;
+    --banter-yellow: #df1e5a;
+    --banter-green: #2fb67d;
+    --banter-dark-blue: #165366;
+    --banter-dark-red: #660d29;
+    --banter-dark-yellow: #664d13;
+    --banter-dark-green: #1b6647;
+}
+
 html {
     background-color: white
 }
@@ -11,13 +22,7 @@ button {
     cursor: pointer;
 }
 
-/* button:hover {
-    color: #EBB22E
-} */
-
 input[type="text"] {
-    /* background-color: #000000; */
-    /* padding-left: 2em; */
     color: #ababad;
 }
 

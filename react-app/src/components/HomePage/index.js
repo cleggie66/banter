@@ -80,10 +80,10 @@ const HomePage = () => {
                 <h3>Spencer Wilfahrt</h3>
                 <div className='team-card-socials-wrapper'>
                   <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/spencer-wilfahrt-1a4604156/">
-                    <i class="fa-brands fa-linkedin"></i>
+                    <i className="fa-brands fa-linkedin"></i>
                   </a>
                   <a target="_blank" rel="noreferrer" href="https://github.com/spencerwilf">
-                    <i class="fa-brands fa-github"></i>
+                    <i className="fa-brands fa-github"></i>
                   </a>
                 </div>
               </div>
@@ -98,10 +98,10 @@ const HomePage = () => {
                 <h3>Caleb Cleghorn</h3>
                 <div className='team-card-socials-wrapper'>
                   <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/caleb-cleghorn-31843b189/">
-                    <i class="fa-brands fa-linkedin"></i>
+                    <i className="fa-brands fa-linkedin"></i>
                   </a>
                   <a target="_blank" rel="noreferrer" href="https://github.com/cleggie66">
-                    <i class="fa-brands fa-github"></i>
+                    <i className="fa-brands fa-github"></i>
                   </a>
                 </div>
               </div>
@@ -116,10 +116,10 @@ const HomePage = () => {
                 <h3>Steven Anderson</h3>
                 <div className='team-card-socials-wrapper'>
                   <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/stevenanderson-dev/">
-                    <i class="fa-brands fa-linkedin"></i>
+                    <i className="fa-brands fa-linkedin"></i>
                   </a>
                   <a target="_blank" rel="noreferrer" href="https://github.com/StevenBradleyA">
-                    <i class="fa-brands fa-github"></i>
+                    <i className="fa-brands fa-github"></i>
                   </a>
                 </div>
               </div>
@@ -134,10 +134,10 @@ const HomePage = () => {
                 <h3>Jake Gularte</h3>
                 <div className='team-card-socials-wrapper'>
                   <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/jake-gularte-a8904b19b/">
-                    <i class="fa-brands fa-linkedin"></i>
+                    <i className="fa-brands fa-linkedin"></i>
                   </a>
                   <a target="_blank" rel="noreferrer" href="https://github.com/JakeG97">
-                    <i class="fa-brands fa-github"></i>
+                    <i className="fa-brands fa-github"></i>
                   </a>
                 </div>
               </div>

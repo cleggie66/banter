@@ -113,7 +113,7 @@ const MessageCard = ({
 
             <div className="message-buttons">
 
-              <button onClick={openMenu}><i class="fa-solid fa-ellipsis"></i></button>
+            <button onClick={openMenu}><i className="fa-solid fa-ellipsis"></i></button>
               {/* <OpenModalButton
               buttonText="Edit"
               modalComponent={

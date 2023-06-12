@@ -56,7 +56,7 @@ const ActiveWorkspace = ({ workspaceId }) => {
     </div>
       <div style={{ borderBottom:'1px solid #512653', width:'100%', paddingBottom:'1rem'}}>
         <div className={pathname.includes('explore') ? "explore-channels-button-section active" : 'explore-channels-button-section' }onClick={handleExplore}>
-          <i class="fa-solid fa-building-user"></i>
+          <i className="fa-solid fa-building-user"></i>
       Explore channels
     </div>
       </div>
