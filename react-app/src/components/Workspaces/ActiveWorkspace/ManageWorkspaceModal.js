@@ -24,7 +24,7 @@ function ManageWorkspaceModal({ workspace }) {
       <div className="workspace-modal-top">
         <img
           src={workspace.icon}
-          alt="Workspace Image"
+          alt="Workspace Logo"
           className="workspace-icon-modal"
           // this might want an active or not active class ternary to style letter for Profile pic
         />
