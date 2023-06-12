@@ -89,7 +89,7 @@ function UserIcon({ user }) {
             <div className="dropdown-bio-wrapper">
             <div className="dropdown-user-bio">{sessionUser.about_me}</div>
             </div>
-              <span className="dropdown-sign-out-button" onClick={handleSignOutWorkspace}>Sign out of workspace</span>
+              <span className="dropdown-sign-out-button" onClick={handleSignOutWorkspace}>Swap Workspace</span>
    
           </>
         ) : (

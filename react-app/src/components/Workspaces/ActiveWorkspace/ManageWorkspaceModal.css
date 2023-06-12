@@ -10,6 +10,7 @@
   width: 100%;
   margin-top: 2em;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 20px;
 }
@@ -50,36 +51,35 @@
 }
 
 #workspace-modal-button {
-  display: flex;
-  border: 1px solid #E01D59;
-  background: #E01D59;
-  justify-content: center;
-  padding: .6rem;
-  border-radius: 1em;
+  width: 90%;
   color: white;
+  background-color: var(--banter-green);
   font-family: 'Noto Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+  padding: .6rem;
 }
 
 #workspace-modal-button:hover {
-  background: #e01d57dd;
+  background-color: var(--banter-dark-green);
 }
 
 .sign-out-workspace-button {
-  width: 100%;
-  background-color: #e01d59;
-  border-radius: 1em;
-  border: none;
+  width: 90%;
   color: #ffffff;
-  width: 10.5rem;
+  background-color: var(--banter-red);
+  font-family: 'Noto Sans', sans-serif;
   display: flex;
   justify-content: center;
-  padding: .7rem;
-  border: 1px solid #E01D59;
-  font-family: 'Noto Sans', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: .6rem;
 }
 
 .sign-out-workspace-button:hover {
-  background-color: #e01d57e2;
+  background-color: var(--banter-dark-red);
 }
 
 #workspace-name {
@@ -103,7 +103,6 @@
 }
 
 .search-input-login {
-  /* width: 22em; */
   height: 2em;
   margin: 0.5em 0;
   border: 1px solid #DDDDDD;
@@ -119,7 +118,6 @@
   margin-top: 1rem;
   font-size: 16px;
   color: rgb(173, 155, 155);
-  /* border-bottom: 1px solid #512653; */
   width: 70%;
   display: flex;
   gap: 5px;

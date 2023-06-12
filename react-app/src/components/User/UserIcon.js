@@ -60,7 +60,7 @@ function UserIconModal() {
       <button
         className="sign-out-workspace-button"
         onClick={handleSignOutWorkspace}
-      >{`Sign out of Workspace`}</button>
+        >Swap Workspace</button>
     </div>
     </div>
   );
