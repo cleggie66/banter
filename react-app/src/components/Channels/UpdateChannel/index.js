@@ -13,7 +13,6 @@ const UpdateChannel = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const workspaces = useSelector((state) => state.workspaces);
 
-
   if (!sessionUser) {
     history.push(`/home`);
   }
@@ -24,10 +23,7 @@ const UpdateChannel = () => {
     dispatch(getWorkspaceByIdThunk(Number(workspaceId)));
   }, [dispatch, workspaceId]);
 
-
   const workspaceName = workspaces[Number(workspaceId)]?.name
-  console.log(workspaceName)
-
 
   const correctChannels = sessionUser.joined_channels.filter(
     (e) => e.is_channel === true && e.workspace_id === Number(workspaceId)
@@ -44,7 +40,7 @@ const UpdateChannel = () => {
           channel={channel}
           workspaceId={Number(workspaceId)}
         />
-      )) : <h3 style={{color:'black', marginLeft:'1.7rem', fontWeight:'600'}}>No channels here...yet!</h3>}
+      )) : <h3 style={{color:'black', marginLeft:'1.7rem', fontWeight:'600'}}>No channels here ...yet!</h3>}
     </div>
   );
 };
