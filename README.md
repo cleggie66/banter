@@ -1,8 +1,8 @@
 <!-- <div align="center">
-  <h1><a href="https://banter-k9ts.onrender.com/">Banter</a></h1>
+  <h1><a href="https://bit-of-banter.onrender.com/">Banter</a></h1>
 </div> -->
 <!-- <p align="center">
-  <a align="center" href="https://banter-k9ts.onrender.com/">
+  <a align="center" href="https://bit-of-banter.onrender.com/">
   <img src="./react-app/src/media/banter-logo-gif-dark.gif" height="80" loop/>
   </a>
 <p> -->
@@ -28,7 +28,7 @@
   <img src="https://skillicons.dev/icons?i=react,redux,js,py,flask,webpack,github,postgres,sqlite,babel,vscode,git,html,postman&perline=7"/>
 </p>
 
-- Welcome to <a align="center" href="https://banter-k9ts.onrender.com/">Banter</a>, a state-of-the-art collaboration tool that takes inspiration from Slack and harnesses the full power of Websockets, React, Redux, Flask, and SQLAlchemy. Crafted by a team of four exceptional developers, Banter sets out to create an effortless and effective platform for team communication and collaboration.
+- Welcome to <a align="center" href="https://bit-of-banter.onrender.com/">Banter</a>, a state-of-the-art collaboration tool that takes inspiration from Slack and harnesses the full power of Websockets, React, Redux, Flask, and SQLAlchemy. Crafted by a team of four exceptional developers, Banter sets out to create an effortless and effective platform for team communication and collaboration.
 
 - With Banter, users can experience lightning-fast, real-time messaging capabilities, thanks to the power of Websockets. This feature allows multiple team members to stay up-to-date with each other's progress, leading to a highly productive and engaged team. Moreover, Banter leverages the power of React and Redux to provide swift updates with every re-render, ensuring seamless and uninterrupted communication between users. These cutting-edge technologies also allow for efficient state management and a user-friendly interface.
 
