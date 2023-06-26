@@ -1,16 +1,17 @@
+
 <p align="center">
   <picture>
     <source
       height="80"
       loop
-      srcset="./react-app/src/media/banter-logo-gif-dark.gif"
+      srcset="./react-app/src/media/banter-logo-dark.gif"
       media="(prefers-color-scheme: dark)"
     />
     <source
-        srcset="./react-app/src/media/banter-logo-gif-light-short.gif"
+        srcset="./react-app/src/media/banter-logo.gif"
        media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
     />
-    <img src="./react-app/src/media/banter-logo-gif-light-short.gif" />
+    <img src="./react-app/src/media/banter-logo.gif" />
   </picture>
 </p>
 
