@@ -1,12 +1,3 @@
-<!-- <div align="center">
-  <h1><a href="https://bit-of-banter.onrender.com/">Banter</a></h1>
-</div> -->
-<!-- <p align="center">
-  <a align="center" href="https://bit-of-banter.onrender.com/">
-  <img src="./react-app/src/media/banter-logo-gif-dark.gif" height="80" loop/>
-  </a>
-<p> -->
-
 <p align="center">
   <picture>
     <source
